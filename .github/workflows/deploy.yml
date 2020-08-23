@@ -14,12 +14,25 @@ jobs:
       with:
         node-version: '12'
     
-    - run: composer lint:wpcs
-    - run: composer lint:php
+    - name: "Lint wpcs"
+      working-directory: wp-content/themes/site-theme
+      run: composer lint:wpcs
+    
+    - name: "Lint php"
+      working-directory: wp-content/themes/site-theme
+      run: composer lint:php
 
-    - run: npm ci
-    - run: npm run lint:scss
-    - run: npm run compile:css
+    - name: "npm install"
+      working-directory: wp-content/themes/site-theme
+      run: npm ci
+
+    - name: "Lint scss"
+      working-directory: wp-content/themes/site-theme
+      run: npm lint:scss
+
+    - name: "Compile scss -> css"
+      working-directory: wp-content/themes/site-theme
+      run: npm compile:css
 
     - name: Deploy Plugins and Themes to WP Server
       uses: appleboy/scp-action@master
