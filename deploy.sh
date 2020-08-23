@@ -1,1 +1,0 @@
-scp -r wp-content root@wordpress:/var/www/html
