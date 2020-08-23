@@ -9,7 +9,19 @@ jobs:
 
     steps:
     - uses: actions/checkout@master
-    - name: Deploy Plugins and Themes to Server
+    - uses: php-actions/composer@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '12'
+    
+    - run: composer lint:wpcs
+    - run: composer lint:php
+
+    - run: npm ci
+    - run: npm run lint:scss
+    - run: npm run compile:css
+
+    - name: Deploy Plugins and Themes to WP Server
       uses: appleboy/scp-action@master
       with:
         username: root
