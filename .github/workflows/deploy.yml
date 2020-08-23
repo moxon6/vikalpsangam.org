@@ -11,30 +11,30 @@ jobs:
     - uses: actions/checkout@master
     - uses: php-actions/composer@v2
       with: 
-        args: --working-dir wp-content/themes/site-theme
+        args: --working-dir site-theme
 
     - uses: actions/setup-node@v1
       with:
         node-version: '12'
 
     - name: "Lint php"
-      working-directory: wp-content/themes/site-theme
+      working-directory: site-theme
       run: composer lint:php
 
     - name: "npm install"
-      working-directory: wp-content/themes/site-theme
+      working-directory: site-theme
       run: npm ci
 
     - name: "Lint scss"
-      working-directory: wp-content/themes/site-theme
+      working-directory: site-theme
       run: npm run lint:scss
 
     - name: "Compile scss -> css"
-      working-directory: wp-content/themes/site-theme
+      working-directory: site-theme
       run: npm run compile:css
 
     - name: "Lint js"
-      working-directory: wp-content/themes/site-theme
+      working-directory: site-theme
       run: npm run lint:js
 
     - name: Deploy Plugins and Themes to WP Server
