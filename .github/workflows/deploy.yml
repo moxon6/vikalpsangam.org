@@ -37,7 +37,7 @@ jobs:
       working-directory: site-theme
       run: npm run lint:js
 
-    - name: "Lint js"
+    - name: "Bundle"
       working-directory: site-theme
       run: npm run bundle
 
@@ -51,9 +51,10 @@ jobs:
         target: "/tmp"
         port: 22
       
-    - name: executing remote ssh commands using password
+    - name: Install theme using Wordpress cli over ssh
       uses: appleboy/ssh-action@master
       with:
+        username: root
         host: ${{ secrets.DEPLOYMENT_HOST }}
         key: ${{ secrets.DEPLOYMENT_KEY }}
         port: 22
