@@ -28,11 +28,11 @@ jobs:
 
     - name: "Lint scss"
       working-directory: wp-content/themes/site-theme
-      run: npm lint:scss
+      run: npm run lint:scss
 
     - name: "Compile scss -> css"
       working-directory: wp-content/themes/site-theme
-      run: npm compile:css
+      run: npm run compile:css
 
     - name: Deploy Plugins and Themes to WP Server
       uses: appleboy/scp-action@master
