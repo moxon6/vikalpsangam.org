@@ -59,4 +59,8 @@ jobs:
         key: ${{ secrets.DEPLOYMENT_KEY }}
         port: 22
         script: |
-          wp --allow-root theme install /tmp/site-theme.zip activate --path=/var/www/html
+          wp theme install /tmp/site-theme.zip \
+            --activate \
+            --allow-root \
+            --path=/var/www/html \
+            --force
