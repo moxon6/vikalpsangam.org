@@ -16,11 +16,7 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: '12'
-    
-    - name: "Lint wpcs"
-      working-directory: wp-content/themes/site-theme
-      run: composer lint:wpcs
-    
+
     - name: "Lint php"
       working-directory: wp-content/themes/site-theme
       run: composer lint:php
