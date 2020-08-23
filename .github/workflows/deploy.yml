@@ -33,6 +33,10 @@ jobs:
       working-directory: site-theme
       run: npm run compile:css
 
+    - name: "Compile rtl css"
+      working-directory: site-theme
+      run: npm run compile:rtl
+
     - name: "Lint js"
       working-directory: site-theme
       run: npm run lint:js
