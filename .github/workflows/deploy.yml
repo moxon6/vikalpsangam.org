@@ -33,6 +33,10 @@ jobs:
       working-directory: wp-content/themes/site-theme
       run: npm run compile:css
 
+    - name: "Lint js"
+      working-directory: wp-content/themes/site-theme
+      run: npm run lint:js
+
     - name: Deploy Plugins and Themes to WP Server
       uses: appleboy/scp-action@master
       with:
