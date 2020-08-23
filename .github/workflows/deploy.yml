@@ -43,6 +43,15 @@ jobs:
         username: root
         host: ${{ secrets.DEPLOYMENT_HOST }}
         key: ${{ secrets.DEPLOYMENT_KEY }}
-        source: "wp-content"
-        target: "/var/www/html"
+        source: "site-theme.zip"
+        target: "/tmp"
         port: 22
+      
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.DEPLOYMENT_HOST }}
+        key: ${{ secrets.DEPLOYMENT_KEY }}
+        port: 22
+        script: |
+          wp --allow-root theme install /tmp/site-theme.zip activate
