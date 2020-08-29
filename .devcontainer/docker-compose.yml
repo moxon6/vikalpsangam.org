@@ -26,6 +26,8 @@ services:
     image: wordpress:latest
     ports:
       - "8000:80"
+    volumes:  
+      - ../vikalpsangam:/var/www/html/wp-content/themes/vikalpsangam:cached
     restart: always
     environment:
       WORDPRESS_DB_HOST: db:3306
