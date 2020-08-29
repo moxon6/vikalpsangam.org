@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package site-theme
+ * @package vikalpsangam
  */
 
 ?>
@@ -22,7 +22,7 @@
 
 		wp_link_pages(
 			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'site-theme' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'vikalpsangam' ),
 				'after'  => '</div>',
 			)
 		);
@@ -36,7 +36,7 @@
 				sprintf(
 					wp_kses(
 						/* translators: %s: Name of current post. Only visible to screen readers */
-						__( 'Edit <span class="screen-reader-text">%s</span>', 'site-theme' ),
+						__( 'Edit <span class="screen-reader-text">%s</span>', 'vikalpsangam' ),
 						array(
 							'span' => array(
 								'class' => array(),

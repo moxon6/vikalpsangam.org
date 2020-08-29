@@ -4,7 +4,7 @@
  *
  * @link https://jetpack.com/
  *
- * @package site-theme
+ * @package vikalpsangam
  */
 
 /**
@@ -33,7 +33,7 @@ function site_theme_jetpack_setup() {
 		'jetpack-content-options',
 		array(
 			'post-details' => array(
-				'stylesheet' => 'site-theme-style',
+				'stylesheet' => 'vikalpsangam-style',
 				'date'       => '.posted-on',
 				'categories' => '.cat-links',
 				'tags'       => '.tags-links',

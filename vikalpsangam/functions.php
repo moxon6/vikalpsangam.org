@@ -1,10 +1,10 @@
 <?php
 /**
- * site-theme functions and definitions
+ * vikalpsangam functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package site-theme
+ * @package vikalpsangam
  */
 
 if ( ! defined( '_S_VERSION' ) ) {
@@ -24,10 +24,10 @@ if ( ! function_exists( 'site_theme_setup' ) ) :
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on site-theme, use a find and replace
-		 * to change 'site-theme' to the name of your theme in all the template files.
+		 * If you're building a theme based on vikalpsangam, use a find and replace
+		 * to change 'vikalpsangam' to the name of your theme in all the template files.
 		 */
-		load_theme_textdomain( 'site-theme', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'vikalpsangam', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -50,7 +50,7 @@ if ( ! function_exists( 'site_theme_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
-				'menu-1' => esc_html__( 'Primary', 'site-theme' ),
+				'menu-1' => esc_html__( 'Primary', 'vikalpsangam' ),
 			)
 		);
 
@@ -124,9 +124,9 @@ add_action( 'after_setup_theme', 'site_theme_content_width', 0 );
 function site_theme_widgets_init() {
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Sidebar', 'site-theme' ),
+			'name'          => esc_html__( 'Sidebar', 'vikalpsangam' ),
 			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'site-theme' ),
+			'description'   => esc_html__( 'Add widgets here.', 'vikalpsangam' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -140,10 +140,10 @@ add_action( 'widgets_init', 'site_theme_widgets_init' );
  * Enqueue scripts and styles.
  */
 function site_theme_scripts() {
-	wp_enqueue_style( 'site-theme-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_style_add_data( 'site-theme-style', 'rtl', 'replace' );
+	wp_enqueue_style( 'vikalpsangam-style', get_stylesheet_uri(), array(), _S_VERSION );
+	wp_style_add_data( 'vikalpsangam-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( 'site-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'vikalpsangam-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

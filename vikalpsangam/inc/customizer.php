@@ -1,8 +1,8 @@
 <?php
 /**
- * site-theme Theme Customizer
+ * vikalpsangam Theme Customizer
  *
- * @package site-theme
+ * @package vikalpsangam
  */
 
 /**
@@ -56,6 +56,6 @@ function site_theme_customize_partial_blogdescription() {
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function site_theme_customize_preview_js() {
-	wp_enqueue_script( 'site-theme-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), _S_VERSION, true );
+	wp_enqueue_script( 'vikalpsangam-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), _S_VERSION, true );
 }
 add_action( 'customize_preview_init', 'site_theme_customize_preview_js' );

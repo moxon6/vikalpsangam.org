@@ -11,38 +11,38 @@ jobs:
     - uses: actions/checkout@master
     - uses: php-actions/composer@v2
       with: 
-        args: --working-dir site-theme
+        args: --working-dir vikalpsangam
 
     - uses: actions/setup-node@v1
       with:
         node-version: '12'
 
     - name: "Lint php"
-      working-directory: site-theme
+      working-directory: vikalpsangam
       run: composer lint:php
 
     - name: "npm install"
-      working-directory: site-theme
+      working-directory: vikalpsangam
       run: npm ci
 
     - name: "Lint scss"
-      working-directory: site-theme
+      working-directory: vikalpsangam
       run: npm run lint:scss
 
     - name: "Compile scss -> css"
-      working-directory: site-theme
+      working-directory: vikalpsangam
       run: npm run compile:css
 
     - name: "Compile rtl css"
-      working-directory: site-theme
+      working-directory: vikalpsangam
       run: npm run compile:rtl
 
     - name: "Lint js"
-      working-directory: site-theme
+      working-directory: vikalpsangam
       run: npm run lint:js
 
     - name: "Bundle"
-      working-directory: site-theme
+      working-directory: vikalpsangam
       run: npm run bundle
 
     - name: Deploy Plugins and Themes to WP Server
@@ -51,7 +51,7 @@ jobs:
         username: root
         host: ${{ secrets.DEPLOYMENT_HOST }}
         key: ${{ secrets.DEPLOYMENT_KEY }}
-        source: "site-theme.zip"
+        source: "vikalpsangam.zip"
         target: "/tmp"
         port: 22
       
@@ -63,7 +63,7 @@ jobs:
         key: ${{ secrets.DEPLOYMENT_KEY }}
         port: 22
         script: |
-          wp theme install /tmp/site-theme.zip \
+          wp theme install /tmp/vikalpsangam.zip \
             --activate \
             --allow-root \
             --path=/var/www/html \
