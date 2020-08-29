@@ -22,14 +22,14 @@
 			?>
 			<div class="entry-meta">
 				<?php
-				site_theme_posted_on();
-				site_theme_posted_by();
+				vikalpsangam_posted_on();
+				vikalpsangam_posted_by();
 				?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php site_theme_post_thumbnail(); ?>
+	<?php vikalpsangam_post_thumbnail(); ?>
 
 	<div class="entry-content">
 		<?php
@@ -58,6 +58,6 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php site_theme_entry_footer(); ?>
+		<?php vikalpsangam_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->
