@@ -2,3 +2,4 @@
 *.log
 *.sql
 *.sqlite
+site-theme/vendor
