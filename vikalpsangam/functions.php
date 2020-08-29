@@ -104,6 +104,51 @@ if ( ! function_exists( 'vikalpsangam_setup' ) ) :
 endif;
 add_action( 'after_setup_theme', 'vikalpsangam_setup' );
 
+
+function smartwp_remove_wp_block_library_css(){
+    wp_dequeue_style( 'wp-block-library' );
+    wp_dequeue_style( 'wp-block-library-theme' );
+	wp_dequeue_style( 'wc-block-style' ); // Remove WooCommerce block CSS
+} 
+add_action( 'wp_enqueue_scripts', 'smartwp_remove_wp_block_library_css', 100 );
+
+remove_action('wp_head', 'print_emoji_detection_script', 7);
+remove_action('wp_print_styles', 'print_emoji_styles');
+remove_action('wp_head', 'rest_output_link_wp_head', 10);
+remove_action('wp_head', 'wlwmanifest_link');
+
+function remove_tagline($title)
+{
+    if(isset($title['tagline']))
+    {
+        unset($title['tagline']);
+    }
+
+    return $title;
+}
+add_filter('document_title_parts', 'remove_tagline');
+
+//Remove the REST API endpoint.
+remove_action('rest_api_init', 'wp_oembed_register_route');
+ 
+// Turn off oEmbed auto discovery.
+add_filter( 'embed_oembed_discover', '__return_false' );
+ 
+//Don't filter oEmbed results.
+remove_filter('oembed_dataparse', 'wp_filter_oembed_result', 10);
+ 
+//Remove oEmbed discovery links.
+remove_action('wp_head', 'wp_oembed_add_discovery_links');
+ 
+//Remove oEmbed JavaScript from the front-end and back-end.
+remove_action('wp_head', 'wp_oembed_add_host_js');
+
+function remove_recent_comments_style() {
+    global $wp_widget_factory;
+    remove_action('wp_head', array($wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style'));
+}
+add_action('widgets_init', 'remove_recent_comments_style');
+
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *

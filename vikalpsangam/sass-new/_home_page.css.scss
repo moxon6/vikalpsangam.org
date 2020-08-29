@@ -1,0 +1,161 @@
+@import "variables.css.scss";
+
+.top-carousel-wrapper {
+  padding: 0px 0px 10px 0px;
+  -webkit-box-shadow: 0px 5px 6px 0px rgba(50, 50, 50, 0.37);
+  -moz-box-shadow: 0px 5px 6px 0px rgba(50, 50, 50, 0.37);
+  box-shadow: 0px 5px 6px 0px rgba(50, 50, 50, 0.37);
+  .fill-image {
+    background-size: cover;
+    background-repeat: none;
+    background-position: center center;
+    width: 100%;
+    height: 600px;
+  }
+}
+
+.carousel-caption {
+  left: 10%;
+  bottom: 14%;
+  text-align: left;
+  padding: 10px 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 55%;
+  text-shadow: none;
+}
+
+.carousel-caption h2, .carousel-caption-bottom h2 {
+  text-transform: uppercase;
+  color: $dark-brick-col;
+  text-shadow: none;
+  opacity: 1;
+  font-weight: bold;
+  font-size: 1.125em;
+}
+
+.carousel-caption p, .carousel-caption-bottom p {
+  color: $dark-brick-col;
+  text-align: justify;
+  // font-family: $roboto;
+  font-size: 0.75em;
+}
+
+.featured-list {
+  ul{
+    position: relative;
+    bottom: -10px;
+  }
+  li.row{
+    padding:15px 0px;
+    background-color: $lighter-gray-col;
+    margin-bottom: 5px;
+    &:nth-child(2n){
+      background-color: $light-gray-col;
+    }
+  }
+  
+  &.in-sidebar {
+    li {
+      background-color: $light-gray-col;
+      padding: 5px;
+    }
+    .row {
+      margin: 0px;
+      margin-bottom: 8px;
+      .col-xs-4 {
+        padding: 0;
+      }
+    }
+  }
+  color: $dark-brick-col;
+  a {
+    /*font-size: 1em;*/
+    color: $dark-brick-col;
+    text-transform: uppercase;
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  h2 {
+    font-weight: bold;
+    font-size: 1.125em;
+  }
+  h4 {
+    font-family: $roboto;
+    font-size: 0.875em;
+  }
+  p {
+    color: $black;
+    // font-family: $roboto;
+    font-size: 0.75em;
+  }
+  .horizontal-border {
+    border-top: 1px solid $light-gray-col;
+    height: 1px;
+    /*width: 90%;*/
+    margin: 0 auto;
+    padding: 5px 0px;
+  }
+}
+
+.top-carousel-wrapper .verticle-border {
+  position: absolute;
+  height: 580px;
+  margin: 10px 0px;
+  width: 1px;
+  right: 0;
+  // border-left: 1px solid $light-gray-col;
+  top:-10px;
+}
+
+.about_section {
+  h2 {
+    font-size: 1.125em;
+  }
+  p {
+    font-size: 0.75em;
+  }
+}
+
+.category-section {
+  h2 {
+    font-size: 1.125em;
+  }
+  .top-sub-section {
+    background-color: $white;
+    h4 {
+      color: $dark-brick-col;
+      padding-left: 0;
+      font-family: $roboto-light;
+      font-size: 1.125em;
+    }
+    .col-xs-3 {
+      padding: 0;
+    }
+  }
+  .image-sub-section {
+    background-color: $dark-brick-col;
+    .col-xs-12 {
+      padding: 0;
+    }
+  }
+  .category {
+    border-right: 10px solid $light-gray-col;
+  }
+  .plain-text-sub-section {
+    background-color: $white;
+    color: $dark-brick-col;
+    p {
+      font-weight: normal;
+      text-transform: uppercase;
+      font-size: .875em;
+      padding: 5px;
+    }
+  }
+  background-color: $light-gray-col;
+}
+
+.carousel-control {
+  font-size: 2em;
+}

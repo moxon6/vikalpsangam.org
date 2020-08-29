@@ -1,23 +1,33 @@
-<?php
-/**
- * The header for our theme
- *
- * This is the template that displays all of the <head> section and everything up until <div id="content">
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package vikalpsangam
- */
+<!DOCTYPE html>
 
-?>
-<!doctype html>
-<html <?php language_attributes(); ?>>
+<!-- TODO: Generate LANGUAGE_CODE from wordpress -->
+<!-- <html lang="{{ LANGUAGE_CODE }}"{% if LANGUAGE_BIDI %} dir="rtl"{% endif %}> -->
+<html lang="en">
+
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="profile" href="https://gmpg.org/xfn/11">
 
-	<?php wp_head(); ?>
+<!-- TODO: Generate Title from wordpress -->
+<link rel="shortcut icon" href="{% static "img/favicon.png?v=4" %}">
+<meta charset="utf-8">
+
+<!-- TODO : Generate Meta tags based on WP -->
+<meta charset="utf-8">
+<meta name="keywords" content="comunity conservation, civil society initiative, energy, education, economy, ecology, settlements, rural, organic-farming, sustainability, environment, environmental issues, Bhoomi, livelihoods, case studies, alternative learning, social issues, society, seeds, Kalpavriksh, Shikshantar, Deccan Development Society, Bhoomi College">
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+
+<!-- 
+<script src="{% static "mezzanine/js/"|add:settings.JQUERY_FILENAME %}"></script>
+<script src="{% static "js/bootstrap.min.js" %}"></script>
+
+<script src="{{ STATIC_URL }}endless_pagination/js/endless-pagination.js"></script>
+
+<script src="{% static "js/app.js" %}"></script>
+<script src="{% static "js/modern-business.js" %}"></script>   
+-->
+
+<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>

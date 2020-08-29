@@ -27,7 +27,7 @@ services:
     ports:
       - "8000:80"
     volumes:  
-      - ../vikalpsangam:/var/www/html/wp-content/themes/vikalpsangam:ro
+      - ../vikalpsangam:/var/www/html/wp-content/themes/vikalpsangam
     restart: always
     environment:
       WORDPRESS_DB_HOST: db:3306
