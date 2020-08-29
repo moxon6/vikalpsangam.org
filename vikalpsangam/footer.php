@@ -36,7 +36,7 @@
                 </div>
             </div>
             <div class="col-lg-3 visible-lg">
-                {% include "subscribe.html" %}
+                <?php get_template_part( 'template-parts/subscribe' ); ?>
             </div>
 
             <div class="row footer-social-links-bottom hidden-lg hidden-md">
@@ -52,7 +52,7 @@
                     </a>
                 </div>
                 <div class="small-screens col-sm-6 col-xs-12">
-                    {% include "subscribe.html" %}
+                    <?php get_template_part( 'template-parts/subscribe' ); ?>
                 </div>
             </div>
 
@@ -112,7 +112,7 @@
                 <div class="col-md-8 col-sm-8">
                     <div class="row">
                         <div class="visible-md">
-                            {% include "subscribe.html" %}
+                            <?php get_template_part( 'template-parts/subscribe' ); ?>
                         </div>
                         <div class="col-md-4 col-sm-4">
                             <a href="http://www.bhoomicollege.org" target="_blank">
