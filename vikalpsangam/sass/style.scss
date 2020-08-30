@@ -2,14 +2,14 @@ $icon-font-path: "./fonts/";
 
 @import "stylesheets/bootstrap/bootstrap";
 
-@import "common.css.scss";
-@import "common_responsive.css.scss";
-@import "footer.css.scss";
+@import "common.scss";
+@import "common_responsive.scss";
+@import "footer.scss";
 
-@import "home_page.css.scss";
-@import "home_page_responsive.css.scss";
-@import "category_page.css.scss";
-@import "category_page_responsive.css.scss";
+@import "home_page.scss";
+@import "home_page_responsive.scss";
+@import "category_page.scss";
+@import "category_page_responsive.scss";
 @import 'subscribe.scss';
 
 #wpadminbar{
