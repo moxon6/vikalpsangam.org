@@ -1,6 +1,5 @@
 <!-- TODO: Remove STATIC_URL refereces -->
 
-<link href="{{ STATIC_URL }}vikalp_newsletter/css/subscribe.css" rel="stylesheet">
 <script src="{{ STATIC_URL }}vikalp_newsletter/js/subscribe.js" type="text/javascript"></script>
 
 <div class="row">
