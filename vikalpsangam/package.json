@@ -30,8 +30,7 @@
     "map": false
   },
   "scripts": {
-    "watch": "node-sass sass/ -o ./ --source-map true --output-style expanded --indent-type tab --indent-width 1 -w",
-    "compile:css": "node-sass sass/ -o ./ && stylelint *.css --fix",
+    "watch:scss": "node-sass -o . sass/style.scss -w",
     "build:scss": "node-sass -o . sass/style.scss",
     "compile:rtl": "rtlcss style.css style-rtl.css",
     "lint:scss": "wp-scripts lint-style sass/**/*.scss",
