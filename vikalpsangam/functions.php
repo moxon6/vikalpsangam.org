@@ -51,6 +51,7 @@ if ( ! function_exists( 'vikalpsangam_setup' ) ) :
 		register_nav_menus(
 			array(
 				'menu-1' => esc_html__( 'Primary', 'vikalpsangam' ),
+				'footer-menu' => esc_html__("Footer", "vikalpsangam")
 			)
 		);
 
@@ -103,6 +104,7 @@ if ( ! function_exists( 'vikalpsangam_setup' ) ) :
 	}
 endif;
 add_action( 'after_setup_theme', 'vikalpsangam_setup' );
+
 
 
 function smartwp_remove_wp_block_library_css(){

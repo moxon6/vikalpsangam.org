@@ -56,44 +56,47 @@
                 </div>
             </div>
 
+                    <?php wp_nav_menu( array( 'theme_location' => 'footer-menu' ) ); ?>
 
-                    {% for page in page_branch %}
-                        {% for in_menu in page.in_menus %}
-                            {% ifequal in_menu '3' %}
-                                {% ifequal page.parent None %}
-                                    {% if page.has_children_in_menu %}
-                                        {% with menu_pages|get:page.id as child_pages %}
-                                            {% for child_page in child_pages %}
-                                                    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12 list-items">
-                                            <ul class="list-group"> {% if '3' in child_page.in_menus %}
-                                                <li class="list-group-item"><a class="list-group-item-heading"
-                                                                               href="{{ child_page.get_absolute_url }}">{% trans child_page.title %}</a>
-                                                </li> {% endif %}
+                    <?php /*
+                        {% for page in page_branch %}
+                            {% for in_menu in page.in_menus %}
+                                {% ifequal in_menu '3' %}
+                                    {% ifequal page.parent None %}
+                                        {% if page.has_children_in_menu %}
+                                            {% with menu_pages|get:page.id as child_pages %}
+                                                {% for child_page in child_pages %}
+                                                        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12 list-items">
+                                                <ul class="list-group"> {% if '3' in child_page.in_menus %}
+                                                    <li class="list-group-item"><a class="list-group-item-heading"
+                                                                                href="{{ child_page.get_absolute_url }}">{% trans child_page.title %}</a>
+                                                    </li> {% endif %}
 
-                                                {% with menu_pages|get:child_page.id as child_child_pages %}
-                                                    {% for child_child_page in child_child_pages %}
-                                                        {% if '3' in child_child_page.in_menus %}
-                                                            <li class="list-group-item">
-                                                                <a class="list-group-item-text"
-                                                                   href="{{ child_child_page.get_absolute_url }}">{% trans child_child_page.title %}</a>
-                                                            </li> {% endif %}
-                                                    {% endfor %}
-                                                {% endwith %}
+                                                    {% with menu_pages|get:child_page.id as child_child_pages %}
+                                                        {% for child_child_page in child_child_pages %}
+                                                            {% if '3' in child_child_page.in_menus %}
+                                                                <li class="list-group-item">
+                                                                    <a class="list-group-item-text"
+                                                                    href="{{ child_child_page.get_absolute_url }}">{% trans child_child_page.title %}</a>
+                                                                </li> {% endif %}
+                                                        {% endfor %}
+                                                    {% endwith %}
 
-                                            </ul>
+                                                </ul>
 
-                                            </div>
+                                                </div>
 
-                                            {% endfor %}
-                                        {% endwith %}
-                                    {% endif %}
+                                                {% endfor %}
+                                            {% endwith %}
+                                        {% endif %}
+
+                                    {% endifequal %}
 
                                 {% endifequal %}
+                            {% endfor %}
 
-                            {% endifequal %}
                         {% endfor %}
-
-                    {% endfor %}
+                    */ ?>
 
             </div>
 
