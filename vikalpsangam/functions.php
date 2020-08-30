@@ -50,7 +50,7 @@ if ( ! function_exists( 'vikalpsangam_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
-				'menu-1' => esc_html__( 'Primary', 'vikalpsangam' ),
+				'header-menu' => esc_html__( 'Primary', 'vikalpsangam' ),
 				'footer-menu-1' => esc_html__("Footer 1", "vikalpsangam"),
 				'footer-menu-2' => esc_html__("Footer 2", "vikalpsangam"),
 				'footer-menu-3' => esc_html__("Footer 3", "vikalpsangam"),
@@ -136,6 +136,15 @@ remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('wp_print_styles', 'print_emoji_styles');
 remove_action('wp_head', 'rest_output_link_wp_head', 10);
 remove_action('wp_head', 'wlwmanifest_link');
+
+add_filter('nav_menu_css_class' , 'special_nav_class' , 10 , 2);
+
+function special_nav_class ($classes, $item) {
+  if (in_array('current-menu-item', $classes) ){
+    $classes[] = 'active ';
+  }
+  return $classes;
+}
 
 function remove_tagline($title)
 {

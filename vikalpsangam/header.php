@@ -88,30 +88,11 @@
             <a class="navbar-brand" href="/">
             </a>
         </div>
-        <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
-				<!-- TODO: Generate navbar-right 
-                {% for page in page_branch %}
-                    {% for in_menu in page.in_menus %}
-                        {% ifequal in_menu '1' %}
-                            {% ifnotequal page.title "Home" %}
-                                <li {% if page.is_current_or_ascendant %}class="active"{% endif %}>
-                                    <a {% if page.description|wordcount < 5 %} title="{% trans page.description %}" {% endif %}
-                                        href="{{ page.get_absolute_url }}">
-                                    {% with page.title|upper as page_title %}{% trans page_title %}{% endwith %}</a>
-                                </li>
-                            {% endifnotequal %}
-                        {% endifequal %}
-                    {% endfor %}
-                {% endfor %}
-                <li>
-                    {% search_form %}
-                </li>
-                <li>
-                    <a class="link-but-not-a-link" href="javascript:void(0)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-                </li>
-				-->
-            </ul>
-        </div>
+            <?php wp_nav_menu( array(
+                'theme_location' => 'header-menu',
+                'container_class' => "collapse navbar-collapse",
+                'menu_class' => 'nav navbar-nav navbar-right',
+            )); ?>
+
     </div>
 </header>
