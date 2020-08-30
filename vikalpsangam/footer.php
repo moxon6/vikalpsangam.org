@@ -78,10 +78,9 @@
                 'add_li_class'  => 'list-group-item',
                 'add_a_class' => 'list-group-item-heading'
             )); ?>
+        </div>
 
-
-
-            <div class="row logos-collection">
+        <div class="row logos-collection">
                 <div class="col-md-2 col-xs-6 col-sm-2">
                     <a href="http://www.kalpavriksh.org" target="_blank">
                         <img src="<?php bloginfo('template_url'); ?>/images/kalpavriksh_md.png" alt="" class="kalpawriksha img-responsive">
@@ -116,7 +115,7 @@
                     </a>
                 </div>
             </div>
-        </div>
+
     </div>
 </footer>
 	
