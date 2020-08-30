@@ -32,38 +32,86 @@
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'vikalpsangam' ); ?></a>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$vikalpsangam_description = get_bloginfo( 'description', 'display' );
-			if ( $vikalpsangam_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $vikalpsangam_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
+<header class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <a href="#" class="show-language-bar">
+		<?php /*
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'vikalpsangam' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+		TODO : Replace this with WP generated
+
+        {% get_language_info_list for LANGUAGES as languages %}
+        {% for language in languages %}
+            {% if language.code == LANGUAGE_CODE and language.code == 'en' %}
+{#                <span class="glyphicon glyphicon-circle-arrow-down"></span>&nbsp;{{ language.name_local }}#}
+                <span class="glyphicon glyphicon-circle-arrow-down"></span>&nbsp;<div style="float: right">Change<br>Language</div>
+            {% elif language.code == LANGUAGE_CODE and language.code == 'hi' %}
+{#                <span class="glyphicon glyphicon-circle-arrow-down"></span>&nbsp;हिंदी#}
+                <span class="glyphicon glyphicon-circle-arrow-down"></span>&nbsp;<div style="float: right">भाषा<br>बदलें</div>
+            {% elif language.code == LANGUAGE_CODE and language.code == 'ta' %}
+{#                <span class="glyphicon glyphicon-circle-arrow-down"></span>&nbsp;{{ language.name_local }}#}
+                <span class="glyphicon glyphicon-circle-arrow-down"></span>&nbsp;<div style="float: right">மொழி <br>மாற்ற</div>
+            {% endif %}
+		{% endfor %}
+		
+		*/ ?>
+        <!-- <span class="glyphicon glyphicon-chevron-down"></span> -->
+    </a>
+    <div class="language-wrapper">
+        <form action="{% url 'set_language' %}" method="post">
+			
+            <!-- TODO : Replace csrf token {% csrf_token %} -->
+            <input type="hidden" name="language" id="languageHiddenElement" value=""/>
+            <input name="next" type="hidden" value="/"/>
+            <!-- TODO, generate langauges menu {% get_language_info_list for LANGUAGES as languages %} -->
+            <div class="btn-group" data-toggle="buttons" id="langaugeSelection">
+				<!-- TODO: Generate languages menu 
+                {% for language in languages %}
+                    <label class="btn btn-primary {% if language.code == LANGUAGE_CODE %}mchecked{% endif %}" >
+                        <input type="radio" name="options" value="{{ language.code }}"
+                               {% if language.code == LANGUAGE_CODE %}checked{% endif %}> {% ifequal language.code 'hi' %}हिंदी {% else %}{{ language.name_local }}{% endifequal %}
+                    </label>
+                {% endfor %}
+				-->
+            </div>
+        </form>
+        <a href="#" class="hide-language-bar"><span class="glyphicon glyphicon-remove-circle"></span></a>
+    </div>
+
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+            </a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+				<!-- TODO: Generate navbar-right 
+                {% for page in page_branch %}
+                    {% for in_menu in page.in_menus %}
+                        {% ifequal in_menu '1' %}
+                            {% ifnotequal page.title "Home" %}
+                                <li {% if page.is_current_or_ascendant %}class="active"{% endif %}>
+                                    <a {% if page.description|wordcount < 5 %} title="{% trans page.description %}" {% endif %}
+                                        href="{{ page.get_absolute_url }}">
+                                    {% with page.title|upper as page_title %}{% trans page_title %}{% endwith %}</a>
+                                </li>
+                            {% endifnotequal %}
+                        {% endifequal %}
+                    {% endfor %}
+                {% endfor %}
+                <li>
+                    {% search_form %}
+                </li>
+                <li>
+                    <a class="link-but-not-a-link" href="javascript:void(0)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                </li>
+				-->
+            </ul>
+        </div>
+    </div>
+</header>

@@ -11,8 +11,6 @@
 
 ?>
 
-</div><!-- #page -->
-
 <footer id="footer">
 	<!-- TODO: Generate footer.php from WP -->
     <div class="container">
