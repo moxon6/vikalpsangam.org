@@ -35,6 +35,10 @@
 
 <header class="navbar navbar-default navbar-fixed-top" role="navigation">
     <a href="#" class="show-language-bar">
+
+        <!-- TODO: Remove this -->
+        <span class="glyphicon glyphicon-circle-arrow-down"></span>&nbsp;<div style="float: right">Change<br>Language</div>
+
 		<?php /*
 
 		TODO : Replace this with WP generated
@@ -88,10 +92,31 @@
             <a class="navbar-brand" href="/">
             </a>
         </div>
-            <?php wp_nav_menu( array(
+        
+            <?php 
+            
+            $items_wrap = '<ul id="%1$s" class="%2$s">%3$s';
+            $items_wrap .= '
+            <li>
+                <form action="/search/" class="navbar-form navbar-search navbar-right">
+                    <span class="search-box-wrapper">
+                        <i class="glyphicon glyphicon-search"></i>
+                        <input class="search-query form-control" placeholder="Search" type="text" name="q" value=""> 
+                    </span>
+                </form>
+            </li>
+            ';
+            $items_wrap .= '
+            <li>
+                <a class="link-but-not-a-link" href="javascript:void(0)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            </li>
+            ';
+            
+            wp_nav_menu( array(
                 'theme_location' => 'header-menu',
                 'container_class' => "collapse navbar-collapse",
                 'menu_class' => 'nav navbar-nav navbar-right',
+                'items_wrap' => $items_wrap,
             )); ?>
 
     </div>
