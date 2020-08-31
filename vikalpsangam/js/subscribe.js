@@ -1,5 +1,5 @@
 /* eslint-disable */ 
-/* TODO: Fix linting issues */
+/* TODO: Fix linting issues https://trello.com/c/CiorAH2s */
 
 $(function () {
     var emptyEmailMessage = "Enter valid Email Address!";

@@ -12,7 +12,6 @@
 ?>
 
 <footer id="footer">
-	<!-- TODO: Generate footer.php from WP -->
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-3 logo hidden-sm hidden-xs">

@@ -1,30 +1,29 @@
 <!DOCTYPE html>
 
-<!-- TODO: Generate LANGUAGE_CODE from WordPress -->
+<!-- TODO: Multiple language support https://trello.com/c/S0ySCXwV -->
 <!-- <html lang="{{ LANGUAGE_CODE }}"{% if LANGUAGE_BIDI %} dir="rtl"{% endif %}> -->
 <html lang="en">
 
 <head>
 
-<!-- TODO: Generate Title from WordPress -->
-<link rel="shortcut icon" href="{% static "img/favicon.png?v=4" %}">
+<!-- TODO: Generate Title from WordPress https://trello.com/c/pJ7YdvJ3 -->
+<!-- TODO: Add Favicon https://trello.com/c/KK5qq2m9 -->
+<!-- <link rel="shortcut icon" href="{% static "img/favicon.png?v=4" %}"> -->
 <meta charset="utf-8">
 
-<!-- TODO : Generate Meta tags based on WP -->
+<!-- TODO : Generate Meta tags based on WP https://trello.com/c/cQgCxZuu -->
 <meta charset="utf-8">
 <meta name="keywords" content="comunity conservation, civil society initiative, energy, education, economy, ecology, settlements, rural, organic-farming, sustainability, environment, environmental issues, Bhoomi, livelihoods, case studies, alternative learning, social issues, society, seeds, Kalpavriksh, Shikshantar, Deccan Development Society, Bhoomi College">
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
 
-<!-- 
-<script src="{% static "mezzanine/js/"|add:settings.JQUERY_FILENAME %}"></script>
-<script src="{% static "js/bootstrap.min.js" %}"></script>
-
-<script src="{{ STATIC_URL }}endless_pagination/js/endless-pagination.js"></script>
-
-<script src="{% static "js/app.js" %}"></script>
-<script src="{% static "js/modern-business.js" %}"></script>   
+<!--
+Bootstrap/JS setup https://trello.com/c/fGN1hfZm
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <script src="{{ STATIC_URL }}endless_pagination/js/endless-pagination.js"></script>
+    <script src="{% static "js/app.js" %}"></script>
+    <script src="{% static "js/modern-business.js" %}"></script>   
 -->
 
 <?php wp_head(); ?>
@@ -36,13 +35,12 @@
 <header class="navbar navbar-default navbar-fixed-top" role="navigation">
     <a href="#" class="show-language-bar">
 
-        <!-- TODO: Remove this -->
+        <!-- TODO: Multiple language support https://trello.com/c/S0ySCXwV -->
         <span class="glyphicon glyphicon-circle-arrow-down"></span>&nbsp;<div style="float: right">Change<br>Language</div>
 
 		<?php /*
 
-		TODO : Replace this with WP generated
-
+	
         {% get_language_info_list for LANGUAGES as languages %}
         {% for language in languages %}
             {% if language.code == LANGUAGE_CODE and language.code == 'en' %}
@@ -63,12 +61,13 @@
     <div class="language-wrapper">
         <form action="{% url 'set_language' %}" method="post">
 			
-            <!-- TODO : Replace csrf token {% csrf_token %} -->
             <input type="hidden" name="language" id="languageHiddenElement" value=""/>
             <input name="next" type="hidden" value="/"/>
-            <!-- TODO, generate langauges menu {% get_language_info_list for LANGUAGES as languages %} -->
+
+            <!-- TODO: Multiple language support https://trello.com/c/S0ySCXwV --> 
+            <!-- {% get_language_info_list for LANGUAGES as languages %} -->
             <div class="btn-group" data-toggle="buttons" id="langaugeSelection">
-				<!-- TODO: Generate languages menu 
+				<!--
                 {% for language in languages %}
                     <label class="btn btn-primary {% if language.code == LANGUAGE_CODE %}mchecked{% endif %}" >
                         <input type="radio" name="options" value="{{ language.code }}"
