@@ -216,6 +216,8 @@ add_action( 'widgets_init', 'vikalpsangam_widgets_init' );
 function vikalpsangam_scripts() {
 	wp_enqueue_style( 'vikalpsangam-style', get_stylesheet_uri(), array(), vikalpsangam_VERSION );
 	wp_style_add_data( 'vikalpsangam-style', 'rtl', 'replace' );
+	
+	wp_enqueue_script( 'vikalpsangam-subscribe', get_template_directory_uri() . '/js/subscribe.js', array(), vikalpsangam_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
