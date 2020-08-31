@@ -92,10 +92,10 @@ Bootstrap/JS setup https://trello.com/c/fGN1hfZm
             </a>
         </div>
         
-            <?php 
-            
-            $items_wrap = '<ul id="%1$s" class="%2$s">%3$s';
-            $items_wrap .= '
+        <?php 
+        
+        $items_wrap = '<ul id="%1$s" class="%2$s">%3$s';
+        $items_wrap .= '
             <li>
                 <form action="/search/" class="navbar-form navbar-search navbar-right">
                     <span class="search-box-wrapper">
@@ -104,19 +104,20 @@ Bootstrap/JS setup https://trello.com/c/fGN1hfZm
                     </span>
                 </form>
             </li>
-            ';
-            $items_wrap .= '
-            <li>
-                <a class="link-but-not-a-link" href="javascript:void(0)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-            </li>
-            ';
-            
-            wp_nav_menu( array(
-                'theme_location' => 'header-menu',
-                'container_class' => "collapse navbar-collapse",
-                'menu_class' => 'nav navbar-nav navbar-right',
-                'items_wrap' => $items_wrap,
-            )); ?>
+        ';
+        $items_wrap .= '
+        <li>
+            <a class="link-but-not-a-link" href="javascript:void(0)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </li>
+        ';
+        $items_wrap .= '</ul>';
+        
+        wp_nav_menu( array(
+            'theme_location' => 'header-menu',
+            'container_class' => "collapse navbar-collapse",
+            'menu_class' => 'nav navbar-nav navbar-right',
+            'items_wrap' => $items_wrap,
+        )); ?>
 
     </div>
 </header>
