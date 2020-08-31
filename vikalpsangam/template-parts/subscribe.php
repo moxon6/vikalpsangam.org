@@ -1,7 +1,3 @@
-<!-- TODO: Remove STATIC_URL refereces -->
-
-<script src="{{ STATIC_URL }}vikalp_newsletter/js/subscribe.js" type="text/javascript"></script>
-
 <div class="row">
     <form action="//vikalpsangam.us9.list-manage.com/subscribe/post?u=16f6762000d0db3e3e5190bf6&amp;id=4bd0241c3a"
           method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="novalidate"
