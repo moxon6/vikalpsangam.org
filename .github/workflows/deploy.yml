@@ -31,11 +31,11 @@ jobs:
 
     - name: "Compile scss -> css"
       working-directory: vikalpsangam
-      run: npm run compile:css
+      run: npm run build:scss
 
     - name: "Compile rtl css"
       working-directory: vikalpsangam
-      run: npm run compile:rtl
+      run: npm run build:scss-rtl
 
     - name: "Lint js"
       working-directory: vikalpsangam
