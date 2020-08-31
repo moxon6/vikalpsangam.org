@@ -63,7 +63,7 @@ jobs:
         key: ${{ secrets.DEPLOYMENT_KEY }}
         port: 22
         script: |
-          wp theme install /tmp/vikalpsangam.zip \
+          sudo wp theme install /tmp/vikalpsangam.zip \
             --activate \
             --allow-root \
             --path=/var/www/html \
