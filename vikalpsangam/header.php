@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 
-<!-- TODO: Generate LANGUAGE_CODE from wordpress -->
+<!-- TODO: Generate LANGUAGE_CODE from WordPress -->
 <!-- <html lang="{{ LANGUAGE_CODE }}"{% if LANGUAGE_BIDI %} dir="rtl"{% endif %}> -->
 <html lang="en">
 
 <head>
 
-<!-- TODO: Generate Title from wordpress -->
+<!-- TODO: Generate Title from WordPress -->
 <link rel="shortcut icon" href="{% static "img/favicon.png?v=4" %}">
 <meta charset="utf-8">
 
