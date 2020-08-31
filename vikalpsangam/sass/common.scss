@@ -1,32 +1,5 @@
-@import "variables.scss";
-
-@font-face {
-  font-family: 'Roboto-Light';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url(//themes.googleusercontent.com/static/fonts/roboto/v10/Hgo13k-tfSpn0qi1SFdUfbO3LdcAZYWl9Si6vvxL-qU.woff) format("woff");
-}
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Roboto Regular"), local("Roboto-Regular"), url(//themes.googleusercontent.com/static/fonts/roboto/v10/CrYjSnGjrRCn0pd9VQsnFOvvDin1pK8aKteLpeZ5c0A.woff) format("woff");
-}
-
-@font-face {
-  font-family: 'Roboto-Medium';
-  font-style: normal;
-  font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url(//themes.googleusercontent.com/static/fonts/roboto/v10/RxZJdnzeo3R5zSexge8UUbO3LdcAZYWl9Si6vvxL-qU.woff) format("woff");
-}
-
-@font-face {
-  font-family: 'Roboto-Black';
-  font-style: normal;
-  font-weight: 900;
-  src: local("Roboto Black"), local("Roboto-Black"), url(//themes.googleusercontent.com/static/fonts/roboto/v10/mnpfi9pxYH-Go5UiibESIrO3LdcAZYWl9Si6vvxL-qU.woff) format("woff");
-}
+@import "colors.scss";
+@import "fonts.scss";
 
 body {
   font-family: $roboto;
