@@ -7,7 +7,7 @@
                 <ol class="carousel-indicators">
 
                     <?php foreach ($article_content as $key => $article) { ?>
-                        <li 
+                        <li
                             data-target="#carousel-example-generic" 
                             data-slide-to="<?php echo $key ?>" 
                             class="<?php echo($key == 0 ? "active" : "") ?>">
