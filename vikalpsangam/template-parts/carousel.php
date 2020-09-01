@@ -1,33 +1,7 @@
-<?php
-    $article_content = [
-        [
-            "title" => "TEMP: TOWARDS NETWORKING AND ACTION FOR LOCAL SELF-RELIANCE AND DIGNIFIED LIVELIHOODS",
-            "featured_image" => "/wp-content/themes/vikalpsangam/images/carousel_logo_temp.png",
-            "description" => "",
-            "absolute_url" => "/article/1",
-            "highlight_image" => "/wp-content/themes/vikalpsangam/images/featured_temp.png"
-        ],
-        [
-            "title" => "Title 2",
-            "featured_image" => "/wp-content/themes/vikalpsangam/images/carousel_logo_temp.png",
-            "description" => "description-2-truncate-to-256",
-            "absolute_url" => "/article/2",
-            "highlight_image" => "/wp-content/themes/vikalpsangam/images/featured_temp.png"
-        ],
-        [
-            "title" => "Title 3",
-            "featured_image" => "",
-            "description" => "description-3-truncate-to-256",
-            "absolute_url" => "/article/3",
-            "highlight_image" => "/wp-content/themes/vikalpsangam/images/featured_temp.png"
-        ]
-    ];
+<?php 
+    $article_content = $args['article_content'];
 ?>
-
-<section class="top-carousel-wrapper">
-    <div class="row no-right-margin">
-        <div class="col-md-8 col-xs-12">
-            <div class="verticle-border"></div>
+<div class="verticle-border"></div>
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
@@ -82,34 +56,3 @@
                 </a>
             </div>
 
-
-        </div>
-        <div class="col-md-4 col-xs-12 featured-list">
-            <h2>Highlights</h2>
-
-            <ul class="list-unstyled">
-                <?php foreach ($article_content as $key => $article) { ?>
-
-                    <li class="row">
-                        <div class="col-xs-4">
-                            <?php
-                                $DEFAULT_IMAGE = "/wp-content/themes/vikalpsangam/images/default.png";
-                                $img_src = strlen($article['highlight_image']) > 0 ? $article['highlight_image'] : $DEFAULT_IMAGE;
-                            ?>
-                            
-                            <img class="img-responsive" src="<?php echo $img_src ?>">
-                        </div>
-                        <div class="col-xs-8">
-                            <a href="<?php echo $article['absolute_url']; ?>"><h4 id="featured-article" class="media-heading"><?php echo $article['title']; ?></h4>
-                            </a>
-                            
-                            <!-- TODO: Truncate to 130 -->
-                            <p><?php echo $article['description']; ?></p>
-
-                        </div>
-                    </li>
-                <?php } ?>
-            </ul>
-        </div>
-    </div>
-</section>
