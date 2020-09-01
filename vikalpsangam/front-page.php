@@ -8,7 +8,7 @@ get_header();
 
 ?>
 <div id="content">
-    <p>This is the front page.</p>
+    <?php get_template_part( 'template-parts/carousel' ); ?>
 </div>
 <?php
 

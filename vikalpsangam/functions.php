@@ -216,9 +216,16 @@ add_action( 'widgets_init', 'vikalpsangam_widgets_init' );
 function vikalpsangam_scripts() {
 	wp_enqueue_style( 'vikalpsangam-style', get_stylesheet_uri(), array(), vikalpsangam_VERSION );
 	wp_style_add_data( 'vikalpsangam-style', 'rtl', 'replace' );
-	
-	wp_enqueue_script( 'vikalpsangam-subscribe', get_template_directory_uri() . '/js/subscribe.js', array(), vikalpsangam_VERSION, true );
 
+	wp_enqueue_script( 'jq', get_template_directory_uri() . '/js-migrate/jquery-1.10.2.js', array(), vikalpsangam_VERSION, true );	
+	wp_enqueue_script( 'app', get_template_directory_uri() . '/js-migrate/app.js', array(), vikalpsangam_VERSION, true );	
+	wp_enqueue_script( "unslider", get_template_directory_uri().'/js-migrate/unslider.min.js', [ "jq" ] , vikalpsangam_VERSION, true);
+	wp_enqueue_script( "carousel", get_template_directory_uri().'/js-migrate/carousel.js', [ "unslider" ] , vikalpsangam_VERSION, true);
+	wp_enqueue_script( "bootstrap", get_template_directory_uri().'/js-migrate/bootstrap.js', [ "carousel" ] , vikalpsangam_VERSION, true);
+	wp_enqueue_script( "modern-business", get_template_directory_uri().'/js-migrate/modern-business.js', [ "carousel", "bootstrap" ] , vikalpsangam_VERSION, true);
+
+	
+	
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
