@@ -63,7 +63,7 @@ $categories = [
     ],
     [
         "thumbnail_image" => "/static/media/img/default.png",
-        "path" => "/article/category/videos-on-alternatives",
+        "url" => "/article/category/videos-on-alternatives",
         "title" => "VIDEOS ON ALTERNATIVE INITIATIVES"
     ],
 ]
