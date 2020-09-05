@@ -1,9 +1,13 @@
 <?php
 get_header();
+
+/**
+ * The Latest Stories page
+ */
+
 ?>
 <?php
     $articles_str = file_get_contents(get_template_directory() ."/mock-data/latest-stories.json");
-    
     $articles = json_decode($articles_str, true);
 ?>
 <div id="content">
@@ -30,7 +34,7 @@ get_header();
                     <div class="row category-page-category-list-wrapper category-topping-wrapper" id="articles-list">
                         <?php
                             foreach ($articles as $article) {
-                                get_template_part( 'template-parts/common/stories-article-tile', null, [ "article" => $article ]); 
+                                get_template_part( 'template-parts/page-stories/article-tile', null, [ "article" => $article ]); 
                             }
                         ?>
                     </div>
