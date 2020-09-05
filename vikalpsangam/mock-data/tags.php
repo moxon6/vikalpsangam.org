@@ -148,7 +148,7 @@ $tags = [
     ],
     [
         "weight" => 2, 
-        "name" => "traditional agricult"
+        "name" => "traditional agricultural techniques"
     ],
     [
         "weight" => 1, 
