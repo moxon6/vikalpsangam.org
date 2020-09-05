@@ -1,0 +1,44 @@
+[
+    {
+        "title": "CASE STUDIES",
+        "image": "/wp-content/themes/vikalpsangam/images/category-thumbnails/casestudies.png",
+        "url": "/article/category/casestudies",
+        "articles": [{
+            "url": "/article/case-study-kartikeyan-on-cold-pressed-oil",
+            "image": "/wp-content/themes/vikalpsangam/images/perspectives_temp.png",
+            "title": "Emergence of small-scale cold-pressed oil units in Tamil Nadu, a welcome change for the local food systems",
+            "description": "Autonomous emergence of small scale cold-pressing oil units to meet local demand for healthy cooking oils offers hope"
+        }, {
+            "url": "/article/case-study-kartikeyan-on-cold-pressed-oil",
+            "image": "/wp-content/themes/vikalpsangam/images/perspectives_temp.png",
+            "title": "Emergence of small-scale cold-pressed oil units in Tamil Nadu, a welcome change for the local food systems",
+            "description": "Autonomous emergence of small scale cold-pressing oil units to meet local demand for healthy cooking oils offers hope"
+        }, {
+            "url": "/article/case-study-kartikeyan-on-cold-pressed-oil",
+            "image": "/wp-content/themes/vikalpsangam/images/perspectives_temp.png",
+            "title": "Emergence of small-scale cold-pressed oil units in Tamil Nadu, a welcome change for the local food systems",
+            "description": "Autonomous emergence of small scale cold-pressing oil units to meet local demand for healthy cooking oils offers hope"
+        }]
+    },
+    {
+        "title": "ECONOMICS AND TECHNOLOGIES",
+        "image": "/wp-content/themes/vikalpsangam/images/category-thumbnails/casestudies.png",
+        "url": "/article/category/economics-and-technologies",
+        "articles": [{
+            "url": "/article/case-study-kartikeyan-on-cold-pressed-oil",
+            "image": "/wp-content/themes/vikalpsangam/images/perspectives_temp.png",
+            "title": "Emergence of small-scale cold-pressed oil units in Tamil Nadu, a welcome change for the local food systems",
+            "description": "Autonomous emergence of small scale cold-pressing oil units to meet local demand for healthy cooking oils offers hope"
+        }, {
+            "url": "/article/case-study-kartikeyan-on-cold-pressed-oil",
+            "image": "/wp-content/themes/vikalpsangam/images/perspectives_temp.png",
+            "title": "Emergence of small-scale cold-pressed oil units in Tamil Nadu, a welcome change for the local food systems",
+            "description": "Autonomous emergence of small scale cold-pressing oil units to meet local demand for healthy cooking oils offers hope"
+        }, {
+            "url": "/article/case-study-kartikeyan-on-cold-pressed-oil",
+            "image": "/wp-content/themes/vikalpsangam/images/perspectives_temp.png",
+            "title": "Emergence of small-scale cold-pressed oil units in Tamil Nadu, a welcome change for the local food systems",
+            "description": "Autonomous emergence of small scale cold-pressing oil units to meet local demand for healthy cooking oils offers hope"
+        }]
+    }
+]
