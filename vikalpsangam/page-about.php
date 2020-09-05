@@ -1,10 +1,6 @@
 <?php
 get_header();
 ?>
-<?php
-    $events_str = file_get_contents(get_template_directory() ."/mock-data/past-events.json");
-    $events = json_decode($events_str, true);
-?>
 <div id="content">
     <div class="section generic_section">
         <div class="container main-body-container">
