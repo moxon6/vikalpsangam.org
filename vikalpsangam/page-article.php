@@ -1,8 +1,4 @@
 <?php
-/**
- * The Front Page
- * @package vikalpsangam
- */
 
 get_header();
 
@@ -43,26 +39,26 @@ get_header();
                     <section id="storypage-categories" class="row">
                         <?php foreach($categories as $category){?>
 
-                            <div class="col-xs-12 category-topping-wrapper">
-                                <div class="category-page-heading">
-                                    <a class="category-title-link"
+                        <div class="col-xs-12 category-topping-wrapper">
+                            <div class="category-page-heading">
+                                <a class="category-title-link"
                                     title="Case studies commissioned by Vikalp Sangam or other processes"
                                     style="background-image: url('<?=$category['image']?>')"
                                     href="<?=$category['url'] ?>">
                                     <?=$category['title'] ?>
                                 </a>
                             </div>
-                            
+
                             <div class="row category-page-category-list-wrapper">
                                 <?php foreach($category['articles'] as $article){
                                     get_template_part( 'template-parts/common/article-tile', null, [ "article" => $article ]);
                                 } ?>
-                                </div>
-                                
-                                <div class="read-more-wrapper">
-                                    <a class="read-more" href="<?=$category['url'] ?>"> See all stories </a>
-                                </div>
                             </div>
+
+                            <div class="read-more-wrapper">
+                                <a class="read-more" href="<?=$category['url'] ?>"> See all stories </a>
+                            </div>
+                        </div>
                         <?php } ?>
                     </section>
                 </div>
