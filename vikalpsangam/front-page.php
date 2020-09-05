@@ -20,7 +20,12 @@
     </section>
 
     <section class="about_section">
-        <?php get_template_part( 'template-parts/front-page/about'); ?>
+        <div class="container">
+        <h2>ABOUT VIKALP SANGAM</h2>
+    <div class="row no-margin">
+       <?php the_content() ?>
+    </div>
+        </div>
     </section>
 </div>
 
