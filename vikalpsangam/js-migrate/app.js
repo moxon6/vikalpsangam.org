@@ -77,21 +77,21 @@ var PageEventsList = (function () {
     }
 })();
 
-var LoadMoreCallback = (function(jq){
-    function callback(){
-         jq.endlessPaginate({
-            onCompleted:function(){
-                FixCategoryHeight.init();
-            }
-        });
-        jq.endlessPaginate();
-    }
-    return{
-        init: function(){
-            callback();
-        }
-    };
-})($);
+// var LoadMoreCallback = (function(jq){
+//     function callback(){
+//          jq.endlessPaginate({
+//             onCompleted:function(){
+//                 FixCategoryHeight.init();
+//             }
+//         });
+//         jq.endlessPaginate();
+//     }
+//     return{
+//         init: function(){
+//             callback();
+//         }
+//     };
+// })($);
 
 var SetPageSeparatorBar  = (function(){
     function setIt(){
@@ -241,7 +241,7 @@ $(document).ready(function () {
     });
 
     PageEventsList.init();
-    LoadMoreCallback.init();
+    // LoadMoreCallback.init();
     LanguageSelection.init();
     CollapseDescription.init();
 });
