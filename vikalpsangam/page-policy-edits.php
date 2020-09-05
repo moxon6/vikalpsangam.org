@@ -25,7 +25,7 @@ get_header();
 
                     <div class="category-page-heading">
                         <div class="category-title-link" style="background-image: url('<?=$category_page_heading?>')">
-                            <?=$page_title ?>
+                            <?= the_title(); ?>
                         </div>
                     </div>
                     <div class="row category-page-category-list-wrapper category-topping-wrapper" id="articles-list">
