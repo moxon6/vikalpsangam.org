@@ -1,0 +1,1 @@
+These scripts exist for the purposes of migrating from Django (Postgres) to Wordpress (mysql)
