@@ -1,4 +1,12 @@
 <div id="article-comments" class="comments-section">
+
+<?php
+
+
+    comments_template();
+
+?>
+
     <div id="comments">
         <h3>Comments</h3>
         <style>
@@ -97,3 +105,4 @@
     });
     </script>
 </div>
+
