@@ -18,6 +18,7 @@ def runcommand(command):
 
 destination_db = "django_migration"
 blogpost_table = "blog_blogpost"
+now = strftime("%Y-%m-%d-%H-%M-%S")
 
 def get_connection():
     
@@ -52,7 +53,6 @@ def populate_db(cur):
 
 
 def create_mysql_migration_file():
-    now = strftime("%Y-%m-%d-%H-%M-%S")
     
     postgres_input_path = os.path.abspath("../db.postgres.sql")
     script_path = os.path.abspath("./migrate-database/pg2mysql_cli.php")
@@ -98,10 +98,20 @@ def migrate_post_authors_over(cur, connection):
     cur.execute(migrate_authors_query)
     connection.commit()
 
+def backup_db(cur, backup_type):
+    checkpoints = [x.split("_")[0] for x in os.listdir('checkpoints')]
+    if len(checkpoints) > 0:
+        latest_checkpoint_index = max( int(x.split("-")[1]) for x in checkpoints )
+    else:
+        latest_checkpoint_index = 0
+    subprocess.Popen(f'MYSQL_PWD=somewordpress mysqldump --host=db --databases wordpress --user=root --add-drop-database -r checkpoints/checkpoint-{str(latest_checkpoint_index + 1)}_{backup_type}_{now}.sql', shell=True)
+
+
 def main():
     connection = get_connection()
 
     with connection.cursor() as cur:        
+        backup_db(cur, "pre")
         rebuild_db(cur)
         use_db(cur)
         populate_db(cur)
@@ -109,6 +119,7 @@ def main():
         update_media_urls(cur, connection)
         migrate_posts_over(cur, connection)
         migrate_post_authors_over(cur, connection)
+        backup_db(cur, "post")
 
 tables = [
     "auth_group",

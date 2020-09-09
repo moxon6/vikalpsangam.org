@@ -8,8 +8,8 @@ ARG NODE_VERSION="lts/*"
 RUN if [ "${INSTALL_NODE}" = "true" ]; then su vscode -c "source /usr/local/share/nvm/nvm.sh && nvm install ${NODE_VERSION} 2>&1"; fi
 
 RUN apt-get update;
-RUN apt-get install -y python3 python3-pip
-RUN pip3 install mysql-connector-python tqdm
+RUN apt-get install -y python3 python3-pip default-mysql-client
+RUN pip3 install mysql-connector-python tqdm sqlparse
 
 
 # [Optional] Uncomment this section to install additional OS packages.

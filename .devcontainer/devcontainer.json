@@ -9,5 +9,6 @@
 	},
 	"extensions": [
 		"ms-azuretools.vscode-docker"
-	]
+	],
+	"postCreateCommand": "echo alias python=python3 >> /etc/bash.bashrc"
 }
