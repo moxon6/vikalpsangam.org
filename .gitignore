@@ -1,5 +1,9 @@
 # ignore log files and databases
 *.log
-*.sql
+db.postgres.sql
+!tools/create-new-db.sql
+!tools/migrate-table.sql
 *.sqlite
 vikalpsangam/vendor
+uploads
+.old

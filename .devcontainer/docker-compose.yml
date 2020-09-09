@@ -28,6 +28,7 @@ services:
       - "8000:80"
     volumes:  
       - ../vikalpsangam:/var/www/html/wp-content/themes/vikalpsangam
+      - ../uploads/:/var/www/html/wp-content/uploads
     restart: always
     environment:
       WORDPRESS_DB_HOST: db:3306
