@@ -74,14 +74,22 @@ def create_mysql_migration_file():
     return mysql_path
 
 def encode_post_urls(cur, connection):
-    cur.execute(f"SELECT id, slug FROM {blogpost_table}")
-    for row in tqdm(cur.fetchall()):
-        if not str.isascii(row[1]):
-            b = parse.urlencode({"": row[1]})[1:]
-            b = b[:255]
-            query=f"Update {blogpost_table} set slug ='" + b + "' where id=" + str(row[0]) +';'
-            cur.execute(query)
-            connection.commit()
+    latest_checkpoint_index = get_latest_checkpoint_index()
+    with open(f'./migrated-articles/articles-{latest_checkpoint_index}_{now}', 'w+') as f:
+
+        cur.execute(f"SELECT id, slug FROM {blogpost_table}")
+
+        for row in tqdm(cur.fetchall()):
+            original_url = row[1]
+            if ":" in original_url:
+                print("Warning, ':' in url -> ", original_url)
+            if not str.isascii(original_url):
+                print(original_url, file=f)
+                b = parse.urlencode({"": original_url})[1:]
+
+                query=f"Update {blogpost_table} set slug ='" + b + "' where id=" + str(row[0]) +';'
+                cur.execute(query)
+                connection.commit()
 
 def update_media_urls(cur, connection):
     query= "UPDATE blog_blogpost SET content = REPLACE(content, '/static/media/uploads/', '/wp-content/uploads/migrate/')"
@@ -98,12 +106,15 @@ def migrate_post_authors_over(cur, connection):
     cur.execute(migrate_authors_query)
     connection.commit()
 
-def backup_db(cur, backup_type):
+def get_latest_checkpoint_index():
     checkpoints = [x.split("_")[0] for x in os.listdir('checkpoints')]
     if len(checkpoints) > 0:
-        latest_checkpoint_index = max( int(x.split("-")[1]) for x in checkpoints )
+        return max( int(x.split("-")[1]) for x in checkpoints )
     else:
-        latest_checkpoint_index = 0
+        return 0
+
+def backup_db(cur, backup_type):
+    latest_checkpoint_index = get_latest_checkpoint_index()
     subprocess.Popen(f'MYSQL_PWD=somewordpress mysqldump --host=db --databases wordpress --user=root --add-drop-database -r checkpoints/checkpoint-{str(latest_checkpoint_index + 1)}_{backup_type}_{now}.sql', shell=True)
 
 
