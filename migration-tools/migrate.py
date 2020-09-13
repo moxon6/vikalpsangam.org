@@ -113,6 +113,14 @@ def migrate_categories(cur, connection):
         cur.execute(statement)
         connection.commit()
 
+def migrate_tags(cur, connection):
+    migrate_tags_query = open('./queries/migrate-tags.sql').read()
+    statements = sqlparse.split(migrate_tags_query)
+    for statement in statements:
+        cur.execute(statement)
+        connection.commit()
+
+
 def get_latest_checkpoint_index():
     checkpoints = [x.split("_")[0] for x in os.listdir('checkpoints')]
     if len(checkpoints) > 0:
@@ -139,6 +147,7 @@ def main():
         migrate_post_authors_over(cur, connection)
         migrate_latitude_longitude_over(cur, connection)
         migrate_categories(cur, connection)
+        migrate_tags(cur, connection)
         backup_db(cur, "post")
 
 tables = [
