@@ -106,6 +106,13 @@ def migrate_latitude_longitude_over(cur, connection):
         cur.execute(statement)
         connection.commit()
 
+def migrate_categories(cur, connection):
+    migrate_categories_query = open('./queries/migrate-categories.sql').read()
+    statements = sqlparse.split(migrate_categories_query)
+    for statement in statements:
+        cur.execute(statement)
+        connection.commit()
+
 def get_latest_checkpoint_index():
     checkpoints = [x.split("_")[0] for x in os.listdir('checkpoints')]
     if len(checkpoints) > 0:
@@ -131,6 +138,7 @@ def main():
         migrate_posts_over(cur, connection)
         migrate_post_authors_over(cur, connection)
         migrate_latitude_longitude_over(cur, connection)
+        migrate_categories(cur, connection)
         backup_db(cur, "post")
 
 tables = [
