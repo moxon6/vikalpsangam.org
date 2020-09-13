@@ -4,7 +4,7 @@ SELECT
 	title as name,
     slug,
     0 as term_group
-from django_migration.blog_blogcategory
+from django_migration.blog_blogcategory;
 
 INSERT INTO wordpress.wp_term_taxonomy (term_id, taxonomy, description, parent, count)
 SELECT
@@ -19,7 +19,7 @@ from
     
 	INNER JOIN django_migration.vikalp_articlecategory
     WHERE django_migration.blog_blogcategory.id = django_migration.vikalp_articlecategory.blogcategory_ptr_id
-) as T
+) as T;
 
 INSERT INTO wordpress.wp_term_relationships
 SELECT 
@@ -30,4 +30,4 @@ FROM `django_migration`.`vikalp_article_article_categories`
 INNER JOIN `django_migration`.`vikalp_articlecategory`, `wordpress`.`wp_term_taxonomy`
 WHERE 
 	`django_migration`.`vikalp_article_article_categories`.`articlecategory_id` = `django_migration`.`vikalp_articlecategory`.`blogcategory_ptr_id` AND
-    `wordpress`.`wp_term_taxonomy`.term_id = `django_migration`.`vikalp_article_article_categories`.`articlecategory_id` + 2000
+    `wordpress`.`wp_term_taxonomy`.term_id = `django_migration`.`vikalp_article_article_categories`.`articlecategory_id` + 2000;
