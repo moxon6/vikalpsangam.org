@@ -120,6 +120,13 @@ def migrate_tags(cur, connection):
         cur.execute(statement)
         connection.commit()
 
+def migrate_promoted_carousel_over(cur, connection):
+    migrate_promoted_carousel_query = open('./queries/migrate-promoted-add-to-carousel.sql').read()
+    statements = sqlparse.split(migrate_promoted_carousel_query)
+    for statement in statements:
+        cur.execute(statement)
+        connection.commit()
+
 
 def get_latest_checkpoint_index():
     checkpoints = [x.split("_")[0] for x in os.listdir('checkpoints')]
@@ -148,6 +155,7 @@ def main():
         migrate_latitude_longitude_over(cur, connection)
         migrate_categories(cur, connection)
         migrate_tags(cur, connection)
+        migrate_promoted_carousel_over(cur, connection)
         backup_db(cur, "post")
 
 tables = [
