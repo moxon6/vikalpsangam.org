@@ -100,8 +100,8 @@ def migrate_post_authors_over(cur, connection):
     connection.commit()
 
 def migrate_latitude_longitude_over(cur, connection):
-    migrate_latitude_Longitude_query = open('./queries/migrate-latitude-longitude.sql').read()
-    statements = sqlparse.split(migrate_latitude_Longitude_query)
+    migrate_latitude_longitude_query = open('./queries/migrate-latitude-longitude.sql').read()
+    statements = sqlparse.split(migrate_latitude_longitude_query)
     for statement in statements:
         cur.execute(statement)
         connection.commit()
