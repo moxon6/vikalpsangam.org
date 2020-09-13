@@ -290,8 +290,8 @@ add_action('category_edit_form_fields','edit_extra_fields_for_category');
 add_action('edit_category','save_extra_taxonomy_fields');
 
 
-function sunset_load_admin_scripts(){ 
+function admin_overrides(){ 
     wp_register_script('override-slug-blur', get_template_directory_uri() .'/js/admin/override-slug-blur.js', null, '1.0.0', true);
     wp_enqueue_script('override-slug-blur'); 
 }
-add_action( 'admin_enqueue_scripts', 'sunset_load_admin_scripts' );
+add_action( 'admin_enqueue_scripts', 'admin_overrides' );
