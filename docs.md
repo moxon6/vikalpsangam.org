@@ -6,4 +6,7 @@
 1. Plugins
     1. Categories image
     1. Longer Permalinks
+    1. Advanced Custom Fields
+    1. Radio Buttons for Taxonomies
+        1. Apply to Categories
 1. Categories
