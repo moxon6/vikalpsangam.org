@@ -31,3 +31,10 @@ INNER JOIN `django_migration`.`vikalp_articlecategory`, `wordpress`.`wp_term_tax
 WHERE 
 	`django_migration`.`vikalp_article_article_categories`.`articlecategory_id` = `django_migration`.`vikalp_articlecategory`.`blogcategory_ptr_id` AND
     `wordpress`.`wp_term_taxonomy`.term_id = `django_migration`.`vikalp_article_article_categories`.`articlecategory_id` + 2000;
+
+INSERT INTO wordpress.wp_options (option_name, option_value, autoload)
+SELECT
+    concat("z_taxonomy_image", blogcategory_ptr_id + 2000) as option_name,
+    REPLACE(category_image, 'uploads/', '/wp-content/uploads/migrate/') as option_value,
+    "no" as autoload
+FROM django_migration.vikalp_articlecategory
