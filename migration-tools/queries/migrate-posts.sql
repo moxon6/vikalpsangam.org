@@ -6,7 +6,7 @@ INSERT INTO wordpress.wp_posts(
         publish_date AS post_date_gmt,
         content AS post_content,
         title AS post_title,
-        "" AS post_excerpt,
+        `description` AS post_excerpt,
         IF( STATUS = "1", "draft", "publish" ) AS post_status,
         "closed" AS comment_status,
         "closed" AS ping_status,
