@@ -13,7 +13,7 @@ SELECT
     "" as description,
     0 as parent,
     0 as count
-FROM `django_migration`.`generic_keyword`
+FROM `django_migration`.`generic_keyword`;
 
 INSERT INTO `wordpress`.`wp_term_relationships` (`object_id`, `term_taxonomy_id`)
 SELECT
@@ -21,4 +21,4 @@ SELECT
     `term_taxonomy_id`
 FROM `django_migration`.`generic_assignedkeyword`
 INNER JOIN `wordpress`.`wp_term_taxonomy` 
-WHERE wordpress.`wp_term_taxonomy`.`term_id` = `django_migration`.`generic_assignedkeyword`.`keyword_id` + 3000
+WHERE wordpress.`wp_term_taxonomy`.`term_id` = `django_migration`.`generic_assignedkeyword`.`keyword_id` + 3000;
