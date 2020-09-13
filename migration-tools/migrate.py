@@ -7,14 +7,7 @@ import sqlparse
 from urllib import parse
 from tqdm import tqdm
 import html
-
-def runcommand(command):
-    result = subprocess.run(
-        command,
-        stdout=subprocess.PIPE,
-        check=True
-    )
-    return result.stdout.decode()
+import sh
 
 destination_db = "django_migration"
 blogpost_table = "blog_blogpost"
@@ -61,17 +54,21 @@ def create_mysql_migration_file():
     
     pathlib.Path(out_dir).mkdir(parents=True, exist_ok=True)
 
-    result = runcommand(['php', script_path, postgres_input_path, mysql_path])
+    sh.php(script_path, postgres_input_path, mysql_path)
 
     for table in tables:
-        command = ["sed", "-i", "-e",  f's/public.{table}/{table}/g', mysql_path]
-        result = runcommand(command)
-
-
+        sh.sed("-i", "-e",  f's/public.{table}/{table}/g', mysql_path)
+    sh.sed("-i", "-e",  's/ip_address inet,/ip_address varchar(15),/g', mysql_path)
     
-    command = ["sed", "-i", "-e",  's/ip_address inet,/ip_address varchar(15),/g', mysql_path]
-    result = runcommand(command)
     return mysql_path
+
+def encode_url(url):
+    url_encoded = url
+    url_encoded = url_encoded.replace(":", "")
+    url_encoded = url_encoded.replace(" ", "")
+    url_encoded = parse.urlencode({"": url_encoded})[1:]
+    return url_encoded
+
 
 def encode_post_urls(cur, connection):
     latest_checkpoint_index = get_latest_checkpoint_index()
@@ -81,13 +78,9 @@ def encode_post_urls(cur, connection):
 
         for row in tqdm(cur.fetchall()):
             original_url = row[1]
-            if ":" in original_url:
-                print("Warning, ':' in url -> ", original_url)
             if not str.isascii(original_url):
                 print(original_url, file=f)
-                b = parse.urlencode({"": original_url})[1:]
-
-                query=f"Update {blogpost_table} set slug ='" + b + "' where id=" + str(row[0]) +';'
+                query=f"Update {blogpost_table} set slug ='" + encode_url(original_url) + "' where id=" + str(row[0]) +';'
                 cur.execute(query)
                 connection.commit()
 
@@ -115,7 +108,7 @@ def get_latest_checkpoint_index():
 
 def backup_db(cur, backup_type):
     latest_checkpoint_index = get_latest_checkpoint_index()
-    subprocess.Popen(f'MYSQL_PWD=somewordpress mysqldump --host=db --databases wordpress --user=root --add-drop-database -r checkpoints/checkpoint-{str(latest_checkpoint_index + 1)}_{backup_type}_{now}.sql', shell=True)
+    sh.bash("-c", f'MYSQL_PWD=somewordpress mysqldump --host=db --databases wordpress --user=root --add-drop-database -r ./checkpoints/checkpoint-{str(latest_checkpoint_index + 1)}_{backup_type}_{now}.sql', shell=True)
 
 
 def main():

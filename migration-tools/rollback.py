@@ -1,6 +1,6 @@
 import sys
 import os
-import subprocess
+import sh
 
 
 if len(sys.argv) < 2:
@@ -12,10 +12,10 @@ def get_filename(checkpoint_name):
             return checkpoint
 
 def rollback_db():
-    checkpoint_file = get_filename(f"checkpoint-{sys.argv[1]}")
+    checkpoint_file = get_filename(f"checkpoint-{sys.argv[1]}_")
     if checkpoint_file is None:
         raise SystemExit("No such file exists")
-    subprocess.Popen(f'MYSQL_PWD=somewordpress mysql -h db -u root < ./checkpoints/{checkpoint_file}', shell=True)
+    sh.bash("-c", f'MYSQL_PWD=somewordpress mysql -h db -u root < ./checkpoints/{checkpoint_file}', shell=True)
 
 rollback_db()
 print("Rollback success")
