@@ -1,0 +1,12 @@
+.components-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-post-meta-boxes-area {
+    order: 0;
+}
+
+.components-panel__body {
+    order: 1;
+}

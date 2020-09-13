@@ -292,6 +292,9 @@ add_action('edit_category','save_extra_taxonomy_fields');
 
 function admin_overrides(){ 
     wp_register_script('override-slug-blur', get_template_directory_uri() .'/js/admin/override-slug-blur.js', null, '1.0.0', true);
-    wp_enqueue_script('override-slug-blur'); 
+	wp_enqueue_script('override-slug-blur');
+	
+	wp_enqueue_style('reorder-post-sidebar', get_template_directory_uri() . '/admin-sidebar.css');
+
 }
 add_action( 'admin_enqueue_scripts', 'admin_overrides' );
