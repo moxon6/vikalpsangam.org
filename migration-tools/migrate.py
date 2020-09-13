@@ -99,6 +99,13 @@ def migrate_post_authors_over(cur, connection):
     cur.execute(migrate_authors_query)
     connection.commit()
 
+def migrate_latitude_longitude_over(cur, connection):
+    migrate_latitude_Longitude_query = open('./queries/migrate-latitude-longitude.sql').read()
+    statements = sqlparse.split(migrate_latitude_Longitude_query)
+    for statement in statements:
+        cur.execute(statement)
+        connection.commit()
+
 def get_latest_checkpoint_index():
     checkpoints = [x.split("_")[0] for x in os.listdir('checkpoints')]
     if len(checkpoints) > 0:
@@ -123,6 +130,7 @@ def main():
         update_media_urls(cur, connection)
         migrate_posts_over(cur, connection)
         migrate_post_authors_over(cur, connection)
+        migrate_latitude_longitude_over(cur, connection)
         backup_db(cur, "post")
 
 tables = [
