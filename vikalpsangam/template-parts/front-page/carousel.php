@@ -18,26 +18,30 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
 
-        <?php foreach ($article_content as $key => $article) { ?>
+        <?php foreach ($article_content as $key => $post) {
+            setup_postdata( $post ); 
+            echo "Testing" . get_the_post_thumbnail_url($post);
+
+        ?>
 
             <div class="item <?=($key == 0 ? "active" : "") ?>">
                 <div
                     class="fill-image" 
                     style="background-image: url(
-                        <?=$article['featured_image']; ?>
+                        <?php wp_get_original_image_path(the_post_thumbnail( null, 'full' )); ?>
                     )">
                 </div>
                 <div class="carousel-caption hidden-xs">
-                    <h2><?=$article['title']; ?></h2>
+                    <h2><?php the_title(); ?></h2>
                     <p>
-                        <?=$article['description']; ?>
+                        <?php the_excerpt(); ?>
                     </p>
                 </div>
                 <div class="carousel-caption-bottom visible-xs">
-                    <h2><?=$article['title']; ?></h2>
+                    <h2><?php the_title() ?></h2>
 
                     <p>
-                        <?=$article['description']; ?> <!-- TODO: Truncate to 256 -->
+                        <?php the_excerpt(); ?>
                     </p>
                 </div>
             </div>
