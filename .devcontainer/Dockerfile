@@ -9,7 +9,7 @@ RUN if [ "${INSTALL_NODE}" = "true" ]; then su vscode -c "source /usr/local/shar
 
 RUN apt-get update;
 RUN apt-get install -y python3 python3-pip default-mysql-client
-RUN pip3 install mysql-connector-python tqdm sqlparse requests sh
+RUN pip3 install mysql-connector-python tqdm sqlparse requests sh phpserialize Pillow
 
 
 # [Optional] Uncomment this section to install additional OS packages.

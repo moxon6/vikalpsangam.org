@@ -20,16 +20,13 @@
 
         <?php foreach ($article_content as $key => $post) {
             setup_postdata( $post ); 
-            echo "Testing" . get_the_post_thumbnail_url($post);
 
         ?>
 
             <div class="item <?=($key == 0 ? "active" : "") ?>">
                 <div
                     class="fill-image" 
-                    style="background-image: url(
-                        <?php wp_get_original_image_path(the_post_thumbnail( null, 'full' )); ?>
-                    )">
+                    style="background-image: url(<?php the_post_thumbnail_url(); ?>)">
                 </div>
                 <div class="carousel-caption hidden-xs">
                     <h2><?php the_title(); ?></h2>
