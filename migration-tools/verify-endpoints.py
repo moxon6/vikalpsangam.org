@@ -7,7 +7,7 @@ def get_url(article_name):
     return f'http://localhost:8000/article/{article_name}/'
 
 if len(sys.argv) < 2:
-    raise SystemExit("Please pass checkpoint index to roll back to.\n")
+    raise SystemExit("Please pass checkpoint index to verify.\n")
 
 def get_filename(checkpoint_name):
     for checkpoint in os.listdir('migrated-articles'):

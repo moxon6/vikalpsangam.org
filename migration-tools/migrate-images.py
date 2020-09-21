@@ -81,11 +81,13 @@ def migrate_image_metadata(cur, connection):
                 meta_value_dict = {
                     "width": int(width),
                     "height": int(height),
-                    "file": str(get_short_url(image_url))
+                    "file": get_short_url(image_url)
                 }
 
-                serialized = serialize(meta_value_dict).decode("utf-8")
-                meta_query = attachment_meta % (image_id, serialized.replace("\"", "\\\""))
+                serialized = serialize(meta_value_dict)\
+                    .decode("utf-8")\
+                    .replace("\"", "\\\"")
+                meta_query = attachment_meta % (image_id, serialized)
                 cur.execute(meta_query)
                 connection.commit()
         else:
