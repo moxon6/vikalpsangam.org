@@ -16,3 +16,9 @@
 - Run `python migrate-images.py`
 - Run `wp --allow-root taxonomy list --field=name | xargs wp --allow-root term recount` directly on wordpress server
 - Run "Regenerate Thumbnails" from wordpress plugins
+
+### Upcoming for CI
+- Automatically migrate menus
+- Automatically install/enable relevant plugins
+    - Longer URLs plugin
+- Automatically set permalink urls (in settings)
