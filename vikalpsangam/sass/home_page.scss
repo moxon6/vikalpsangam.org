@@ -143,7 +143,21 @@
   }
   .category {
     border-right: 10px solid $light-gray-col;
+
+    .stories-by-category {
+      height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      img {
+        height: auto;
+        width: auto;
+      }
+    }
+
   }
+
+
   .plain-text-sub-section {
     background-color: $white;
     color: $dark-brick-col;
