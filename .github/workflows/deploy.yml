@@ -80,12 +80,8 @@ jobs:
           sudo wp \
             --path=/var/www/html \
             --allow-root \
-             option set "blogname" "Vikalp Sangam"
+            option set "blogname" "Vikalp Sangam"
           sudo wp \
             --path=/var/www/html \
             --allow-root \
-             option set "permalink_structure" "/article/%postname%/"
-          sudo wp \
-             --path=/var/www/html \
-             --allow-root \
-              option set "tag_base" "/tag"
+            rewrite structure "/article/%postname%/" --tag-base="/tag"
