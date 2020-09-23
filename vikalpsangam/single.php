@@ -19,7 +19,7 @@ get_header();
                     <div class="space-xs"></div>
                     <div class="space-xs"></div>
                     <h2>
-                        <? the_title(); ?>
+                        <?php the_title(); ?>
                     </h2>
                     <div id="author-date-category">
                         <span class="author">By <?php echo get_post_meta(get_the_ID(), 'author', TRUE); ?></span>
@@ -28,8 +28,8 @@ get_header();
                         <span class="text">in</span>
                         <a href="<?=$category_link?>"><?=$category_name?></a>
                     </div>
-                    <? get_template_part('template-parts/article/social-media'); ?>
-                    <? the_content(); ?>
+                    <?php get_template_part('template-parts/article/social-media'); ?>
+                    <?php the_content(); ?>
                     <br><br>
                     <div id="story-tags">
                         <span class="story-by">Story Tags:</span>
