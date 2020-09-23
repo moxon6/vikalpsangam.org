@@ -68,3 +68,24 @@ jobs:
             --allow-root \
             --path=/var/www/html \
             --force
+
+    - name: Install theme using Wordpress cli over ssh
+      uses: appleboy/ssh-action@master
+      with:
+        username: ${{ secrets.DEPLOYMENT_USER }}
+        host: ${{ secrets.DEPLOYMENT_HOST }}
+        key: ${{ secrets.DEPLOYMENT_KEY }}
+        port: 22
+        script: |
+          sudo wp \
+            --path=/var/www/html \
+            --allow-root \
+             option set "blogname" "Vikalp Sangam"
+          sudo wp \
+            --path=/var/www/html \
+            --allow-root \
+             option set "permalink_structure" "/article/%postname%/"
+          sudo wp \
+             --path=/var/www/html \
+             --allow-root \
+              option set "tag_base" "/tag"
