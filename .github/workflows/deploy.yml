@@ -69,7 +69,7 @@ jobs:
             --path=/var/www/html \
             --force
 
-    - name: Install theme using Wordpress cli over ssh
+    - name: Update Wordpress settings
       uses: appleboy/ssh-action@master
       with:
         username: ${{ secrets.DEPLOYMENT_USER }}
