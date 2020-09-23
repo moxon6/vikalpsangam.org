@@ -9,8 +9,6 @@
         "order"     => "ASC" );
     $categories = get_categories($args);
     
-
-
     shuffle( $categories );
     $categories = array_slice($categories, 0, 4);
     $ids = [];
@@ -23,7 +21,7 @@
     </div>
     <div class="row no-margin">
         <div class="category-page-category-list-wrapper">
-
+            
             <?php foreach ($categories as $category) {
 
                 $posts = get_posts(array(
@@ -65,7 +63,7 @@
 
                     <div class="row plain-text-sub-section">
                         <p class="col-xs-12">
-                            <a class="see-all-stories" href="{{ article.get_absolute_url }}"><?php the_title(); ?></a>
+                            <a class="see-all-stories" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                         </p>
                     </div>
 
