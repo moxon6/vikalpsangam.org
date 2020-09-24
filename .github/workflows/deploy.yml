@@ -77,8 +77,9 @@ jobs:
         key: ${{ secrets.DEPLOYMENT_KEY }}
         port: 22
         script: |
-          alias wp='sudo wp --allow-root --path=/var/www/html'
-          
+          alias wp='wp --path=/var/www/html'
+          wp option update home "https://dev.vikalpsangam.org"
+          wp option update siteurl "https://dev.vikalpsangam.org"
           wp option set "blogname" "Vikalp Sangam"
           wp rewrite structure "/article/%postname%/" --tag-base="/tag"
           wp plugin install \
