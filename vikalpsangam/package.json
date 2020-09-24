@@ -38,6 +38,7 @@
     "bundle": "dir-archiver --src . --dest ../vikalpsangam.zip --exclude .DS_Store .stylelintrc.json .eslintrc .git .gitattributes .github .gitignore README.md composer.json composer.lock node_modules vendor package-lock.json package.json .travis.yml phpcs.xml.dist sass style.css.map",
     "db:migrate-dump": "php ../tools/migrate-database/pg2mysql_cli.php /workspace/db.sql /workspace/dump-mysql.sql",
     "db:create-new": "MYSQL_PWD=somewordpress mysql -h db -u root < /workspace/tools/create-new-db.sql",
-    "db:upload-mysql-dump": "MYSQL_PWD=somewordpress mysql -h db -u root public < /workspace/dump-mysql.sql"
+    "db:upload-mysql-dump": "MYSQL_PWD=somewordpress mysql -h db -u root public < /workspace/dump-mysql.sql",
+    "sync:media": "rsync -a /mnt/c/dev/vikalp-wordpress/uploads/ ubuntu@vikalp:/var/www/html/wp-content/uploads"
   }
 }
