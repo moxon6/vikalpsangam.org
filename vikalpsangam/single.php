@@ -28,7 +28,6 @@ get_header();
                         <span class="text">in</span>
                         <a href="<?=$category_link?>"><?=$category_name?></a>
                     </div>
-                    <?php get_template_part('template-parts/article/social-media'); ?>
                     <?php the_content(); ?>
                     <br><br>
                     <div id="story-tags">
