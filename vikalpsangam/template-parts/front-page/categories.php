@@ -14,6 +14,13 @@
     $ids = [];
 ?>
 
+<style>
+    .category-image {
+        width: 70px;
+        height: 70px;
+    }
+</style>
+
 <div class="container">
     <div class="row">
         <div class="col-sm-6 col-xs-12"><h2>STORIES BY CATEGORY</h2></div>
@@ -35,6 +42,11 @@
                 $post = $posts[0];
                 array_push($ids, $post -> ID);                
                 setup_postdata( $post );
+
+                $category_image = z_taxonomy_image_url($category->cat_ID);
+                if (!strpos($category_image, "Favicon")) {
+                    $category_image = str_replace(".", "-150x150.", $category_image); // Postfix -150x150 to the image
+                }
             ?>
 
                 <div class="col-xs-6 col-sm-3 category">
@@ -42,7 +54,7 @@
                     <div class="row top-sub-section">
 
                         <div class="col-xs-3">
-                            
+                            <img class="img-responsive category-image" src="<?php echo $category_image ?>" />
                         </div>
 
                         <div class="col-xs-9">
