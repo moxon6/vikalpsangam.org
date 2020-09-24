@@ -78,6 +78,7 @@ jobs:
         port: 22
         script: |
           wp --path=/var/www/html option update home "https://dev.vikalpsangam.org"
+          wp --path=/var/www/html option update siteurl "https://dev.vikalpsangam.org"	
           wp --path=/var/www/html option set "blogname" "Vikalp Sangam"
           wp --path=/var/www/html rewrite structure "/article/%postname%/" --tag-base="/tag"
           wp --path=/var/www/html plugin install \
