@@ -77,12 +77,10 @@ jobs:
         key: ${{ secrets.DEPLOYMENT_KEY }}
         port: 22
         script: |
-          alias wp='wp --path=/var/www/html'
-          wp option update home "https://dev.vikalpsangam.org"
-          wp option update siteurl "https://dev.vikalpsangam.org"
-          wp option set "blogname" "Vikalp Sangam"
-          wp rewrite structure "/article/%postname%/" --tag-base="/tag"
-          wp plugin install \
+          wp --path=/var/www/html option update home "https://dev.vikalpsangam.org"
+          wp --path=/var/www/html option set "blogname" "Vikalp Sangam"
+          wp --path=/var/www/html rewrite structure "/article/%postname%/" --tag-base="/tag"
+          wp --path=/var/www/html plugin install \
             advanced-custom-fields \
             redirection \
             longer-permalinks \
