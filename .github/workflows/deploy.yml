@@ -77,11 +77,15 @@ jobs:
         key: ${{ secrets.DEPLOYMENT_KEY }}
         port: 22
         script: |
-          sudo wp \
-            --path=/var/www/html \
-            --allow-root \
-            option set "blogname" "Vikalp Sangam"
-          sudo wp \
-            --path=/var/www/html \
-            --allow-root \
-            rewrite structure "/article/%postname%/" --tag-base="/tag"
+          alias wp='sudo wp --allow-root --path=/var/www/html'
+          
+          wp option set "blogname" "Vikalp Sangam"
+          wp rewrite structure "/article/%postname%/" --tag-base="/tag"
+          wp plugin install \
+            advanced-custom-fields \
+            redirection \
+            longer-permalinks \
+            categories-images \
+            export-import-menus \
+          --activate
+          
