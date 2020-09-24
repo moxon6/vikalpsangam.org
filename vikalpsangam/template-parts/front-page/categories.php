@@ -59,7 +59,7 @@
 
                         <div class="col-xs-9">
                             <h4>
-                                <a class="see-all-stories" href="<?php echo $categories_url; ?>">
+                                <a class="see-all-stories" href="/article/category/<?php echo $category->slug; ?>">
                                     <?php echo $category -> name ?>
                                 </a>
                             </h4>
