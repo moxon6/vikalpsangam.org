@@ -227,6 +227,13 @@ function vikalpsangam_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	wp_enqueue_style( 'leaflet-css' , 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.css' );
+	wp_enqueue_style( 'leaflet-marker-cluster-css' , 'https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css' );
+	wp_enqueue_style( 'leaflet-marker-default-cluster-css' , 'https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css' );
+
+	wp_enqueue_script( 'leaflet-js' , 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.js' );
+	wp_enqueue_script( 'leaflet-marker-cluster-js' , 'https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js' );
 }
 add_action( 'wp_enqueue_scripts', 'vikalpsangam_scripts' );
 
@@ -298,3 +305,42 @@ function admin_overrides(){
 
 }
 add_action( 'admin_enqueue_scripts', 'admin_overrides' );
+
+
+// Several expensive calls - cache this method?
+function get_article_coordinates($request) {
+
+    $posts = get_posts([
+		"numberposts" => -1
+	]);
+
+	$coordinates = array_map(function($post) {
+		$latitude = get_post_meta($post->ID, 'latitude', TRUE);
+		$longitude = get_post_meta($post->ID, 'longitude', TRUE);
+		return [
+			"title" => get_the_title( $post->ID ),
+			"url" => get_the_permalink($post->ID),
+			"latitude" => (float)$latitude,
+			"longitude" => (float)$longitude,
+		];
+	}, $posts);
+
+	$coordinates = array_filter($coordinates, function($c) {
+		return $c["latitude"] != 0 && $c["longitude"] != 0;
+	});
+
+    if (empty($coordinates)) {
+    	return new WP_Error( 'empty_category', 'the array is empty', array('status' => 404) );
+    }
+
+    $response = new WP_REST_Response($coordinates);
+    $response->set_status(200);
+    return $response;
+}
+
+add_action('rest_api_init', function () {
+	register_rest_route( 'vikalpsangam/v1', 'map', array(
+		'methods'  => 'GET',
+		'callback' => 'get_article_coordinates'
+	));
+  });
