@@ -1,17 +1,23 @@
 <?php 
     $article_content = $args['article_content'];
-    $categories_url = "/article"; // TODO : Replace this
-
-    $args = array(
+    $categories = get_categories([
         "hide_empty" => 1,
         "type"      => "post",      
         "orderby"   => "name",
-        "order"     => "ASC" );
-    $categories = get_categories($args);
+        "order"     => "ASC" 
+    ]);
     
     shuffle( $categories );
     $categories = array_slice($categories, 0, 4);
     $ids = [];
+
+    function get_category_image($category) {
+        $category_image = z_taxonomy_image_url($category->cat_ID);
+        if (!strpos($category_image, "Favicon")) {
+            $category_image = str_replace(".", "-150x150.", $category_image); // Postfix -150x150 to the image
+        }
+        return $category_image;
+    }
 ?>
 
 <style>
@@ -43,10 +49,7 @@
                 array_push($ids, $post -> ID);                
                 setup_postdata( $post );
 
-                $category_image = z_taxonomy_image_url($category->cat_ID);
-                if (!strpos($category_image, "Favicon")) {
-                    $category_image = str_replace(".", "-150x150.", $category_image); // Postfix -150x150 to the image
-                }
+                $category_image = get_category_image($category);
             ?>
 
                 <div class="col-xs-6 col-sm-3 category">
