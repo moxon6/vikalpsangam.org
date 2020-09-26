@@ -8,7 +8,7 @@ get_header();
     $get_cat        = get_the_category();
     $first_cat      = $get_cat[0];
     $category_name  = $first_cat->cat_name;
-    $category_link  = get_category_link( $first_cat->cat_ID );
+    $category_link  = get_category_link( $first_cat->term_id );
 ?>
 <div id="content">
     <div class="section generic_section">
