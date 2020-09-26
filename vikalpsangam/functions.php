@@ -214,15 +214,15 @@ add_action( 'widgets_init', 'vikalpsangam_widgets_init' );
  * Enqueue scripts and styles.
  */
 function vikalpsangam_scripts() {
-	wp_enqueue_style( 'vikalpsangam-style', get_stylesheet_uri(), array(), vikalpsangam_VERSION );
+	wp_enqueue_style( 'vikalpsangam-style', get_stylesheet_uri(), array() );
 	wp_style_add_data( 'vikalpsangam-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( 'jq', 'https://code.jquery.com/jquery-1.7.1.js', array(), vikalpsangam_VERSION, true );	
-	wp_enqueue_script( 'app', get_template_directory_uri() . '/js/app.js', array(), vikalpsangam_VERSION, true );	
-	wp_enqueue_script( "unslider", get_template_directory_uri().'/js-vendor/unslider.min.js', [ "jq" ] , vikalpsangam_VERSION, true);
-	wp_enqueue_script( "carousel", get_template_directory_uri().'/js-vendor/carousel.js', [ "unslider" ] , vikalpsangam_VERSION, true);
-	wp_enqueue_script( "bootstrap", get_template_directory_uri().'/js-vendor/bootstrap.js', [ "carousel" ] , vikalpsangam_VERSION, true);
-	wp_enqueue_script( "modern-business", get_template_directory_uri().'/js-vendor/modern-business.js', [ "carousel", "bootstrap" ] , vikalpsangam_VERSION, true);
+	wp_enqueue_script( 'jq', 'https://code.jquery.com/jquery-1.7.1.js', array(), true );	
+	wp_enqueue_script( 'app', get_template_directory_uri() . '/js/app.js', array(), true );	
+	wp_enqueue_script( "unslider", get_template_directory_uri().'/js-vendor/unslider.min.js', [ "jq" ] , true);
+	wp_enqueue_script( "carousel", get_template_directory_uri().'/js-vendor/carousel.js', [ "unslider" ] , true);
+	wp_enqueue_script( "bootstrap", get_template_directory_uri().'/js-vendor/bootstrap.js', [ "carousel" ] , true);
+	wp_enqueue_script( "modern-business", get_template_directory_uri().'/js-vendor/modern-business.js', [ "carousel", "bootstrap" ] , true);
 	
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -343,4 +343,17 @@ add_action('rest_api_init', function () {
 		'methods'  => 'GET',
 		'callback' => 'get_article_coordinates'
 	));
-  });
+});
+
+
+function get_category_image($category) {
+	$category_image = z_taxonomy_image_url($category->cat_ID);
+	if (!strpos($category_image, "Favicon")) {
+		$category_image = str_replace(".", "-150x150.", $category_image); // Postfix -150x150 to the image
+	}
+	return $category_image;
+}
+
+function filter_excerpt($excerpt) {
+	return wp_trim_words($excerpt, apply_filters("excerpt_length", 20));
+}
