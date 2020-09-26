@@ -1,6 +1,6 @@
 <?php setup_postdata( $args["post"] ); ?>
 <div class="col-xs-6 col-sm-4 category">
-    <a class="category-link-wrapper" href="<?=$article['url'] ?>">
+    <a class="category-link-wrapper" href="<?php echo get_the_permalink(); ?>">
         <div class="top-sub-section">
             <h4 style="height: 64px;"><?php the_title() ?></h4>
         </div>
@@ -14,7 +14,7 @@
             </p>
     </div>
     <div class="read-more-wrapper">
-            <a class="read-more" href="<?=$article['url'] ?>">
+            <a class="read-more" href="<?php echo get_the_permalink(); ?>">
                 Read More
             </a>
         </div>
