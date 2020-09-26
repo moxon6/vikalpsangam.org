@@ -1,50 +1,5 @@
 /* eslint-env jquery */
 
-const FixCategoryHeight = ( function() {
-	function setHeight() {
-		$( '.category-page-category-list-wrapper' ).each( function() {
-			const ele = $( this );
-			let maxHHeight = 0;
-			let maxPHeight = 0;
-			let maxAHeight = 0;
-
-			ele.find( 'h4' ).each( function() {
-				if ( maxHHeight < $( this ).innerHeight() ) {
-					maxHHeight = $( this ).innerHeight();
-				}
-			} );
-
-			ele.find( 'p' ).each( function() {
-				if ( maxPHeight < $( this ).innerHeight() ) {
-					maxPHeight = $( this ).innerHeight();
-				}
-			} );
-
-			ele.find( '.category-title-wrapper' ).each( function() {
-				if ( maxAHeight < $( this ).innerHeight() ) {
-					maxAHeight = $( this ).innerHeight();
-				}
-			} );
-
-			ele.find( 'h4' ).each( function() {
-				$( this ).css( 'height', maxHHeight + 'px' );
-			} );
-			ele.find( 'p' ).each( function() {
-				$( this ).css( 'height', maxPHeight + 'px' );
-			} );
-			ele.find( '.category-title-wrapper' ).each( function() {
-				$( this ).css( 'height', maxAHeight + 'px' );
-			} );
-		} );
-	}
-
-	return {
-		init() {
-			setHeight();
-		},
-	};
-}() );
-
 const FixCarousalHeight = ( function() {
 	function setHeight() {
 		const featureListHeight = $( '.featured-list' ).innerHeight();
@@ -246,7 +201,6 @@ $( document ).ready( function() {
 } );
 
 $( window ).load( function() {
-	// FixCategoryHeight.init();
 	FixCarousalHeight.init();
 	SetPageSeparatorBar.init();
 	CommentsUI.init();
