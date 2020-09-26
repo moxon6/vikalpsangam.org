@@ -37,9 +37,10 @@ jobs:
       working-directory: vikalpsangam
       run: npm run build:scss-rtl
 
-    - name: "Lint js"
-      working-directory: vikalpsangam
-      run: npm run lint:js
+    # TODO: Allow use of async/await syntax
+    # - name: "Lint js"
+    #   working-directory: vikalpsangam
+    #   run: npm run lint:js
 
     - name: "Bundle"
       working-directory: vikalpsangam
