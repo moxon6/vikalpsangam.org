@@ -246,7 +246,7 @@ $( document ).ready( function() {
 } );
 
 $( window ).load( function() {
-	FixCategoryHeight.init();
+	// FixCategoryHeight.init();
 	FixCarousalHeight.init();
 	SetPageSeparatorBar.init();
 	CommentsUI.init();
