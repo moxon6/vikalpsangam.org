@@ -7,20 +7,6 @@
     ]);
 ?>
 
-<style>
-    /* TODO: Integrate this with SCSS stylesheets during refactor */
-    .category-title-link {
-        background-size: contain;
-    }
-
-    .excerpt {
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        height: 34px;
-        overflow: hidden;
-    }
-</style>
 
 <div id="content">
     <div class="section generic_section">
@@ -61,7 +47,7 @@
                                 <a class="category-title-link"
                                     title="Case studies commissioned by Vikalp Sangam or other processes"
                                     style="background-image: url('<?php echo get_category_image($category); ?>')"
-                                    href="/article/category/<?php echo $category->slug; ?>">
+                                    href="<?php echo get_category_link($category->term_id); ?>">
                                     <?php echo $category -> name ?>
                                 </a>
                             </div>
