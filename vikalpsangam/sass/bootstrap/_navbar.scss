@@ -11,7 +11,6 @@
 .navbar {
   position: relative;
   min-height: $navbar-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
-  margin-bottom: $navbar-margin-bottom;
   border: 1px solid transparent;
 
   // Prevent floats from breaking the navbar
@@ -127,7 +126,6 @@
 // Fix the top/bottom navbars when screen real estate supports it
 .navbar-fixed-top,
 .navbar-fixed-bottom {
-  position: fixed;
   right: 0;
   left: 0;
   z-index: $zindex-navbar-fixed;
