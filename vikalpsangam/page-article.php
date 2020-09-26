@@ -1,17 +1,26 @@
 <?php
-
-get_header();
-
+    get_header();
+    $categories = get_categories([
+        "type"      => "post",      
+        "orderby"   => "name",
+        "order"     => "ASC" 
+    ]);
 ?>
 
-<?php
-    $page_title ="PERSPECTIVES";
-    $category_page_heading = "/static/media/uploads/.thumbnails/perspectives_1_1-50x50.png";
+<style>
+    /* TODO: Integrate this with SCSS stylesheets during refactor */
+    .category-title-link {
+        background-size: contain;
+    }
 
-    $stories = file_get_contents(get_template_directory() ."/mock-data/stories.json");
-    $categories = json_decode($stories, true);
-    $articles = $categories[0]['articles'];
-?>
+    .excerpt {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        height: 34px;
+        overflow: hidden;
+    }
+</style>
 
 <div id="content">
     <div class="section generic_section">
@@ -37,26 +46,30 @@ get_header();
                         </div>
                     </div>
                     <section id="storypage-categories" class="row">
-                        <?php foreach($categories as $category){?>
+                        <?php foreach($categories as $category){
+                            $posts = get_posts(array(
+                                'numberposts'	=> 3,
+                                'post_type'		=> 'post',
+                                "orderby"   => "date",
+                                "order"     => "DSC",
+                                'category'	=> $category -> cat_ID
+                            ));
+                        ?>
 
                         <div class="col-xs-12 category-topping-wrapper">
                             <div class="category-page-heading">
                                 <a class="category-title-link"
                                     title="Case studies commissioned by Vikalp Sangam or other processes"
-                                    style="background-image: url('<?=$category['image']?>')"
-                                    href="<?=$category['url'] ?>">
-                                    <?=$category['title'] ?>
+                                    style="background-image: url('<?php echo get_category_image($category); ?>')"
+                                    href="/article/category/<?php echo $category->slug; ?>">
+                                    <?php echo $category -> name ?>
                                 </a>
                             </div>
 
                             <div class="row category-page-category-list-wrapper">
-                                <?php foreach($category['articles'] as $article){
-                                    get_template_part( 'template-parts/common/article-tile', null, [ "article" => $article ]);
+                                <?php foreach($posts as $post){
+                                    get_template_part( 'template-parts/common/article-tile', null, [ "post" => $post ]);
                                 } ?>
-                            </div>
-
-                            <div class="read-more-wrapper">
-                                <a class="read-more" href="<?=$category['url'] ?>"> See all stories </a>
                             </div>
                         </div>
                         <?php } ?>
@@ -74,5 +87,4 @@ get_header();
 </div>
 
 <?php
-
-get_footer();
+    get_footer();

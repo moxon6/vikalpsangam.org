@@ -168,7 +168,6 @@ header {
 
 .read-more-wrapper {
   text-align: right;
-  margin: 0px 0px 25px 0px;
   padding-right: 10px;
 }
 
@@ -555,5 +554,20 @@ a.carousel-control {
   a{
     display: inline-block;
     margin-right: 10px;
+  }
+}
+
+
+.category-image-wrapper {
+  background-color: #e6e7e8;
+  .category-image {
+    height: 218px;
+    object-fit: cover;
+    width: 327px;
+    image-rendering: -moz-crisp-edges;         /* Firefox */
+    image-rendering:   -o-crisp-edges;         /* Opera */
+    image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
+    image-rendering: crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor;  /* IE (non-standard property) */
   }
 }

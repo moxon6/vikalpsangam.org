@@ -1,22 +1,21 @@
-<?php $article = $args['article']; ?>
+<?php setup_postdata( $args["post"] ); ?>
 <div class="col-xs-6 col-sm-4 category">
     <a class="category-link-wrapper" href="<?=$article['url'] ?>">
         <div class="top-sub-section">
-            <h4 style="height: 64px;"><?=$article['title']?></h4>
+            <h4 style="height: 64px;"><?php the_title() ?></h4>
         </div>
-        <div class="image-sub-section col-xs-12">
-
-            <img class="img-responsive" src="<?=$article['image'] ?>">
-
+        <div class="category-image-wrapper">
+            <?php the_post_thumbnail("large", ["class" => "img-responsive category-image"]) ?>
         </div>
     </a>
     <div class="plain-text-sub-section">
-        <p class="col-xs-12" style="height: 54px;"><?=$article['description']?></p>
-
-        <div class="read-more-wrapper">
+            <p class="col-cs-12 excerpt"> 
+                <?php echo filter_excerpt(get_the_excerpt()); ?>
+            </p>
+    </div>
+    <div class="read-more-wrapper">
             <a class="read-more" href="<?=$article['url'] ?>">
                 Read More
             </a>
         </div>
-    </div>
 </div>
