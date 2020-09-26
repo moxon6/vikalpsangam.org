@@ -4,12 +4,27 @@ require_once  get_template_directory() .'/mock-data/tags.php';
 require_once  get_template_directory() .'/mock-data/categories.php';
 require_once  get_template_directory() .'/mock-data/recent-activity.php';
 
-function getArticleUrl($tagName) {
-    $articleUrl = str_replace(" ", "-", $tagName);
-    $articleUrl = str_replace(",", "", $articleUrl);
-    return strtolower($articleUrl);
-}
+$categories = get_categories([
+    "type"      => "post",      
+    "orderby"   => "name",
+    "order"     => "ASC" 
+]);
+
 ?>
+
+<style>
+    .sidebar-icon {
+        width: 30px;
+        height: 30px;
+        margin-right: 3px;
+        margin-bottom: 5px;
+        image-rendering: -moz-crisp-edges;         /* Firefox */
+        image-rendering:   -o-crisp-edges;         /* Opera */
+        image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
+        image-rendering: crisp-edges;
+        -ms-interpolation-mode: nearest-neighbor;  /* IE (non-standard property) */
+    }
+</style>
 
 <!-- TODO: Replace these spacer -->
 <div class="space-xs"></div>
@@ -22,8 +37,9 @@ function getArticleUrl($tagName) {
         <div class="col-xs-12 col-sm-6 col-md-12 no-padding">
             <ul class="list-unstyled">
                 <?php foreach($categories as $category){ ?>
-                    <li style="list-style-image:url(<?=$category['thumbnail_image'] ?>)">
-                        <a href="<?=$category['url']?>"><?=$category['title'] ?></a>
+                    <li>
+                        <img class="sidebar-icon" src="<?php echo get_category_image($category); ?>">
+                        <a href="<?php echo get_category_link($category->term_id); ?>"><?php echo $category->name ?></a>
                     </li>
                 <?php } ?>
 
@@ -32,41 +48,61 @@ function getArticleUrl($tagName) {
     </div>
 </div>
 
+<?php
+    $recent_posts = get_posts(array(
+            'numberposts' => 10,
+            'post_type'	=> 'post',
+            "orderby" => "date",
+            "order" => "DSC"
+    ));
+
+    function get_tags_from_post($posts) {
+        $ids = [];
+        $tags = [];
+        foreach($posts as $post) {
+            $post_tags = get_the_tags($post->ID);
+            foreach($post_tags as $tag) {
+                if (!in_array($ids, $tag->term_id)) {
+                    $ids[] = $tag->term_id;
+                    $tags[] = $tag;
+                }
+            }
+        }
+        return $tags;
+    }
+    
+    $tags = get_tags_from_post($recent_posts);    
+?>
+
 <h5>Explore Stories</h5>
 <div id="tag-cloud" class="tag-cloud-wrapper">
     <div class="tag_cloud">
-        <?php foreach($tags as $tag){ ?>
-            <a href="/article/tag/<?=getArticleUrl($tag['name']); ?>" class="tag-weight-<?=$tag['weight'] ?>"><?=$tag['name'] ?> </a>
+        
+        <?php 
+            function getWeight($count) {
+                if ($count > 150) {
+                    return 3;
+                }
+                if ($count > 50) {
+                    return 2;
+                }
+                return 1;
+            }
+            foreach($tags as $tag){ 
+            ?>
+            <a href="/article/tag/<?php echo $tag->slug; ?>" class="tag-weight-<?php echo getWeight($tag->count); ?>"><?php echo $tag->name ?> </a>
+
         <?php } ?>
     </div>
 </div>
 
 <h5>Stories by Location</h5>
-<a href="/map">
-    <h1>TODO: Map Component</h1>
-</a>
 
-<h5>Recent Activity On</h5>
-<div class="featured-list in-sidebar">    
-    <ul class="list-unstyled">
-        <?php foreach($recent_articles as $article){ ?>
-            <li class="row">
-                <div class="col-xs-4">
-                    <img class="img-responsive" src="<?=$article['thumbnail_url'] ?>">
-                </div>
-                <div class="col-xs-8">
-                    <a href="/article/<?=getArticleUrl($article['name']);?>">
-                        <h4 id="featured-article" class="media-heading"><?=$article['name']; ?></h4>
-                    </a>
-                </div>
-            </li>
-        <?php } ?>
-    </ul>
-</div>
+<div id="map" class="sidebar-map"></div>
+<script> renderMap('map'); </script>
 
 <h5>Events</h5>
 <div id="events-in-sidebar" style="padding-bottom: 10px">
-    <iframe width="100%" height="285" src="http://vs-calender.s3-website.ap-south-1.amazonaws.com/"></iframe>
+    <div data-tockify-component="mini" data-tockify-calendar="alternatives"></div>
+    <script data-cfasync="false" data-tockify-script="embed" src="https://public.tockify.com/browser/embed.js"></script>
 </div>
-
-<!-- Notes: Some h5 elements have been moved out of their divs -->
