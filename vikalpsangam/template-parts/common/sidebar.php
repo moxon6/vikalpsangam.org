@@ -62,7 +62,7 @@ $categories = get_categories([
         foreach($posts as $post) {
             $post_tags = get_the_tags($post->ID);
             foreach($post_tags as $tag) {
-                if (!in_array($ids, $tag->term_id)) {
+                if (!in_array($tag->term_id, $ids)) {
                     $ids[] = $tag->term_id;
                     $tags[] = $tag;
                 }
