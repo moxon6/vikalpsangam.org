@@ -21,7 +21,7 @@ get_header();
                         
                     </div>
 
-                    <div id="map"> </div>
+                    <div id="large-map"> </div>
                 </div>
                 <div class="col-sm-12 col-md-3 right-section left-border-separator">
                     <?php get_template_part('template-parts/common/sidebar') ?>
@@ -32,14 +32,14 @@ get_header();
 </div>
 
 <style>
-    #map {
+    #large-map {
         height: 800px;
     }
 </style>
 
 <script>
 
-    renderMap('map');
+    renderMap('large-map');
 </script>
 
 <?php
