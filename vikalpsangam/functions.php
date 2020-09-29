@@ -361,11 +361,9 @@ function filter_excerpt($excerpt) {
 class Categories {
         
 	function __construct() {
-		$cats = array_values(get_categories());
-
 		$this->unusedCategories = array_map(
 			fn($category) => $category->term_id,
-			$cats
+			array_values(get_categories())
 		);
 		$this->usedCategories = [];
 		$this->usedPosts = [];
