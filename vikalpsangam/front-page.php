@@ -4,6 +4,7 @@
 
 $NUMBER_OF_CAROUSEL_ITEMS = 3;
 $NUMBER_PROMOTED_ARTICLES = 3;
+$NUMBER_STORIES_BY_CATEGORY = 4;
 
 $carousel_items = get_posts(array(
 	'numberposts'	=> $NUMBER_OF_CAROUSEL_ITEMS,
@@ -18,6 +19,8 @@ $promoted_articles = get_posts(array(
 	'meta_key'		=> 'promoted',
 	'meta_value'	=> '1'
 ));
+
+$categoryPosts = (new Categories())->getCategoryPosts($NUMBER_STORIES_BY_CATEGORY);
 
 ?>
 
@@ -39,7 +42,7 @@ $promoted_articles = get_posts(array(
     </section>
 
     <section class="category-section">
-        <?php get_template_part( 'template-parts/front-page/categories', null, [ "article_content" => $article_content ]); ?>
+        <?php get_template_part( 'template-parts/front-page/categories', null, [ "categoryPosts" => $categoryPosts ]); ?>
     </section>
 
     <section class="about_section">

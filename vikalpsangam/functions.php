@@ -357,3 +357,58 @@ function get_category_image($category) {
 function filter_excerpt($excerpt) {
 	return wp_trim_words($excerpt, apply_filters("excerpt_length", 20));
 }
+
+class Categories {
+        
+	function __construct() {
+		$cats = array_values(get_categories());
+
+		$this->unusedCategories = array_map(
+			fn($category) => $category->term_id,
+			$cats
+		);
+		$this->usedCategories = [];
+		$this->usedPosts = [];
+	}
+
+	function getRelevantCategory($post) {        
+		return wp_get_post_categories(
+			$post -> ID,
+			[ 
+				'fields' => 'all',
+				"exclude" => $this->usedCategories
+			]
+		)[0];
+	}
+
+	function getLatestRelevantPost() {
+		$post = get_posts(array(
+			'numberposts'	=> 1,
+			'post_type'		=> 'post',
+			"orderby"   => "date",
+			"order"     => "DSC",
+			'category__in'	=> $this->unusedCategories,
+			"exclude" => $this->usedPosts
+		))[0];
+
+		$this->usedPosts[] = $post->ID;
+
+		$category = $this->getRelevantCategory($post);
+
+		$this->unusedCategories = array_filter($this->unusedCategories, fn($cat) => $cat != $category->term_id);
+		$this->usedCategories[] = $category->term_id;
+
+		return [
+			"post" => $post,
+			"category" => $category
+		];
+	}
+
+	function getCategoryPosts($n) {
+		$posts = [];
+		for ($i = 0; $i < $n; $i++) {
+			$posts[] = $this->getLatestRelevantPost();
+		}
+		return $posts;
+	}
+}

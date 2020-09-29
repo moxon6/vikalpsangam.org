@@ -1,17 +1,5 @@
 <?php 
-    $article_content = $args['article_content'];
-    $categories = get_categories([
-        "hide_empty" => 1,
-        "type"      => "post",      
-        "orderby"   => "name",
-        "order"     => "ASC" 
-    ]);
-    
-    shuffle( $categories );
-    $categories = array_slice($categories, 0, 4);
-    $ids = [];
-
-
+    $categoryPosts = $args['categoryPosts'];
 ?>
 
 <style>
@@ -28,24 +16,15 @@
     </div>
     <div class="row no-margin">
         <div class="category-page-category-list-wrapper">
-            
-            <?php foreach ($categories as $category) {
 
-                $posts = get_posts(array(
-                    'numberposts'	=> 1,
-                    'post_type'		=> 'post',
-                    "orderby"   => "date",
-                    "order"     => "DSC",
-                    "exclude" => $ids,
-                    'category'	=> $category -> cat_ID
-                ));
-                $post = $posts[0];
-                array_push($ids, $post -> ID);                
+            <?php 
+
+            foreach ($categoryPosts as $categoryPost) {
+                $post = $categoryPost["post"];
                 setup_postdata( $post );
-
-                $category_image = get_category_image($category);
+                $category = $categoryPost["category"];
+                $category_image = get_category_image($category);                 
             ?>
-
                 <div class="col-xs-6 col-sm-3 category">
 
                     <div class="row top-sub-section">
