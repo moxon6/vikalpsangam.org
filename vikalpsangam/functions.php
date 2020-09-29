@@ -405,10 +405,9 @@ class Categories {
 	}
 
 	function getCategoryPosts($n) {
-		$posts = [];
-		for ($i = 0; $i < $n; $i++) {
-			$posts[] = $this->getLatestRelevantPost();
-		}
-		return $posts;
+		return array_map(
+			fn($i) => $this->getLatestRelevantPost(),
+			range(0, $n - 1)
+		);
 	}
 }
