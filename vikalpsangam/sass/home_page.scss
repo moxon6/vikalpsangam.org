@@ -145,6 +145,7 @@
     border-right: 10px solid $light-gray-col;
 
     .stories-by-category {
+      overflow: hidden;
       height: 220px;
       display: flex;
       flex-direction: column;

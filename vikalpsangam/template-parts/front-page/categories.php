@@ -45,7 +45,7 @@
 
                     <div class="row image-sub-section">
                         <div class="col-xs-12 stories-by-category">
-                            <?php echo the_post_thumbnail(["auto",218], ["class" => "img-responsive"]); ?>
+                            <?php echo the_post_thumbnail(["auto",221], ["class" => "img-responsive"]); ?>
                         </div>
                     </div>
 
