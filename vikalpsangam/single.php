@@ -28,23 +28,14 @@ get_header();
                         <span class="text">in</span>
                         <a href="<?=$category_link?>"><?=$category_name?></a>
                     </div>
+                    <div class="download-social-bar btn-toolbar" role="toolbar" id="social-media-sharing"></div>
+
+
+                    
                     <?php the_content(); ?>
                     <br><br>
                     <div id="story-tags">
-                        <span class="story-by">Story Tags:</span>
-                        <!-- TODO: Generate Tag Links -->
-                        <!--
-                            <a href="/article/tag/youth">youth</a>,
-                            <a href="/article/tag/water">water</a>,
-                            <a href="/article/tag/water-security">water security</a>,
-                            <a href="/article/tag/waste">waste</a>,
-                            <a href="/article/tag/waste-management">waste management</a>,
-                            <a href="/article/tag/technology">technology</a>,
-                            <a href="/article/tag/students">students</a>,
-                            <a href="/article/tag/responsible">responsible</a>,
-                            <a href="/article/tag/environmental-issues">environmental issues</a>,
-                            <a href="/article/tag/pollution">pollution</a>
-                        -->
+                        <?php the_tags("Story Tags: ") ?>
                     </div>
                     <div class="space-xs"></div>
                     <div class="row border-bottom-only-wrapper default-margin-right-margin">
