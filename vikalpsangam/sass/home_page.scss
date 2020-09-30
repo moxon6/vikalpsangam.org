@@ -143,6 +143,8 @@
   }
   .category {
     border-right: 10px solid $light-gray-col;
+    display: flex;
+    flex-direction: column;
 
     .stories-by-category {
       overflow: hidden;
@@ -162,6 +164,7 @@
   .plain-text-sub-section {
     background-color: $white;
     color: $dark-brick-col;
+    flex: 1;
     p {
       font-weight: normal;
       text-transform: uppercase;
