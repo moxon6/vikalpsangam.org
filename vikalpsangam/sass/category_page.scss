@@ -84,14 +84,18 @@
 }
 
 .category-page-category-list-wrapper {
+  display: flex;
   margin: 10px 0px 0px 0px;
+  flex-wrap: wrap;
 }
 
 .category-topping-wrapper {
   padding: 0;
   .category-link-wrapper{
+    flex: 1;
     text-decoration: none;
-    display: block;
+    display: flex;
+    flex-direction: column;
     &:hover{
       text-decoration: none;
       h4{
@@ -119,10 +123,17 @@
     border-right: 10px solid $white;
     background-color: #F1F1F2;
     margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
   }
   .image-sub-section {
     padding: 0px;
   }
+
+  .top-sub-section {
+    flex: 1;
+  }
+
   .top-sub-section h4 {
     background-color: $lighter-gray-col;
     color: $black;
