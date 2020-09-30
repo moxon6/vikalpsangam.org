@@ -409,3 +409,16 @@ class Categories {
 		);
 	}
 }
+
+function custom_rewrite_rule() {
+	add_rewrite_rule( '^resources\/(.*)\/?', 'index.php?pagename=resources&resource=$matches[1]', 'top' );
+}
+add_action('init', 'custom_rewrite_rule', 10, 0);
+
+flush_rewrite_rules();
+
+function register_custom_query_vars( $vars ) {
+	$vars[] = "resource";
+    return $vars;
+}
+add_filter( 'query_vars', 'register_custom_query_vars', 1 );
