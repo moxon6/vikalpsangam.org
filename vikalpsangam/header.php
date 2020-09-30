@@ -97,10 +97,10 @@ Bootstrap/JS setup https://trello.com/c/fGN1hfZm
         $items_wrap = '<ul id="%1$s" class="%2$s">%3$s';
         $items_wrap .= '
             <li>
-                <form action="/search/" class="navbar-form navbar-search navbar-right">
+                <form action="/" class="navbar-form navbar-search navbar-right">
                     <span class="search-box-wrapper">
                         <i class="glyphicon glyphicon-search"></i>
-                        <input class="search-query form-control" placeholder="Search" type="text" name="q" value=""> 
+                        <input class="search-query form-control" placeholder="Search" type="text" name="s" value=""> 
                     </span>
                 </form>
             </li>
