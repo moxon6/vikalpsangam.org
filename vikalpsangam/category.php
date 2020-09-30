@@ -1,12 +1,6 @@
  <?php
 
 get_header();
-
-?>
-
- <?php
-    $category_str = file_get_contents(get_template_directory() ."/mock-data/category.json");
-    $category = json_decode($category_str, true);
 ?>
 
  <div id="content">
@@ -39,11 +33,13 @@ get_header();
                          </div>
 
                      </div>
-
+                  
                     <div class="row category-page-category-list-wrapper category-topping-wrapper">                        
-                        <?php foreach($category['articles'] as $article){
-                            get_template_part( 'template-parts/common/article-tile', null, [ "article" => $article ]);
-                        } ?>
+                        <?php
+                            while ( have_posts() ) {
+                                get_template_part( 'template-parts/common/article-tile', null, [ "post" => the_post() ]);
+                            }
+                        ?>
                     </div>
                      
                  </div>
