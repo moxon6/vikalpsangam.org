@@ -32,11 +32,9 @@ get_header();
                         </div>
                     </div>
                     <div class="row category-page-category-list-wrapper category-topping-wrapper" id="articles-list">
-                        <?php
-                            foreach ($articles as $article) {
-                                get_template_part( 'template-parts/page-stories/article-tile', null, [ "article" => $article ]); 
-                            }
-                        ?>
+                        <?php foreach($posts as $post){
+                            get_template_part( 'template-parts/common/article-tile', null, [ "post" => $post ]);
+                        } ?>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-3 right-section">
