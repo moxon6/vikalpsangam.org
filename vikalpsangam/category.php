@@ -1,6 +1,5 @@
  <?php
-
-get_header();
+    get_header();
 ?>
 
  <div id="content">
@@ -14,22 +13,15 @@ get_header();
 
                      <div class="category-page-heading">
 
-                         <div class="category-title-link" style="background-image: url('<?=$category['image']?>')">
-                             <?=$category['title'] ?>
-                         </div>
+                        <a class="category-title-link"
+                            title="Case studies commissioned by Vikalp Sangam or other processes"
+                            style="background-image: url('<?php echo get_category_image($category); ?>')"
+                            href="<?php echo get_category_link($category->term_id); ?>">
+                            <?php single_cat_title(); ?>
+                        </a>
 
-
-                         <div class="category-description">
-                             <p class="long" style="display:none">
-                                <?=$category['long_description'] ?>
-                                 <a href="javascript:void(0);" class="category-desc-collapse-description"><span
-                                         class="glyphicon glyphicon-circle-arrow-up"></span>&nbsp;Collapse</a>
-                             </p>
-
-                             <p class="short"><?=$category['short_description'] ?>
-                                 <a href="javascript:void(0);" class="read-more-description"><span
-                                         class="glyphicon glyphicon-circle-arrow-down"></span>&nbsp;Read More</a>
-                             </p>
+                         <div class="category-description">                             
+                            <?php echo category_description(); ?>
                          </div>
 
                      </div>
