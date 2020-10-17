@@ -16,3 +16,8 @@ There are no official tools for migrating directly from django to wordpress.
 - Run the following on the dev server to restore the settings
     - `wp --path=/var/www/html option update home "https://dev.vikalpsangam.org"`
     - `wp --path=/var/www/html option update siteurl "https://dev.vikalpsangam.org"	`
+
+### Post migration steps
+- Ensure long urls plugin is enabled
+- Run verify-endpoints.py on latest `migrated-articles` list to check non-ascii url compatibility
+- Ensure redirect rules match `redirect-rules.json` (import into plugin if not)
