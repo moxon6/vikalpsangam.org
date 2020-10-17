@@ -6,9 +6,7 @@
 
 <head>
 
-<!-- TODO: Generate Title from WordPress https://trello.com/c/pJ7YdvJ3 -->
-<!-- TODO: Add Favicon https://trello.com/c/KK5qq2m9 -->
-<!-- <link rel="shortcut icon" href="{% static "img/favicon.png?v=4" %}"> -->
+<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.png" />
 <meta charset="utf-8">
 
 <!-- TODO : Generate Meta tags based on WP https://trello.com/c/cQgCxZuu -->
