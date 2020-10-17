@@ -14,8 +14,8 @@
                         <a href="https://www.facebook.com/pages/Vikalp-Sangam/483165198462325">
                             <img src="<?php bloginfo('template_url'); ?>/images/footer/facebook_page_footer.png" class="img-responsive" width="50px">
                         </a>
-                        <a href="/feeds">
-                            <img src="<?php bloginfo('template_url'); ?>/images/footer/rss_page_footer.png" class="img-responsive" width="50px">
+                        <a href="https://www.instagram.com/vikalpsangam">
+                            <img src="<?php bloginfo('template_url'); ?>/images/footer/instagram.png" class="img-responsive" width="50px">
                         </a>
                     </div>
                 </div>
