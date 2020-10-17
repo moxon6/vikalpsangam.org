@@ -21,13 +21,19 @@ get_header();
                     <h2>
                         <?php the_title(); ?>
                     </h2>
-                    <div id="author-date-category">
-                        <span class="author">By <?php echo get_post_meta(get_the_ID(), 'author', TRUE); ?></span>
-                        <span class="text">on</span>
-                        <span class="date"><?php echo get_the_date("M. d, Y") ?></span> 
-                        <span class="text">in</span>
-                        <a href="<?=$category_link?>"><?=$category_name?></a>
-                    </div>
+                        <div id="author-date-category">
+                            <?php
+                                $author = get_post_meta(get_the_ID(), 'author', TRUE);
+                                if (strlen($author) > 0) { ?>
+                                    <span class="author">By <?php echo $author; ?></span>
+                                <?php } else { ?>
+                                    <span>Posted</span>
+                            <?php } ?>
+                            <span class="text">on</span>                       
+                            <span class="date"><?php echo get_the_date("M. d, Y") ?></span> 
+                            <span class="text">in</span>
+                            <a href="<?=$category_link?>"><?=$category_name?></a>
+                        </div>
                     <div class="download-social-bar btn-toolbar" role="toolbar" id="social-media-sharing"></div>
 
 
