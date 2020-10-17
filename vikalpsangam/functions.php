@@ -349,7 +349,8 @@ add_action('rest_api_init', function () {
 function get_category_image($category) {
 	$category_image = z_taxonomy_image_url($category->term_id);
 	if (!strpos($category_image, "Favicon")) {
-		$category_image = str_replace(".", "-150x150.", $category_image); // Postfix -150x150 to the image
+		// TODO : Optimise thumbnails post phase 1
+		// $category_image = str_replace(".", "-150x150.", $category_image); // Postfix -150x150 to the image
 	}
 	return $category_image;
 }
