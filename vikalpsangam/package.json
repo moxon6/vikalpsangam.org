@@ -39,6 +39,7 @@
     "db:migrate-dump": "php ../tools/migrate-database/pg2mysql_cli.php /workspace/db.sql /workspace/dump-mysql.sql",
     "db:create-new": "MYSQL_PWD=somewordpress mysql -h db -u root < /workspace/tools/create-new-db.sql",
     "db:upload-mysql-dump": "MYSQL_PWD=somewordpress mysql -h db -u root public < /workspace/dump-mysql.sql",
-    "sync:media": "rsync -a /mnt/c/dev/vikalp-wordpress/uploads/ ubuntu@vikalp:/var/www/html/wp-content/uploads"
+    "sync:media": "rsync -a /mnt/c/dev/vikalp-wordpress/uploads/ ubuntu@vikalp:/var/www/html/wp-content/uploads",
+    "recount-taxonomies": "wp taxonomy --path=/var/www/html list --field=name --allow-root | xargs wp --path=/var/www/html term recount --allow-root"
   }
 }
