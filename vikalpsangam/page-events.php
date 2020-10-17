@@ -1,10 +1,6 @@
 <?php
 get_header();
 ?>
-<?php
-    $events_str = file_get_contents(get_template_directory() ."/mock-data/past-events.json");
-    $events = json_decode($events_str, true);
-?>
 <div id="content">
     <div class="section generic_section">
         <div class="container main-body-container">
@@ -22,16 +18,7 @@ get_header();
 
 
                     <h2>Reports on Past Events</h2>
-                    <ul>
-                        <?php foreach($events as $event) { ?>
-                            <li>
-                                <p><?php echo $event ?></p>
-                            </li>
-                        <?php } ?>
-                    </ul>
-
-
-
+                    <?php the_content(); ?>
                 </div>
                 <div class="col-sm-12 col-md-3 right-section left-border-separator">
                     <?php get_template_part('template-parts/common/sidebar') ?>
