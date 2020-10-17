@@ -21,8 +21,16 @@ get_header();
                         <div class="category-title-link no-icon"><?php single_tag_title("") ?></div>
                     </div>
                     <div class="row category-page-category-list-wrapper category-topping-wrapper" id="articles-list">
-                        <?php foreach($perspectives_articles as $article){
-                            get_template_part( 'template-parts/common/article-tile', null, [ "article" => $article ]);
+                        <?php 
+                        $tag = get_queried_object();
+                        $posts = get_posts(array(
+                            'numberposts' => 12,
+                            'tag' => $tag->slug
+                        ));  
+                        
+                        
+                        foreach($posts as $post){
+                            get_template_part( 'template-parts/common/article-tile', null, [ "article" => $post ]);
                         } ?>
                         <!-- TODO : Reintroduce Endless logic -->
                     </div>
