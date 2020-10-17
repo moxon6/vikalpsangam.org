@@ -16,8 +16,11 @@ get_header();
 
                     <h2>Upcoming Events</h2>
                     <p>Click on the event title to read more details about the event.</p>
-                    <p><iframe height="600px" src="http://vs-calender.s3-website.ap-south-1.amazonaws.com/"
-                            width="100%"></iframe></p>
+
+                    <div data-tockify-component="calendar" data-tockify-calendar="alternatives"></div>
+                    <script data-cfasync="false" data-tockify-script="embed" src="https://public.tockify.com/browser/embed.js"></script>
+
+
                     <h2>Reports on Past Events</h2>
                     <ul>
                         <?php foreach($events as $event) { ?>
