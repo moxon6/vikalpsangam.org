@@ -10,7 +10,7 @@ RUN if [ "${INSTALL_NODE}" = "true" ]; then su vscode -c "source /usr/local/shar
 RUN apt-get update;
 RUN apt-get install -y python3 python3-pip default-mysql-client
 RUN pip3 install mysql-connector-python tqdm sqlparse requests sh phpserialize Pillow
-
+RUN apt-get install -y postgresql-client
 
 # [Optional] Uncomment this section to install additional OS packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
