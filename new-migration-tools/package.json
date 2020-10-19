@@ -5,12 +5,16 @@
   "main": "index.js",
   "scripts": {
     "load_db": "psql --username=postgres --host=postgres --dbname=main -f /workspace/db.postgres.sql",
-    "generate_models:django": "sequelize-auto -o \"./models/django\" -d main -h postgres -u postgres -p 5432 -x postgres -e postgres -l esm",
-    "generate_models:wordpress": "sequelize-auto -o \"./models/wordpress\" -d wordpress -h db -u wordpress -p 3306 -x wordpress -e mysql -l esm"
+    "generate_models:django": "sequelize-auto -o \"./models/django\" -d main -h postgres -u postgres -p 5432 -x postgres -e postgres",
+    "generate_models:wordpress": "sequelize-auto -o \"./models/wordpress\" -d wordpress -h db -u wordpress -p 3306 -x wordpress -e mysql",
+    "start": "babel-node app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/node": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
     "mysql2": "^2.2.5",
     "pg": "^8.4.1",
     "pg-hstore": "^2.3.3",
