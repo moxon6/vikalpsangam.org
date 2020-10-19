@@ -1,10 +1,8 @@
 /* jshint indent: 2 */
 
-import { Model, Sequelize } from 'sequelize';
-
-export default class django_admin_log extends Model {
-  static init(sequelize, DataTypes) {
-  super.init({
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('django_admin_log', {
     id: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
@@ -53,6 +51,4 @@ export default class django_admin_log extends Model {
     schema: 'public',
     timestamps: false
     });
-  return django_admin_log;
-  }
-}
+};

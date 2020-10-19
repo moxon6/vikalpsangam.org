@@ -1,10 +1,8 @@
 /* jshint indent: 2 */
 
-import { Model, Sequelize } from 'sequelize';
-
-export default class pages_richtextpage extends Model {
-  static init(sequelize, DataTypes) {
-  super.init({
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('pages_richtextpage', {
     content: {
       type: DataTypes.TEXT,
       allowNull: false
@@ -24,6 +22,4 @@ export default class pages_richtextpage extends Model {
     schema: 'public',
     timestamps: false
     });
-  return pages_richtextpage;
-  }
-}
+};

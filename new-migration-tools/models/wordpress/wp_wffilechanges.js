@@ -1,10 +1,8 @@
 /* jshint indent: 2 */
 
-import { Model, Sequelize } from 'sequelize';
-
-export default class wp_wffilechanges extends Model {
-  static init(sequelize, DataTypes) {
-  super.init({
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('wp_wffilechanges', {
     filenameHash: {
       type: DataTypes.CHAR(64),
       allowNull: false,
@@ -23,6 +21,4 @@ export default class wp_wffilechanges extends Model {
     tableName: 'wp_wffilechanges',
     timestamps: false
     });
-  return wp_wffilechanges;
-  }
-}
+};

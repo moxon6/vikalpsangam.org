@@ -1,10 +1,8 @@
 /* jshint indent: 2 */
 
-import { Model, Sequelize } from 'sequelize';
-
-export default class galleries_galleryimage extends Model {
-  static init(sequelize, DataTypes) {
-  super.init({
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('galleries_galleryimage', {
     id: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
@@ -37,6 +35,4 @@ export default class galleries_galleryimage extends Model {
     schema: 'public',
     timestamps: false
     });
-  return galleries_galleryimage;
-  }
-}
+};

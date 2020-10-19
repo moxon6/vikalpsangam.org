@@ -1,10 +1,8 @@
 /* jshint indent: 2 */
 
-import { Model, Sequelize } from 'sequelize';
-
-export default class wp_wfissues extends Model {
-  static init(sequelize, DataTypes) {
-  super.init({
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('wp_wfissues', {
     id: {
       autoIncrement: true,
       type: DataTypes.INTEGER(10).UNSIGNED,
@@ -56,6 +54,4 @@ export default class wp_wfissues extends Model {
     tableName: 'wp_wfissues',
     timestamps: false
     });
-  return wp_wfissues;
-  }
-}
+};

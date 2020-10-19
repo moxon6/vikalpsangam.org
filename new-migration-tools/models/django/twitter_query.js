@@ -1,10 +1,8 @@
 /* jshint indent: 2 */
 
-import { Model, Sequelize } from 'sequelize';
-
-export default class twitter_query extends Model {
-  static init(sequelize, DataTypes) {
-  super.init({
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('twitter_query', {
     interested: {
       type: DataTypes.BOOLEAN,
       allowNull: false
@@ -29,6 +27,4 @@ export default class twitter_query extends Model {
     schema: 'public',
     timestamps: false
     });
-  return twitter_query;
-  }
-}
+};

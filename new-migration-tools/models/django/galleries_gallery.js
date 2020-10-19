@@ -1,10 +1,8 @@
 /* jshint indent: 2 */
 
-import { Model, Sequelize } from 'sequelize';
-
-export default class galleries_gallery extends Model {
-  static init(sequelize, DataTypes) {
-  super.init({
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('galleries_gallery', {
     page_ptr_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -28,6 +26,4 @@ export default class galleries_gallery extends Model {
     schema: 'public',
     timestamps: false
     });
-  return galleries_gallery;
-  }
-}
+};

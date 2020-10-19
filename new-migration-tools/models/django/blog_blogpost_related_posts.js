@@ -1,10 +1,8 @@
 /* jshint indent: 2 */
 
-import { Model, Sequelize } from 'sequelize';
-
-export default class blog_blogpost_related_posts extends Model {
-  static init(sequelize, DataTypes) {
-  super.init({
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('blog_blogpost_related_posts', {
     id: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
@@ -35,6 +33,4 @@ export default class blog_blogpost_related_posts extends Model {
     schema: 'public',
     timestamps: false
     });
-  return blog_blogpost_related_posts;
-  }
-}
+};

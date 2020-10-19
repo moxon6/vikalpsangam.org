@@ -1,10 +1,8 @@
 /* jshint indent: 2 */
 
-import { Model, Sequelize } from 'sequelize';
-
-export default class django_session extends Model {
-  static init(sequelize, DataTypes) {
-  super.init({
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('django_session', {
     session_key: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -24,6 +22,4 @@ export default class django_session extends Model {
     schema: 'public',
     timestamps: false
     });
-  return django_session;
-  }
-}
+};

@@ -1,10 +1,8 @@
 /* jshint indent: 2 */
 
-import { Model, Sequelize } from 'sequelize';
-
-export default class generic_keyword extends Model {
-  static init(sequelize, DataTypes) {
-  super.init({
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('generic_keyword', {
     slug: {
       type: DataTypes.STRING,
       allowNull: true
@@ -33,6 +31,4 @@ export default class generic_keyword extends Model {
     schema: 'public',
     timestamps: false
     });
-  return generic_keyword;
-  }
-}
+};

@@ -1,10 +1,8 @@
 /* jshint indent: 2 */
 
-import { Model, Sequelize } from 'sequelize';
-
-export default class wp_wfnotifications extends Model {
-  static init(sequelize, DataTypes) {
-  super.init({
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('wp_wfnotifications', {
     id: {
       type: DataTypes.STRING(32),
       allowNull: false,
@@ -42,6 +40,4 @@ export default class wp_wfnotifications extends Model {
     tableName: 'wp_wfnotifications',
     timestamps: false
     });
-  return wp_wfnotifications;
-  }
-}
+};

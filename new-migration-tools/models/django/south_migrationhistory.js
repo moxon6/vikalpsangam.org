@@ -1,10 +1,8 @@
 /* jshint indent: 2 */
 
-import { Model, Sequelize } from 'sequelize';
-
-export default class south_migrationhistory extends Model {
-  static init(sequelize, DataTypes) {
-  super.init({
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('south_migrationhistory', {
     id: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
@@ -29,6 +27,4 @@ export default class south_migrationhistory extends Model {
     schema: 'public',
     timestamps: false
     });
-  return south_migrationhistory;
-  }
-}
+};

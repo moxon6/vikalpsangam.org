@@ -1,10 +1,8 @@
 /* jshint indent: 2 */
 
-import { Model, Sequelize } from 'sequelize';
-
-export default class generic_threadedcomment extends Model {
-  static init(sequelize, DataTypes) {
-  super.init({
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('generic_threadedcomment', {
     by_author: {
       type: DataTypes.BOOLEAN,
       allowNull: false
@@ -44,6 +42,4 @@ export default class generic_threadedcomment extends Model {
     schema: 'public',
     timestamps: false
     });
-  return generic_threadedcomment;
-  }
-}
+};

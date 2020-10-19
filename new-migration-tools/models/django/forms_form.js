@@ -1,10 +1,8 @@
 /* jshint indent: 2 */
 
-import { Model, Sequelize } from 'sequelize';
-
-export default class forms_form extends Model {
-  static init(sequelize, DataTypes) {
-  super.init({
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('forms_form', {
     email_message: {
       type: DataTypes.TEXT,
       allowNull: false
@@ -52,6 +50,4 @@ export default class forms_form extends Model {
     schema: 'public',
     timestamps: false
     });
-  return forms_form;
-  }
-}
+};

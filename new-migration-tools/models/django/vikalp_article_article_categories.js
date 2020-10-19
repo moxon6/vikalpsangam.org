@@ -1,10 +1,8 @@
 /* jshint indent: 2 */
 
-import { Model, Sequelize } from 'sequelize';
-
-export default class vikalp_article_article_categories extends Model {
-  static init(sequelize, DataTypes) {
-  super.init({
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('vikalp_article_article_categories', {
     id: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
@@ -35,6 +33,4 @@ export default class vikalp_article_article_categories extends Model {
     schema: 'public',
     timestamps: false
     });
-  return vikalp_article_article_categories;
-  }
-}
+};

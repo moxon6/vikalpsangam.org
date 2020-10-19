@@ -1,10 +1,8 @@
 /* jshint indent: 2 */
 
-import { Model, Sequelize } from 'sequelize';
-
-export default class twitter_tweet extends Model {
-  static init(sequelize, DataTypes) {
-  super.init({
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('twitter_tweet', {
     retweeter_profile_image_url: {
       type: DataTypes.STRING,
       allowNull: true
@@ -61,6 +59,4 @@ export default class twitter_tweet extends Model {
     schema: 'public',
     timestamps: false
     });
-  return twitter_tweet;
-  }
-}
+};

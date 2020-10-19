@@ -1,10 +1,8 @@
 /* jshint indent: 2 */
 
-import { Model, Sequelize } from 'sequelize';
-
-export default class generic_rating extends Model {
-  static init(sequelize, DataTypes) {
-  super.init({
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('generic_rating', {
     content_type_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -45,6 +43,4 @@ export default class generic_rating extends Model {
     schema: 'public',
     timestamps: false
     });
-  return generic_rating;
-  }
-}
+};

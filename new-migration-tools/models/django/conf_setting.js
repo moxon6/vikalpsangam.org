@@ -1,10 +1,8 @@
 /* jshint indent: 2 */
 
-import { Model, Sequelize } from 'sequelize';
-
-export default class conf_setting extends Model {
-  static init(sequelize, DataTypes) {
-  super.init({
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('conf_setting', {
     id: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
@@ -33,6 +31,4 @@ export default class conf_setting extends Model {
     schema: 'public',
     timestamps: false
     });
-  return conf_setting;
-  }
-}
+};

@@ -1,10 +1,8 @@
 /* jshint indent: 2 */
 
-import { Model, Sequelize } from 'sequelize';
-
-export default class forms_formentry extends Model {
-  static init(sequelize, DataTypes) {
-  super.init({
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('forms_formentry', {
     entry_time: {
       type: DataTypes.DATE,
       allowNull: false
@@ -29,6 +27,4 @@ export default class forms_formentry extends Model {
     schema: 'public',
     timestamps: false
     });
-  return forms_formentry;
-  }
-}
+};

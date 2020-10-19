@@ -1,10 +1,8 @@
 /* jshint indent: 2 */
 
-import { Model, Sequelize } from 'sequelize';
-
-export default class wp_redirection_groups extends Model {
-  static init(sequelize, DataTypes) {
-  super.init({
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('wp_redirection_groups', {
     id: {
       autoIncrement: true,
       type: DataTypes.INTEGER(11).UNSIGNED,
@@ -40,6 +38,4 @@ export default class wp_redirection_groups extends Model {
     tableName: 'wp_redirection_groups',
     timestamps: false
     });
-  return wp_redirection_groups;
-  }
-}
+};

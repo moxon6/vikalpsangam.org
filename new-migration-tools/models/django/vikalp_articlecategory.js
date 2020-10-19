@@ -1,10 +1,8 @@
 /* jshint indent: 2 */
 
-import { Model, Sequelize } from 'sequelize';
-
-export default class vikalp_articlecategory extends Model {
-  static init(sequelize, DataTypes) {
-  super.init({
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('vikalp_articlecategory', {
     blogcategory_ptr_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -32,6 +30,4 @@ export default class vikalp_articlecategory extends Model {
     schema: 'public',
     timestamps: false
     });
-  return vikalp_articlecategory;
-  }
-}
+};

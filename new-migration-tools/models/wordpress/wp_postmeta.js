@@ -1,10 +1,8 @@
 /* jshint indent: 2 */
 
-import { Model, Sequelize } from 'sequelize';
-
-export default class wp_postmeta extends Model {
-  static init(sequelize, DataTypes) {
-  super.init({
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('wp_postmeta', {
     meta_id: {
       autoIncrement: true,
       type: DataTypes.BIGINT,
@@ -29,6 +27,4 @@ export default class wp_postmeta extends Model {
     tableName: 'wp_postmeta',
     timestamps: false
     });
-  return wp_postmeta;
-  }
-}
+};

@@ -1,10 +1,8 @@
 /* jshint indent: 2 */
 
-import { Model, Sequelize } from 'sequelize';
-
-export default class wp_usermeta extends Model {
-  static init(sequelize, DataTypes) {
-  super.init({
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('wp_usermeta', {
     umeta_id: {
       autoIncrement: true,
       type: DataTypes.BIGINT,
@@ -29,6 +27,4 @@ export default class wp_usermeta extends Model {
     tableName: 'wp_usermeta',
     timestamps: false
     });
-  return wp_usermeta;
-  }
-}
+};

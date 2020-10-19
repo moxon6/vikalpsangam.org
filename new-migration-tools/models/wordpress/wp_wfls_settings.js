@@ -1,10 +1,8 @@
 /* jshint indent: 2 */
 
-import { Model, Sequelize } from 'sequelize';
-
-export default class wp_wfls_settings extends Model {
-  static init(sequelize, DataTypes) {
-  super.init({
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('wp_wfls_settings', {
     name: {
       type: DataTypes.STRING(191),
       allowNull: false,
@@ -25,6 +23,4 @@ export default class wp_wfls_settings extends Model {
     tableName: 'wp_wfls_settings',
     timestamps: false
     });
-  return wp_wfls_settings;
-  }
-}
+};

@@ -1,10 +1,8 @@
 /* jshint indent: 2 */
 
-import { Model, Sequelize } from 'sequelize';
-
-export default class wp_options extends Model {
-  static init(sequelize, DataTypes) {
-  super.init({
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('wp_options', {
     option_id: {
       autoIncrement: true,
       type: DataTypes.BIGINT,
@@ -31,6 +29,4 @@ export default class wp_options extends Model {
     tableName: 'wp_options',
     timestamps: false
     });
-  return wp_options;
-  }
-}
+};

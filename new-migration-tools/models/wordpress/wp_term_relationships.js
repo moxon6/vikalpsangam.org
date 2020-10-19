@@ -1,10 +1,8 @@
 /* jshint indent: 2 */
 
-import { Model, Sequelize } from 'sequelize';
-
-export default class wp_term_relationships extends Model {
-  static init(sequelize, DataTypes) {
-  super.init({
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('wp_term_relationships', {
     object_id: {
       type: DataTypes.BIGINT,
       allowNull: false,
@@ -27,6 +25,4 @@ export default class wp_term_relationships extends Model {
     tableName: 'wp_term_relationships',
     timestamps: false
     });
-  return wp_term_relationships;
-  }
-}
+};

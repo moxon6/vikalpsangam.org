@@ -1,10 +1,8 @@
 /* jshint indent: 2 */
 
-import { Model, Sequelize } from 'sequelize';
-
-export default class wp_wfls_2fa_secrets extends Model {
-  static init(sequelize, DataTypes) {
-  super.init({
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('wp_wfls_2fa_secrets', {
     id: {
       autoIncrement: true,
       type: DataTypes.INTEGER(11).UNSIGNED,
@@ -41,6 +39,4 @@ export default class wp_wfls_2fa_secrets extends Model {
     tableName: 'wp_wfls_2fa_secrets',
     timestamps: false
     });
-  return wp_wfls_2fa_secrets;
-  }
-}
+};

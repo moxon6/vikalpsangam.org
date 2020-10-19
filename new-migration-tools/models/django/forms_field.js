@@ -1,10 +1,8 @@
 /* jshint indent: 2 */
 
-import { Model, Sequelize } from 'sequelize';
-
-export default class forms_field extends Model {
-  static init(sequelize, DataTypes) {
-  super.init({
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('forms_field', {
     _order: {
       type: DataTypes.INTEGER,
       allowNull: true
@@ -61,6 +59,4 @@ export default class forms_field extends Model {
     schema: 'public',
     timestamps: false
     });
-  return forms_field;
-  }
-}
+};

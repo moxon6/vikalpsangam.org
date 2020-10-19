@@ -1,10 +1,8 @@
 /* jshint indent: 2 */
 
-import { Model, Sequelize } from 'sequelize';
-
-export default class auth_user extends Model {
-  static init(sequelize, DataTypes) {
-  super.init({
+const Sequelize = require('sequelize');
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('auth_user', {
     id: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
@@ -58,6 +56,4 @@ export default class auth_user extends Model {
     schema: 'public',
     timestamps: false
     });
-  return auth_user;
-  }
-}
+};
