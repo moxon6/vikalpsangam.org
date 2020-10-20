@@ -1,11 +1,5 @@
 var DataTypes = require("sequelize").DataTypes;
-var _auth_group = require("./auth_group");
-var _auth_user_user_permissions = require("./auth_user_user_permissions");
-var _auth_user = require("./auth_user");
-var _auth_permission = require("./auth_permission");
-var _auth_user_groups = require("./auth_user_groups");
 var _wp_comments = require("./wp_comments");
-var _auth_group_permissions = require("./auth_group_permissions");
 var _wp_postmeta = require("./wp_postmeta");
 var _wp_posts = require("./wp_posts");
 var _wp_commentmeta = require("./wp_commentmeta");
@@ -44,13 +38,7 @@ var _wp_wfstatus = require("./wp_wfstatus");
 var _wp_wfsnipcache = require("./wp_wfsnipcache");
 
 function initModels(sequelize) {
-  var auth_group = _auth_group(sequelize, DataTypes);
-  var auth_user_user_permissions = _auth_user_user_permissions(sequelize, DataTypes);
-  var auth_user = _auth_user(sequelize, DataTypes);
-  var auth_permission = _auth_permission(sequelize, DataTypes);
-  var auth_user_groups = _auth_user_groups(sequelize, DataTypes);
   var wp_comments = _wp_comments(sequelize, DataTypes);
-  var auth_group_permissions = _auth_group_permissions(sequelize, DataTypes);
   var wp_postmeta = _wp_postmeta(sequelize, DataTypes);
   var wp_posts = _wp_posts(sequelize, DataTypes);
   var wp_commentmeta = _wp_commentmeta(sequelize, DataTypes);
@@ -89,13 +77,7 @@ function initModels(sequelize) {
   var wp_wfsnipcache = _wp_wfsnipcache(sequelize, DataTypes);
 
   return {
-    auth_group,
-    auth_user_user_permissions,
-    auth_user,
-    auth_permission,
-    auth_user_groups,
     wp_comments,
-    auth_group_permissions,
     wp_postmeta,
     wp_posts,
     wp_commentmeta,
