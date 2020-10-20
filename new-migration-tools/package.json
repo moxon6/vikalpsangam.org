@@ -17,6 +17,7 @@
     "@babel/core": "^7.12.3",
     "@babel/node": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
+    "cheerio": "^1.0.0-rc.3",
     "mysql2": "^2.2.5",
     "pg": "^8.4.1",
     "pg-hstore": "^2.3.3",

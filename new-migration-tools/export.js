@@ -1,8 +1,10 @@
 const { Sequelize, DataTypes  } = require('sequelize');
+const cheerio = require('cheerio');
 
 import { initModels as initDjangoModels } from './models/django/init-models';
 import * as R from 'ramda'
 import setupRelations from './setup-relations';
+import extensions from './extensions';
 
 import fs from 'fs';
 
@@ -54,6 +56,27 @@ const sortKeys = R.pipe(
     R.fromPairs()
 )
 
+const extractMedia = $ => [
+    ...extractImages($),
+    ...extractLinks($)
+]
+
+const extractLinks = $ => $('a')
+    .get()
+    .map(x => $(x).attr("href"))
+    .filter(x => !!x)
+    .filter(x => x.startsWith("/static/media/uploads/"))
+    .map(x => {
+        if ( !extensions.some(ext => x.endsWith(ext)) ) {
+            console.warn(x)
+        }
+        return x;
+    })
+
+const extractImages = $ => $('img')
+    .get()
+    .map(x => $(x).attr("src"));
+
 const formatPost = R.pipe(
     post => R.mergeRight(post, post[articleKey]),
     R.omit([articleKey]),
@@ -64,6 +87,12 @@ const formatPost = R.pipe(
             "slug",
             "title"    
         ]))
+    }),
+    post => ({
+        ...post,
+        media: extractMedia(
+            cheerio.load(post.content)
+        )
     }),
     post => ({
         ...post,
