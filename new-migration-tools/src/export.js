@@ -3,7 +3,7 @@ const cheerio = require('cheerio');
 
 import { initModels as initDjangoModels } from './models/django/init-models';
 import * as R from 'ramda'
-import setupRelations from './setup-relations';
+import setupRelations from './setup-django-relations';
 import extensions from './extensions';
 
 import fs from 'fs';
