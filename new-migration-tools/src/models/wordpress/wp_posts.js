@@ -55,7 +55,7 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: ""
     },
     post_name: {
-      type: DataTypes.STRING(3000),
+      type: DataTypes.STRING(1000),
       allowNull: false,
       defaultValue: ""
     },
