@@ -1,3 +1,4 @@
+// Wordpress supported media extensions
 export default [
     ".jpg",
     ".jpeg",
