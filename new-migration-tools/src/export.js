@@ -1,4 +1,4 @@
-const { Sequelize, DataTypes  } = require('sequelize');
+const { Sequelize } = require('sequelize');
 const cheerio = require('cheerio');
 
 import { initModels as initDjangoModels } from './models/django/init-models';
