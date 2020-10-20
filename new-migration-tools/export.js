@@ -57,7 +57,6 @@ const sortKeys = R.pipe(
 const formatPost = R.pipe(
     post => R.mergeRight(post, post[articleKey]),
     R.omit([articleKey]),
-    R.omit(["content"]),
     post => ({
         ...post,
         categories: post.categories.map(R.pick([
