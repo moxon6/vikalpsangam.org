@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "rebuild_db": "psql --username=postgres --host=postgres -f rebuild.sql",
     "load_db": "psql --username=postgres --host=postgres --dbname=main -f /workspace/db.postgres.sql",
+    "patch_columns": "psql --username=postgres --host=postgres --dbname=main -f rename-column.sql",
     "generate_models:django": "sequelize-auto -o \"./models/django\" -d main -h postgres -u postgres -p 5432 -x postgres -e postgres",
     "generate_models:wordpress": "sequelize-auto -o \"./models/wordpress\" -d wordpress -h db -u wordpress -p 3306 -x wordpress -e mysql",
-    "start": "babel-node app.js"
+    "start": "babel-node export.js"
   },
   "author": "",
   "license": "ISC",
