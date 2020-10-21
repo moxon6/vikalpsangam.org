@@ -12,7 +12,7 @@
     
     "validate": "babel-node src/validate/validate-posts-json.js",
     
-    "wordpress:drop_posts": "babel-node src/wordpress/drop-posts.js"
+    "wordpress:reset-content": "babel-node src/wordpress/reset-wordpress-content.js"
   },
   "author": "",
   "license": "ISC",
