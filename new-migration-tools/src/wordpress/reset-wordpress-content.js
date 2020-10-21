@@ -1,9 +1,7 @@
 import setupModels from './setup-models';
-
-const { Sequelize, Op } = require('sequelize');
+import { Sequelize, Op } from 'sequelize'
 
 const sequelize = new Sequelize('mysql://wordpress:wordpress@db:3306/wordpress'); // Example for postgres
-
 const wordpressModels = setupModels(sequelize);
 
 async function destroyEditLocks() {
