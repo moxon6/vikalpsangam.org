@@ -9,9 +9,7 @@
     "django:rebuild": "psql --username=postgres --host=postgres -f src/django/rebuild.sql",
     "django:load": "psql --username=postgres --host=postgres --dbname=main -f /workspace/db.postgres.sql",
     "django:export": "babel-node src/django/export-posts.js",
-    
     "validate": "babel-node src/validate/validate-posts-json.js",
-    
     "wordpress:reset-content": "babel-node src/wordpress/reset-wordpress-content.js"
   },
   "author": "",
@@ -30,6 +28,8 @@
     "pg-hstore": "^2.3.3",
     "ramda": "^0.27.1",
     "sequelize": "^6.3.5",
-    "sequelize-auto": "^0.6.4"
+    "sequelize-auto": "^0.6.4",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.3"
   }
 }
