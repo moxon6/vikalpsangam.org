@@ -19,7 +19,7 @@ async function main() {
   try {
     await sequelize.authenticate();
 
-    const newPost = (wordpressModels.wp_posts).create({
+    const newPost = await wordpressModels.wp_posts.create({
       post_author: 0,
       post_date: new Date(post.publish_date),
       post_date_gmt: new Date(post.publish_date),
