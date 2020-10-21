@@ -15,11 +15,14 @@ export const saveJSON = (path, obj) => {
 const extractLinks = ($) => $('a')
   .get()
   .map((x) => $(x).attr('href'))
-  .filter((x) => !!x && x.startsWith('/static/media/uploads/'));
+  .filter((x) => !!x)
+  .filter((x) => x.startsWith('/static/media/uploads/'));
 
 const extractImages = ($) => $('img')
   .get()
-  .map((x) => $(x).attr('src'));
+  .map((x) => $(x).attr('src'))
+  .filter((x) => !!x)
+  .filter((x) => x.startsWith('/static/media/uploads/'));
 
 export const extractMedia = (content) => {
   const $ = cheerio.load(content);

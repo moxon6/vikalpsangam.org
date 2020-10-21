@@ -1,4 +1,8 @@
 import Joi from 'joi';
+import path from 'path';
+import supportedExtensions from './supported-extensions';
+
+const supportedExtensionsSet = new Set(supportedExtensions);
 
 const category = Joi.object({
   id: Joi.number().integer(),
@@ -10,6 +14,14 @@ const tag = Joi.object().keys({
   id: Joi.number().integer(),
   slug: Joi.string(),
   title: Joi.string(),
+});
+
+const media = Joi.string().custom((value) => {
+  const extension = path.extname(value);
+  if (!supportedExtensionsSet.has(extension)) {
+    throw new Error(`Unsupported media type ${extension}`);
+  }
+  return value;
 });
 
 export default Joi.object().keys({
@@ -27,7 +39,7 @@ export default Joi.object().keys({
   id: Joi.number().integer(),
   in_sitemap: Joi.boolean(),
   keywords_string: Joi.string().allow(''),
-  media: Joi.array().items(Joi.string()),
+  media: Joi.array().items(media),
   publish_date: Joi.string(),
   rating_average: Joi.number().integer(),
   rating_count: Joi.number().integer(),
