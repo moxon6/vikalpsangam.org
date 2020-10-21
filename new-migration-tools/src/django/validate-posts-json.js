@@ -1,4 +1,4 @@
-const posts = require('./posts.json')
+const posts = require('../../posts.json')
 
 console.table(
     posts
