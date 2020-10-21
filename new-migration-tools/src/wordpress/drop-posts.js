@@ -1,12 +1,10 @@
-import { initModels as initWordpressModels } from './models/init-models';
-import setupModelRelations from './setup-model-relations';
+import setupModels from './setup-models';
 
 const { Sequelize, Op } = require('sequelize');
 
 const sequelize = new Sequelize('mysql://wordpress:wordpress@db:3306/wordpress'); // Example for postgres
 
-const wordpressModels = initWordpressModels(sequelize);
-setupModelRelations(wordpressModels);
+const wordpressModels = setupModels(sequelize);
 
 async function destroyEditLocks() {
   await wordpressModels.wp_postmeta.destroy({
