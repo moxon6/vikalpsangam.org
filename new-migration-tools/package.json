@@ -6,12 +6,10 @@
   "scripts": {
     "sequelize:generate_models:django": "sequelize-auto -o \"./src/django/models\" -d main -h postgres -u postgres -p 5432 -x postgres -e postgres",
     "sequelize:generate_models:wordpress": "sequelize-auto -o \"./src/wordpress/models\" -d wordpress -h db -u wordpress -p 3306 -x wordpress -e mysql",
-
     "django:rebuild": "psql --username=postgres --host=postgres -f src/django/rebuild.sql",
     "django:load": "psql --username=postgres --host=postgres --dbname=main -f /workspace/db.postgres.sql",
     "django:export": "babel-node src/django/export-posts.js",
     "django:validate": "babel-node src/django/validate-posts-json.js",
-
     "wordpress:drop_posts": "babel-node src/wordpress/drop-posts.js"
   },
   "author": "",
@@ -21,6 +19,9 @@
     "@babel/node": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
     "cheerio": "^1.0.0-rc.3",
+    "eslint": "^7.11.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.1",
     "mysql2": "^2.2.5",
     "pg": "^8.4.1",
     "pg-hstore": "^2.3.3",
