@@ -5,7 +5,7 @@ import { extractMedia, saveJSON } from './utils';
 
 const pickProps = R.pick(['id', 'slug', 'title']);
 
-const formatPost = (post) => ({
+const formatPost = (post: any) => ({
   ...post,
   media: extractMedia(post.content),
   categories: post.categories.map(pickProps),
@@ -32,14 +32,14 @@ async function main() {
       }, {
         model: djangoModels.django_comments,
         as: 'comments',
-        on: sequelize.where(
-          sequelize.cast(sequelize.col('comments.object_pk'), 'integer'),
-          sequelize.col('blog_blogpost.id'),
+        on: Sequelize.where(
+          Sequelize.cast(Sequelize.col('comments.object_pk'), 'integer'),
+          Sequelize.col('blog_blogpost.id'),
         ),
       }],
     });
 
-    const formatted = posts.map((p) => p.toJSON()).map(formatPost);
+    const formatted = posts.map((p: any) => p.toJSON()).map(formatPost);
     saveJSON('posts.json', formatted);
 
     await sequelize.close();

@@ -18,6 +18,8 @@
     "@babel/core": "^7.12.3",
     "@babel/node": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
+    "@types/cheerio": "^0.22.22",
+    "@types/ramda": "^0.27.29",
     "cheerio": "^1.0.0-rc.3",
     "eslint": "^7.11.0",
     "eslint-config-airbnb-base": "^14.2.0",
