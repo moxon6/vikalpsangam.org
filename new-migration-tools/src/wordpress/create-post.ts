@@ -19,30 +19,32 @@ async function main() {
   try {
     await sequelize.authenticate();
 
-    const newPost = await wordpressModels.wp_posts.create({
-      post_author: 0,
-      post_date: new Date(post.publish_date),
-      post_date_gmt: new Date(post.publish_date),
-      post_content: post.content,
-      post_title: post.title,
-      post_excerpt: post.description,
-      post_status: post.status === 1 ? "draft" : "publish",
-      comment_status: post.allow_comments ? "open" : "closed",
-      ping_status: "closed",
-      post_password: "",
-      post_name: post.slug,
-      to_ping: "",
-      pinged: "",
-      post_modified: new Date(post.updated),
-      post_modified_gmt: new Date(post.updated),
-      post_content_filtered: "",
-      post_parent: 0,
-      guid: post.slug,
-      menu_order: 0,
-      post_type: "post",
-      post_mime_type: "",
-      comment_count: post.comments.length,
-    });
+    for (const post of posts) {
+      const newPost = await wordpressModels.wp_posts.create({
+        post_author: 0,
+        post_date: new Date(post.publish_date),
+        post_date_gmt: new Date(post.publish_date),
+        post_content: post.content,
+        post_title: post.title,
+        post_excerpt: post.description,
+        post_status: post.status === 1 ? "draft" : "publish",
+        comment_status: post.allow_comments ? "open" : "closed",
+        ping_status: "closed",
+        post_password: "",
+        post_name: post.slug,
+        to_ping: "",
+        pinged: "",
+        post_modified: new Date(post.updated),
+        post_modified_gmt: new Date(post.updated),
+        post_content_filtered: "",
+        post_parent: 0,
+        guid: post.slug,
+        menu_order: 0,
+        post_type: "post",
+        post_mime_type: "",
+        comment_count: post.comments.length,
+      });
+    }
 
     await sequelize.close();
   } catch (error) {
