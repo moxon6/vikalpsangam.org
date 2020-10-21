@@ -12,6 +12,7 @@ RUN apt-get install -y python3 python3-pip default-mysql-client
 RUN pip3 install mysql-connector-python tqdm sqlparse requests sh phpserialize Pillow
 RUN apt-get install -y postgresql-client
 RUN apt-get install -y vim
+ENV EDITOR=vim
 # [Optional] Uncomment this section to install additional OS packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 #     && apt-get -y install --no-install-recommends <your-package-list-here>
