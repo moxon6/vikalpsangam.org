@@ -4,12 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "rebuild_db": "psql --username=postgres --host=postgres -f rebuild.sql",
-    "load_db": "psql --username=postgres --host=postgres --dbname=main -f /workspace/db.postgres.sql",
-    "patch_columns": "psql --username=postgres --host=postgres --dbname=main -f rename-column.sql",
-    "generate_models:django": "sequelize-auto -o \"./src/models/django\" -d main -h postgres -u postgres -p 5432 -x postgres -e postgres",
-    "generate_models:wordpress": "sequelize-auto -o \"./src/models/wordpress\" -d wordpress -h db -u wordpress -p 3306 -x wordpress -e mysql",
-    "start": "babel-node src/export.js"
+    "sequelize:generate_models:django": "sequelize-auto -o \"./src/models/django\" -d main -h postgres -u postgres -p 5432 -x postgres -e postgres",
+    "sequelize:generate_models:wordpress": "sequelize-auto -o \"./src/models/wordpress\" -d wordpress -h db -u wordpress -p 3306 -x wordpress -e mysql",
+
+    "django:rebuild": "psql --username=postgres --host=postgres -f rebuild.sql",
+    "django:load": "psql --username=postgres --host=postgres --dbname=main -f /workspace/db.postgres.sql",
+    "django:export": "babel-node src/export.js",
+
+    "wordpress:drop_posts": "babel-node src/drop-posts.js"
   },
   "author": "",
   "license": "ISC",
