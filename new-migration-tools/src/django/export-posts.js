@@ -1,12 +1,10 @@
-const { Sequelize } = require('sequelize');
-const cheerio = require('cheerio');
-
+import cheerio from 'cheerio';
+import fs from 'fs';
+import * as R from 'ramda';
+import { Sequelize } from 'sequelize';
 import { initModels as initDjangoModels } from './models/init-models';
-import * as R from 'ramda'
 import setupModelRelations from './setup-model-relations';
 import supportedExtensions from './supported-extensions';
-
-import fs from 'fs';
 
 const sequelize = new Sequelize('postgres://postgres:postgres@postgres:5432/main') // Example for postgres
 

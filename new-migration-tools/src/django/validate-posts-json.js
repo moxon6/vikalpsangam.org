@@ -1,4 +1,4 @@
-const posts = require('../../posts.json')
+import posts from '../../posts.json'
 
 console.table(
     posts
