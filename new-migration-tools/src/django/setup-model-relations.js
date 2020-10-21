@@ -1,4 +1,4 @@
-export default function setupRelations(djangoModels) {
+export default function setupModelRelations(djangoModels) {
     djangoModels.blog_blogpost.hasOne(djangoModels.vikalp_article, {
         foreignKey: 'blogpost_ptr_id'
     })

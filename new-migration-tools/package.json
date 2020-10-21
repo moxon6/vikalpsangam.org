@@ -4,14 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "sequelize:generate_models:django": "sequelize-auto -o \"./src/models/django\" -d main -h postgres -u postgres -p 5432 -x postgres -e postgres",
-    "sequelize:generate_models:wordpress": "sequelize-auto -o \"./src/models/wordpress\" -d wordpress -h db -u wordpress -p 3306 -x wordpress -e mysql",
+    "sequelize:generate_models:django": "sequelize-auto -o \"./src/django/models\" -d main -h postgres -u postgres -p 5432 -x postgres -e postgres",
+    "sequelize:generate_models:wordpress": "sequelize-auto -o \"./src/wordpress/models\" -d wordpress -h db -u wordpress -p 3306 -x wordpress -e mysql",
 
     "django:rebuild": "psql --username=postgres --host=postgres -f rebuild.sql",
     "django:load": "psql --username=postgres --host=postgres --dbname=main -f /workspace/db.postgres.sql",
-    "django:export": "babel-node src/export.js",
+    "django:export": "babel-node src/django/export-posts.js",
+    "django:validate": "babel-node src/django/validate-posts-json.js",
 
-    "wordpress:drop_posts": "babel-node src/drop-posts.js"
+    "wordpress:drop_posts": "babel-node src/wordpress/drop-posts.js"
   },
   "author": "",
   "license": "ISC",

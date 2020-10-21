@@ -1,14 +1,12 @@
-import { initModels as initWordpressModels } from './models/wordpress/init-models';
-import setupRelations from './setup-wordpress-relations';
-import * as R from 'ramda';
-import wp_term_taxonomy from './models/wordpress/wp_term_taxonomy';
+import { initModels as initWordpressModels } from './models/init-models';
+import setupModelRelations from './setup-model-relations';
 
 const { Sequelize, Op } = require('sequelize');
 
 const sequelize = new Sequelize('mysql://wordpress:wordpress@db:3306/wordpress') // Example for postgres
 
 const wordpressModels = initWordpressModels(sequelize);
-setupRelations(wordpressModels)
+setupModelRelations(wordpressModels)
 
 
 async function destroyEditLocks() {

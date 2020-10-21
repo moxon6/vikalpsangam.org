@@ -1,10 +1,10 @@
 const { Sequelize } = require('sequelize');
 const cheerio = require('cheerio');
 
-import { initModels as initDjangoModels } from './models/django/init-models';
+import { initModels as initDjangoModels } from './models/init-models';
 import * as R from 'ramda'
-import setupRelations from './setup-django-relations';
-import extensions from './extensions';
+import setupModelRelations from './setup-model-relations';
+import supportedExtensions from './supported-extensions';
 
 import fs from 'fs';
 
@@ -12,7 +12,7 @@ const sequelize = new Sequelize('postgres://postgres:postgres@postgres:5432/main
 
 const djangoModels = initDjangoModels(sequelize);       
 
-setupRelations(djangoModels)
+setupModelRelations(djangoModels)
 
 async function main() {
     try {
@@ -67,7 +67,7 @@ const extractLinks = $ => $('a')
     .filter(x => !!x)
     .filter(x => x.startsWith("/static/media/uploads/"))
     .map(x => {
-        if ( !extensions.some(ext => x.endsWith(ext)) ) {
+        if ( !supportedExtensions.some(ext => x.endsWith(ext)) ) {
             console.warn(x)
         }
         return x;
