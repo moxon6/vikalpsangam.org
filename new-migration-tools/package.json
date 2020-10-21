@@ -11,7 +11,7 @@
     "django:export": "ts-node src/django/export-posts.ts",
     "validate": "ts-node src/validate/validate-posts-json.ts",
     "wordpress:reset-content": "ts-node src/wordpress/reset-wordpress-content.ts",
-    "wordpress:create-post": "ts-node src/wordpress/create-post.ts"
+    "wordpress:upload-content": "ts-node src/wordpress/create-post.ts"
   },
   "author": "",
   "license": "ISC",

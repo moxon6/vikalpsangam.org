@@ -44,6 +44,34 @@ async function main() {
         post_mime_type: "",
         comment_count: post.comments.length,
       });
+
+      const meta = await wordpressModels.wp_postmeta.bulkCreate([
+        {
+          post_id: newPost.ID,
+          meta_key: "author",
+          meta_value: post.vikalp_article.article_author
+        },
+        {
+          post_id: newPost.ID,
+          meta_key: "latitude",
+          meta_value: post.vikalp_article.latitude
+        },
+        {
+          post_id: newPost.ID,
+          meta_key: "longitude",
+          meta_value: post.vikalp_article.longitude
+        },
+        {
+          post_id: newPost.ID,
+          meta_key: "promoted",
+          meta_value: post.vikalp_article.promoted
+        },
+        {
+          post_id: newPost.ID,
+          meta_key: "add_to_carousel",
+          meta_value: post.vikalp_article.add_to_carousel
+        }
+      ])
     }
 
     await sequelize.close();
