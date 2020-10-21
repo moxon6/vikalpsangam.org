@@ -1,9 +1,21 @@
 import Joi from 'joi';
 
-Joi.object().keys({
+const category = Joi.object({
+  id: Joi.number().integer(),
+  slug: Joi.string(),
+  title: Joi.string(),
+});
+
+const tag = Joi.object().keys({
+  id: Joi.number().integer(),
+  slug: Joi.string(),
+  title: Joi.string(),
+});
+
+export default Joi.object().keys({
   _meta_title: Joi.binary(),
   allow_comments: Joi.boolean(),
-  categories: Joi.array().items(Joi.object().keys({ id: Joi.number().integer(), slug: Joi.string(), title: Joi.string() }), Joi.object().keys({ id: Joi.number().integer(), slug: Joi.string(), title: Joi.string() })),
+  categories: Joi.array().items(category),
   comments: Joi.array(),
   comments_count: Joi.number().integer(),
   content: Joi.string(),
@@ -24,11 +36,16 @@ Joi.object().keys({
   site_id: Joi.number().integer(),
   slug: Joi.string(),
   status: Joi.number().integer(),
-  tags: Joi.array().items(Joi.object().keys({ id: Joi.number().integer(), slug: Joi.string(), title: Joi.string() }), Joi.object().keys({ id: Joi.number().integer(), slug: Joi.string(), title: Joi.string() }), Joi.object().keys({ id: Joi.number().integer(), slug: Joi.string(), title: Joi.string() }), Joi.object().keys({ id: Joi.number().integer(), slug: Joi.string(), title: Joi.string() }), Joi.object().keys({ id: Joi.number().integer(), slug: Joi.string(), title: Joi.string() })),
+  tags: Joi.array().items(tag),
   title: Joi.string(),
   updated: Joi.string(),
   user_id: Joi.number().integer(),
-  vikalp_article: Joi.object().keys({
-    blogpost_ptr_id: Joi.number().integer(), promoted: Joi.boolean(), article_author: Joi.string(), add_to_carousel: Joi.boolean(), longitude: Joi.string(), latitude: Joi.string(),
+  vikalp_article: Joi.object({
+    blogpost_ptr_id: Joi.number().integer(),
+    promoted: Joi.boolean(),
+    article_author: Joi.string(),
+    add_to_carousel: Joi.boolean(),
+    longitude: Joi.string(),
+    latitude: Joi.string(),
   }),
 });
