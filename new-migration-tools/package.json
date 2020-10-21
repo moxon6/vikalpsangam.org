@@ -8,9 +8,9 @@
     "sequelize:generate_models:wordpress": "sequelize-auto -o \"./src/wordpress/models\" -d wordpress -h db -u wordpress -p 3306 -x wordpress -e mysql",
     "django:rebuild": "psql --username=postgres --host=postgres -f src/django/rebuild.sql",
     "django:load": "psql --username=postgres --host=postgres --dbname=main -f /workspace/db.postgres.sql",
-    "django:export": "babel-node src/django/export-posts.js",
+    "django:export": "ts-node src/django/export-posts.ts",
     "validate": "ts-node src/validate/validate-posts-json.ts",
-    "wordpress:reset-content": "babel-node src/wordpress/reset-wordpress-content.js"
+    "wordpress:reset-content": "ts-node src/wordpress/reset-wordpress-content.ts"
   },
   "author": "",
   "license": "ISC",
