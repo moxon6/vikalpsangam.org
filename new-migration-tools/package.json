@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "sequelize:generate_models:django": "sequelize-auto -o \"./src/django/models\" -d main -h postgres -u postgres -p 5432 -x postgres -e postgres",
-    "sequelize:generate_models:wordpress": "sequelize-auto -o \"./src/wordpress/models\" -d wordpress -h db -u wordpress -p 3306 -x wordpress -e mysql",
+    "sequelize:generate_models:django": "sequelize-auto -o \"./src/django/models\" -d main -h postgres -u postgres -p 5432 -x postgres -e postgres --lang=ts",
+    "sequelize:generate_models:wordpress": "sequelize-auto -o \"./src/wordpress/models\" -d wordpress -h db -u wordpress -p 3306 -x wordpress -e mysql --lang=ts",
     "django:rebuild": "psql --username=postgres --host=postgres -f src/django/rebuild.sql",
     "django:load": "psql --username=postgres --host=postgres --dbname=main -f /workspace/db.postgres.sql",
     "django:export": "ts-node src/django/export-posts.ts",
