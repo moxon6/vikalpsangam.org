@@ -71,7 +71,7 @@ export class wp_users extends Model<wp_usersAttributes, wp_usersAttributes> impl
       defaultValue: ""
     },
     user_status: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER({length: 11}),
       allowNull: false,
       defaultValue: 0
     },

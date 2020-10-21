@@ -144,7 +144,7 @@ export class wp_posts extends Model<wp_postsAttributes, wp_postsAttributes> impl
       defaultValue: ""
     },
     menu_order: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER({length: 11}),
       allowNull: false,
       defaultValue: 0
     },

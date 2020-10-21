@@ -77,7 +77,7 @@ export class wp_links extends Model<wp_linksAttributes, wp_linksAttributes> impl
       defaultValue: 1
     },
     link_rating: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER({length: 11}),
       allowNull: false,
       defaultValue: 0
     },

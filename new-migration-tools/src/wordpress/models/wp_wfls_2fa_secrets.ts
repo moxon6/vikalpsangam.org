@@ -25,7 +25,7 @@ export class wp_wfls_2fa_secrets extends Model<wp_wfls_2fa_secretsAttributes, wp
     wp_wfls_2fa_secrets.init({
     id: {
       autoIncrement: true,
-      type: DataTypes.INTEGER(11).UNSIGNED,
+      type: DataTypes.INTEGER({length: 11}).UNSIGNED,
       allowNull: false,
       primaryKey: true
     },
@@ -42,11 +42,11 @@ export class wp_wfls_2fa_secrets extends Model<wp_wfls_2fa_secretsAttributes, wp
       allowNull: false
     },
     ctime: {
-      type: DataTypes.INTEGER(10).UNSIGNED,
+      type: DataTypes.INTEGER({length: 10}).UNSIGNED,
       allowNull: false
     },
     vtime: {
-      type: DataTypes.INTEGER(10).UNSIGNED,
+      type: DataTypes.INTEGER({length: 10}).UNSIGNED,
       allowNull: false
     },
     mode: {

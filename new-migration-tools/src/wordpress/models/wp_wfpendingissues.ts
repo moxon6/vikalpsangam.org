@@ -33,16 +33,16 @@ export class wp_wfpendingissues extends Model<wp_wfpendingissuesAttributes, wp_w
     wp_wfpendingissues.init({
     id: {
       autoIncrement: true,
-      type: DataTypes.INTEGER(10).UNSIGNED,
+      type: DataTypes.INTEGER({length: 10}).UNSIGNED,
       allowNull: false,
       primaryKey: true
     },
     time: {
-      type: DataTypes.INTEGER(10).UNSIGNED,
+      type: DataTypes.INTEGER({length: 10}).UNSIGNED,
       allowNull: false
     },
     lastUpdated: {
-      type: DataTypes.INTEGER(10).UNSIGNED,
+      type: DataTypes.INTEGER({length: 10}).UNSIGNED,
       allowNull: false
     },
     status: {
@@ -54,7 +54,7 @@ export class wp_wfpendingissues extends Model<wp_wfpendingissuesAttributes, wp_w
       allowNull: false
     },
     severity: {
-      type: DataTypes.INTEGER(3).UNSIGNED,
+      type: DataTypes.INTEGER({length: 3}).UNSIGNED,
       allowNull: false
     },
     ignoreP: {

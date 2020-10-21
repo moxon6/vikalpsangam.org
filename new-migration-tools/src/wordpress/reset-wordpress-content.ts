@@ -20,10 +20,10 @@ async function getPostIds() {
     },
   });
 
-  return posts.map((p) => p.toJSON().id);
+  return posts.map((p) => (p.toJSON() as any).id as number);
 }
 
-async function destroyPostMeta(postIds) {
+async function destroyPostMeta(postIds: number[]) {
   await wordpressModels.wp_postmeta.destroy({
     where: {
       post_id: postIds,
@@ -31,7 +31,7 @@ async function destroyPostMeta(postIds) {
   });
 }
 
-async function destroyPosts(postIds) {
+async function destroyPosts(postIds: number[]) {
   await wordpressModels.wp_posts.destroy({
     where: {
       ID: postIds,
@@ -39,7 +39,7 @@ async function destroyPosts(postIds) {
   });
 }
 
-async function destroyTags(tagIds) {
+async function destroyTags(tagIds: number[]) {
   await wordpressModels.wp_terms.destroy({
     where: {
       term_id: tagIds,
@@ -55,8 +55,8 @@ async function destroyTags(tagIds) {
 
 async function destroyRedundantTermRelationships() {
   const termTaxonomyResponse = await wordpressModels.wp_term_taxonomy.findAll();
-  const termTaxonomyIds = termTaxonomyResponse.map((x) => x.toJSON().term_taxonomy_id);
-  const allPostIds = (await wordpressModels.wp_posts.findAll()).map((x) => x.toJSON().ID);
+  const termTaxonomyIds = termTaxonomyResponse.map((x) => (x.toJSON() as any).term_taxonomy_id as number);
+  const allPostIds = (await wordpressModels.wp_posts.findAll()).map((x) => (x.toJSON() as any).ID as number);
 
   await wordpressModels.wp_term_relationships.destroy({
     where: {
@@ -78,13 +78,13 @@ async function destroyRedundantTermRelationships() {
 async function getTagIds() {
   const tagsResponse = await wordpressModels.wp_terms.findAll({
     include: [{
-      model: wordpressModels.wp_term_taxonomy,
+      model: wordpressModels.wp_term_taxonomy as any,
       where: {
         taxonomy: 'post_tag',
       },
     }],
   });
-  return tagsResponse.map((r) => r.toJSON().term_id);
+  return tagsResponse.map((r) => (r.toJSON() as any).term_id as number);
 }
 
 async function main() {

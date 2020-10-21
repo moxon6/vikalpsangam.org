@@ -21,7 +21,7 @@ export class wp_wfhoover extends Model<wp_wfhooverAttributes, wp_wfhooverAttribu
     wp_wfhoover.init({
     id: {
       autoIncrement: true,
-      type: DataTypes.INTEGER(10).UNSIGNED,
+      type: DataTypes.INTEGER({length: 10}).UNSIGNED,
       allowNull: false,
       primaryKey: true
     },

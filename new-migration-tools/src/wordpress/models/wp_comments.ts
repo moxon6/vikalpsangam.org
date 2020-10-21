@@ -84,7 +84,7 @@ export class wp_comments extends Model<wp_commentsAttributes, wp_commentsAttribu
       allowNull: false
     },
     comment_karma: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER({length: 11}),
       allowNull: false,
       defaultValue: 0
     },

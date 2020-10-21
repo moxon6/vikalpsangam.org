@@ -29,12 +29,12 @@ export class wp_wflogins extends Model<wp_wfloginsAttributes, wp_wfloginsAttribu
     wp_wflogins.init({
     id: {
       autoIncrement: true,
-      type: DataTypes.INTEGER(10).UNSIGNED,
+      type: DataTypes.INTEGER({length: 10}).UNSIGNED,
       allowNull: false,
       primaryKey: true
     },
     hitID: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER({length: 11}),
       allowNull: true
     },
     ctime: {
@@ -42,7 +42,7 @@ export class wp_wflogins extends Model<wp_wfloginsAttributes, wp_wfloginsAttribu
       allowNull: false
     },
     fail: {
-      type: DataTypes.INTEGER(3).UNSIGNED,
+      type: DataTypes.INTEGER({length: 3}).UNSIGNED,
       allowNull: false
     },
     action: {
@@ -54,7 +54,7 @@ export class wp_wflogins extends Model<wp_wfloginsAttributes, wp_wfloginsAttribu
       allowNull: false
     },
     userID: {
-      type: DataTypes.INTEGER(10).UNSIGNED,
+      type: DataTypes.INTEGER({length: 10}).UNSIGNED,
       allowNull: false
     },
     IP: {

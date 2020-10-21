@@ -23,7 +23,7 @@ export class wp_wfsnipcache extends Model<wp_wfsnipcacheAttributes, wp_wfsnipcac
     wp_wfsnipcache.init({
     id: {
       autoIncrement: true,
-      type: DataTypes.INTEGER(10).UNSIGNED,
+      type: DataTypes.INTEGER({length: 10}).UNSIGNED,
       allowNull: false,
       primaryKey: true
     },
@@ -43,12 +43,12 @@ export class wp_wfsnipcache extends Model<wp_wfsnipcacheAttributes, wp_wfsnipcac
       defaultValue: ""
     },
     count: {
-      type: DataTypes.INTEGER(10).UNSIGNED,
+      type: DataTypes.INTEGER({length: 10}).UNSIGNED,
       allowNull: false,
       defaultValue: 0
     },
     type: {
-      type: DataTypes.INTEGER(10).UNSIGNED,
+      type: DataTypes.INTEGER({length: 10}).UNSIGNED,
       allowNull: false,
       defaultValue: 0
     }

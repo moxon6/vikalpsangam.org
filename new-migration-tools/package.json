@@ -10,31 +10,25 @@
     "django:load": "psql --username=postgres --host=postgres --dbname=main -f /workspace/db.postgres.sql",
     "django:export": "ts-node src/django/export-posts.ts",
     "validate": "ts-node src/validate/validate-posts-json.ts",
-    "wordpress:reset-content": "ts-node src/wordpress/reset-wordpress-content.ts"
+    "wordpress:reset-content": "ts-node src/wordpress/reset-wordpress-content.ts",
+    "wordpress:create-post": "ts-node src/wordpress/create-post.ts"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@babel/core": "^7.12.3",
-    "@babel/node": "^7.12.1",
-    "@babel/preset-env": "^7.12.1",
     "@types/cheerio": "^0.22.22",
+    "@types/node": "^14.14.1",
     "@types/ramda": "^0.27.29",
     "cheerio": "^1.0.0-rc.3",
-    "eslint": "^7.11.0",
-    "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.1",
-    "joi": "^17.2.1",
+    "joi-extract-type": "^15.0.8",
     "mysql2": "^2.2.5",
     "pg": "^8.4.1",
     "pg-hstore": "^2.3.3",
     "ramda": "^0.27.1",
     "sequelize": "^6.3.5",
     "sequelize-auto": "^0.6.4",
+    "superstruct": "^0.10.12",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.3"
-  },
-  "devDependencies": {
-    "@types/node": "^14.14.1"
   }
 }

@@ -1,6 +1,7 @@
+import { Sequelize } from 'sequelize/types';
 import { initModels as initWordpressModels } from './models/init-models';
 
-export default function setupRelations(sequelize) {
+export default function setupRelations(sequelize: Sequelize) {
   const wordpressModels = initWordpressModels(sequelize);
 
   wordpressModels.wp_posts.hasMany(wordpressModels.wp_postmeta, {

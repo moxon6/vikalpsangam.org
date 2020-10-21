@@ -23,7 +23,7 @@ export class wp_redirection_groups extends Model<wp_redirection_groupsAttributes
     wp_redirection_groups.init({
     id: {
       autoIncrement: true,
-      type: DataTypes.INTEGER(11).UNSIGNED,
+      type: DataTypes.INTEGER({length: 11}).UNSIGNED,
       allowNull: false,
       primaryKey: true
     },
@@ -32,12 +32,12 @@ export class wp_redirection_groups extends Model<wp_redirection_groupsAttributes
       allowNull: false
     },
     tracking: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER({length: 11}),
       allowNull: false,
       defaultValue: 1
     },
     module_id: {
-      type: DataTypes.INTEGER(11).UNSIGNED,
+      type: DataTypes.INTEGER({length: 11}).UNSIGNED,
       allowNull: false,
       defaultValue: 0
     },
@@ -47,7 +47,7 @@ export class wp_redirection_groups extends Model<wp_redirection_groupsAttributes
       defaultValue: "enabled"
     },
     position: {
-      type: DataTypes.INTEGER(11).UNSIGNED,
+      type: DataTypes.INTEGER({length: 11}).UNSIGNED,
       allowNull: false,
       defaultValue: 0
     }

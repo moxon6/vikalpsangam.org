@@ -15,7 +15,7 @@ export class wp_wfknownfilelist extends Model<wp_wfknownfilelistAttributes, wp_w
     wp_wfknownfilelist.init({
     id: {
       autoIncrement: true,
-      type: DataTypes.INTEGER(11).UNSIGNED,
+      type: DataTypes.INTEGER({length: 11}).UNSIGNED,
       allowNull: false,
       primaryKey: true
     },

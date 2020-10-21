@@ -41,7 +41,7 @@ export class wp_wfhits extends Model<wp_wfhitsAttributes, wp_wfhitsAttributes> i
     wp_wfhits.init({
     id: {
       autoIncrement: true,
-      type: DataTypes.INTEGER(10).UNSIGNED,
+      type: DataTypes.INTEGER({length: 10}).UNSIGNED,
       allowNull: false,
       primaryKey: true
     },
@@ -58,25 +58,25 @@ export class wp_wfhits extends Model<wp_wfhitsAttributes, wp_wfhitsAttributes> i
       allowNull: true
     },
     jsRun: {
-      type: DataTypes.INTEGER(4),
+      type: DataTypes.INTEGER({length: 4}),
       allowNull: true,
       defaultValue: 0
     },
     statusCode: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER({length: 11}),
       allowNull: false,
       defaultValue: 200
     },
     isGoogle: {
-      type: DataTypes.INTEGER(4),
+      type: DataTypes.INTEGER({length: 4}),
       allowNull: false
     },
     userID: {
-      type: DataTypes.INTEGER(10).UNSIGNED,
+      type: DataTypes.INTEGER({length: 10}).UNSIGNED,
       allowNull: false
     },
     newVisit: {
-      type: DataTypes.INTEGER(3).UNSIGNED,
+      type: DataTypes.INTEGER({length: 3}).UNSIGNED,
       allowNull: false
     },
     URL: {

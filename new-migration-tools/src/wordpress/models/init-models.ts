@@ -1,11 +1,5 @@
 import { Sequelize } from "sequelize";
-import { auth_permission, auth_permissionAttributes } from "./auth_permission";
-import { auth_group_permissions, auth_group_permissionsAttributes } from "./auth_group_permissions";
-import { auth_group, auth_groupAttributes } from "./auth_group";
-import { auth_user, auth_userAttributes } from "./auth_user";
 import { wp_links, wp_linksAttributes } from "./wp_links";
-import { auth_user_groups, auth_user_groupsAttributes } from "./auth_user_groups";
-import { auth_user_user_permissions, auth_user_user_permissionsAttributes } from "./auth_user_user_permissions";
 import { wp_comments, wp_commentsAttributes } from "./wp_comments";
 import { wp_postmeta, wp_postmetaAttributes } from "./wp_postmeta";
 import { wp_commentmeta, wp_commentmetaAttributes } from "./wp_commentmeta";
@@ -44,13 +38,7 @@ import { wp_wfstatus, wp_wfstatusAttributes } from "./wp_wfstatus";
 import { wp_wfsnipcache, wp_wfsnipcacheAttributes } from "./wp_wfsnipcache";
 
 export {
-  auth_permission, auth_permissionAttributes,
-  auth_group_permissions, auth_group_permissionsAttributes,
-  auth_group, auth_groupAttributes,
-  auth_user, auth_userAttributes,
   wp_links, wp_linksAttributes,
-  auth_user_groups, auth_user_groupsAttributes,
-  auth_user_user_permissions, auth_user_user_permissionsAttributes,
   wp_comments, wp_commentsAttributes,
   wp_postmeta, wp_postmetaAttributes,
   wp_commentmeta, wp_commentmetaAttributes,
@@ -90,13 +78,7 @@ export {
 };
 
 export function initModels(sequelize: Sequelize) {
-  auth_permission.initModel(sequelize);
-  auth_group_permissions.initModel(sequelize);
-  auth_group.initModel(sequelize);
-  auth_user.initModel(sequelize);
   wp_links.initModel(sequelize);
-  auth_user_groups.initModel(sequelize);
-  auth_user_user_permissions.initModel(sequelize);
   wp_comments.initModel(sequelize);
   wp_postmeta.initModel(sequelize);
   wp_commentmeta.initModel(sequelize);
@@ -135,13 +117,7 @@ export function initModels(sequelize: Sequelize) {
   wp_wfsnipcache.initModel(sequelize);
 
   return {
-    auth_permission,
-    auth_group_permissions,
-    auth_group,
-    auth_user,
     wp_links,
-    auth_user_groups,
-    auth_user_user_permissions,
     wp_comments,
     wp_postmeta,
     wp_commentmeta,

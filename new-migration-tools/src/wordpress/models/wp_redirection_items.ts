@@ -41,7 +41,7 @@ export class wp_redirection_items extends Model<wp_redirection_itemsAttributes, 
     wp_redirection_items.init({
     id: {
       autoIncrement: true,
-      type: DataTypes.INTEGER(11).UNSIGNED,
+      type: DataTypes.INTEGER({length: 11}).UNSIGNED,
       allowNull: false,
       primaryKey: true
     },
@@ -58,17 +58,17 @@ export class wp_redirection_items extends Model<wp_redirection_itemsAttributes, 
       allowNull: true
     },
     regex: {
-      type: DataTypes.INTEGER(11).UNSIGNED,
+      type: DataTypes.INTEGER({length: 11}).UNSIGNED,
       allowNull: false,
       defaultValue: 0
     },
     position: {
-      type: DataTypes.INTEGER(11).UNSIGNED,
+      type: DataTypes.INTEGER({length: 11}).UNSIGNED,
       allowNull: false,
       defaultValue: 0
     },
     last_count: {
-      type: DataTypes.INTEGER(10).UNSIGNED,
+      type: DataTypes.INTEGER({length: 10}).UNSIGNED,
       allowNull: false,
       defaultValue: 0
     },
@@ -78,7 +78,7 @@ export class wp_redirection_items extends Model<wp_redirection_itemsAttributes, 
       defaultValue: "0000-00-00 00:00:00"
     },
     group_id: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER({length: 11}),
       allowNull: false,
       defaultValue: 0
     },
@@ -92,7 +92,7 @@ export class wp_redirection_items extends Model<wp_redirection_itemsAttributes, 
       allowNull: false
     },
     action_code: {
-      type: DataTypes.INTEGER(11).UNSIGNED,
+      type: DataTypes.INTEGER({length: 11}).UNSIGNED,
       allowNull: false
     },
     action_data: {

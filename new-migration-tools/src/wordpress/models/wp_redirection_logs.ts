@@ -31,7 +31,7 @@ export class wp_redirection_logs extends Model<wp_redirection_logsAttributes, wp
     wp_redirection_logs.init({
     id: {
       autoIncrement: true,
-      type: DataTypes.INTEGER(11).UNSIGNED,
+      type: DataTypes.INTEGER({length: 11}).UNSIGNED,
       allowNull: false,
       primaryKey: true
     },
@@ -56,7 +56,7 @@ export class wp_redirection_logs extends Model<wp_redirection_logsAttributes, wp
       allowNull: true
     },
     redirection_id: {
-      type: DataTypes.INTEGER(11).UNSIGNED,
+      type: DataTypes.INTEGER({length: 11}).UNSIGNED,
       allowNull: true
     },
     ip: {
@@ -64,11 +64,11 @@ export class wp_redirection_logs extends Model<wp_redirection_logsAttributes, wp
       allowNull: true
     },
     module_id: {
-      type: DataTypes.INTEGER(11).UNSIGNED,
+      type: DataTypes.INTEGER({length: 11}).UNSIGNED,
       allowNull: false
     },
     group_id: {
-      type: DataTypes.INTEGER(11).UNSIGNED,
+      type: DataTypes.INTEGER({length: 11}).UNSIGNED,
       allowNull: true
     }
   }, {

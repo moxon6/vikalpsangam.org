@@ -30,7 +30,7 @@ export class wp_wfnotifications extends Model<wp_wfnotificationsAttributes, wp_w
       primaryKey: true
     },
     new: {
-      type: DataTypes.INTEGER(3).UNSIGNED,
+      type: DataTypes.INTEGER({length: 3}).UNSIGNED,
       allowNull: false,
       defaultValue: 1
     },
@@ -39,12 +39,12 @@ export class wp_wfnotifications extends Model<wp_wfnotificationsAttributes, wp_w
       allowNull: false
     },
     priority: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER({length: 11}),
       allowNull: false,
       defaultValue: 1000
     },
     ctime: {
-      type: DataTypes.INTEGER(10).UNSIGNED,
+      type: DataTypes.INTEGER({length: 10}).UNSIGNED,
       allowNull: false
     },
     html: {

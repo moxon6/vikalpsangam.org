@@ -28,7 +28,7 @@ export class wp_term_relationships extends Model<wp_term_relationshipsAttributes
       primaryKey: true
     },
     term_order: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER({length: 11}),
       allowNull: false,
       defaultValue: 0
     }

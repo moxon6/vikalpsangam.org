@@ -1,63 +1,65 @@
-import * as Joi from 'joi';
+import * as s from 'superstruct';
+import { refinement } from 'superstruct'
+
 import * as path from 'path';
 import supportedExtensions from './supported-extensions';
 
 const supportedExtensionsSet = new Set(supportedExtensions);
 
-const category = Joi.object({
-  id: Joi.number().integer(),
-  slug: Joi.string(),
-  title: Joi.string(),
+const category = s.object({
+  id: s.number(),
+  slug: s.string(),
+  title: s.string(),
 });
 
-const tag = Joi.object().keys({
-  id: Joi.number().integer(),
-  slug: Joi.string(),
-  title: Joi.string(),
+const tag = s.object({
+  id: s.number(),
+  slug: s.string(),
+  title: s.string(),
 });
 
-const media = Joi.string().custom((value) => {
-  const extension = path.extname(value);
-  if (!supportedExtensionsSet.has(extension)) {
-    throw new Error(`Unsupported media type ${extension}`);
-  }
-  return value;
-});
+const media = refinement(
+  s.string(), 
+  "media", 
+  (value) => supportedExtensionsSet.has(path.extname(value))
+);
 
-export default Joi.object({
-  _meta_title: Joi.binary(),
-  allow_comments: Joi.boolean(),
-  categories: Joi.array().items(category),
-  comments: Joi.array(),
-  comments_count: Joi.number().integer(),
-  content: Joi.string(),
-  created: Joi.string(),
-  description: Joi.string().allow(''),
-  expiry_date: Joi.any(),
-  featured_image: Joi.string().allow(''),
-  gen_description: Joi.boolean(),
-  id: Joi.number().integer(),
-  in_sitemap: Joi.boolean(),
-  keywords_string: Joi.string().allow(''),
-  media: Joi.array().items(media),
-  publish_date: Joi.string(),
-  rating_average: Joi.number().integer(),
-  rating_count: Joi.number().integer(),
-  rating_sum: Joi.number().integer(),
-  short_url: Joi.any(),
-  site_id: Joi.number().integer(),
-  slug: Joi.string(),
-  status: Joi.number().integer(),
-  tags: Joi.array().items(tag),
-  title: Joi.string(),
-  updated: Joi.string(),
-  user_id: Joi.number().integer(),
-  vikalp_article: Joi.object({
-    blogpost_ptr_id: Joi.number().integer(),
-    promoted: Joi.boolean(),
-    article_author: Joi.string().allow(null).allow(''),
-    add_to_carousel: Joi.boolean(),
-    longitude: Joi.string().allow(null).allow(''),
-    latitude: Joi.string().allow(null).allow(''),
+const optionalString = s.nullable(s.string())
+
+export default s.object({
+  _meta_title: s.string(),
+  allow_comments: s.boolean(),
+  categories: s.array(category),
+  comments: s.array(),
+  comments_count: s.number(),
+  content: s.string(),
+  created: s.string(),
+  description: s.string(),
+  expiry_date: s.any(),
+  featured_image: s.string(),
+  gen_description: s.boolean(),
+  id: s.number(),
+  in_sitemap: s.boolean(),
+  keywords_string: s.string(),
+  media: s.array(media),
+  publish_date: s.string(),
+  rating_average: s.number(),
+  rating_count: s.number(),
+  rating_sum: s.number(),
+  short_url: s.any(),
+  site_id: s.number(),
+  slug: s.string(),
+  status: s.number(),
+  tags: s.array(tag),
+  title: s.string(),
+  updated: s.string(),
+  user_id: s.number(),
+  vikalp_article: s.object({
+    blogpost_ptr_id: s.number(),
+    promoted: s.boolean(),
+    article_author: s.string(),
+    add_to_carousel: s.boolean(),
+    longitude: optionalString,
+    latitude: optionalString,
   }),
 });

@@ -30,7 +30,7 @@ export class wp_wfstatus extends Model<wp_wfstatusAttributes, wp_wfstatusAttribu
       allowNull: false
     },
     level: {
-      type: DataTypes.INTEGER(3).UNSIGNED,
+      type: DataTypes.INTEGER({length: 3}).UNSIGNED,
       allowNull: false
     },
     type: {
