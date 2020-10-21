@@ -8,7 +8,8 @@
 		"terminal.integrated.shell.linux": "/bin/bash"
 	},
 	"extensions": [
-		"ms-azuretools.vscode-docker"
+		"ms-azuretools.vscode-docker",
+		"dbaeumer.vscode-eslint"
 	],
 	"postCreateCommand": "echo alias python=python3 >> /etc/bash.bashrc"
 }
