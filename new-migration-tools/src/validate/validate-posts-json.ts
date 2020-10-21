@@ -1,7 +1,11 @@
 /* eslint-disable no-console */
-import Joi from 'joi';
-import posts from '../../posts.json';
+import * as Joi from 'joi';
+import * as fs from 'fs';
 import schema from './schema';
+
+const posts = JSON.parse(
+  fs.readFileSync("posts.json", "utf-8")
+)
 
 posts.forEach((post) => {
   try {

@@ -1,5 +1,5 @@
-import Joi from 'joi';
-import path from 'path';
+import * as Joi from 'joi';
+import * as path from 'path';
 import supportedExtensions from './supported-extensions';
 
 const supportedExtensionsSet = new Set(supportedExtensions);
@@ -24,7 +24,7 @@ const media = Joi.string().custom((value) => {
   return value;
 });
 
-export default Joi.object().keys({
+export default Joi.object({
   _meta_title: Joi.binary(),
   allow_comments: Joi.boolean(),
   categories: Joi.array().items(category),
