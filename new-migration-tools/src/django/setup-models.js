@@ -1,4 +1,8 @@
-export default function setupModelRelations(djangoModels) {
+import { initModels as initDjangoModels } from './models/init-models';
+
+export default function setupModels(sequelize) {
+  const djangoModels = initDjangoModels(sequelize);
+
   djangoModels.blog_blogpost.hasOne(djangoModels.vikalp_article, {
     foreignKey: 'blogpost_ptr_id',
   });
@@ -36,4 +40,6 @@ export default function setupModelRelations(djangoModels) {
     sourceKey: 'id',
     foreignKey: 'object_pk',
   });
+
+  return djangoModels;
 }

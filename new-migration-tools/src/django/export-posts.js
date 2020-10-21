@@ -1,74 +1,21 @@
-import cheerio from 'cheerio';
-import fs from 'fs';
 import * as R from 'ramda';
 import { Sequelize } from 'sequelize';
-import { initModels as initDjangoModels } from './models/init-models';
-import setupModelRelations from './setup-model-relations';
-import supportedExtensions from './supported-extensions';
+import setupModels from './setup-models';
+import { extractMedia, saveJSON } from './utils';
 
-const articleKey = 'vikalp_article';
+const pickProps = R.pick(['id', 'slug', 'title']);
 
-const sortKeys = R.pipe(
-  R.toPairs(),
-  R.sortBy(R.prop(0)),
-  R.fromPairs(),
-);
-
-const extractLinks = ($) => $('a')
-  .get()
-  .map((x) => $(x).attr('href'))
-  .filter((x) => !!x)
-  .filter((x) => x.startsWith('/static/media/uploads/'))
-  .map((x) => {
-    if (!supportedExtensions.some((ext) => x.endsWith(ext))) {
-      // eslint-disable-next-line no-console
-      console.warn(x);
-    }
-    return x;
-  });
-
-const extractImages = ($) => $('img')
-  .get()
-  .map((x) => $(x).attr('src'));
-
-const extractMedia = ($) => [
-  ...extractImages($),
-  ...extractLinks($),
-];
-
-const formatPost = R.pipe(
-  (post) => R.mergeRight(post, post[articleKey]),
-  R.omit([articleKey]),
-  (post) => ({
-    ...post,
-    categories: post.categories.map(R.pick([
-      'id',
-      'slug',
-      'title',
-    ])),
-  }),
-  (post) => ({
-    ...post,
-    media: extractMedia(
-      cheerio.load(post.content),
-    ),
-  }),
-  (post) => ({
-    ...post,
-    tags: post.tags.map(R.pick([
-      'id',
-      'slug',
-      'title',
-    ])),
-  }),
-);
+const formatPost = (post) => ({
+  ...post,
+  media: extractMedia(post.content),
+  categories: post.categories.map(pickProps),
+  tags: post.tags.map(pickProps),
+});
 
 async function main() {
   const sequelize = new Sequelize('postgres://postgres:postgres@postgres:5432/main'); // Example for postgres
 
-  const djangoModels = initDjangoModels(sequelize);
-
-  setupModelRelations(djangoModels);
+  const djangoModels = setupModels(sequelize);
 
   try {
     await sequelize.authenticate();
@@ -93,8 +40,7 @@ async function main() {
     });
 
     const formatted = posts.map((p) => p.toJSON()).map(formatPost);
-
-    fs.writeFileSync('posts.json', JSON.stringify(formatted.map(sortKeys), null, 2));
+    saveJSON('posts.json', formatted);
 
     await sequelize.close();
   } catch (error) {
