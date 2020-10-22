@@ -87,6 +87,12 @@ async function getTagIds() {
   return tagsResponse.map((r) => (r.toJSON() as any).term_id as number);
 }
 
+async function destroyComments() {
+  await wordpressModels.wp_comments.destroy({
+    where: {},
+  });
+}
+
 async function main() {
   try {
     await sequelize.authenticate();
@@ -99,6 +105,7 @@ async function main() {
     await destroyPosts(postIds);
     await destroyTags(tagIds);
     await destroyRedundantTermRelationships();
+    await destroyComments();
 
     await sequelize.close();
   } catch (error) {

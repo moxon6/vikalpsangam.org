@@ -4,14 +4,13 @@ import * as R from 'ramda';
 import setupModels from './setup-models';
 import schema from '../validate/schema';
 import { StructType } from 'superstruct'
+import { wp_commentsAttributes } from './models/wp_comments';
 
 type Post = StructType<typeof schema>;
 
 const posts = JSON.parse(
   fs.readFileSync("posts.json", "utf-8")
 ) as Post[];
-
-const post = posts[0];
 
 const sequelize = new Sequelize('mysql://wordpress:wordpress@db:3306/wordpress', {
   logging: false
@@ -44,14 +43,14 @@ async function main() {
       menu_order: 0,
       post_type: "post",
       post_mime_type: "",
-      comment_count: post.comments.length,
+      comment_count: post.comments_count,
     }));
 
     const newPosts = (await Promise.all( 
       R.splitEvery(100, mapped).map(postgroup => wordpressModels.wp_posts.bulkCreate(postgroup))
     )).flat()
 
-    const mappedMeta = newPosts.flatMap(newPost => [
+    const mappedMeta = R.zip(posts, newPosts).flatMap(([post, newPost]) => [
       {
         post_id: newPost.ID,
         meta_key: "author",
@@ -80,6 +79,30 @@ async function main() {
     ])
 
     const meta = await wordpressModels.wp_postmeta.bulkCreate(mappedMeta)
+
+    const mapSinglePostComments = (post: Post, postId: number): wp_commentsAttributes[] => post.comments
+        .filter(comment => comment.is_public && !comment.is_removed)
+        .map(comment => ({
+        comment_post_ID: postId,
+        comment_author: comment.user_name,
+        comment_author_email: comment.user_email,
+        comment_author_url: comment.user_url,
+        comment_author_IP: comment.ip_address,
+        comment_date: new Date(comment.submit_date),
+        comment_date_gmt: new Date(comment.submit_date),
+        comment_content: comment.comment,
+        comment_karma: 1,
+        comment_approved: "1",
+        comment_type: "comment",
+        comment_parent: 0,
+        user_id: 0,
+      }))
+
+    const mappedComments = R
+      .zip(posts, newPosts)
+      .flatMap(([post, newPost]) => mapSinglePostComments(post, newPost.ID))
+
+    const commentsResponse = await wordpressModels.wp_comments.bulkCreate(mappedComments)
 
     await sequelize.close();
   } catch (error) {
