@@ -24,13 +24,29 @@ const media = refinement(
   (value) => supportedExtensionsSet.has(path.extname(value))
 );
 
+const comment = s.object({
+  id: s.number(),
+  content_type_id: s.number(),
+  object_pk: s.string(),
+  site_id: s.number(),
+  user_id: s.nullable(s.number()),
+  user_name: s.string(),
+  user_email: s.string(),
+  user_url: s.string(),
+  comment: s.string(),
+  submit_date: s.string(),
+  ip_address: s.string(),
+  is_public: s.boolean(),
+  is_removed: s.boolean(),
+})
+
 const optionalString = s.nullable(s.string())
 
 export default s.object({
   _meta_title: s.string(),
   allow_comments: s.boolean(),
   categories: s.array(category),
-  comments: s.array(),
+  comments: s.array(comment),
   comments_count: s.number(),
   content: s.string(),
   created: s.string(),
