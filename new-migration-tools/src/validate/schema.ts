@@ -38,6 +38,14 @@ const comment = s.object({
   ip_address: s.string(),
   is_public: s.boolean(),
   is_removed: s.boolean(),
+  generic_threadedcomment: s.object({
+      by_author: s.boolean(),
+      comment_ptr_id: s.number(),
+      replied_to_id: s.nullable( s.number() ),
+      rating_count: s.number(),
+      rating_average: s.number(),
+      rating_sum: s.number()
+  })
 })
 
 const optionalString = s.nullable(s.string())

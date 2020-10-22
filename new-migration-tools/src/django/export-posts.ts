@@ -36,6 +36,9 @@ async function main() {
           Sequelize.cast(Sequelize.col('comments.object_pk'), 'integer'),
           Sequelize.col('blog_blogpost.id'),
         ),
+        include: {
+          model: djangoModels.generic_threadedcomment
+        }
       }],
     });
 

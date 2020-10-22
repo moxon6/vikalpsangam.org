@@ -41,5 +41,9 @@ export default function setupModels(sequelize) {
     foreignKey: 'object_pk',
   });
 
+  djangoModels.django_comments.hasOne(djangoModels.generic_threadedcomment, {
+      foreignKey: 'comment_ptr_id',
+  })
+
   return djangoModels;
 }
