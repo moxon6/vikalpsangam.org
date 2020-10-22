@@ -5,17 +5,77 @@ import setupModels from './setup-models';
 import schema from '../validate/schema';
 import { StructType } from 'superstruct'
 import { wp_commentsAttributes } from './models/wp_comments';
+import { wp_posts } from './models/wp_posts';
 
 type Post = StructType<typeof schema>;
 
-const posts = JSON.parse(
-  fs.readFileSync("posts.json", "utf-8")
-) as Post[];
+function readPostsFromDisk() {
+  const posts = JSON.parse(
+    fs.readFileSync("posts.json", "utf-8")
+  ) as Post[];
+
+  return posts.map(post => ({
+    ...post,
+    comments: post.comments.filter(c => c.is_public && !c.is_removed)
+  }))
+
+}
+
+const posts = readPostsFromDisk()
 
 const sequelize = new Sequelize('mysql://wordpress:wordpress@db:3306/wordpress', {
   logging: false
 }); // Example for postgres
 const wordpressModels = setupModels(sequelize);
+
+async function uploadComments(wp_posts: wp_posts[]) {
+
+  const mapSinglePostComments = (post: Post, postId: number): wp_commentsAttributes[] => post.comments
+  .map(comment => ({
+    comment_post_ID: postId,
+    comment_author: comment.user_name,
+    comment_author_email: comment.user_email,
+    comment_author_url: comment.user_url,
+    comment_author_IP: comment.ip_address,
+    comment_date: new Date(comment.submit_date),
+    comment_date_gmt: new Date(comment.submit_date),
+    comment_content: comment.comment,
+    comment_karma: 1,
+    comment_approved: "1",
+    comment_type: "comment",
+    comment_parent: 0,
+    user_id: 0,
+  }))
+
+  const mappedComments = R
+    .zip(posts, wp_posts)
+    .flatMap(([post, newPost]) => mapSinglePostComments(post, newPost.ID))
+
+  return await wordpressModels.wp_comments.bulkCreate(mappedComments)
+
+}
+
+async function uploadCommentsAndLinks(wp_posts: wp_posts[]) {
+
+    const django_comments = posts.flatMap(post => post.comments)
+    const wp_comments = await uploadComments(wp_posts)
+
+    const mapCommentIdToWpComment = R.zipObj(
+      django_comments.map(comment => comment.id),
+      wp_comments
+    )
+
+    for (const comment of django_comments) {
+      const djangoCommentId = comment.id
+      const djangoParentId = comment.generic_threadedcomment.replied_to_id;
+      if (djangoParentId !== null ) {
+        const wp_child = mapCommentIdToWpComment[djangoCommentId]
+        const wp_parent = mapCommentIdToWpComment[djangoParentId]
+        wp_child.comment_parent = wp_parent.comment_ID
+        await wp_child.save()
+      }
+    }
+}
 
 async function main() {
   try {
@@ -46,11 +106,11 @@ async function main() {
       comment_count: post.comments_count,
     }));
 
-    const newPosts = (await Promise.all( 
+    const wp_posts = (await Promise.all( 
       R.splitEvery(100, mapped).map(postgroup => wordpressModels.wp_posts.bulkCreate(postgroup))
     )).flat()
 
-    const mappedMeta = R.zip(posts, newPosts).flatMap(([post, newPost]) => [
+    const mappedMeta = R.zip(posts, wp_posts).flatMap(([post, newPost]) => [
       {
         post_id: newPost.ID,
         meta_key: "author",
@@ -80,29 +140,7 @@ async function main() {
 
     const meta = await wordpressModels.wp_postmeta.bulkCreate(mappedMeta)
 
-    const mapSinglePostComments = (post: Post, postId: number): wp_commentsAttributes[] => post.comments
-        .filter(comment => comment.is_public && !comment.is_removed)
-        .map(comment => ({
-        comment_post_ID: postId,
-        comment_author: comment.user_name,
-        comment_author_email: comment.user_email,
-        comment_author_url: comment.user_url,
-        comment_author_IP: comment.ip_address,
-        comment_date: new Date(comment.submit_date),
-        comment_date_gmt: new Date(comment.submit_date),
-        comment_content: comment.comment,
-        comment_karma: 1,
-        comment_approved: "1",
-        comment_type: "comment",
-        comment_parent: 0,
-        user_id: 0,
-      }))
-
-    const mappedComments = R
-      .zip(posts, newPosts)
-      .flatMap(([post, newPost]) => mapSinglePostComments(post, newPost.ID))
-
-    const commentsResponse = await wordpressModels.wp_comments.bulkCreate(mappedComments)
+    await uploadCommentsAndLinks(wp_posts);
 
     await sequelize.close();
   } catch (error) {
