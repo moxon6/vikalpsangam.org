@@ -16,7 +16,10 @@ async function getPostIds() {
   const posts = await wordpressModels.wp_posts.findAll({
     attributes: ['id'],
     where: {
-      post_type: 'post',
+      [Op.or]: [
+        { post_type: 'post'},
+        { post_excerpt: "migrated_featured_image"}
+      ]
     },
   });
 

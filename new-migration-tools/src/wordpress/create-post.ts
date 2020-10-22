@@ -1,11 +1,12 @@
 import { Sequelize } from 'sequelize';
 import * as fs from 'fs';
 import * as R from 'ramda';
+import * as path from 'path';
 import setupModels from './setup-models';
 import schema from '../validate/schema';
 import { StructType } from 'superstruct'
 import { wp_commentsAttributes } from './models/wp_comments';
-import { wp_posts } from './models/wp_posts';
+import { wp_posts, wp_postsAttributes } from './models/wp_posts';
 
 type Post = StructType<typeof schema>;
 
@@ -27,6 +28,47 @@ const sequelize = new Sequelize('mysql://wordpress:wordpress@db:3306/wordpress',
   logging: false
 }); // Example for postgres
 const wordpressModels = setupModels(sequelize);
+
+async function uploadMediaEntries(wp_posts: wp_postsAttributes[]) {
+  const media: [wp_posts, string][] = R.pipe(
+    R.zip(posts),
+    R.map<[Post, wp_posts], [wp_posts, string][]>(
+      ([post, wp_post]) => [ ...post.media, post.featured_image]
+        .map(entry => [wp_post, entry])
+    ),
+    R.uniqBy(x => x[1])
+  )(wp_posts).flat()
+
+  const replacePath = (p : string) => p.replace("/static/media/uploads", "/wp-content/uploads/migrate")
+
+  const mappedMedia = media.map(([wp_post, entry]) => ({
+    post_author: 1,
+    post_date: new Date(),
+    post_date_gmt: new Date(),
+    post_content: "",
+    post_title: path.basename(entry),
+	  post_excerpt: "migrated_featured_image",
+    post_status: "inherit",
+    comment_status: "open",
+    ping_status: "closed",
+    post_password: "",
+    post_name: path.basename(entry),
+    to_ping: "",
+    pinged: "",
+    post_modified: new Date(),
+    post_modified_gmt: new Date(),
+    post_content_filtered: "",
+    post_parent: wp_post.ID,
+    guid: replacePath(entry),
+    menu_order: 0,
+    post_type: "attachment",
+    post_mime_type: "image/png",
+    comment_count: 0,
+  })) as wp_postsAttributes[]
+
+  wordpressModels.wp_posts.bulkCreate(mappedMedia)
+
+}
 
 async function uploadComments(wp_posts: wp_posts[]) {
 
@@ -139,6 +181,8 @@ async function main() {
     ])
 
     const meta = await wordpressModels.wp_postmeta.bulkCreate(mappedMeta)
+
+    await uploadMediaEntries(wp_posts)
 
     await uploadCommentsAndLinks(wp_posts);
 
