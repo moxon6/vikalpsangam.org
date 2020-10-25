@@ -4,7 +4,8 @@ import { extractMedia } from './utils';
 import * as R from 'ramda';
 import * as mime from 'mime-types';
 import * as fs from 'fs';
-import { imageSize } from 'image-size';
+import * as probe from 'probe-image-size';
+
 
 type Post = StructType<typeof schema>;
 
@@ -51,31 +52,30 @@ const addMediaMetadata = (post: FlatMediaPost) : Post => {
 
     const getFileSystemPath = (path: string) => `/workspace/uploads${path}`
 
-    const addMediaMetadataSingle = (media: string) => {
-        const fsPath = getFileSystemPath(media)
+    const getImageDimensions = (imagePath: string) => probe.sync(
+        fs.readFileSync(imagePath)
+    )
+
+    const getImageDimensionsOrNull = (imagePath: string, mime_type: string) => mime_type.startsWith("image")
+        ? getImageDimensions(imagePath)
+        : { width: null, height: null }
+
+    const addMediaMetadataSingle = (file: string) => {
+        const fsPath = getFileSystemPath(file)
 
         if (!fs.existsSync(fsPath)) {
             console.log(`Media file missing: ${fsPath}`)
             return null
         }
-
-        let [width, height] = [null, null];
-
+        
         const mime_type = mime.lookup(fsPath) || "application/octet-stream";
-
-        if (mime_type.startsWith("image")) {
-            try {
-                ({ width, height } = imageSize(fsPath))
-            } catch(e) {
-                console.log(`Error getting image info: ${fsPath}`)
-            }
-        }
+        const { width, height } = getImageDimensionsOrNull(fsPath, mime_type)
 
         return {
             mime_type,
-            width: width,
-            height: height,
-            file: media
+            width,
+            height,
+            file
         }
     }
 
