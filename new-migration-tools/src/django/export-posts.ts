@@ -1,16 +1,7 @@
-import * as R from 'ramda';
 import { Sequelize } from 'sequelize';
 import setupModels from './setup-models';
-import { extractMedia, saveJSON } from './utils';
-
-const pickProps = R.pick(['id', 'slug', 'title']);
-
-const formatPost = (post: any) => ({
-  ...post,
-  media: extractMedia(post.content),
-  categories: post.categories.map(pickProps),
-  tags: post.tags.map(pickProps),
-});
+import { saveJSON } from './utils';
+import formatPost from './format-post';
 
 async function main() {
   const sequelize = new Sequelize('postgres://postgres:postgres@postgres:5432/main'); // Example for postgres

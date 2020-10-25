@@ -18,11 +18,12 @@ const tag = s.object({
   title: s.string(),
 });
 
-const media = refinement(
-  s.string(), 
-  "media", 
-  (value) => supportedExtensionsSet.has(path.extname(value))
-);
+const media = s.object({
+  mime_type: s.string(),
+  width: s.number(),
+  height: s.number(),
+  file: refinement( s.string(),  "media", (value) => supportedExtensionsSet.has(path.extname(value)) )
+})
 
 const comment = s.object({
   id: s.number(),
@@ -48,7 +49,7 @@ const comment = s.object({
   })
 })
 
-const optionalString = s.nullable(s.string())
+const nullableString = s.nullable(s.string())
 
 export default s.object({
   _meta_title: s.string(),
@@ -83,7 +84,7 @@ export default s.object({
     promoted: s.boolean(),
     article_author: s.string(),
     add_to_carousel: s.boolean(),
-    longitude: optionalString,
-    latitude: optionalString,
+    longitude: nullableString,
+    latitude: nullableString,
   }),
 });

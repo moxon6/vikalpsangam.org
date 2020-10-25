@@ -7,22 +7,16 @@ import schema from '../validate/schema';
 import { StructType } from 'superstruct'
 import { wp_commentsAttributes } from './models/wp_comments';
 import { wp_posts, wp_postsAttributes } from './models/wp_posts';
+import {serialize, unserialize} from 'php-serialize'
+
+const sizeOf = require('image-size')
 
 type Post = StructType<typeof schema>;
 
-function readPostsFromDisk() {
-  const posts = JSON.parse(
-    fs.readFileSync("posts.json", "utf-8")
-  ) as Post[];
 
-  return posts.map(post => ({
-    ...post,
-    comments: post.comments.filter(c => c.is_public && !c.is_removed)
-  }))
-
-}
-
-const posts = readPostsFromDisk()
+const posts = JSON.parse(
+  fs.readFileSync("posts.json", "utf-8")
+) as Post[];
 
 const sequelize = new Sequelize('mysql://wordpress:wordpress@db:3306/wordpress', {
   logging: false
@@ -30,29 +24,42 @@ const sequelize = new Sequelize('mysql://wordpress:wordpress@db:3306/wordpress',
 const wordpressModels = setupModels(sequelize);
 
 async function uploadMediaEntries(wp_posts: wp_postsAttributes[]) {
+  const cleanupEntry = R.pipe(
+    (entry: string) => {
+      return entry.startsWith("uploads/")
+        ? `/static/media/${entry}`
+        : entry
+    },
+    entry => entry.replace(/%20/gi, " "),
+    entry => entry.replace("Settlement and Transportation", "Settlement_and_Transportation"),
+    entry => entry.replace("Featured image for new videos ", "Featured image for new videos_")
+  )
+
   const media: [wp_posts, string][] = R.pipe(
     R.zip(posts),
     R.map<[Post, wp_posts], [wp_posts, string][]>(
       ([post, wp_post]) => [ ...post.media, post.featured_image]
-        .map(entry => [wp_post, entry])
+        .map(entry => [wp_post, cleanupEntry(entry)])
     ),
     R.uniqBy(x => x[1])
   )(wp_posts).flat()
 
-  const replacePath = (p : string) => p.replace("/static/media/uploads", "/wp-content/uploads/migrate")
+  const replacePath = (p : string) => {
+    return p.replace("/static/media/uploads", "/wp-content/uploads/migrate")
+  }
 
   const mappedMedia = media.map(([wp_post, entry]) => ({
     post_author: 1,
     post_date: new Date(),
     post_date_gmt: new Date(),
-    post_content: "",
+    post_content: entry,
     post_title: path.basename(entry),
 	  post_excerpt: "migrated_featured_image",
     post_status: "inherit",
     comment_status: "open",
     ping_status: "closed",
     post_password: "",
-    post_name: path.basename(entry),
+    post_name: replacePath(entry),
     to_ping: "",
     pinged: "",
     post_modified: new Date(),
@@ -66,7 +73,43 @@ async function uploadMediaEntries(wp_posts: wp_postsAttributes[]) {
     comment_count: 0,
   })) as wp_postsAttributes[]
 
-  wordpressModels.wp_posts.bulkCreate(mappedMedia)
+  const wp_posts_media = await wordpressModels.wp_posts.bulkCreate(mappedMedia)
+
+  const localFSPath = (p: string) => p
+    .replace("/wp-content", "/workspace")
+    
+
+  const getPostMeta = post_guid => {
+    const local_path = localFSPath(post_guid)
+
+    let size = {}
+    try {
+      size = sizeOf(local_path)
+    } catch(error) {
+      console.log({post_guid})
+    }
+
+    return {
+      ...size,
+      file: post_guid.split("uploads/")[1]
+    }
+  }
+
+  const media_meta = wp_posts_media
+    .filter(wp_posts_media => 
+      wp_posts_media.post_content.endsWith(".jpg") ||
+      wp_posts_media.post_content.endsWith(".jpeg") ||
+      wp_posts_media.post_content.endsWith(".png") ||
+      wp_posts_media.post_content.endsWith(".gif")
+    )
+    .filter(wp_posts_media => !ignore_list.includes(wp_posts_media.post_content))
+    .map(wp_post_media => ({
+      post_id: wp_post_media.ID, 
+      meta_key: "_wp_attachment_metadata", 
+      meta_value: serialize(getPostMeta(wp_post_media.guid))
+    }))
+
+  await wordpressModels.wp_postmeta.bulkCreate(media_meta)
 
 }
 
