@@ -20,8 +20,8 @@ const tag = s.object({
 
 const media = s.object({
   mime_type: s.string(),
-  width: s.number(),
-  height: s.number(),
+  width: s.nullable(s.number()),
+  height: s.nullable(s.number()),
   file: refinement( s.string(),  "media", (value) => supportedExtensionsSet.has(path.extname(value)) )
 })
 
