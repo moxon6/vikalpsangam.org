@@ -52,12 +52,8 @@ const addMediaMetadata = (post: FlatMediaPost) : Post => {
 
     const getFileSystemPath = (path: string) => `/workspace/uploads${path}`
 
-    const getImageDimensions = (imagePath: string) => probe.sync(
-        fs.readFileSync(imagePath)
-    )
-
     const getImageDimensionsOrNull = (imagePath: string, mime_type: string) => mime_type.startsWith("image")
-        ? getImageDimensions(imagePath)
+        ? probe.sync(fs.readFileSync(imagePath))
         : { width: null, height: null }
 
     const addMediaMetadataSingle = (file: string) => {
