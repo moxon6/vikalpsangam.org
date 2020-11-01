@@ -30,8 +30,9 @@ const cleanCategoriesAndTags = (post: any): FlatMediaPost => {
 const mapMediaPaths = (post: FlatMediaPost) : FlatMediaPost => {
     const mapMediapath = R.pipe(
         (p: string) => p.replace(/%20/gi, " "),
-        p => p.startsWith("/uploads") ? p.replace("/uploads", "/migrate") : p,
-        p => p.startsWith("/static/media/uploads") ? p.replace("/static/media/uploads", "/migrate") : p,
+        p => p.startsWith("uploads/") ? p.replace("uploads/", "migrate/") : p,
+        p => p.startsWith("/uploads/") ? p.replace("/uploads/", "migrate/") : p,
+        p => p.startsWith("/static/media/uploads") ? p.replace("/static/media/uploads", "migrate") : p,
         p => p.replace("Settlement and Transportation", "Settlement_and_Transportation"),
         p => p.replace("Featured image for new videos ", "Featured image for new videos_")
     )
@@ -50,13 +51,13 @@ const filterComments = (post: FlatMediaPost) : FlatMediaPost => ({
 
 const addMediaMetadata = (post: FlatMediaPost) : Post => {
 
-    const getFileSystemPath = (path: string) => `/workspace/uploads${path}`
+    const getFileSystemPath = (path: string) => `/workspace/uploads/${path}`
 
     const getImageDimensionsOrNull = (imagePath: string, mime_type: string) => mime_type.startsWith("image")
         ? probe.sync(fs.readFileSync(imagePath))
         : { width: null, height: null }
 
-    const addMediaMetadataSingle = (file: string) => {
+    const addMediaMetadataSingle = ({file, is_featured} : { file: string, is_featured: boolean}) => {
         const fsPath = getFileSystemPath(file)
 
         if (!fs.existsSync(fsPath)) {
@@ -71,13 +72,27 @@ const addMediaMetadata = (post: FlatMediaPost) : Post => {
             mime_type,
             width,
             height,
-            file
+            file,
+            is_featured
         }
     }
 
+    const mediaWithIsFeatured = 
+        [ 
+            ...post.media.map(file => ({
+                    file, 
+                    is_featured: false
+                }
+            )),
+            (post.featured_image ? {
+                file: post.featured_image,
+                is_featured: true
+             } : null)
+        ].filter(R.identity)
+
     return {
         ...post,
-        media: post.media
+        media: mediaWithIsFeatured
             .map(addMediaMetadataSingle)
             .filter(x => !!x)
     }

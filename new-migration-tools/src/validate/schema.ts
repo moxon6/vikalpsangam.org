@@ -22,7 +22,8 @@ const media = s.object({
   mime_type: s.string(),
   width: s.nullable(s.number()),
   height: s.nullable(s.number()),
-  file: refinement( s.string(),  "media", (value) => supportedExtensionsSet.has(path.extname(value)) )
+  file: refinement( s.string(),  "media", (value) => supportedExtensionsSet.has(path.extname(value)) ),
+  is_featured: s.boolean()
 })
 
 const comment = s.object({
