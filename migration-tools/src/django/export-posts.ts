@@ -11,7 +11,7 @@ async function main() {
   try {
     await sequelize.authenticate();
 
-    const posts = await djangoModels.blog_blogpost.findAll({
+    const django_posts = await djangoModels.blog_blogpost.findAll({
       include: [{
         model: djangoModels.vikalp_article,
       }, {
@@ -33,7 +33,7 @@ async function main() {
       }],
     });
 
-    const formatted = posts.map((p: any) => p.toJSON()).map(formatPost);
+    const formatted = django_posts.map((p: any) => p.toJSON()).map(formatPost);
     saveJSON('posts.json', formatted);
 
     await sequelize.close();
