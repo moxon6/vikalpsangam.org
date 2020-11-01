@@ -196,6 +196,27 @@ async function main() {
 
     await uploadCommentsAndLinks(wp_posts);
 
+    const wp_categories = (await wordpressModels.wp_terms.findAll({
+      include: [{
+        model: wordpressModels.wp_term_taxonomy as any,
+        where: {
+          taxonomy: 'category',
+        },
+      }]
+    })
+    ).map((p) => p.toJSON());
+
+    const wp_categories_by_slug = R.indexBy(R.prop('slug'), wp_categories)
+    
+    const categoryRelations = R.zip(posts, wp_posts).flatMap(([post, wp_post]) => post.categories.map(category => ({
+          object_id: wp_post.ID,
+          term_taxonomy_id: (wp_categories_by_slug[category.slug] as any).wp_term_taxonomy.term_taxonomy_id,
+          term_order: 0
+        })
+    ))
+
+    await batchCreate(wordpressModels.wp_term_relationships, categoryRelations)
+
     await sequelize.close();
   } catch (error) {
     // eslint-disable-next-line no-console
