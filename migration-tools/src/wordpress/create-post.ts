@@ -11,7 +11,6 @@ import { wp_posts, wp_postsAttributes } from './models/wp_posts';
 import { serialize } from 'php-serialize'
 
 type Post = StructType<typeof schema>;
-type MediaEntry = Post['media'][0];
 
 const posts = JSON.parse(
   fs.readFileSync("posts.json", "utf-8")
@@ -193,7 +192,7 @@ async function main() {
       meta_value: wp_post_media.ID
     } : null) ].filter(x => x))
 
-    const wp_postmeta_media = await batchCreate(wordpressModels.wp_postmeta, mediaMetaEntries)
+    await batchCreate(wordpressModels.wp_postmeta, mediaMetaEntries)
 
     await uploadCommentsAndLinks(wp_posts);
 
