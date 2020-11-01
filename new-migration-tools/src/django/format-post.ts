@@ -28,17 +28,24 @@ const cleanCategoriesAndTags = (post: any): FlatMediaPost => {
 }
 
 const mapMediaPaths = (post: FlatMediaPost) : FlatMediaPost => {
+
+    const mapDirectoryNames = R.pipe(
+        p => p.replace("Settlement and Transportation", "Settlement_and_Transportation"),
+        p => p.replace("Featured image for new videos ", "Featured image for new videos_")
+    )
+
     const mapMediapath = R.pipe(
         (p: string) => p.replace(/%20/gi, " "),
         p => p.startsWith("uploads/") ? p.replace("uploads/", "migrate/") : p,
         p => p.startsWith("/uploads/") ? p.replace("/uploads/", "migrate/") : p,
         p => p.startsWith("/static/media/uploads") ? p.replace("/static/media/uploads", "migrate") : p,
-        p => p.replace("Settlement and Transportation", "Settlement_and_Transportation"),
-        p => p.replace("Featured image for new videos ", "Featured image for new videos_")
+        mapDirectoryNames
     )
 
     return {
         ...post,
+        content: mapDirectoryNames(post.content)
+            .replace(/\/static\/media\/uploads\//gi, "/wp-content/uploads/migrate/"),
         featured_image: mapMediapath(post.featured_image),
         media: post.media.map(mapMediapath)
     }

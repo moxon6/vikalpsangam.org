@@ -186,6 +186,10 @@ async function main() {
         height: media.height,
         file: media.file
       })
+    }, {
+      post_id: media.post_parent,
+      meta_key:"_thumbnail_id",
+      meta_value: wp_post_media.ID
     }])
 
     const wp_postmeta_media = await batchCreate(wordpressModels.wp_postmeta, mediaMetaEntries)
