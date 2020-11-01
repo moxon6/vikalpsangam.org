@@ -6,13 +6,13 @@ import * as mime from 'mime-types';
 import * as fs from 'fs';
 import * as probe from 'probe-image-size';
 import { v4 as uuidv4 } from 'uuid';
+import { patchUrls } from './site-specific-patches';
 
 type Post = StructType<typeof schema>;
 
 interface FlatMediaPost extends Omit<Post, 'media'> {
     media: string[]
 }
-
 const extractMediaPaths = (post: any): FlatMediaPost => ({
     ...post,
     media: extractMedia(post.content)
@@ -28,23 +28,17 @@ const cleanCategoriesAndTags = (post: any): FlatMediaPost => {
 }
 
 const mapMediaPaths = (post: FlatMediaPost) : FlatMediaPost => {
-
-    const mapDirectoryNames = R.pipe(
-        p => p.replace("Settlement and Transportation", "Settlement_and_Transportation"),
-        p => p.replace("Featured image for new videos ", "Featured image for new videos_")
-    )
-
     const mapMediapath = R.pipe(
-        (p: string) => p.replace(/%20/gi, " "),
+        patchUrls,
+        p => p.replace(/%20/gi, " "),
         p => p.startsWith("uploads/") ? p.replace("uploads/", "migrate/") : p,
         p => p.startsWith("/uploads/") ? p.replace("/uploads/", "migrate/") : p,
         p => p.startsWith("/static/media/uploads") ? p.replace("/static/media/uploads", "migrate") : p,
-        mapDirectoryNames
     )
 
     return {
         ...post,
-        content: mapDirectoryNames(post.content)
+        content: patchUrls(post.content)
             .replace(/\/static\/media\/uploads\//gi, "/wp-content/uploads/migrate/"),
         featured_image: mapMediapath(post.featured_image),
         media: post.media.map(mapMediapath)
@@ -84,18 +78,17 @@ const addMediaMetadata = (post: FlatMediaPost) : Post => {
         }
     }
 
-    const mediaWithIsFeatured = 
-        [ 
-            ...post.media.map(file => ({
-                    file, 
-                    is_featured: false
-                }
-            )),
-            (post.featured_image ? {
-                file: post.featured_image,
-                is_featured: true
-             } : null)
-        ].filter(R.identity)
+    const mediaWithIsFeatured = post.media.map(file => ({
+        file, 
+        is_featured: false
+    }))
+
+    if (post.featured_image) {
+        mediaWithIsFeatured.push({
+            file: post.featured_image,
+            is_featured: true
+        })
+    }
 
     return {
         ...post,
