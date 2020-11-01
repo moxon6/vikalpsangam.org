@@ -5,6 +5,7 @@ import * as R from 'ramda';
 import setupModels from './setup-models';
 import schema from '../validate/schema';
 import { StructType } from 'superstruct'
+import { wp_termsAttributes } from './models/wp_terms'
 import { wp_commentsAttributes } from './models/wp_comments';
 import { wp_posts, wp_postsAttributes } from './models/wp_posts';
 import { serialize } from 'php-serialize'
@@ -186,11 +187,11 @@ async function main() {
         height: media.height,
         file: media.file
       })
-    }, {
+    }, (media.is_featured ? {
       post_id: media.post_parent,
       meta_key:"_thumbnail_id",
       meta_value: wp_post_media.ID
-    }])
+    } : null) ].filter(x => x))
 
     const wp_postmeta_media = await batchCreate(wordpressModels.wp_postmeta, mediaMetaEntries)
 
@@ -207,7 +208,7 @@ async function main() {
     ).map((p) => p.toJSON());
 
     const wp_categories_by_slug = R.indexBy(R.prop('slug'), wp_categories)
-    
+  
     const categoryRelations = R.zip(posts, wp_posts).flatMap(([post, wp_post]) => post.categories.map(category => ({
           object_id: wp_post.ID,
           term_taxonomy_id: (wp_categories_by_slug[category.slug] as any).wp_term_taxonomy.term_taxonomy_id,
@@ -216,6 +217,50 @@ async function main() {
     ))
 
     await batchCreate(wordpressModels.wp_term_relationships, categoryRelations)
+
+    const tags = R.uniqBy(
+      tag => tag.slug,
+      posts
+        .flatMap(post => post.tags)
+        .map(tag => ({
+           name: tag.title,
+           slug: tag.slug,
+           term_group: 0,
+        }))
+    )
+
+    const wp_tags_result = (await batchCreate(wordpressModels.wp_terms, tags)) as wp_termsAttributes[]
+
+    const tagsTaxonomy = wp_tags_result.map(wp_tag => ({
+      term_id: wp_tag.term_id,
+      taxonomy: "post_tag",
+      description: "",
+      parent: 0,
+      count: 0
+    }))
+
+    await batchCreate(wordpressModels.wp_term_taxonomy, tagsTaxonomy)
+
+    const wp_tags = (await wordpressModels.wp_terms.findAll({
+      include: [{
+        model: wordpressModels.wp_term_taxonomy as any,
+        where: {
+          taxonomy: 'post_tag',
+        },
+      }]
+    })
+    ).map((p) => p.toJSON());
+
+    const wp_tags_by_slug = R.indexBy(R.prop('slug'), wp_tags)
+    
+    const tagRelations = R.zip(posts, wp_posts).flatMap(([post, wp_post]) => post.tags.map(tag => ({
+          object_id: wp_post.ID,
+          term_taxonomy_id: (wp_tags_by_slug[tag.slug] as any).wp_term_taxonomy.term_taxonomy_id,
+          term_order: 0
+        })
+    ))
+
+    await batchCreate(wordpressModels.wp_term_relationships, tagRelations)
 
     await sequelize.close();
   } catch (error) {
