@@ -18,7 +18,8 @@ async function getPostIds() {
     where: {
       [Op.or]: [
         { post_type: 'post'},
-        { post_excerpt: "migrated_featured_image"}
+        { post_excerpt: "migrated_featured_image"},
+        { post_content: "migrated_media_entry" }
       ]
     },
   });

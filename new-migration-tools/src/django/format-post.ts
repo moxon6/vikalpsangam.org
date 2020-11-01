@@ -5,7 +5,7 @@ import * as R from 'ramda';
 import * as mime from 'mime-types';
 import * as fs from 'fs';
 import * as probe from 'probe-image-size';
-
+import { v4 as uuidv4 } from 'uuid';
 
 type Post = StructType<typeof schema>;
 
@@ -83,7 +83,10 @@ const addMediaMetadata = (post: FlatMediaPost) : Post => {
     }
 }
 
+const withGuid = (post: any) => ({...post, guid: uuidv4() })
+
 export default R.pipe(
+    withGuid,
     extractMediaPaths,
     cleanCategoriesAndTags,
     mapMediaPaths,

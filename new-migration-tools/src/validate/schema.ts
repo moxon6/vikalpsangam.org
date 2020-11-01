@@ -63,6 +63,7 @@ export default s.object({
   expiry_date: s.any(),
   featured_image: s.string(),
   gen_description: s.boolean(),
+  guid: s.string(),
   id: s.number(),
   in_sitemap: s.boolean(),
   keywords_string: s.string(),

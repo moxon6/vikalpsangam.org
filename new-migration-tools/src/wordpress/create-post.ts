@@ -1,18 +1,16 @@
-import { Sequelize } from 'sequelize';
+import {  Sequelize } from 'sequelize';
 import * as fs from 'fs';
-import * as R from 'ramda';
 import * as path from 'path';
+import * as R from 'ramda';
 import setupModels from './setup-models';
 import schema from '../validate/schema';
 import { StructType } from 'superstruct'
 import { wp_commentsAttributes } from './models/wp_comments';
 import { wp_posts, wp_postsAttributes } from './models/wp_posts';
-import {serialize, unserialize} from 'php-serialize'
-
-const sizeOf = require('image-size')
+import { serialize } from 'php-serialize'
 
 type Post = StructType<typeof schema>;
-
+type MediaEntry = Post['media'][0];
 
 const posts = JSON.parse(
   fs.readFileSync("posts.json", "utf-8")
@@ -20,98 +18,9 @@ const posts = JSON.parse(
 
 const sequelize = new Sequelize('mysql://wordpress:wordpress@db:3306/wordpress', {
   logging: false
-}); // Example for postgres
+});
+
 const wordpressModels = setupModels(sequelize);
-
-async function uploadMediaEntries(wp_posts: wp_postsAttributes[]) {
-  const cleanupEntry = R.pipe(
-    (entry: string) => {
-      return entry.startsWith("uploads/")
-        ? `/static/media/${entry}`
-        : entry
-    },
-    entry => entry.replace(/%20/gi, " "),
-    entry => entry.replace("Settlement and Transportation", "Settlement_and_Transportation"),
-    entry => entry.replace("Featured image for new videos ", "Featured image for new videos_")
-  )
-
-  const media: [wp_posts, string][] = R.pipe(
-    R.zip(posts),
-    R.map<[Post, wp_posts], [wp_posts, string][]>(
-      ([post, wp_post]) => [ ...post.media, post.featured_image]
-        .map(entry => [wp_post, cleanupEntry(entry)])
-    ),
-    R.uniqBy(x => x[1])
-  )(wp_posts).flat()
-
-  const replacePath = (p : string) => {
-    return p.replace("/static/media/uploads", "/wp-content/uploads/migrate")
-  }
-
-  const mappedMedia = media.map(([wp_post, entry]) => ({
-    post_author: 1,
-    post_date: new Date(),
-    post_date_gmt: new Date(),
-    post_content: entry,
-    post_title: path.basename(entry),
-	  post_excerpt: "migrated_featured_image",
-    post_status: "inherit",
-    comment_status: "open",
-    ping_status: "closed",
-    post_password: "",
-    post_name: replacePath(entry),
-    to_ping: "",
-    pinged: "",
-    post_modified: new Date(),
-    post_modified_gmt: new Date(),
-    post_content_filtered: "",
-    post_parent: wp_post.ID,
-    guid: replacePath(entry),
-    menu_order: 0,
-    post_type: "attachment",
-    post_mime_type: "image/png",
-    comment_count: 0,
-  })) as wp_postsAttributes[]
-
-  const wp_posts_media = await wordpressModels.wp_posts.bulkCreate(mappedMedia)
-
-  const localFSPath = (p: string) => p
-    .replace("/wp-content", "/workspace")
-    
-
-  const getPostMeta = post_guid => {
-    const local_path = localFSPath(post_guid)
-
-    let size = {}
-    try {
-      size = sizeOf(local_path)
-    } catch(error) {
-      console.log({post_guid})
-    }
-
-    return {
-      ...size,
-      file: post_guid.split("uploads/")[1]
-    }
-  }
-
-  const media_meta = wp_posts_media
-    .filter(wp_posts_media => 
-      wp_posts_media.post_content.endsWith(".jpg") ||
-      wp_posts_media.post_content.endsWith(".jpeg") ||
-      wp_posts_media.post_content.endsWith(".png") ||
-      wp_posts_media.post_content.endsWith(".gif")
-    )
-    .filter(wp_posts_media => !ignore_list.includes(wp_posts_media.post_content))
-    .map(wp_post_media => ({
-      post_id: wp_post_media.ID, 
-      meta_key: "_wp_attachment_metadata", 
-      meta_value: serialize(getPostMeta(wp_post_media.guid))
-    }))
-
-  await wordpressModels.wp_postmeta.bulkCreate(media_meta)
-
-}
 
 async function uploadComments(wp_posts: wp_posts[]) {
 
@@ -161,6 +70,10 @@ async function uploadCommentsAndLinks(wp_posts: wp_posts[]) {
       }
     }
 }
+
+const batchCreate =  async <T>(model, data: Array<T>) => (await Promise.all( 
+  R.splitEvery(100, data).map(dataGroup => model.bulkCreate(dataGroup))
+)).flat()
 
 async function main() {
   try {
@@ -223,9 +136,59 @@ async function main() {
       }
     ])
 
-    const meta = await wordpressModels.wp_postmeta.bulkCreate(mappedMeta)
+    const wp_meta = await batchCreate(wordpressModels.wp_postmeta, mappedMeta)
 
-    await uploadMediaEntries(wp_posts)
+    const mediaExtended = R.zip(posts, wp_posts)
+      .flatMap(([post, wp_post]) => post.media.map(media => ({
+        ...media,
+        publish_date: post.publish_date,
+        updated: post.updated,
+        post_parent: wp_post.ID
+      })))
+
+    const mediaEntries: wp_postsAttributes[] = mediaExtended.map(media => ({
+        post_author: 0,
+        post_date: new Date(media.publish_date),
+        post_date_gmt: new Date(media.publish_date),
+        post_content: "migrated_media_entry",
+        post_title: path.basename(media.file),
+        post_excerpt: "",
+        post_status: "inherit",
+        comment_status: "closed",
+        ping_status: "closed",
+        post_password: "",
+        post_name: media.file,
+        to_ping: "",
+        pinged: "",
+        post_modified: new Date(media.updated),
+        post_modified_gmt: new Date(media.updated),
+        post_content_filtered: "",
+        post_parent: media.post_parent,
+        guid: media.file,
+        menu_order: 0,
+        post_type: "attachment",
+        post_mime_type: media.mime_type,
+        comment_count: 0,
+      }))
+      
+
+    const wp_posts_media = await batchCreate(wordpressModels.wp_posts, mediaEntries)
+
+    const mediaMetaEntries = R.zip(mediaExtended, wp_posts_media).flatMap(([media, wp_post_media]) => [{
+      post_id: wp_post_media.ID,
+      meta_key: "_wp_attached_file",
+      meta_value: media.file
+    }, {
+      post_id: wp_post_media.ID,
+      meta_key: "_wp_attachment_metadata",
+      meta_value: serialize({
+        width: media.width,
+        height: media.height,
+        file: media.file
+      })
+    }])
+
+    const wp_postmeta_media = await batchCreate(wordpressModels.wp_postmeta, mediaMetaEntries)
 
     await uploadCommentsAndLinks(wp_posts);
 
