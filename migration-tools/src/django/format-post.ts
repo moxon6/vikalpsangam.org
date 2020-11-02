@@ -29,11 +29,11 @@ const cleanCategoriesAndTags = (post: any): FlatMediaPost => {
 
 const mapMediaPaths = (post: FlatMediaPost) : FlatMediaPost => {
     const mapMediapath = R.pipe(
-        patchUrls,
         p => p.replace(/%20/gi, " "),
         p => p.startsWith("uploads/") ? p.replace("uploads/", "migrate/") : p,
         p => p.startsWith("/uploads/") ? p.replace("/uploads/", "migrate/") : p,
         p => p.startsWith("/static/media/uploads") ? p.replace("/static/media/uploads", "migrate") : p,
+        patchUrls,
     )
 
     return {
@@ -62,7 +62,7 @@ const addMediaMetadata = (post: FlatMediaPost) : Post => {
         const fsPath = getFileSystemPath(file)
 
         if (!fs.existsSync(fsPath)) {
-            console.log(`Media file missing: ${fsPath}`)
+            console.log(`Media file missing: ${fsPath} on post: ${post.title}`)
             return null
         }
         
