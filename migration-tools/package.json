@@ -11,6 +11,7 @@
     "django:export": "ts-node src/django/export-posts.ts",
     "validate": "ts-node src/validate/validate-posts-json.ts",
     "validate:endpoints": "ts-node src/validate/validate-endpoints.ts",
+    "validate:summary": "ts-node src/validate/summary.ts",
     "wordpress:reset-content": "ts-node src/wordpress/reset-wordpress-content.ts local",
     "wordpress:upload-content": "ts-node src/wordpress/create-post.ts local",
     
