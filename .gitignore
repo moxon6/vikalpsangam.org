@@ -7,3 +7,5 @@ db.postgres.sql
 vikalpsangam/vendor
 uploads
 .old
+deployment_key
+credentials.json

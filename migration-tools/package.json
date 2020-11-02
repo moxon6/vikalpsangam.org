@@ -11,8 +11,14 @@
     "django:export": "ts-node src/django/export-posts.ts",
     "validate": "ts-node src/validate/validate-posts-json.ts",
     "validate:endpoints": "ts-node src/validate/validate-endpoints.ts",
-    "wordpress:reset-content": "ts-node src/wordpress/reset-wordpress-content.ts",
-    "wordpress:upload-content": "ts-node src/wordpress/create-post.ts"
+    "wordpress:reset-content": "ts-node src/wordpress/reset-wordpress-content.ts local",
+    "wordpress:upload-content": "ts-node src/wordpress/create-post.ts local",
+    
+    "wordpress:reset-content-remote": "ts-node src/wordpress/reset-wordpress-content.ts remote",
+    "wordpress:upload-content-remote": "ts-node src/wordpress/create-post.ts remote",
+
+    "setup-deployment-key": "cp -n ../deployment_key /deployment_key",
+    "setup-ssh-tunnel": "ssh -NL 4306:localhost:3306 ubuntu@dev.vikalpsangam.org -i /deployment_key"
   },
   "author": "",
   "license": "ISC",

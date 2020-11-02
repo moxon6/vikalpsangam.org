@@ -1,4 +1,3 @@
-import {  Sequelize } from 'sequelize';
 import * as fs from 'fs';
 import * as path from 'path';
 import * as R from 'ramda';
@@ -9,6 +8,7 @@ import { wp_termsAttributes } from './models/wp_terms'
 import { wp_commentsAttributes } from './models/wp_comments';
 import { wp_posts, wp_postsAttributes } from './models/wp_posts';
 import { serialize } from 'php-serialize'
+import getSequelizeClient from './get-sequelize-client';
 
 type Post = StructType<typeof schema>;
 
@@ -16,9 +16,7 @@ const posts = JSON.parse(
   fs.readFileSync("posts.json", "utf-8")
 ) as Post[];
 
-const sequelize = new Sequelize('mysql://wordpress:wordpress@db:3306/wordpress', {
-  logging: false
-});
+const sequelize = getSequelizeClient();
 
 const wordpressModels = setupModels(sequelize);
 

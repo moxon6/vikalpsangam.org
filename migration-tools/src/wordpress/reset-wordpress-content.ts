@@ -1,7 +1,8 @@
 import setupModels from './setup-models';
-import { Sequelize, Op } from 'sequelize'
+import getSequelizeClient from './get-sequelize-client';
+import { Op } from 'sequelize'
 
-const sequelize = new Sequelize('mysql://wordpress:wordpress@db:3306/wordpress'); // Example for postgres
+const sequelize = getSequelizeClient()
 const wordpressModels = setupModels(sequelize);
 
 async function destroyEditLocks() {
