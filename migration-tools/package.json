@@ -10,6 +10,7 @@
     "django:load": "psql --username=postgres --host=postgres --dbname=main -f /workspace/db.postgres.sql",
     "django:export": "ts-node src/django/export-posts.ts",
     "validate": "ts-node src/validate/validate-posts-json.ts",
+    "validate:endpoints": "ts-node src/validate/validate-endpoints.ts",
     "wordpress:reset-content": "ts-node src/wordpress/reset-wordpress-content.ts",
     "wordpress:upload-content": "ts-node src/wordpress/create-post.ts"
   },
@@ -29,6 +30,7 @@
     "pg-hstore": "^2.3.3",
     "php-serialize": "^4.0.2",
     "probe-image-size": "^5.0.0",
+    "progress": "^2.0.3",
     "ramda": "^0.27.1",
     "sequelize": "^6.3.5",
     "sequelize-auto": "^0.6.4",
@@ -38,6 +40,7 @@
     "uuid": "^8.3.1"
   },
   "devDependencies": {
+    "@types/progress": "^2.0.3",
     "@types/uuid": "^8.3.0"
   }
 }

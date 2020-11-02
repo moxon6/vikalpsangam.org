@@ -434,3 +434,12 @@ if (!is_admin()) {
 	}
 	add_filter('pre_get_posts','wpb_search_filter');
 }
+
+add_filter( 'home_url', function( $url ) {
+	if ($_GET["local"]) {
+		echo "testing";
+		$url = str_replace( 'localhost:8000', 'wordpress', $url );
+	}
+	
+	return $url;
+});

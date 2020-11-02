@@ -16,9 +16,15 @@ const useThumbnailsForMissing = R.pipe(
     p => p.replace("LearningandEducation/leaf_art__process_of_self_creation.jpg", "LearningandEducation/.thumbnails/leaf_art__process_of_self_creation-327x218.jpg")
 )
 
+const patchSiteUrls = R.pipe(
+    p => p.replace(/http:\/\/vikalpsangam.org\//g, "/"),
+    p => p.replace(/http:\/\/www.vikalpsangam.org\//g, "/"),
+)
+
 export const patchUrls = R.pipe(
     globalPatches,
     useThumbnailsForMissing,
+    patchSiteUrls,
     p => p.replace("alternativePolitics/gond_ravan_procession.jpg", "SocietyandCulture/gond_ravan_procession.jpg"),
     p => p.replace("Vikalp Sangam  Case Studies/timbaktu_collective_casestudy_ak.pdf", "Vikalp Sangam Case Studies/timbaktu_collective_casestudy_ak.pdf"),
     p => p.replace("organic_farmers_coop_madhuchandan_2.jpg", "organic_farmers_coop_madhuchandan.jpg"),
