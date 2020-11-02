@@ -18,7 +18,9 @@
     "wordpress:upload-content-remote": "ts-node src/wordpress/create-post.ts remote",
 
     "setup-deployment-key": "cp -n ../deployment_key /deployment_key",
-    "setup-ssh-tunnel": "ssh -NL 4306:localhost:3306 ubuntu@dev.vikalpsangam.org -i /deployment_key"
+    "setup-ssh-tunnel": "ssh -NL 4306:localhost:3306 ubuntu@dev.vikalpsangam.org -i /deployment_key",
+    "sync:media": "rsync -Pav -e \"ssh -i /deployment_key\" /workspace/uploads/ ubuntu@dev.vikalpsangam.org:/var/www/html/wp-content/uploads",
+    "recount-terms": "ssh ubuntu@dev.vikalpsangam.org -i /deployment_key \"wp taxonomy --path=/var/www/html list --field=name --allow-root | xargs wp --path=/var/www/html term recount --allow-root\""
   },
   "author": "",
   "license": "ISC",
