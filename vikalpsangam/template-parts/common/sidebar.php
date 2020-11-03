@@ -10,6 +10,20 @@ $categories = get_categories([
     "order"     => "ASC" 
 ]);
 
+$related_posts = yarpp_get_related(array(
+    'numberposts' => 5,
+    'post_type'	=> 'post',
+    "orderby" => "date",
+    "order" => "DSC"
+));
+
+$recent_activity = get_posts(array(
+    'numberposts' => 5,
+    'post_type'	=> 'post',
+    "orderby" => "date",
+    "order" => "DSC"
+));
+
 ?>
 
 <style>
@@ -49,13 +63,6 @@ $categories = get_categories([
 </div>
 
 <?php
-    $recent_posts = get_posts(array(
-            'numberposts' => 10,
-            'post_type'	=> 'post',
-            "orderby" => "date",
-            "order" => "DSC"
-    ));
-
     function get_tags_from_post($posts) {
         $ids = [];
         $tags = [];
@@ -71,7 +78,12 @@ $categories = get_categories([
         return $tags;
     }
     
-    $tags = get_tags_from_post($recent_posts);    
+    $tags = get_tags_from_post(get_posts(array(
+        'numberposts' => 10,
+        'post_type'	=> 'post',
+        "orderby" => "date",
+        "order" => "DSC"
+    )));    
 ?>
 
 <h5>Explore Stories</h5>
@@ -101,8 +113,56 @@ $categories = get_categories([
 <div id="map" class="sidebar-map"></div>
 <script> renderMap('map'); </script>
 
+
+
+<h5>Related Posts</h5>
+<div class="featured-list in-sidebar">    
+    <ul class="list-unstyled">
+        <?php foreach($related_posts as $post){ 
+            setup_postdata( $post ); ?>
+            <li class="row">
+                <div class="col-xs-4">
+                    <?php the_post_thumbnail('thumbnail', array('class' => 'img-responsive')); ?>
+                </div>
+                <div class="col-xs-8">
+                    <a href="<?php the_permalink(); ?>">
+                        <h4 id="featured-article" class="media-heading">
+                            <?php the_title(); ?>
+                        </h4>
+                    </a>                
+                    <!-- TODO: Truncate to 130 -->
+                    <p><?php the_excerpt(); ?></p>
+                </div>
+            </li>
+        <?php } ?>
+    </ul>
+</div>
+
 <h5>Events</h5>
 <div id="events-in-sidebar" style="padding-bottom: 10px">
     <div data-tockify-component="mini" data-tockify-calendar="alternatives"></div>
     <script data-cfasync="false" data-tockify-script="embed" src="https://public.tockify.com/browser/embed.js"></script>
+</div>
+
+<h5>Recent Posts</h5>
+<div class="featured-list in-sidebar">    
+    <ul class="list-unstyled">
+        <?php foreach($recent_activity as $post){ 
+            setup_postdata( $post ); ?>
+            <li class="row">
+                <div class="col-xs-4">
+                    <?php the_post_thumbnail('thumbnail', array('class' => 'img-responsive')); ?>
+                </div>
+                <div class="col-xs-8">
+                    <a href="<?php the_permalink(); ?>">
+                        <h4 id="featured-article" class="media-heading">
+                            <?php the_title(); ?>
+                        </h4>
+                    </a>                
+                    <!-- TODO: Truncate to 130 -->
+                    <p><?php the_excerpt(); ?></p>
+                </div>
+            </li>
+        <?php } ?>
+    </ul>
 </div>

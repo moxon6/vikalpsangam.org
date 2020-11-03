@@ -9,7 +9,8 @@
 	},
 	"extensions": [
 		"ms-azuretools.vscode-docker",
-		"dbaeumer.vscode-eslint"
+		"dbaeumer.vscode-eslint",
+		"eamodio.gitlens"
 	],
 	"postCreateCommand": "echo alias python=python3 >> /etc/bash.bashrc"
 }
