@@ -86,6 +86,29 @@ $recent_activity = get_posts(array(
     )));    
 ?>
 
+<h5>Related Posts</h5>
+<div class="featured-list in-sidebar">    
+    <ul class="list-unstyled">
+        <?php foreach($related_posts as $post){ 
+            setup_postdata( $post ); ?>
+            <li class="row">
+                <div class="col-xs-4">
+                    <?php the_post_thumbnail('thumbnail', array('class' => 'img-responsive')); ?>
+                </div>
+                <div class="col-xs-8">
+                    <a href="<?php the_permalink(); ?>">
+                        <h4 id="featured-article" class="media-heading">
+                            <?php the_title(); ?>
+                        </h4>
+                    </a>                
+                    <!-- TODO: Truncate to 130 -->
+                    <p><?php the_excerpt(); ?></p>
+                </div>
+            </li>
+        <?php } ?>
+    </ul>
+</div>
+
 <h5>Explore Stories</h5>
 <div id="tag-cloud" class="tag-cloud-wrapper">
     <div class="tag_cloud">
@@ -112,31 +135,6 @@ $recent_activity = get_posts(array(
 
 <div id="map" class="sidebar-map"></div>
 <script> renderMap('map'); </script>
-
-
-
-<h5>Related Posts</h5>
-<div class="featured-list in-sidebar">    
-    <ul class="list-unstyled">
-        <?php foreach($related_posts as $post){ 
-            setup_postdata( $post ); ?>
-            <li class="row">
-                <div class="col-xs-4">
-                    <?php the_post_thumbnail('thumbnail', array('class' => 'img-responsive')); ?>
-                </div>
-                <div class="col-xs-8">
-                    <a href="<?php the_permalink(); ?>">
-                        <h4 id="featured-article" class="media-heading">
-                            <?php the_title(); ?>
-                        </h4>
-                    </a>                
-                    <!-- TODO: Truncate to 130 -->
-                    <p><?php the_excerpt(); ?></p>
-                </div>
-            </li>
-        <?php } ?>
-    </ul>
-</div>
 
 <h5>Events</h5>
 <div id="events-in-sidebar" style="padding-bottom: 10px">
