@@ -12,7 +12,8 @@
 </style>
 
 <?php
-    get_header();
+    global $wp_query;
+    get_header(); 
 ?>
 <div id="content">
     <div class="section generic_section">
@@ -24,7 +25,7 @@
                     <div class="space-xs"></div>
 
                     <h4>
-                        <p>Found 379 results for your query: Test</p>
+                        <p>Found <?php echo $wp_query->found_posts ?> results for your query: <?php echo get_search_query(); ?></p>
                     </h4>
 
                     <div id="search-results" class="list-group">
