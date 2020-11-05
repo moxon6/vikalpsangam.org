@@ -57,6 +57,9 @@
                                     get_template_part( 'template-parts/common/article-tile', null, [ "post" => $post ]);
                                 } ?>
                             </div>
+                            <div class="see-all-stories-wrapper">
+                                <a class="see-all-stories" href="<?php echo get_category_link($category->term_id); ?>"> See all stories </a>
+                            </div>
                         </div>
                         <?php } ?>
                     </section>

@@ -125,6 +125,20 @@
     margin-bottom: 25px;
     display: flex;
     flex-direction: column;
+
+    .read-more-wrapper {
+      background-color: $light-gray-col;
+      height: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      a {
+        
+        text-transform: none;
+        font-size: .75em;
+        // font-weight: bold;
+      }
+    }
   }
   .image-sub-section {
     padding: 0px;
@@ -153,18 +167,5 @@
       
     }
     
-  }
-  .read-more-wrapper {
-    background-color: $light-gray-col;
-    height: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    a {
-      
-      text-transform: none;
-      font-size: .75em;
-      // font-weight: bold;
-    }
   }
 }
