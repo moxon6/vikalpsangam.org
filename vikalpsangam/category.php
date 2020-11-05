@@ -26,10 +26,11 @@
 
                      </div>
                   
-                    <div class="row category-page-category-list-wrapper category-topping-wrapper">                        
+                    <div id="infinite-scroll-content" class="row category-page-category-list-wrapper category-topping-wrapper">                        
                         <?php
-                            while ( have_posts() ) {
-                                get_template_part( 'template-parts/common/article-tile', null, [ "post" => the_post() ]);
+                            while (have_posts()) {
+                                the_post();
+                                get_template_part( 'template-parts/common/article-tile');
                             }
                         ?>
                     </div>

@@ -1,4 +1,3 @@
-<?php setup_postdata( $args["post"] ); ?>
 <div class="col-xs-6 col-sm-4 category">
     <a class="category-link-wrapper" href="<?php echo get_the_permalink(); ?>">
         <div class="top-sub-section">

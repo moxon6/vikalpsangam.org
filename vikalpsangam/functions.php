@@ -443,3 +443,22 @@ add_filter( 'home_url', function( $url ) {
 	
 	return $url;
 });
+
+function setup_infinite_scroll() {
+    add_theme_support( 'infinite-scroll', array(
+        'container' => 'infinite-scroll-content',
+        'render'    => 'infinite_scroll_render',
+        'wrapper'   => false,
+		'type'      => 'click',
+		'posts_per_page' => 6,
+    ) );
+}
+
+add_action('after_setup_theme', 'setup_infinite_scroll');
+
+function infinite_scroll_render() {
+    while (have_posts()) {
+		the_post();
+		get_template_part('template-parts/common/article-tile');
+    }
+}

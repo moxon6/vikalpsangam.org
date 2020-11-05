@@ -18,21 +18,15 @@ get_header();
                     <div class="space-xs"></div>
 
                     <div class="category-page-heading">
-                        <div class="category-title-link no-icon"><?php single_tag_title("") ?></div>
+                        <div class="category-title-link no-icon"><?php single_tag_title() ?></div>
                     </div>
-                    <div class="row category-page-category-list-wrapper category-topping-wrapper" id="articles-list">
-                        <?php 
-                        $tag = get_queried_object();
-                        $posts = get_posts(array(
-                            'numberposts' => 12,
-                            'tag' => $tag->slug
-                        ));  
-                        
-                        
-                        foreach($posts as $post){
-                            get_template_part( 'template-parts/common/article-tile', null, [ "article" => $post ]);
-                        } ?>
-                        <!-- TODO : Reintroduce Endless logic -->
+                    <div id="infinite-scroll-content" class="row category-page-category-list-wrapper category-topping-wrapper">                        
+                        <?php
+                            while (have_posts()) {
+                                the_post();
+                                get_template_part( 'template-parts/common/article-tile');
+                            }
+                        ?>
                     </div>
                 </div>
 
