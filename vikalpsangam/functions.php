@@ -462,5 +462,3 @@ function infinite_scroll_render() {
 		get_template_part('template-parts/common/article-tile');
     }
 }
-
-add_filter( 'jetpack_offline_mode', '__return_true' );
