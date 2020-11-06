@@ -1,9 +1,6 @@
 <?php
 get_header();
 ?>
-<?php
-    require_once get_template_directory() .'/mock-data/perspective-articles.php';
-?>
 <div id="content">
     <div class="section generic_section">
         <div class="container main-body-container">
