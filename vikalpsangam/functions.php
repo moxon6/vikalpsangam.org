@@ -462,3 +462,20 @@ function infinite_scroll_render() {
 		get_template_part('template-parts/common/article-tile');
     }
 }
+
+function be_exclude_category_from_blog( $query ) {
+	if ( $query->is_main_query() && !$query->is_admin()) {
+		if ($query->query_vars["pagename"] == "stories") {
+			unset($query->query_vars["page"]);
+			unset($query->query_vars["pagename"]);
+			unset($query->queried_object);
+	
+			$query->is_archive = true;
+			$query->is_category = true;
+			$query->is_page = false;
+			$query->is_singular= false;	
+		}
+	}
+}
+add_action( 'pre_get_posts', 'be_exclude_category_from_blog' );
+

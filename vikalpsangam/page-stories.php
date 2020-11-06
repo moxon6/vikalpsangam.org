@@ -4,12 +4,8 @@ get_header();
 /**
  * The Latest Stories page
  */
+?>
 
-?>
-<?php
-    $articles_str = file_get_contents(get_template_directory() ."/mock-data/latest-stories.json");
-    $articles = json_decode($articles_str, true);
-?>
 <div id="content">
     <div class="section generic_section">
         <div class="container main-body-container">
@@ -31,10 +27,13 @@ get_header();
                             <div class="border-bottom-only"></div>
                         </div>
                     </div>
-                    <div class="row category-page-category-list-wrapper category-topping-wrapper" id="articles-list">
-                        <?php foreach($posts as $post){
-                            get_template_part( 'template-parts/common/article-tile', null, [ "post" => $post ]);
-                        } ?>
+                    <div id="infinite-scroll-content" class="row category-page-category-list-wrapper category-topping-wrapper">                        
+                        <?php
+                            while (have_posts()) {
+                                the_post();
+                                get_template_part( 'template-parts/common/article-tile');
+                            }
+                        ?>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-3 right-section">
