@@ -25,9 +25,6 @@ $categoryPosts = (new Categories())->getCategoryPosts($NUMBER_STORIES_BY_CATEGOR
 ?>
 
 <div id="content">
-
-    <?php require_once get_template_directory() .'/mock-data/articles.php'; ?>
-
     <section class="top-carousel-wrapper">
         <div class="row no-right-margin">
             <div class="col-md-8 col-xs-12">
