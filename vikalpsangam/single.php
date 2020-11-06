@@ -2,9 +2,6 @@
 get_header();
 ?>
 <?php
-    $events_str = file_get_contents(get_template_directory() ."/mock-data/past-events.json");
-    $events = json_decode($events_str, true);
-
     $get_cat        = get_the_category();
     $first_cat      = $get_cat[0];
     $category_name  = $first_cat->cat_name;
