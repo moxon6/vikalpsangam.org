@@ -1,9 +1,5 @@
 <?php
 
-require_once  get_template_directory() .'/mock-data/tags.php';
-require_once  get_template_directory() .'/mock-data/categories.php';
-require_once  get_template_directory() .'/mock-data/recent-activity.php';
-
 $categories = get_categories([
     "type"      => "post",      
     "orderby"   => "name",
