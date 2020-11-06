@@ -1,11 +1,5 @@
 <?php
-
-get_header();
-
-?>
-
-<?php
-    require_once get_template_directory() .'/mock-data/perspective-articles.php';
+    get_header();
 ?>
 
 <div id="content">
