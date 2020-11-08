@@ -1,7 +1,9 @@
-.comments-section {
-    width: 400px;
-    
-    form .email {
-        width: 100%;
+#content {
+    form.contact-form {
+        width: 600px;
+        
+        .email, .name {
+            width: 100%;
+        }
     }
 }
