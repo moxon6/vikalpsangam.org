@@ -9,18 +9,7 @@ get_header();
                     <div class="space-xs"></div>
                     <div class="space-xs"></div>
                     <div class="space-xs"></div>
-                    <h1>THIS IS A DUMMY FORM: Contact Us</h1>
-                    <p>You can join us on our mailing list to participate in discussions and share stories of
-                        alternatives. Here is a link to <a
-                            href="https://groups.google.com/forum/#!forum/vikalp-sangam-list"
-                            target="_blank">subscribe</a>.</p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p>If you have any queries or suggestions or need more information please contact us as below:</p>
-                    <div class="comments-section">
-                        <?php the_content(); ?>
-                    </div>
+                    <?php the_content(); ?>
                 </div>
                 <div class="col-sm-12 col-md-3 right-section left-border-separator">
                     <?php get_template_part('template-parts/common/sidebar') ?>
