@@ -16,7 +16,7 @@ get_header();
                     <div class="space-xs"></div>
                     <div class="row top-title">
                         <div class="col-xs-7 heading">
-                            <h2><?=the_title(); ?></h2>
+                            <h2><?php single_post_title(); ?></h2>
                         </div>
                         <div class="col-xs-5 link">
                             <a class="read-more" href="/article/">Show stories by category</a>
