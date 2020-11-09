@@ -247,6 +247,7 @@ require get_template_directory() . '/inc/template-tags.php';
  */
 require get_template_directory() . '/inc/template-functions.php';
 
+require get_template_directory() . '/inc/functions/page-stories.php';
 
 function add_extra_fields_to_category($taxonomy_name){
     ?>
@@ -463,19 +464,5 @@ function infinite_scroll_render() {
     }
 }
 
-function be_exclude_category_from_blog( $query ) {
-	if ( $query->is_main_query() && !$query->is_admin()) {
-		if ($query->query_vars["pagename"] == "stories") {
-			unset($query->query_vars["page"]);
-			unset($query->query_vars["pagename"]);
-			unset($query->queried_object);
-	
-			$query->is_archive = true;
-			$query->is_category = true;
-			$query->is_page = false;
-			$query->is_singular= false;	
-		}
-	}
-}
-add_action( 'pre_get_posts', 'be_exclude_category_from_blog' );
+
 
