@@ -8,8 +8,6 @@
 
 <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.png" />
 <meta charset="utf-8">
-
-<!-- TODO : Generate Meta tags based on WP https://trello.com/c/cQgCxZuu -->
 <meta charset="utf-8">
 
 <?php
@@ -23,14 +21,6 @@ $tag_names = array_map(
 <meta name="description" content="<?php bloginfo('description'); ?>" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="template" content="<?php global $template; echo basename($template); ?>" />
-
-<!--
-Bootstrap/JS setup https://trello.com/c/fGN1hfZm
-    <script src="{% static "js/bootstrap.min.js" %}"></script>
-    <script src="{{ STATIC_URL }}endless_pagination/js/endless-pagination.js"></script>
-    <script src="{% static "js/app.js" %}"></script>
-    <script src="{% static "js/modern-business.js" %}"></script>   
--->
 
 <?php wp_head(); ?>
 </head>
