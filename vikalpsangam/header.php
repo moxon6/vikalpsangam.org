@@ -11,8 +11,16 @@
 
 <!-- TODO : Generate Meta tags based on WP https://trello.com/c/cQgCxZuu -->
 <meta charset="utf-8">
-<meta name="keywords" content="comunity conservation, civil society initiative, energy, education, economy, ecology, settlements, rural, organic-farming, sustainability, environment, environmental issues, Bhoomi, livelihoods, case studies, alternative learning, social issues, society, seeds, Kalpavriksh, Shikshantar, Deccan Development Society, Bhoomi College">
-<meta name="description" content="">
+
+<?php
+$tag_names = array_map(
+    fn($x) => $x->name,
+    wp_get_post_tags(get_the_ID())
+);
+?>
+
+<meta name="keywords" content="<?php echo implode(", ",  $tag_names) ?>" />
+<meta name="description" content="<?php bloginfo('description'); ?>" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <meta name="template" content="<?php global $template; echo basename($template); ?>" />
 
