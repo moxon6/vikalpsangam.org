@@ -389,7 +389,7 @@ a.carousel-control {
   h3.jp-relatedposts-headline em {
     font-size: 20px;
     &:before {
-      border: 0;
+      border-top: 0 !important;
     }
   }
 }
