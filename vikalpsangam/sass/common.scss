@@ -1,6 +1,20 @@
 @import "colors.scss";
 @import "fonts.scss";
 
+@mixin control-group-styles() {
+    background-color: $lighter-gray-col;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: #555555;
+    border: 1px solid #cccccc;
+    border-radius: 2px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
 body {
   font-family: $roboto;
   font-size: 16px;
@@ -178,7 +192,7 @@ header {
   }
 }
 
-footer {
+footer#footer {
   background-color: #58585a;
   padding-top: 20px;
   .container {
@@ -345,6 +359,7 @@ a.carousel-control {
 }
 
 .right-section{
+  padding-bottom: 20px;
   h5{
     padding-top: 10px;
   }
@@ -367,7 +382,107 @@ a.carousel-control {
   }
 }
 
+.jp-relatedposts-grid {
+  display: flex;
+}
+
 .comments-section{
+
+  .comment-respond {
+    border-left: 2px solid #9E332E;
+    padding-left: 16px;
+
+    .comment-reply-title small {
+      padding-left: 25px;
+    }
+
+    .required {
+      color: red;
+    }
+
+    .comment-form {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 16px;
+
+      $fields: author, email, url, comment;
+
+      p {
+        @for $i from 1 through length($fields) {
+          &.comment-form-#{nth($fields, $i)} {
+            margin-top: 16px;
+            display: flex;
+            flex-direction: column;
+            width: 400px;
+            order: $i - 10;
+          }
+        }
+        
+        &.form-submit .submit {
+          border-radius: 0;
+          border: 1px solid #e6e7e8;
+          color: white;
+          background-color: #9e332e;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .comment-respond .comment-form textarea,input {
+    @include control-group-styles();
+  }
+
+  .comment-content {
+    padding-top: 10px;
+  }
+
+  ol.commentlist {
+    padding: 15px;
+    background-color: rgba(188,190,192,0.3);
+    border: 3px solid rgba(200,200,200,0.2);
+    list-style: none;
+  }
+
+  .comment-meta {
+    position: relative;
+    .comment-metadata {
+      position: absolute;
+      top: 20px;
+      right: 0;
+
+      .edit-link {
+        margin-left: 20px;
+      }
+    }
+
+    .comment-author.vcard {
+      font-size: 1em;
+      color:$light-brick-color;
+
+      .says {
+        display: none;
+      }
+  
+      .avatar {
+        width: 60px;
+        height: 60px;
+        padding: 14px;
+        background-color: #f1f1f2;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  
+
+  ul.children {
+    margin-top: 20px;
+    list-style: none;
+  }
+
+
+
   .comment-text-wrapper{
     padding-left: 70px;
   }
@@ -376,7 +491,6 @@ a.carousel-control {
     margin-right: -10px;
   }
   form{
-    padding:10px 0px; 
     .help-text{
       color:$dark-gray-col;
       padding: 5px 0px;
@@ -432,17 +546,7 @@ a.carousel-control {
   }
   .control-group{
     textarea, input{
-      background-color: $lighter-gray-col;
-      padding: 6px 12px;
-      font-size: 14px;
-      line-height: 1.42857;
-      color: #555555;
-      border: 1px solid #cccccc;
-      border-radius: 2px;
-      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-      -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-      transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+      @include control-group-styles();
     }
   }
 
@@ -458,9 +562,6 @@ a.carousel-control {
   }
 }
 
-.color-red{
-  color:$red;  
-}
 .btn-primary{
   border-radius: 0px;
   &:hover{
