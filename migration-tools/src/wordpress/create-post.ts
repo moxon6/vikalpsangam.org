@@ -10,6 +10,12 @@ import { wp_posts, wp_postsAttributes } from './models/wp_posts';
 import { serialize } from 'php-serialize'
 import getSequelizeClient from './get-sequelize-client';
 
+const logger = {
+  log(message: string) {
+    fs.appendFileSync('create-post.log', `${Date.now()} : ${message} \n`);
+  }
+}
+
 type Post = StructType<typeof schema>;
 
 const posts = JSON.parse(
@@ -70,13 +76,16 @@ async function uploadCommentsAndLinks(wp_posts: wp_posts[]) {
 }
 
 const batchCreate =  async <T>(model, data: Array<T>) => (await Promise.all( 
-  R.splitEvery(100, data).map(dataGroup => model.bulkCreate(dataGroup))
+  R.splitEvery(50, data).map(dataGroup => model.bulkCreate(dataGroup))
 )).flat()
 
 async function main() {
   try {
     await sequelize.authenticate();
 
+    logger.log("\n_________Start Job_________")
+
+    logger.log("Mapping posts")
     const mapped = posts.map(post => ({
       post_author: 0,
       post_date: new Date(post.publish_date),
@@ -102,10 +111,12 @@ async function main() {
       comment_count: post.comments_count,
     }));
 
+    logger.log("Uploading posts ")
     const wp_posts = (await Promise.all( 
-      R.splitEvery(100, mapped).map(postgroup => wordpressModels.wp_posts.bulkCreate(postgroup))
+      R.splitEvery(50, mapped).map(postgroup => wordpressModels.wp_posts.bulkCreate(postgroup))
     )).flat()
 
+    logger.log("Mapping meta")
     const mappedMeta = R.zip(posts, wp_posts).flatMap(([post, newPost]) => [
       {
         post_id: newPost.ID,
@@ -134,8 +145,10 @@ async function main() {
       }
     ])
 
+    logger.log("Uploading meta")
     const wp_meta = await batchCreate(wordpressModels.wp_postmeta, mappedMeta)
 
+    logger.log("Mapping mediaExtended")
     const mediaExtended = R.zip(posts, wp_posts)
       .flatMap(([post, wp_post]) => post.media.map(media => ({
         ...media,
@@ -143,7 +156,8 @@ async function main() {
         updated: post.updated,
         post_parent: wp_post.ID
       })))
-
+      
+    logger.log("Mapping media postattributes")
     const mediaEntries: wp_postsAttributes[] = mediaExtended.map(media => ({
         post_author: 0,
         post_date: new Date(media.publish_date),
@@ -169,9 +183,10 @@ async function main() {
         comment_count: 0,
       }))
       
-
+    logger.log("Uploading media postattributes")
     const wp_posts_media = await batchCreate(wordpressModels.wp_posts, mediaEntries)
 
+    logger.log("Mapping media postmeta")
     const mediaMetaEntries = R.zip(mediaExtended, wp_posts_media).flatMap(([media, wp_post_media]) => [{
       post_id: wp_post_media.ID,
       meta_key: "_wp_attached_file",
@@ -190,10 +205,13 @@ async function main() {
       meta_value: wp_post_media.ID
     } : null) ].filter(x => x))
 
+    logger.log("Uploading media postmeta")
     await batchCreate(wordpressModels.wp_postmeta, mediaMetaEntries)
 
+    logger.log("Uploading comments")
     await uploadCommentsAndLinks(wp_posts);
 
+    logger.log("Fetching categories")
     const wp_categories = (await wordpressModels.wp_terms.findAll({
       include: [{
         model: wordpressModels.wp_term_taxonomy as any,
@@ -204,8 +222,10 @@ async function main() {
     })
     ).map((p) => p.toJSON());
 
+    logger.log("Grouping categories by slug")
     const wp_categories_by_slug = R.indexBy(R.prop('slug'), wp_categories)
   
+    logger.log("Mapping category relations")
     const categoryRelations = R.zip(posts, wp_posts).flatMap(([post, wp_post]) => post.categories.map(category => ({
           object_id: wp_post.ID,
           term_taxonomy_id: (wp_categories_by_slug[category.slug] as any).wp_term_taxonomy.term_taxonomy_id,
@@ -213,8 +233,10 @@ async function main() {
         })
     ))
 
+    logger.log("Uploading category relations")
     await batchCreate(wordpressModels.wp_term_relationships, categoryRelations)
 
+    logger.log("Creating unique set of tags")
     const tags = R.uniqBy(
       tag => tag.slug,
       posts
@@ -225,9 +247,11 @@ async function main() {
            term_group: 0,
         }))
     )
-
+    
+    logger.log("Uploading tags")
     const wp_tags_result = (await batchCreate(wordpressModels.wp_terms, tags)) as wp_termsAttributes[]
 
+    logger.log("Uploading post tags")
     const tagsTaxonomy = wp_tags_result.map(wp_tag => ({
       term_id: wp_tag.term_id,
       taxonomy: "post_tag",
@@ -235,7 +259,8 @@ async function main() {
       parent: 0,
       count: 0
     }))
-
+    
+    logger.log("Uploading post tags")
     await batchCreate(wordpressModels.wp_term_taxonomy, tagsTaxonomy)
 
     const wp_tags = (await wordpressModels.wp_terms.findAll({
@@ -248,21 +273,24 @@ async function main() {
     })
     ).map((p) => p.toJSON());
 
+    logger.log("Index tags by slug")
     const wp_tags_by_slug = R.indexBy(R.prop('slug'), wp_tags)
     
+    logger.log("Mapping relations between post and tag")
     const tagRelations = R.zip(posts, wp_posts).flatMap(([post, wp_post]) => post.tags.map(tag => ({
           object_id: wp_post.ID,
           term_taxonomy_id: (wp_tags_by_slug[tag.slug] as any).wp_term_taxonomy.term_taxonomy_id,
           term_order: 0
         })
     ))
-
+    
+    logger.log("Uploading relations between post and tag")
     await batchCreate(wordpressModels.wp_term_relationships, tagRelations)
 
     await sequelize.close();
   } catch (error) {
-    // eslint-disable-next-line no-console
-    console.error(error);
+    logger.log(error)
+    throw error;
   }
 }
 
