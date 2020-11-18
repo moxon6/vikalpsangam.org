@@ -386,9 +386,11 @@ a.carousel-control {
   border-top: 2px solid $light-gray-col;
   padding-top: 32px;
 
-  h3.jp-relatedposts-headline em:before {
-    border: 0;
+  h3.jp-relatedposts-headline em {
     font-size: 20px;
+    &:before {
+      border: 0;
+    }
   }
 }
 
