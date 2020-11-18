@@ -382,6 +382,16 @@ a.carousel-control {
   }
 }
 
+.jp-relatedposts {
+  border-top: 2px solid $light-gray-col;
+  padding-top: 32px;
+
+  h3.jp-relatedposts-headline em:before {
+    border: 0;
+    font-size: 20px;
+  }
+}
+
 .jp-relatedposts-grid {
   display: flex;
 }
