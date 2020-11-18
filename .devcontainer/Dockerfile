@@ -13,6 +13,8 @@ RUN pip3 install mysql-connector-python tqdm sqlparse requests sh phpserialize P
 RUN apt-get install -y postgresql-client
 RUN apt-get install -y vim
 ENV EDITOR=vim
+
+USER vscode
 # [Optional] Uncomment this section to install additional OS packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 #     && apt-get -y install --no-install-recommends <your-package-list-here>
