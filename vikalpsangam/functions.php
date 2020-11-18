@@ -7,10 +7,7 @@
  * @package vikalpsangam
  */
 
-if ( ! defined( 'vikalpsangam_VERSION' ) ) {
-	// Replace the version number of the theme on each release.
-	define( 'vikalpsangam_VERSION', '1.0.0' );
-}
+include 'version.php';
 
 if ( ! function_exists( 'vikalpsangam_setup' ) ) :
 	/**

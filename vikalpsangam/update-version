@@ -1,0 +1,4 @@
+# /bin/bash
+
+version=$(node -p "require('./vikalpsangam/package.json').version")
+echo "<?php define('vikalpsangam_VERSION', '$version');" >| vikalpsangam/version.php 
