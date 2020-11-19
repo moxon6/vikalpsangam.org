@@ -9,9 +9,11 @@ import { wp_commentsAttributes } from './models/wp_comments';
 import { wp_posts, wp_postsAttributes } from './models/wp_posts';
 import { serialize } from 'php-serialize'
 import getSequelizeClient from './get-sequelize-client';
+import { v4 as uuidv4 } from 'uuid';
 
 const logger = {
   log(message: string) {
+    console.log(message)
     fs.appendFileSync('create-post.log', `${Date.now()} : ${message} \n`);
   }
 }
@@ -83,7 +85,7 @@ async function main() {
   try {
     await sequelize.authenticate();
 
-    logger.log("\n_________Start Job_________")
+    logger.log("_________Start Job_________")
 
     logger.log("Mapping posts")
     const mapped = posts.map(post => ({
@@ -104,7 +106,7 @@ async function main() {
       post_modified_gmt: new Date(post.updated),
       post_content_filtered: "",
       post_parent: 0,
-      guid: post.guid,
+      guid: uuidv4(),
       menu_order: 0,
       post_type: "post",
       post_mime_type: "",
@@ -176,7 +178,7 @@ async function main() {
         post_modified_gmt: new Date(media.updated),
         post_content_filtered: "",
         post_parent: media.post_parent,
-        guid: media.file,
+        guid: uuidv4(),
         menu_order: 0,
         post_type: "attachment",
         post_mime_type: media.mime_type,
