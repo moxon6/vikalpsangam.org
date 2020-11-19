@@ -43,5 +43,8 @@
     "hooks": {
       "pre-commit": "mkdir -p .git; ./update-version; git add version.php"
     }
+  },
+  "dependencies": {
+    "bootstrap-sass": "^3.3.2"
   }
 }
