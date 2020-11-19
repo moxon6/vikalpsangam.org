@@ -9,34 +9,32 @@ Theme Description: This is the main theme for vikalpsangam.org
 $icon-font-path: "./fonts/";
 
 @import "node_modules/bootstrap-sass/vendor/assets/stylesheets/bootstrap";
-
 @import "common.scss";
 @import "common_responsive.scss";
 @import "footer.scss";
-
 @import "home_page.scss";
 @import "home_page_responsive.scss";
 @import "category_page.scss";
 @import "category_page_responsive.scss";
-@import 'subscribe.scss';
-@import 'contacts-form.scss';
+@import "subscribe.scss";
+@import "contacts-form.scss";
 
-#wpadminbar{
-    opacity: 0.3;
+#wpadminbar {
+	opacity: 0.3;
 }
 
 .site-main {
-    min-height: 75vh;
+	min-height: 75vh;
 }
 
 .category-title-link {
-    background-size: contain;
+	background-size: contain;
 }
 
 .excerpt {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    height: 34px;
-    overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	height: 34px;
+	overflow: hidden;
 }
