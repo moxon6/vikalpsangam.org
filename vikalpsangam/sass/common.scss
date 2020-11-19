@@ -462,7 +462,7 @@ a.carousel-control {
 		}
 
 		.required {
-			color: #ff0000;
+			color: #f00;
 		}
 
 		.comment-form {
@@ -487,7 +487,7 @@ a.carousel-control {
 				&.form-submit .submit {
 					border-radius: 0;
 					border: 1px solid #e6e7e8;
-					color: white;
+					color: #fff;
 					background-color: #9e332e;
 					margin-bottom: 0;
 				}
@@ -689,7 +689,7 @@ a.carousel-control {
 .navigator {
 
 	h4 {
-		background: url("/static/img/navigator.png") no-repeat center left transparent;
+		background: url(/static/img/navigator.png) no-repeat center left transparent;
 		padding-left: 30px;
 	}
 }
