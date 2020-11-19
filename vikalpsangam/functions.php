@@ -466,3 +466,33 @@ function jetpackme_more_related_posts( $options ) {
     return $options;
 }
 add_filter( 'jetpack_relatedposts_filter_options', 'jetpackme_more_related_posts' );
+
+function jetpackme_filter_exclude_policy_edits( $filters ) {
+    $filters[] = array(
+        'not' => array(
+            'term' => array(
+                'category.slug' => 'policy-edits',
+            ),
+        ),
+    );
+ 
+    return $filters;
+}
+add_filter( 'jetpack_relatedposts_filter_filters', 'jetpackme_filter_exclude_policy_edits' );
+
+function jetpackme_filter_exclude_uncategorized( $filters ) {
+    $filters[] = array(
+        'exists' => array(
+            'field' => 'category.slug',
+        ),
+    );
+ 
+    $filters[] = array(
+        'not' => array(
+            'term' => 'uncategorized',
+        ),
+    );
+ 
+    return $filters;
+}
+add_filter( 'jetpack_relatedposts_filter_filters', 'jetpackme_filter_exclude_uncategorized' );
