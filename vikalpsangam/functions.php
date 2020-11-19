@@ -480,19 +480,13 @@ function jetpackme_filter_exclude_policy_edits( $filters ) {
 }
 add_filter( 'jetpack_relatedposts_filter_filters', 'jetpackme_filter_exclude_policy_edits' );
 
-function jetpackme_filter_exclude_uncategorized( $filters ) {
+function jetpackme_filter_require_category( $filters ) {
     $filters[] = array(
         'exists' => array(
             'field' => 'category.slug',
         ),
     );
  
-    $filters[] = array(
-        'not' => array(
-            'term' => 'uncategorized',
-        ),
-    );
- 
     return $filters;
 }
-add_filter( 'jetpack_relatedposts_filter_filters', 'jetpackme_filter_exclude_uncategorized' );
+add_filter( 'jetpack_relatedposts_filter_filters', 'jetpackme_filter_require_category' );
