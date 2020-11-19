@@ -62,7 +62,7 @@ $tag_names = array_map(
 
             <!-- TODO: Multiple language support https://trello.com/c/S0ySCXwV --> 
             <!-- {% get_language_info_list for LANGUAGES as languages %} -->
-            <div class="btn-group" data-toggle="buttons" id="langaugeSelection">
+            <div class="btn-group" data-toggle="buttons" id="language-selection">
 				<!--
                 {% for language in languages %}
                     <label class="btn btn-primary {% if language.code == LANGUAGE_CODE %}mchecked{% endif %}" >

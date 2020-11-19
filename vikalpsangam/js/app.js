@@ -139,7 +139,7 @@ const CommentsUI = ( function() {
 
 const LanguageSelection = ( function() {
 	function submitForm() {
-		$( '#langaugeSelection label' ).click( function() {
+		$( '#language-selection label' ).click( function() {
 			$( '#languageHiddenElement' ).val( $( this ).find( 'input' ).val() );
 			$( '#languageHiddenElement' ).closest( 'form' ).submit();
 		} );
