@@ -72,7 +72,7 @@ const SetPageSeparatorBar = ( function() {
 const CommentsUI = ( function() {
 	function bindEvent() {
 		$( '#addNewCommentBtn' ).click( function() {
-			$( '#addNewCommentsFormWrapper' ).toggle( 'fast' );
+			$( '#add-new-comments-form-wrapper' ).toggle( 'fast' );
 		} );
 	}
 	function setLevels() {
