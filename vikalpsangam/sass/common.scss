@@ -77,7 +77,7 @@ a {
 .navbar-default .navbar-nav > li > a {
 	color: $dark-brick-col;
 	text-decoration: none;
-	font-weight: bold;
+	font-weight: 700;
 	font-family: $roboto-black;
 	font-size: 1.125em;
 
@@ -155,13 +155,13 @@ header {
 .navbar-default .navbar-nav > .active > a {
 	background-color: $dark-brick-col;
 	color: #fff;
-	font-weight: bold;
+	font-weight: 700;
 
 	&:hover,
 	&:focus {
 		background-color: $dark-brick-col;
 		color: #fff;
-		font-weight: bold;
+		font-weight: 700;
 	}
 }
 
@@ -400,7 +400,7 @@ a.carousel-control {
 		button {
 			display: inline-block !important;
 			border-radius: 0;
-			font-weight: bold;
+			font-weight: 700;
 			color: $dark-brick-col;
 			background-color: $light-gray-col;
 		}
