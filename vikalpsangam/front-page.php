@@ -42,7 +42,7 @@ $categoryPosts = (new Categories())->getCategoryPosts($NUMBER_STORIES_BY_CATEGOR
         <?php get_template_part( 'template-parts/front-page/categories', null, [ "categoryPosts" => $categoryPosts ]); ?>
     </section>
 
-    <section class="about_section">
+    <section class="about-section">
         <div class="container">
         <h2>ABOUT VIKALP SANGAM</h2>
     <div class="row no-margin">

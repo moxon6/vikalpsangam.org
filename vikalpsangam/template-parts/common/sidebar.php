@@ -78,7 +78,7 @@ $recent_activity = get_posts(array(
 
 <h5>Explore Stories</h5>
 <div id="tag-cloud" class="tag-cloud-wrapper">
-    <div class="tag_cloud">
+    <div class="tag-cloud">
         
         <?php 
             function getWeight($count) {
