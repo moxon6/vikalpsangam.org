@@ -34,6 +34,7 @@ const mapMediaPaths = (post: FlatMediaPost) : FlatMediaPost => {
         p => p.startsWith("/uploads/") ? p.replace("/uploads/", "migrate/") : p,
         p => p.startsWith("/static/media/uploads") ? p.replace("/static/media/uploads", "migrate") : p,
         patchUrls,
+        encodeURI
     )
 
     return {
