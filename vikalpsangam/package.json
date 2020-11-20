@@ -42,7 +42,7 @@
     "build:scss": "node-sass -o . sass/style.scss",
     "build:scss-rtl": "rtlcss style.css style-rtl.css",
     "lint:scss": "wp-scripts lint-style sass/**/*.scss",
-    "lint:js": "wp-scripts lint-js 'js/*.js'",
+    "lint:js": "wp-scripts lint-js 'js/**/*.js'",
     "bundle": "dir-archiver --src . --dest ../vikalpsangam.zip --exclude $(cat .buildignore)",
     "copy-fonts": "cp node_modules/bootstrap-sass/assets/fonts/bootstrap/* fonts -n"
   },

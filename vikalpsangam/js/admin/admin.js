@@ -1,4 +1,3 @@
-window.addEventListener('blur', function (e) {
-    e.stopPropagation();
+window.addEventListener('blur', (e) => {
+  e.stopPropagation();
 }, true);
-
