@@ -1,7 +1,8 @@
 /* eslint-env jquery */
-
-require('bootstrap-sass/vendor/assets/javascripts/bootstrap/transition')
-require('bootstrap-sass/vendor/assets/javascripts/bootstrap/carousel')
+import 'leaflet';
+import 'leaflet.markercluster';
+import 'bootstrap-sass/vendor/assets/javascripts/bootstrap/transition'
+import 'bootstrap-sass/vendor/assets/javascripts/bootstrap/carousel'
 
 async function renderMap(id) {
 
