@@ -1,5 +1,8 @@
 /* eslint-env jquery */
 
+require('bootstrap-sass/vendor/assets/javascripts/bootstrap/transition')
+require('bootstrap-sass/vendor/assets/javascripts/bootstrap/carousel')
+
 async function renderMap(id) {
 
 	const mean = (arr) => arr.reduce((x,y) => x + y, 0) / arr.length
@@ -40,10 +43,10 @@ function fixCarouselHeight() {
 }
 
 $(window).load( function() {
+	fixCarouselHeight()
 	$( '.carousel' ).carousel( {
 		interval: 5000,
 	});
-	fixCarouselHeight()
 });
 
 window.renderMap = renderMap;
