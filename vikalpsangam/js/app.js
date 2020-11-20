@@ -40,5 +40,8 @@ function fixCarouselHeight() {
 }
 
 $(window).load( function() {
+	$( '.carousel' ).carousel( {
+		interval: 5000,
+	});
 	fixCarouselHeight()
 });
