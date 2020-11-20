@@ -41,7 +41,11 @@ jobs:
       working-directory: vikalpsangam
       run: npm run lint:js
 
-    - name: "Bundle"
+    - name: "Build js bundle"
+      working-directory: vikalpsangam
+      run: npm run build:js
+
+    - name: "Create theme bundle"
       working-directory: vikalpsangam
       run: npm run bundle
 
