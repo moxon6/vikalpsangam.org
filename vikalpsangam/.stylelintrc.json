@@ -3,7 +3,9 @@
         "stylelint-config-wordpress/scss",
         "stylelint-config-recess-order"
     ],
+    "plugins": ["stylelint-prettier"],
     "rules": {
+        "prettier/prettier": true,
         "no-descending-specificity": null,
         "selector-attribute-quotes": null,
         "block-no-empty": [
