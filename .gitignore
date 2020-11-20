@@ -1,6 +1,6 @@
 # ignore log files and databases
 db.postgres.sql
-bundle
+dist
 vikalpsangam/vendor
 uploads
 deployment_key
