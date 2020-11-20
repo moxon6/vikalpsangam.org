@@ -37,7 +37,7 @@
     "scripts": {
         "setup-hooks": "npx husky install",
         "watch:scss": "node-sass -o . sass/style.scss -w",
-        "build:js": "parcel build js/site/index.js -d bundle --public-url /wp-content/themes/vikalpsangam/bundle --no-minify",
+        "build:js": "parcel build src/index.js -d bundle --public-url /wp-content/themes/vikalpsangam/bundle --no-minify",
         "build:scss": "node-sass --importer node_modules/node-sass-package-importer/dist/cli.js -o . sass/style.scss",
         "build:scss-rtl": "rtlcss style.css style-rtl.css",
         "lint:scss": "wp-scripts lint-style sass/**/*.scss",
