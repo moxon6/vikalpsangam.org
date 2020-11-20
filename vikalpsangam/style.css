@@ -1,3 +1,8 @@
-/* Wordpress requires to be the root css file */
+/* 
+    Wordpress requires to be the root css file
+    This file exists to simplify the local build process
+    In CI stylesheets will be moved here to optimise load time
+*/
+
 
 @import url("bundle/index.css");
