@@ -239,6 +239,13 @@ footer {
     background: none;
     border: 0 none;
 
+    &.active {
+      background-color: unset;
+      &:hover {
+        background-color: unset;
+      }
+    }
+
     a {
       font-size: 0.8em;
       color: $lighter-gray-col;
