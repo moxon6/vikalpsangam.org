@@ -38,7 +38,7 @@
   "scripts": {
     "setup-hooks": "npx husky install",
     "watch:scss": "node-sass -o . sass/style.scss -w",
-    "build:js": "wp-scripts build js/site/index.js js/admin/admin.js --output-path=bundle",
+    "build:js": "parcel js/site/index.js -d bundle",
     "build:scss": "node-sass --importer node_modules/node-sass-package-importer/dist/cli.js -o . sass/style.scss",
     "build:scss-rtl": "rtlcss style.css style-rtl.css",
     "lint:scss": "wp-scripts lint-style sass/**/*.scss",

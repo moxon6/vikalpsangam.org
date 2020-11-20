@@ -1,5 +1,5 @@
 import * as L from 'leaflet';
-import 'leaflet.markercluster';
+import MarkerCluster from 'leaflet.markercluster';
 import 'bootstrap-sass/vendor/assets/javascripts/bootstrap/transition';
 import 'bootstrap-sass/vendor/assets/javascripts/bootstrap/carousel';
 
@@ -24,7 +24,7 @@ async function renderMap(id) {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
   }).addTo(map);
 
-  const markers = L.markerClusterGroup();
+  const markers = new MarkerCluster.MarkerClusterGroup();
 
   coordinates.forEach((coordinate) => {
     const marker = L.marker([coordinate.latitude, coordinate.longitude]);
