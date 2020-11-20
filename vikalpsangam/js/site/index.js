@@ -1,7 +1,13 @@
 import * as L from 'leaflet';
 import MarkerCluster from 'leaflet.markercluster';
-import 'bootstrap-sass/vendor/assets/javascripts/bootstrap/transition';
-import 'bootstrap-sass/vendor/assets/javascripts/bootstrap/carousel';
+import 'bootstrap/js/transition';
+import 'bootstrap/js/carousel';
+
+import 'leaflet/dist/leaflet.css';
+import 'leaflet.markercluster/dist/MarkerCluster.css';
+import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import '../../sass/style.scss';
 
 async function renderMap(id) {
   const mean = (arr) => arr.reduce((x, y) => x + y, 0) / arr.length;
@@ -15,7 +21,7 @@ async function renderMap(id) {
   const INITIAL_ZOOM_LEVEL = 5;
   const coordinates = await fetchCoordinates();
 
-  const map = L.map(id).setView([
+  const map = L.map(id, { imagePath: '/wp-content/themes/vikalpsangam/bundle' }).setView([
     mean(coordinates.map((x) => x.latitude)),
     mean(coordinates.map((x) => x.longitude)),
   ], INITIAL_ZOOM_LEVEL);

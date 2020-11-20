@@ -121,7 +121,7 @@ header {
     height: 35px;
     margin-top: 8px;
     overflow: hidden;
-    background: url(/wp-content/themes/vikalpsangam/images/header_big_logo.png)
+    background: url(../images/header_big_logo.png)
       no-repeat left center;
   }
 
@@ -667,13 +667,6 @@ a.carousel-control {
       color: $dark-brick-col;
       text-decoration: none;
     }
-  }
-}
-
-.navigator {
-  h4 {
-    padding-left: 30px;
-    background: url(/static/img/navigator.png) no-repeat center left transparent;
   }
 }
 
