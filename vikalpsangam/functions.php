@@ -220,10 +220,6 @@ function vikalpsangam_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
-
-	wp_enqueue_style( 'leaflet-css' , 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.css' );
-	wp_enqueue_style( 'leaflet-marker-cluster-css' , 'https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css' );
-	wp_enqueue_style( 'leaflet-marker-default-cluster-css' , 'https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css' );
 }
 add_action( 'wp_enqueue_scripts', 'vikalpsangam_scripts' );
 
