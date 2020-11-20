@@ -36,7 +36,7 @@
     },
     "scripts": {
         "setup-hooks": "npx husky install",
-        "build": "parcel build src/index.js --public-url /wp-content/themes/vikalpsangam/dist",
+        "build": "parcel build --no-minify src/index.js --public-url /wp-content/themes/vikalpsangam/dist",
         "build:scss-rtl": "rtlcss style.css style-rtl.css",
         "lint:scss": "wp-scripts lint-style src/**/*.scss",
         "lint:js": "wp-scripts lint-js 'src/**/*.js'",
