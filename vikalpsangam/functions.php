@@ -215,11 +215,9 @@ function vikalpsangam_scripts() {
 	wp_style_add_data( 'vikalpsangam-style', 'rtl', 'replace');
 
 	wp_enqueue_script( 'jq', 'https://code.jquery.com/jquery-1.7.1.js', array(), true );	
-	wp_enqueue_script( 'app', get_template_directory_uri() . '/js/app.js', array(), true );	
 	wp_enqueue_script( "unslider", get_template_directory_uri().'/js-vendor/unslider.min.js', [ "jq" ] , true);
-	wp_enqueue_script( "carousel", get_template_directory_uri().'/js-vendor/carousel.js', [ "unslider" ] , true);
-	wp_enqueue_script( "bootstrap", get_template_directory_uri().'/js-vendor/bootstrap.js', [ "carousel" ] , true);
-	wp_enqueue_script( "modern-business", get_template_directory_uri().'/js-vendor/modern-business.js', [ "carousel", "bootstrap" ] , true);
+	wp_enqueue_script( 'app', get_template_directory_uri() . '/js/app.js', array(["unslider"]), true );	
+	wp_enqueue_script( "bootstrap", get_template_directory_uri().'/js-vendor/bootstrap.js', [] , true);
 	
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
