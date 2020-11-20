@@ -45,3 +45,5 @@ $(window).load( function() {
 	});
 	fixCarouselHeight()
 });
+
+window.renderMap = renderMap;
