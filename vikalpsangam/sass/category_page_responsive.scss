@@ -1,13 +1,7 @@
 @media (max-width: 399px) {
 
-	.category-topping-wrapper {
-
-		.category {
-			width: 100%;
-		}
-	}
-
 	.category-topping-wrapper .category {
+		width: 100%;
 		border-right: 0 none;
 	}
 
@@ -26,10 +20,7 @@
 
 @media (min-width: 400px) and (max-width: 767px) {
 
-	.category-topping-wrapper {
-
-		.category {
-			width: 47%;
-		}
+	.category-topping-wrapper .category {
+		width: 47%;
 	}
 }

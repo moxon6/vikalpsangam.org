@@ -21,23 +21,16 @@ body {
 	border: none;
 }
 
+.navbar-form {
+	margin-left: 10px;
+}
+
 .navbar-inverse {
 	background-color: #eaeaea;
 	border: none;
 	-webkit-box-shadow: 0 2px 2px 0 rgba(50, 50, 50, 0.75);
 	-moz-box-shadow: 0 2px 2px 0 rgba(50, 50, 50, 0.75);
 	box-shadow: 0 2px 2px 0 rgba(50, 50, 50, 0.75);
-
-	.navbar-nav > li > a {
-		color: #331919;
-	}
-}
-
-.navbar-form {
-	margin-left: 10px;
-}
-
-.navbar-inverse {
 
 	.navbar-brand {
 		color: #ab3333;
@@ -67,6 +60,7 @@ body {
 		}
 
 		li > a {
+			color: #331919;
 
 			&:hover,
 			&:focus {
