@@ -21,7 +21,7 @@ jobs:
       working-directory: vikalpsangam
       run: composer lint:php
 
-    - name: "npm install"
+    - name: "Install node dependencies"
       working-directory: vikalpsangam
       run: npm ci
 
@@ -29,21 +29,17 @@ jobs:
       working-directory: vikalpsangam
       run: npm run lint:scss
 
-    - name: "Compile scss -> css"
-      working-directory: vikalpsangam
-      run: npm run build:scss
-
-    - name: "Compile rtl css"
-      working-directory: vikalpsangam
-      run: npm run build:scss-rtl
+    # - name: "Compile rtl css"
+    #   working-directory: vikalpsangam
+    #   run: npm run build:scss-rtl
 
     - name: "Lint js"
       working-directory: vikalpsangam
       run: npm run lint:js
 
-    - name: "Build js bundle"
+    - name: "Build dist"
       working-directory: vikalpsangam
-      run: npm run build:js
+      run: npm run build
 
     - name: "Create theme bundle"
       working-directory: vikalpsangam

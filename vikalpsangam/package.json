@@ -36,9 +36,7 @@
     },
     "scripts": {
         "setup-hooks": "npx husky install",
-        "watch:scss": "node-sass -o . sass/style.scss -w",
-        "build:js": "parcel build src/index.js --public-url /wp-content/themes/vikalpsangam/dist",
-        "build:scss": "node-sass --importer node_modules/node-sass-package-importer/dist/cli.js -o . sass/style.scss",
+        "build": "parcel build src/index.js --public-url /wp-content/themes/vikalpsangam/dist",
         "build:scss-rtl": "rtlcss style.css style-rtl.css",
         "lint:scss": "wp-scripts lint-style src/**/*.scss",
         "lint:js": "wp-scripts lint-js 'src/**/*.js'",
