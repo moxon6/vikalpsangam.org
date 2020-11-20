@@ -40,6 +40,10 @@ jobs:
     - name: "Build dist"
       working-directory: vikalpsangam
       run: npm run build
+    
+    - name: "Move style.css to root"
+      working-directory: .
+      run: cp dist/index.css style.css
 
     - name: "Create theme bundle"
       working-directory: vikalpsangam
