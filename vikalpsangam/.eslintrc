@@ -3,6 +3,7 @@
         "airbnb-base"
     ],
     "env": {
-        "browser": true
+        "browser": true,
+        "jquery": true
     }
 }

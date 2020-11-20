@@ -1,5 +1,4 @@
-/* eslint-env jquery */
-import 'leaflet';
+import * as L from 'leaflet';
 import 'leaflet.markercluster';
 import 'bootstrap-sass/vendor/assets/javascripts/bootstrap/transition';
 import 'bootstrap-sass/vendor/assets/javascripts/bootstrap/carousel';
