@@ -1,18 +1,18 @@
 .footer {
 	position: fixed;
-	background-color: $black;
-	left: 0;
 	bottom: 0;
-	min-height: 60px;
-	width: 100%;
+	left: 0;
 	z-index: 1001;
+	width: 100%;
+	min-height: 60px;
+	background-color: $black;
 
 	.footer-inner {
-		width: 1140px;
-		margin: 0 auto;
 		position: relative;
+		width: 1140px;
 		min-height: 36px;
 		padding-top: 10px;
+		margin: 0 auto;
 	}
 
 	ul {
@@ -22,12 +22,12 @@
 			display: inline-block;
 
 			a {
+				padding: 6px 12px;
+				font-family: $sans-serif;
+				font-size: 14px;
+				font-weight: 300;
 				color: #fff;
 				text-decoration: none;
-				font-size: 14px;
-				font-family: $sans-serif;
-				font-weight: 300;
-				padding: 6px 12px;
 				white-space: nowrap;
 				-webkit-user-select: none;
 				-moz-user-select: none;
@@ -41,7 +41,7 @@
 	}
 
 	.footer-col {
-		width: 68px;
 		float: left;
+		width: 68px;
 	}
 }

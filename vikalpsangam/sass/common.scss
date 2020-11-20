@@ -2,11 +2,11 @@
 @import "fonts.scss";
 
 @mixin control-group-styles() {
-	background-color: $lighter-gray-col;
 	padding: 6px 12px;
 	font-size: 14px;
 	line-height: 1.42857;
 	color: #555;
+	background-color: $lighter-gray-col;
 	border: 1px solid #ccc;
 	border-radius: 2px;
 	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -26,35 +26,35 @@ h3,
 h4,
 h5,
 h6 {
-	text-transform: uppercase;
+	font-family: $roboto-black;
 	color: $dark-brick-col;
 	text-shadow: none;
+	text-transform: uppercase;
 	opacity: 1;
-	font-family: $roboto-black;
 }
 
 a {
-	text-decoration: none;
 	color: $dark-brick-col;
+	text-decoration: none;
 
 	&:hover {
-		text-decoration: none;
 		color: $dark-brick-col;
+		text-decoration: none;
 	}
 }
 
 .menu-arrow-after {
-	content: "";
-	display: block;
 	position: absolute;
+	top: 80%;
+	left: 50%;
+	display: block;
 	width: 0;
 	height: 0;
+	margin-left: -10px;
+	content: "";
 	border-color: transparent transparent $white transparent;
 	border-style: solid;
 	border-width: 10px;
-	top: 80%;
-	left: 50%;
-	margin-left: -10px;
 }
 
 .search-box-wrapper {
@@ -63,9 +63,9 @@ a {
 
 	i {
 		position: absolute;
-		color: $dark-brick-col;
-		right: 7px;
 		top: 30%;
+		right: 7px;
+		color: $dark-brick-col;
 	}
 }
 
@@ -75,11 +75,11 @@ a {
 }
 
 .navbar-default .navbar-nav > li > a {
-	color: $dark-brick-col;
-	text-decoration: none;
-	font-weight: 700;
 	font-family: $roboto-black;
 	font-size: 1.125em;
+	font-weight: 700;
+	color: $dark-brick-col;
+	text-decoration: none;
 
 	&:hover,
 	&:focus {
@@ -93,8 +93,8 @@ header {
 
 	.hide-language-bar {
 		position: absolute;
-		right: 0;
 		top: 0;
+		right: 0;
 		padding: 5px;
 	}
 
@@ -102,25 +102,25 @@ header {
 		position: absolute;
 		top: 0;
 		right: 1px;
-		padding: 0 5px;
 		z-index: 1;
-		background-color: $yellow-col;
+		padding: 0 5px;
 		font-size: 0.8em;
+		background-color: $yellow-col;
 		border: 1px solid #9e332e;
 	}
 
 	&.navbar-fixed-top {
-		border: 0;
 		margin-bottom: 0;
+		border: 0;
 	}
 
 	a.navbar-brand {
-		background: url(/wp-content/themes/vikalpsangam/images/header_big_logo.png) no-repeat left center;
 		display: block;
 		width: 309px;
 		height: 35px;
-		overflow: hidden;
 		margin-top: 8px;
+		overflow: hidden;
+		background: url(/wp-content/themes/vikalpsangam/images/header_big_logo.png) no-repeat left center;
 	}
 
 	.container {
@@ -128,20 +128,20 @@ header {
 	}
 
 	.language-wrapper {
-		display: none;
 		position: relative;
+		display: none;
 		overflow: hidden;
+		text-align: right;
 		// height: 0px;
 		background-color: $yellow-col;
-		text-align: right;
 
 		#language-selection {
 			padding-right: 30px;
 		}
 
 		label {
-			background-color: $yellow-col;
 			font-size: 10px;
+			background-color: $yellow-col;
 		}
 
 		.mchecked {
@@ -151,15 +151,15 @@ header {
 }
 
 .navbar-default .navbar-nav > .active > a {
-	background-color: $dark-brick-col;
-	color: #fff;
 	font-weight: 700;
+	color: #fff;
+	background-color: $dark-brick-col;
 
 	&:hover,
 	&:focus {
-		background-color: $dark-brick-col;
-		color: #fff;
 		font-weight: 700;
+		color: #fff;
+		background-color: $dark-brick-col;
 	}
 }
 
@@ -172,51 +172,51 @@ header {
 }
 
 .see-all-stories-wrapper {
-	text-align: right;
-	margin: 0 0 20px 0;
 	padding-right: 10px;
+	margin: 0 0 20px 0;
+	text-align: right;
 }
 
 .see-all-stories {
-	text-transform: uppercase;
-	color: $dark-brick-col;
 	font-size: 1.125em;
+	color: $dark-brick-col;
 	text-decoration: none;
+	text-transform: uppercase;
 
 	&:hover {
-		text-decoration: none;
 		color: $dark-brick-col;
+		text-decoration: none;
 	}
 
 	&.top {
-		margin-top: 20px;
-		margin-bottom: 10px;
 		display: block;
-		text-align: right;
-		margin-right: 10px;
 		float: right;
+		margin-top: 20px;
+		margin-right: 10px;
+		margin-bottom: 10px;
+		text-align: right;
 	}
 }
 
 .read-more-wrapper {
-	text-align: right;
 	padding-right: 10px;
+	text-align: right;
 }
 
 .read-more {
-	text-transform: uppercase;
 	color: $dark-brick-col;
 	text-decoration: none;
+	text-transform: uppercase;
 
 	&:hover {
-		text-decoration: none;
 		color: $dark-brick-col;
+		text-decoration: none;
 	}
 }
 
 footer#footer {
-	background-color: #58585a;
 	padding-top: 20px;
+	background-color: #58585a;
 
 	.container {
 		width: 95%;
@@ -234,15 +234,15 @@ footer {
 	}
 
 	.list-group-item {
+		padding: 6px 10px;
 		background: none;
 		border: 0 none;
-		padding: 6px 10px;
 
 		a {
-			text-transform: uppercase;
+			font-size: 0.8em;
 			color: $lighter-gray-col;
 			text-decoration: none;
-			font-size: 0.8em;
+			text-transform: uppercase;
 
 			&:hover {
 				color: $lighter-gray-col;
@@ -253,13 +253,13 @@ footer {
 }
 
 .right-border-separator {
-	border-right: 2px solid $light-gray-col;
 	padding-right: 30px;
+	border-right: 2px solid $light-gray-col;
 }
 
 .left-border-separator {
-	border-left: 2px solid $light-gray-col;
 	padding-left: 30px;
+	border-left: 2px solid $light-gray-col;
 }
 
 .space-xs {
@@ -278,22 +278,22 @@ footer {
 	}
 
 	ul li {
-		list-style-position: inside;
 		padding-bottom: 4px;
+		list-style-position: inside;
 
 		a {
-			font-size: 0.8em;
-			text-transform: uppercase;
-			vertical-align: top;
-			color: $dark-brick-col;
-			text-decoration: none;
 			position: relative;
 			top: 5px;
+			font-size: 0.8em;
+			color: $dark-brick-col;
+			text-decoration: none;
+			text-transform: uppercase;
+			vertical-align: top;
 		}
 
 		a:hover {
-			text-decoration: none;
 			color: $dark-brick-col;
+			text-decoration: none;
 		}
 	}
 }
@@ -301,8 +301,8 @@ footer {
 .tag-cloud-wrapper {
 
 	div.tag-cloud {
-		text-align: center;
 		padding-bottom: 20px;
+		text-align: center;
 	}
 
 	h5 {
@@ -354,14 +354,14 @@ a.carousel-control {
 }
 
 .download-social-bar {
-	margin: 5px 0;
 	padding: 5px;
+	margin: 5px 0;
 	background-color: $light-gray-col;
 
 	.btn {
-		border: 0 none;
 		color: $dark-brick-col;
 		background: none;
+		border: 0 none;
 	}
 
 	.dont-style-me {
@@ -371,8 +371,8 @@ a.carousel-control {
 			cursor: default;
 
 			&:active {
-				border: 0 none;
 				background: none;
+				border: 0 none;
 			}
 
 			&:hover {
@@ -394,10 +394,10 @@ a.carousel-control {
 
 		button {
 			display: inline-block !important;
-			border-radius: 0;
 			font-weight: 700;
 			color: $dark-brick-col;
 			background-color: $light-gray-col;
+			border-radius: 0;
 		}
 	}
 }
@@ -426,8 +426,8 @@ a.carousel-control {
 }
 
 .jp-relatedposts {
-	border-top: 2px solid $light-gray-col;
 	padding-top: 32px;
+	border-top: 2px solid $light-gray-col;
 
 	h3.jp-relatedposts-headline em {
 		font-size: 20px;
@@ -445,8 +445,8 @@ a.carousel-control {
 .comments-section {
 
 	.comment-respond {
-		border-left: 2px solid #9e332e;
 		padding-left: 16px;
+		border-left: 2px solid #9e332e;
 
 		.comment-reply-title small {
 			padding-left: 25px;
@@ -467,20 +467,20 @@ a.carousel-control {
 
 				@for $i from 1 through length($fields) {
 					&.comment-form-#{nth($fields, $i)} {
-						margin-top: 16px;
 						display: flex;
 						flex-direction: column;
-						width: 400px;
 						order: $i - 10;
+						width: 400px;
+						margin-top: 16px;
 					}
 				}
 
 				&.form-submit .submit {
-					border-radius: 0;
-					border: 1px solid #e6e7e8;
+					margin-bottom: 0;
 					color: #fff;
 					background-color: #9e332e;
-					margin-bottom: 0;
+					border: 1px solid #e6e7e8;
+					border-radius: 0;
 				}
 			}
 		}
@@ -498,9 +498,9 @@ a.carousel-control {
 
 	ol.commentlist {
 		padding: 15px;
+		list-style: none;
 		background-color: rgba(188, 190, 192, 0.3);
 		border: 3px solid rgba(200, 200, 200, 0.2);
-		list-style: none;
 	}
 
 	.comment-meta {
@@ -528,8 +528,8 @@ a.carousel-control {
 				width: 60px;
 				height: 60px;
 				padding: 14px;
-				background-color: #f1f1f2;
 				margin-right: 10px;
+				background-color: #f1f1f2;
 			}
 		}
 	}
@@ -551,9 +551,9 @@ a.carousel-control {
 	form {
 
 		.help-text {
-			color: $dark-gray-col;
 			padding: 5px 0;
 			margin: 0;
+			color: $dark-gray-col;
 		}
 
 		input[type="text"],
@@ -569,8 +569,8 @@ a.carousel-control {
 	h3,
 	h4,
 	h5 {
-		text-transform: inherit;
 		font-family: $roboto;
+		text-transform: inherit;
 	}
 
 	ul {
@@ -609,8 +609,8 @@ a.carousel-control {
 	}
 
 	.reply {
-		text-decoration: none;
 		color: $dark-brick-col;
+		text-decoration: none;
 
 		&:hover {
 			text-decoration: none;
@@ -627,8 +627,8 @@ a.carousel-control {
 	}
 
 	.new-comment-button {
-		cursor: pointer;
 		text-decoration: none;
+		cursor: pointer;
 
 		&:hover {
 			text-decoration: none;
@@ -641,16 +641,16 @@ a.carousel-control {
 }
 
 .btn-primary {
+	color: $white;
+	background-color: $dark-brick-col;
+	border: 1px solid $light-gray-col;
 	border-radius: 0;
 
 	&:hover {
+		color: $white;
 		background-color: $dark-brick-col;
 		border: 1px solid $light-gray-col;
-		color: $white;
 	}
-	border: 1px solid $light-gray-col;
-	color: $white;
-	background-color: $dark-brick-col;
 }
 
 .form-control {
@@ -678,16 +678,16 @@ a.carousel-control {
 .navigator {
 
 	h4 {
-		background: url(/static/img/navigator.png) no-repeat center left transparent;
 		padding-left: 30px;
+		background: url(/static/img/navigator.png) no-repeat center left transparent;
 	}
 }
 
 .endless-loading {
 
 	img {
-		margin: 10px auto;
 		display: block;
+		margin: 10px auto;
 	}
 }
 
@@ -744,13 +744,13 @@ a.carousel-control {
 	background-color: #e6e7e8;
 
 	.category-image {
-		height: 218px;
-		object-fit: cover;
 		width: 327px;
+		height: 218px;
 		image-rendering: -moz-crisp-edges; /* Firefox */
 		image-rendering: -o-crisp-edges; /* Opera */
 		image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming) */
 		image-rendering: crisp-edges;
+		object-fit: cover;
 		-ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
 	}
 }

@@ -95,8 +95,8 @@ body {
 /*}*/
 
 a#feature-article {
-	display: block;
 	position: relative;
+	display: block;
 }
 
 #feature-article {
@@ -119,13 +119,13 @@ a#feature-article {
 	.caption {
 		color: #fff;
 	}
+	padding: 0;
 	border: none;
 	border-radius: 0;
-	padding: 0;
 
 	> img {
-		height: 300px;
 		width: 100%;
+		height: 300px;
 	}
 }
 
@@ -134,8 +134,8 @@ a#feature-article {
 }
 
 .section-colored {
-	background-color: #504f4f;
 	color: #fff;
+	background-color: #504f4f;
 
 	/* change this to change the background color of a colored section */
 }
@@ -144,20 +144,20 @@ a#feature-article {
 	margin-top: 40px;
 
 	ul {
-		border-radius: 5px;
 		padding: 5px;
 		border: 1px solid #ccc;
+		border-radius: 5px;
 	}
 }
 
 #categories-icons {
 	display: inline-block;
-	text-align: center;
 	padding: 10px;
 	margin: 10px;
-	background-color: #bcbcbc;
 	color: #fff;
+	text-align: center;
 	text-decoration: none;
+	background-color: #bcbcbc;
 
 	&:hover {
 		background-color: #ab3333;
@@ -180,8 +180,8 @@ a#feature-article {
 	}
 
 	img {
-		margin-right: 10px;
 		align-content: center;
+		margin-right: 10px;
 	}
 }
 
@@ -192,8 +192,8 @@ a#feature-article {
 }
 
 .tooltip-social a {
-	text-decoration: none;
 	color: inherit;
+	text-decoration: none;
 }
 
 .facebook-link a:hover {
@@ -261,8 +261,8 @@ a#feature-article {
 }
 
 .share-btn {
-	padding-left: 15px;
 	display: inline;
+	padding-left: 15px;
 }
 
 .btn {
@@ -311,8 +311,8 @@ a#feature-article {
 }
 
 .caption {
-	padding-left: 0;
 	padding-right: 0;
+	padding-left: 0;
 }
 
 #article-thumbnail img {

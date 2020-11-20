@@ -8,40 +8,40 @@
 	box-shadow: 0 5px 6px 0 rgba(50, 50, 50, 0.37);
 
 	.fill-image {
-		background-size: cover;
-		background-repeat: none;
-		background-position: center center;
 		width: 100%;
 		height: 600px;
+		background-repeat: none;
+		background-position: center center;
+		background-size: cover;
 	}
 }
 
 .carousel-caption {
-	left: 10%;
 	bottom: 14%;
-	text-align: left;
-	padding: 10px 20px;
-	background-color: rgba(255, 255, 255, 0.8);
+	left: 10%;
 	width: 55%;
+	padding: 10px 20px;
+	text-align: left;
 	text-shadow: none;
+	background-color: rgba(255, 255, 255, 0.8);
 }
 
 .carousel-caption h2,
 .carousel-caption-bottom h2 {
-	text-transform: uppercase;
+	font-size: 1.125em;
+	font-weight: 700;
 	color: $dark-brick-col;
 	text-shadow: none;
+	text-transform: uppercase;
 	opacity: 1;
-	font-weight: 700;
-	font-size: 1.125em;
 }
 
 .carousel-caption p,
 .carousel-caption-bottom p {
-	color: $dark-brick-col;
-	text-align: justify;
 	// font-family: $roboto;
 	font-size: 0.75em;
+	color: $dark-brick-col;
+	text-align: justify;
 }
 
 .featured-list {
@@ -53,8 +53,8 @@
 
 	li.row {
 		padding: 15px 0;
-		background-color: $lighter-gray-col;
 		margin-bottom: 5px;
+		background-color: $lighter-gray-col;
 
 		&:nth-child(2n) {
 			background-color: $light-gray-col;
@@ -64,8 +64,8 @@
 	&.in-sidebar {
 
 		li {
-			background-color: $light-gray-col;
 			padding: 5px;
+			background-color: $light-gray-col;
 		}
 
 		.row {
@@ -83,8 +83,8 @@
 
 		/*font-size: 1em;*/
 		color: $dark-brick-col;
-		text-transform: uppercase;
 		text-decoration: none;
+		text-transform: uppercase;
 
 		&:hover {
 			text-decoration: none;
@@ -92,8 +92,8 @@
 	}
 
 	h2 {
-		font-weight: 700;
 		font-size: 1.125em;
+		font-weight: 700;
 	}
 
 	h4 {
@@ -102,29 +102,29 @@
 	}
 
 	p {
-		color: $black;
 		// font-family: $roboto;
 		font-size: 0.75em;
+		color: $black;
 	}
 
 	.horizontal-border {
-		border-top: 1px solid $light-gray-col;
 		height: 1px;
+		padding: 5px 0;
 
 		/*width: 90%;*/
 		margin: 0 auto;
-		padding: 5px 0;
+		border-top: 1px solid $light-gray-col;
 	}
 }
 
 .top-carousel-wrapper .verticle-border {
 	position: absolute;
-	height: 580px;
-	margin: 10px 0;
-	width: 1px;
-	right: 0;
 	// border-left: 1px solid $light-gray-col;
 	top: -10px;
+	right: 0;
+	width: 1px;
+	height: 580px;
+	margin: 10px 0;
 }
 
 .about-section {
@@ -148,10 +148,10 @@
 		background-color: $white;
 
 		h4 {
-			color: $dark-brick-col;
 			padding-left: 0;
 			font-family: $roboto-light;
 			font-size: 1.125em;
+			color: $dark-brick-col;
 		}
 
 		.col-xs-3 {
@@ -168,20 +168,20 @@
 	}
 
 	.category {
-		border-right: 10px solid $light-gray-col;
 		display: flex;
 		flex-direction: column;
+		border-right: 10px solid $light-gray-col;
 
 		.stories-by-category {
-			overflow: hidden;
-			height: 220px;
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
+			height: 220px;
+			overflow: hidden;
 
 			img {
-				height: auto;
 				width: auto;
+				height: auto;
 			}
 		}
 
@@ -189,15 +189,15 @@
 
 
 	.plain-text-sub-section {
-		background-color: $white;
-		color: $dark-brick-col;
 		flex: 1;
+		color: $dark-brick-col;
+		background-color: $white;
 
 		p {
+			padding: 5px;
+			font-size: 0.875em;
 			font-weight: 400;
 			text-transform: uppercase;
-			font-size: 0.875em;
-			padding: 5px;
 		}
 	}
 	background-color: $light-gray-col;
