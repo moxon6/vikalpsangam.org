@@ -4,6 +4,12 @@
     ],
     "rules": {
         "no-descending-specificity": null,
-        "selector-attribute-quotes": null
+        "selector-attribute-quotes": null,
+        "block-no-empty": [
+            true,
+            {
+                "ignore": ["comments"]
+            }
+        ]
     }
 }
