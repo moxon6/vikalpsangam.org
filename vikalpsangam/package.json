@@ -38,7 +38,6 @@
   "scripts": {
     "setup-hooks": "npx husky install",
     "watch:scss": "node-sass -o . sass/style.scss -w",
-    "build:js": "wp-scripts build js/site/index.js js/admin/admin.js --output-path=bundle",
     "build:scss": "node-sass --importer node_modules/node-sass-package-importer/dist/cli.js -o . sass/style.scss",
     "build:scss-rtl": "rtlcss style.css style-rtl.css",
     "lint:scss": "wp-scripts lint-style sass/**/*.scss",
@@ -52,11 +51,8 @@
     }
   },
   "dependencies": {
-    "bootstrap-sass": "3.1.1",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
-    "leaflet": "^1.7.1",
-    "leaflet.markercluster": "^1.4.1",
     "node-sass-package-importer": "^5.3.2"
   }
 }

@@ -1,8 +1,3 @@
-import * as L from 'leaflet';
-import 'leaflet.markercluster';
-import 'bootstrap-sass/vendor/assets/javascripts/bootstrap/transition';
-import 'bootstrap-sass/vendor/assets/javascripts/bootstrap/carousel';
-
 async function renderMap(id) {
   const mean = (arr) => arr.reduce((x, y) => x + y, 0) / arr.length;
 
