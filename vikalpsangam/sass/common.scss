@@ -533,6 +533,10 @@ a.carousel-control {
     }
   }
 
+  li:not(:first-child) article.comment-body {
+    margin-top: 20px;
+  }
+
   ul.children {
     margin-top: 20px;
     list-style: none;
