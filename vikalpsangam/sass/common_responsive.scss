@@ -33,21 +33,6 @@
     border-right: 0 none;
   }
 
-  .comments-section form input[type="text"],
-  .comments-section form textarea {
-    width: 100%;
-  }
-
-  .comments-section {
-    ul {
-      padding: 4px;
-
-      li > ul {
-        margin: 0;
-      }
-    }
-  }
-
   .logos-collection {
     img {
       margin-bottom: 10px;
@@ -121,16 +106,6 @@
   .right-border-separator {
     padding-right: 15px;
     border-right: 0 none;
-  }
-
-  .comments-section {
-    ul {
-      padding: 4px;
-
-      li > ul {
-        margin: 0;
-      }
-    }
   }
 
   .logos-collection {
