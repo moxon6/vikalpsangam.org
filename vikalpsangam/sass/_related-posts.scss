@@ -1,0 +1,16 @@
+.jp-relatedposts {
+    padding-top: 32px;
+    border-top: 2px solid $light-gray-col;
+
+    h3.jp-relatedposts-headline em {
+        font-size: 20px;
+
+        &::before {
+            border-top: 0 !important;
+        }
+    }
+}
+
+.jp-relatedposts-grid {
+    display: flex;
+}
