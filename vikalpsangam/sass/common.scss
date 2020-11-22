@@ -1,6 +1,10 @@
 @import "colors.scss";
 @import "fonts.scss";
 
+.category-title-link {
+  background-size: contain;
+}
+
 @mixin control-group-styles() {
   padding: 6px 12px;
   font-size: 14px;

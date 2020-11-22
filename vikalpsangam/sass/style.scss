@@ -12,23 +12,9 @@ Theme Description: This is the main theme for vikalpsangam.org
 @import "footer.scss";
 @import "contacts-form.scss";
 @import "comments.scss";
+@import "article-tile.scss";
 
 #wpadminbar {
   opacity: 0.3;
 }
 
-.site-main {
-  min-height: 75vh;
-}
-
-.category-title-link {
-  background-size: contain;
-}
-
-.excerpt {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  height: 34px;
-  overflow: hidden;
-}
