@@ -1,3 +1,109 @@
+.navbar {
+    position: sticky;
+    box-shadow: 0 2px 2px 0 rgba(50, 50, 50, 0.3);
+}
+
+.navbar-default .navbar-nav > li > a {
+    font-family: $roboto-black;
+    font-size: 1.125em;
+    font-weight: 700;
+    color: $dark-brick-col;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        color: $dark-brick-col;
+        text-decoration: none;
+    }
+}
+
+header {
+    position: relative;
+
+    .hide-language-bar {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 5px;
+    }
+
+    .show-language-bar {
+        position: absolute;
+        top: 0;
+        right: 1px;
+        z-index: 1;
+        padding: 0 5px;
+        font-size: 0.8em;
+        background-color: $yellow-col;
+        border: 1px solid #9e332e;
+    }
+
+    &.navbar-fixed-top {
+        margin-bottom: 0;
+        border: 0;
+    }
+
+    a.navbar-brand {
+        display: block;
+        width: 309px;
+        height: 35px;
+        margin-top: 8px;
+        overflow: hidden;
+        background: url(/wp-content/themes/vikalpsangam/images/header_big_logo.png) no-repeat left center;
+    }
+
+    .container {
+        width: 95%;
+    }
+
+    .language-wrapper {
+        position: relative;
+        display: none;
+        overflow: hidden;
+        text-align: right;
+        // height: 0px;
+        background-color: $yellow-col;
+
+        #language-selection {
+            padding-right: 30px;
+        }
+
+        label {
+            font-size: 10px;
+            background-color: $yellow-col;
+        }
+
+        .mchecked {
+            background-color: $dark-brick-col;
+        }
+    }
+}
+
+.navbar-default .navbar-nav > .active > a {
+    font-weight: 700;
+    color: #fff;
+    background-color: $dark-brick-col;
+
+    &:hover,
+    &:focus {
+        font-weight: 700;
+        color: #fff;
+        background-color: $dark-brick-col;
+    }
+}
+
+.search-box-wrapper {
+    position: relative;
+    display: inline-block;
+
+    i {
+        position: absolute;
+        top: 30%;
+        right: 7px;
+        color: $dark-brick-col;
+    }
+}
+
 @media (min-width: 992px) and (max-width: 1199px) {
     .search-box-wrapper {
         width: 130px;
@@ -78,27 +184,26 @@
     }
 }
 
-
-@media (max-width: 399px) {  
+@media (max-width: 399px) {
     header {
-      ul.navbar-nav.nav form {
-        padding: 10px 15px;
-        margin: 0;
-        border: 0;
-      }
-  
-      a.navbar-brand {
-        width: 63px;
-        height: 30px;
-        background: url(/wp-content/themes/vikalpsangam/images/header_small_logo.png) no-repeat left center;
-      }
+        ul.navbar-nav.nav form {
+            padding: 10px 15px;
+            margin: 0;
+            border: 0;
+        }
+
+        a.navbar-brand {
+            width: 63px;
+            height: 30px;
+            background: url(/wp-content/themes/vikalpsangam/images/header_small_logo.png) no-repeat left center;
+        }
     }
-  
+
     header .show-language-bar {
-      top: 10px;
-      right: 80px;
-      padding: 0 5px;
-      border: 1px solid #9e332e;
-      border-radius: 2px;
+        top: 10px;
+        right: 80px;
+        padding: 0 5px;
+        border: 1px solid #9e332e;
+        border-radius: 2px;
     }
-  }
+}
