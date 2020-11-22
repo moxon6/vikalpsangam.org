@@ -190,3 +190,28 @@
     }
   }
 }
+
+@media (max-width: 399px) {
+  .category-topping-wrapper .category {
+    width: 100%;
+    border-right: 0 none;
+  }
+
+  .category-title-link {
+    border-right: 0 none;
+  }
+
+  .border-bottom-only-wrapper {
+    border-right: 0 none;
+  }
+
+  .category-description {
+    border-right: 0 none;
+  }
+}
+
+@media (min-width: 400px) and (max-width: 767px) {
+  .category-topping-wrapper .category {
+    width: 47%;
+  }
+}
