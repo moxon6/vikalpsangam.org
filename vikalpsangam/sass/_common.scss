@@ -338,76 +338,9 @@ footer {
   }
 }
 
-.navigator {
-  h4 {
-    padding-left: 30px;
-    background: url(/static/img/navigator.png) no-repeat center left transparent;
-  }
-}
-
 .img-responsive {
   margin: 0 auto;
 }
-
-.error-wrapper {
-  text-align: center;
-
-  .top-section {
-    h1 {
-      font-size: 12em;
-    }
-
-    .glyphicon-cog {
-      font-size: 10em;
-    }
-  }
-}
-
-.logos-collection {
-  margin: 10px 0;
-
-  img {
-    display: block;
-    margin: 0 auto;
-  }
-}
-
-.link-but-not-a-link {
-  cursor: default;
-
-  &:hover {
-    cursor: default;
-  }
-}
-
-.footer-social-links-top,
-.footer-social-links-bottom {
-  .col-xs-12 {
-    text-align: center;
-  }
-
-  a {
-    display: inline-block;
-    margin-right: 10px;
-  }
-}
-
-.category-image-wrapper {
-  background-color: #e6e7e8;
-
-  .category-image {
-    width: 327px;
-    height: 218px;
-    image-rendering: -moz-crisp-edges; /* Firefox */
-    image-rendering: -o-crisp-edges; /* Opera */
-    image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming) */
-    image-rendering: crisp-edges;
-    object-fit: cover;
-    -ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
-  }
-}
-
-
 
 @media (max-width: 399px) {
   .right-border-separator {
