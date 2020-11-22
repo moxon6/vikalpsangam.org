@@ -14,7 +14,6 @@
                      <div class="category-page-heading">
 
                         <a class="category-title-link"
-                            title="Case studies commissioned by Vikalp Sangam or other processes"
                             style="background-image: url('<?php echo get_category_image($category); ?>')"
                             href="<?php echo get_category_link($category->term_id); ?>">
                             <?php single_cat_title(); ?>
