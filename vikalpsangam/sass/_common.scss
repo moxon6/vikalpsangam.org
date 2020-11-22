@@ -278,131 +278,10 @@ footer {
   height: 10px;
 }
 
-.category-list-wrapper {
-  .row {
-    margin-right: 0;
-    margin-left: 0;
-  }
-
-  h5 {
-    margin: 10px 0;
-  }
-
-  ul li {
-    padding-bottom: 4px;
-    list-style-position: inside;
-
-    a {
-      position: relative;
-      top: 5px;
-      font-size: 0.8em;
-      color: $dark-brick-col;
-      text-decoration: none;
-      text-transform: uppercase;
-      vertical-align: top;
-    }
-
-    a:hover {
-      color: $dark-brick-col;
-      text-decoration: none;
-    }
-  }
-}
-
-.tag-cloud-wrapper {
-  div.tag-cloud {
-    padding-bottom: 20px;
-    text-align: center;
-  }
-
-  h5 {
-    margin: 10px 0;
-  }
-
-  a {
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: none;
-    }
-  }
-
-  .tag-weight-1 {
-    font-size: 0.8em;
-    color: $dark-gray-col;
-  }
-
-  .tag-weight-2 {
-    font-size: 1em;
-    color: $yellow-col;
-  }
-
-  .tag-weight-3 {
-    font-size: 1.2em;
-    color: $light-brick-color;
-  }
-
-  .tag-weight-4 {
-    font-size: 1.3em;
-    color: $dark-brick-col;
-  }
-}
-
-a.carousel-control {
-  &.left {
-    background-image: none;
-  }
-
-  &.right {
-    background-image: none;
-  }
-}
-
 .download-social-bar {
   padding: 5px;
   margin: 5px 0;
   background-color: $light-gray-col;
-
-  .btn {
-    color: $dark-brick-col;
-    background: none;
-    border: 0 none;
-  }
-
-  .dont-style-me {
-    &.btn {
-      font-size: 0.8em;
-      cursor: default;
-
-      &:active {
-        background: none;
-        border: 0 none;
-      }
-
-      &:hover {
-        background: none;
-        border: 0 none;
-      }
-    }
-  }
-}
-
-.endless-more {
-  &:hover {
-    text-decoration: none;
-  }
-
-  .load-more-bottom-button {
-    margin-bottom: 10px;
-
-    button {
-      display: inline-block !important;
-      font-weight: 700;
-      color: $dark-brick-col;
-      background-color: $light-gray-col;
-      border-radius: 0;
-    }
-  }
 }
 
 .right-section {
@@ -484,13 +363,6 @@ a.carousel-control {
   h4 {
     padding-left: 30px;
     background: url(/static/img/navigator.png) no-repeat center left transparent;
-  }
-}
-
-.endless-loading {
-  img {
-    display: block;
-    margin: 10px auto;
   }
 }
 

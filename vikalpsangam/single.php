@@ -31,7 +31,7 @@ get_header();
                             <span class="text">in</span>
                             <a href="<?=$category_link?>"><?=$category_name?></a>
                         </div>
-                    <div class="download-social-bar btn-toolbar" role="toolbar" id="social-media-sharing"></div>
+                    <div class="download-social-bar btn-toolbar" role="toolbar"></div>
 
 
                     
