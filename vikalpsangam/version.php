@@ -1,1 +1,1 @@
-<?php define('vikalpsangam_VERSION', '1.3.3');
+<?php define('vikalpsangam_VERSION', '1.3.4');
