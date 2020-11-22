@@ -15,20 +15,6 @@ $recent_activity = get_posts(array(
 
 ?>
 
-<style>
-    .sidebar-icon {
-        width: 30px;
-        height: 30px;
-        margin-right: 3px;
-        margin-bottom: 5px;
-        image-rendering: -moz-crisp-edges;         /* Firefox */
-        image-rendering:   -o-crisp-edges;         /* Opera */
-        image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
-        image-rendering: crisp-edges;
-        -ms-interpolation-mode: nearest-neighbor;  /* IE (non-standard property) */
-    }
-</style>
-
 <!-- TODO: Replace these spacer -->
 <div class="space-xs"></div>
 <div class="space-xs"></div>
