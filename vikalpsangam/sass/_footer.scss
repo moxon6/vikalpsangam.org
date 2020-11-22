@@ -17,3 +17,61 @@
   margin-top: 5px;
   margin-bottom: 10px;
 }
+
+@media (min-width: 1200px) {
+  .footer-social-links-bottom {
+    display: none;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .footer-social-links-bottom {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .footer-social-links-top {
+    display: none;
+  }
+}
+
+@media (min-width: 400px) and (max-width: 767px) {
+  .footer-social-links-top {
+    display: none;
+  }
+
+  .logos-collection {
+    img {
+      margin-bottom: 10px;
+    }
+
+    .kalpawriksha {
+      float: right;
+    }
+
+    .dds {
+      float: left;
+    }
+  }
+}
+
+@media (max-width: 399px) {
+  .footer-social-links-top {
+    display: none;
+  }
+
+  .logos-collection {
+    img {
+      margin-bottom: 10px;
+    }
+
+    .kalpawriksha {
+      float: right;
+    }
+
+    .dds {
+      float: left;
+    }
+  }
+}

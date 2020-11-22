@@ -1,0 +1,104 @@
+@media (min-width: 992px) and (max-width: 1199px) {
+    .search-box-wrapper {
+        width: 130px;
+        margin-right: 30px;
+
+        .form-control {
+            width: inherit;
+            padding-right: 25px;
+        }
+    }
+
+    .navbar-default .navbar-nav > li > a {
+        font-size: 0.7em;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .search-box-wrapper {
+        width: 100px;
+        margin-right: 30px;
+
+        .form-control {
+            width: inherit;
+            padding-right: 25px;
+        }
+    }
+
+    .navbar-default .navbar-nav > li > a {
+        font-size: 0.7em;
+    }
+
+    header .container {
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    .navbar-default .navbar-form {
+        padding: 0;
+    }
+
+    header a.navbar-brand {
+        width: 63px;
+        height: 30px;
+        background: url(/wp-content/themes/vikalpsangam/images/header_small_logo.png) no-repeat left center;
+    }
+}
+
+@media (min-width: 400px) and (max-width: 767px) {
+    header .show-language-bar {
+        top: 10px;
+        right: 80px;
+        padding: 0 5px;
+        border: 1px solid #9e332e;
+        border-radius: 2px;
+    }
+
+    header ul.navbar-nav.nav {
+        float: none !important;
+
+        form {
+            padding: 10px 15px;
+            margin: 0;
+            border: 0;
+        }
+    }
+
+    .navbar-default {
+        .navbar-collapse,
+        .navbar-form {
+            border: 0 none;
+        }
+    }
+
+    header a.navbar-brand {
+        width: 63px;
+        height: 30px;
+        background: url(/wp-content/themes/vikalpsangam/images/header_small_logo.png) no-repeat left center;
+    }
+}
+
+
+@media (max-width: 399px) {  
+    header {
+      ul.navbar-nav.nav form {
+        padding: 10px 15px;
+        margin: 0;
+        border: 0;
+      }
+  
+      a.navbar-brand {
+        width: 63px;
+        height: 30px;
+        background: url(/wp-content/themes/vikalpsangam/images/header_small_logo.png) no-repeat left center;
+      }
+    }
+  
+    header .show-language-bar {
+      top: 10px;
+      right: 80px;
+      padding: 0 5px;
+      border: 1px solid #9e332e;
+      border-radius: 2px;
+    }
+  }
