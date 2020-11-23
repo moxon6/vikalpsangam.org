@@ -19,6 +19,10 @@ function vikalpsangam_scripts() {
 
 	wp_enqueue_script( 'vikalpsangam', get_template_directory_uri() . '/js/site/index.js', ["jquery-1.7", "leaflet/js"], true );
 	
+	if(getenv('ENABLE_BROWSERSYNC')) {
+		wp_enqueue_script( 'browser-sync', "http://localhost:3000/browser-sync/browser-sync-client.js?v=2.26.13", [], Null );
+	}
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
