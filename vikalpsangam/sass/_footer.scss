@@ -48,6 +48,13 @@
 }
 
 footer {
+  padding-top: 20px;
+  background-color: #58585a;
+
+  .container {
+    width: 95%;
+  }
+
   .logo img {
     padding-top: 10px;
   }
@@ -75,15 +82,6 @@ footer {
         text-decoration: none;
       }
     }
-  }
-}
-
-footer#footer {
-  padding-top: 20px;
-  background-color: #58585a;
-
-  .container {
-    width: 95%;
   }
 }
 
