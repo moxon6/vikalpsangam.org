@@ -28,54 +28,7 @@ $tag_names = array_map(
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
-<header class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <a href="#" class="show-language-bar">
-
-        <!-- TODO: Multiple language support https://trello.com/c/S0ySCXwV -->
-        <span class="glyphicon glyphicon-circle-arrow-down"></span>&nbsp;<div style="float: right">Change<br>Language</div>
-
-		<?php /*
-
-	
-        {% get_language_info_list for LANGUAGES as languages %}
-        {% for language in languages %}
-            {% if language.code == LANGUAGE_CODE and language.code == 'en' %}
-{#                <span class="glyphicon glyphicon-circle-arrow-down"></span>&nbsp;{{ language.name_local }}#}
-                <span class="glyphicon glyphicon-circle-arrow-down"></span>&nbsp;<div style="float: right">Change<br>Language</div>
-            {% elif language.code == LANGUAGE_CODE and language.code == 'hi' %}
-{#                <span class="glyphicon glyphicon-circle-arrow-down"></span>&nbsp;हिंदी#}
-                <span class="glyphicon glyphicon-circle-arrow-down"></span>&nbsp;<div style="float: right">भाषा<br>बदलें</div>
-            {% elif language.code == LANGUAGE_CODE and language.code == 'ta' %}
-{#                <span class="glyphicon glyphicon-circle-arrow-down"></span>&nbsp;{{ language.name_local }}#}
-                <span class="glyphicon glyphicon-circle-arrow-down"></span>&nbsp;<div style="float: right">மொழி <br>மாற்ற</div>
-            {% endif %}
-		{% endfor %}
-		
-		*/ ?>
-        <!-- <span class="glyphicon glyphicon-chevron-down"></span> -->
-    </a>
-    <div class="language-wrapper">
-        <form action="{% url 'set_language' %}" method="post">
-			
-            <input type="hidden" name="language" id="languageHiddenElement" value=""/>
-            <input name="next" type="hidden" value="/"/>
-
-            <!-- TODO: Multiple language support https://trello.com/c/S0ySCXwV --> 
-            <!-- {% get_language_info_list for LANGUAGES as languages %} -->
-            <div class="btn-group" data-toggle="buttons" id="language-selection">
-				<!--
-                {% for language in languages %}
-                    <label class="btn btn-primary {% if language.code == LANGUAGE_CODE %}mchecked{% endif %}" >
-                        <input type="radio" name="options" value="{{ language.code }}"
-                               {% if language.code == LANGUAGE_CODE %}checked{% endif %}> {% ifequal language.code 'hi' %}हिंदी {% else %}{{ language.name_local }}{% endifequal %}
-                    </label>
-                {% endfor %}
-				-->
-            </div>
-        </form>
-        <a href="#" class="hide-language-bar"><span class="glyphicon glyphicon-remove-circle"></span></a>
-    </div>
-
+<header class="navbar navbar-default navbar-fixed-top" role="navigation">    
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
