@@ -28,11 +28,8 @@
                     <?php get_template_part('template-parts/common/sidebar') ?>
                 </div>
             </div>
-
         </div>
-
     </div>
-
 </div>
 
 <?php
