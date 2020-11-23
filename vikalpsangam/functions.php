@@ -210,18 +210,7 @@ add_action( 'widgets_init', 'vikalpsangam_widgets_init' );
 /**
  * Enqueue scripts and styles.
  */
-
 require get_template_directory() . '/inc/dependencies.php';
-
-/**
- * Custom template tags for this theme.
- */
-require get_template_directory() . '/inc/template-tags.php';
-
-/**
- * Functions which enhance the theme by hooking into WordPress.
- */
-require get_template_directory() . '/inc/template-functions.php';
 
 require get_template_directory() . '/inc/functions/page-stories.php';
 
