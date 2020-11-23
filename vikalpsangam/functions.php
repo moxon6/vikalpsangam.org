@@ -96,9 +96,6 @@ if ( ! function_exists( 'vikalpsangam_setup' ) ) :
 			)
 		);
 
-		// Add theme support for selective refresh for widgets.
-		add_theme_support( 'customize-selective-refresh-widgets' );
-
 		/**
 		 * Add support for core custom logo.
 		 *
