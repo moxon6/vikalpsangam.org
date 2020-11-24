@@ -1,8 +1,8 @@
-<div class="row">
+<div>
     <form action="//vikalpsangam.us9.list-manage.com/subscribe/post?u=16f6762000d0db3e3e5190bf6&amp;id=4bd0241c3a"
           method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="novalidate"
           target="_blank" novalidate>
-        <div class="col-lg-offset-1 col-lg-10 col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 col-xs-offset-2 col-xs-8">
+        <div>
             <div class="input-group spacer form-group">
                 <input type="text" name="EMAIL" class="form-control required email" id="mce-EMAIL"
                        placeholder="Sign up for newsletter">
