@@ -106,14 +106,21 @@ add_filter('nav_menu_css_class' , 'special_nav_class' , 10 , 2);
 
 function special_nav_class ($classes, $item) {
   if (
-	  in_array('current-menu-item', $classes) or 
-	  in_array('current-page-ancestor', $classes) or
-	  in_array('current-post-ancestor', $classes) or
-	  $item->post_name == "stories" && ( is_single() || is_tag() || (is_category() && !is_category("policy-edits")) )
-	){
-    $classes[] = 'active ';
-}
-return $classes;
+		in_array('current-menu-item', $classes) or 
+		in_array('current-page-ancestor', $classes) or
+		in_array('current-post-ancestor', $classes) or
+		$item->post_name == "stories" && ( 
+		  (
+			  (is_single() && !has_category("policy-edits")) ||
+			  is_tag() || 
+			  (is_category() && !is_category("policy-edits"))
+		  )
+		)
+    )
+	{
+		$classes[] = 'active';
+	}
+	return $classes;
 }
 
 function remove_tagline($title)
