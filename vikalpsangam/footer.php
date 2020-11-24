@@ -1,90 +1,76 @@
-<?php define("MAILCHIMP_SUBMIT_URL", "//vikalpsangam.us9.list-manage.com/subscribe/post?u=16f6762000d0db3e3e5190bf6&amp;id=4bd0241c3a"); ?>
+<?php 
+    define("MAILCHIMP_SUBMIT_URL", "//vikalpsangam.us9.list-manage.com/subscribe/post?u=16f6762000d0db3e3e5190bf6&amp;id=4bd0241c3a");
+    function get_template_image_url($image_url) {
+        return get_bloginfo('template_url') . $image_url . "?v=" . vikalpsangam_VERSION;
+    }
+
+    $footer_menus = ["footer-menu-1", "footer-menu-2", "footer-menu-3"];
+    $logos = [
+        "http://www.shikshantar.org" => get_template_image_url("/images/logos/shikshantar_md.png"),
+        "http://www.kalpavriksh.org" => get_template_image_url("/images/logos/kalpavriksh_md.png"),
+        "http://www.ddsindia.com" => get_template_image_url("/images/logos/ddslogo_md.png"),
+        "http://www.bhoomicollege.org" => get_template_image_url("/images/logos/bhoomi_md.png"),
+    ];
+    $social_links = [
+        "https://twitter.com/VikalpSangam" => get_template_image_url("/images/social/twitter.png"),
+        "https://www.facebook.com/pages/Vikalp-Sangam/483165198462325" => get_template_image_url("/images/social/facebook.png"),
+        "https://www.instagram.com/vikalpsangam" => get_template_image_url("/images/social/instagram.png")
+    ];
+?>
 
 <footer>
     <div class="partners">
         <div class="partners-logos">
+            <?php foreach($logos as $url => $image): ?>
             <div class="partner-logo">
-                <a href="http://www.shikshantar.org/">
-                    <img src="<?php bloginfo('template_url'); ?>/images/footer/shikshantar_md.png?v=<?php echo vikalpsangam_VERSION ?>" alt="">
+                <a href="<?php echo $url ?>">
+                    <img src="<?php echo $image; ?>">
                 </a>
             </div>
-            <div class="partner-logo">
-                <a href="http://www.kalpavriksh.org">
-                    <img src="<?php bloginfo('template_url'); ?>/images/footer/kalpavriksh_md.png?v=<?php echo vikalpsangam_VERSION ?>" alt="">
-                </a>
-            </div>
-            <div class="partner-logo">
-                <a href="http://www.ddsindia.com/">
-                    <img src="<?php bloginfo('template_url'); ?>/images/footer/ddslogo_md.png?v=<?php echo vikalpsangam_VERSION ?>" alt="">
-                </a>
-            </div>
-            <div class="partner-logo">
-                <a href="http://www.bhoomicollege.org">
-                    <img src="<?php bloginfo('template_url'); ?>/images/footer/bhoomi_md.png?v=<?php echo vikalpsangam_VERSION ?>" alt="">
-                </a>
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
     <div class="footer-items">
         <div class="footer-left">
             <div id="footer-logo">
-                <a href="/"> <img class="img-responsive"
-                        src="<?php bloginfo('template_url'); ?>/images/footer/footer_big_logo.png?v=<?php echo vikalpsangam_VERSION ?>" /> </a>
+                <a href="/">
+                    <img class="img-responsive"
+                        src="<?php echo get_template_image_url("/images/footer/footer_big_logo.png")?>" />
+                </a>
             </div>
             <div class="footer-social-links-top">
-                <a href="https://twitter.com/VikalpSangam">
-                    <img src="<?php bloginfo('template_url'); ?>/images/footer/twitter_page_footer.png?v=<?php echo vikalpsangam_VERSION ?>">
-                </a>
-                <a href="https://www.facebook.com/pages/Vikalp-Sangam/483165198462325">
-                    <img src="<?php bloginfo('template_url'); ?>/images/footer/facebook_page_footer.png?v=<?php echo vikalpsangam_VERSION ?>">
-                </a>
-                <a href="https://www.instagram.com/vikalpsangam">
-                    <img src="<?php bloginfo('template_url'); ?>/images/footer/instagram.png?v=<?php echo vikalpsangam_VERSION ?>">
-                </a>
+                <?php foreach($social_links as $url => $image): ?>
+                <div class="partner-logo">
+                    <a href="<?php echo $url ?>">
+                        <img src="<?php echo $image; ?>">
+                    </a>
+                </div>
+                <?php endforeach; ?>
             </div>
         </div>
 
         <div class="subscribe">
             <h2 class="subscribe-title">Newsletter</h2>
             <p class="subscribe-description">Enter your email address below to subscribe to our monthly newsletter</p>
-            <form
-                action="<?php echo MAILCHIMP_SUBMIT_URL ?>"
-                method="post"
-                >
+            <form action="<?php echo MAILCHIMP_SUBMIT_URL ?>" method="post">
                 <input type="email" name="EMAIL" required placeholder="Email address">
                 <button type="submit"> Sign up </button>
             </form>
         </div>
 
         <div class="footer-right">
-            <?php wp_nav_menu( array(
-                'theme_location' => 'footer-menu-1',
-                'container_class' => "list-items",
-                'menu_class' => 'list-group',
-                'add_li_class'  => 'list-group-item',
-                'add_a_class' => 'list-group-item-heading'
-            )); ?>
-
-            <?php wp_nav_menu( array(
-                'theme_location' => 'footer-menu-2',
-                'container_class' => "list-items",
-                'menu_class' => 'list-group',
-                'add_li_class'  => 'list-group-item',
-                'add_a_class' => 'list-group-item-heading'
-            )); ?>
-
-            <?php wp_nav_menu( array(
-                'theme_location' => 'footer-menu-3',
-                'container_class' => "list-items",
-                'menu_class' => 'list-group',
-                'add_li_class'  => 'list-group-item',
-                'add_a_class' => 'list-group-item-heading'
-            )); ?>
+            <?php
+            foreach($footer_menus as $menu) {
+                wp_nav_menu([
+                    'theme_location' => $menu,
+                    'container_class' => "list-items",
+                    'menu_class' => 'list-group',
+                    'add_li_class' => 'list-group-item',
+                    'add_a_class' => 'list-group-item-heading'
+                ]);
+            }
+            ?>
         </div>
-
-
-
-
     </div>
 </footer>
 
