@@ -12,6 +12,12 @@
         "http://www.bhoomicollege.org" => get_template_image_url("/images/logos/bhoomicollege.png"),
     ];
 
+    $social_links = [
+        "https://twitter.com/VikalpSangam" => get_template_image_url("/images/social/twitter.png"),
+        "https://www.facebook.com/VikalpSangam" => get_template_image_url("/images/social/facebook.png"),
+        "https://www.instagram.com/vikalpsangam" => get_template_image_url("/images/social/instagram.png")
+    ];
+
     $footer_logo = get_template_image_url("/images/footer/site-logo.png");
 ?>
 
@@ -24,14 +30,13 @@
                 </a>
             </div>
             <div class="footer-social-links-top">
-                <?php
-                wp_nav_menu([
-                    'theme_location' => "social-links",
-                    'menu_class' => 'social-menu-list',
-                    'add_li_class' => 'social-menu-list-item',
-                    'add_a_class' => 'social-menu-link'
-                ]);
-                ?>
+                <?php foreach($social_links as $url => $image): ?>
+                <div class="partner-logo">
+                    <a href="<?php echo $url ?>">
+                        <img src="<?php echo $image; ?>">
+                    </a>
+                </div>
+                <?php endforeach; ?>
             </div>
         </div>
 

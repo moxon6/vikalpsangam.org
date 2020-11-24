@@ -69,14 +69,9 @@ footer {
         display: flex;
         justify-content: center;
 
-        .social-menu-list {
-          display: flex;
-          list-style: none;
-          a span {
-            display: inline-block;
-            margin-right: 10px;
-            display: none;
-          }
+        a {
+          display: inline-block;
+          margin-right: 10px;
         }
       }
     }
