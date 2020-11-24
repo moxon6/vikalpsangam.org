@@ -13,9 +13,11 @@
     ];
     $social_links = [
         "https://twitter.com/VikalpSangam" => get_template_image_url("/images/social/twitter.png"),
-        "https://www.facebook.com/pages/Vikalp-Sangam/483165198462325" => get_template_image_url("/images/social/facebook.png"),
+        "https://www.facebook.com/VikalpSangam" => get_template_image_url("/images/social/facebook.png"),
         "https://www.instagram.com/vikalpsangam" => get_template_image_url("/images/social/instagram.png")
     ];
+
+    $footer_logo = get_template_image_url("/images/footer/site-logo.png");
 ?>
 
 <footer>
@@ -35,7 +37,7 @@
             <div id="footer-logo">
                 <a href="/">
                     <img class="img-responsive"
-                        src="<?php echo get_template_image_url("/images/footer/footer_big_logo.png")?>" />
+                        src="<?php echo $footer_logo ?>" />
                 </a>
             </div>
             <div class="footer-social-links-top">
