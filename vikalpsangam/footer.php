@@ -5,22 +5,22 @@
         <div class="partners-logos">
             <div class="partner-logo">
                 <a href="http://www.shikshantar.org/">
-                    <img src="<?php bloginfo('template_url'); ?>/images/footer/shikshantar_md.png" alt="">
+                    <img src="<?php bloginfo('template_url'); ?>/images/footer/shikshantar_md.png?v=<?php echo vikalpsangam_VERSION ?>" alt="">
                 </a>
             </div>
             <div class="partner-logo">
                 <a href="http://www.kalpavriksh.org">
-                    <img src="<?php bloginfo('template_url'); ?>/images/footer/kalpavriksh_md.png" alt="">
+                    <img src="<?php bloginfo('template_url'); ?>/images/footer/kalpavriksh_md.png?v=<?php echo vikalpsangam_VERSION ?>" alt="">
                 </a>
             </div>
             <div class="partner-logo">
                 <a href="http://www.ddsindia.com/">
-                    <img src="<?php bloginfo('template_url'); ?>/images/footer/ddslogo_md.png" alt="">
+                    <img src="<?php bloginfo('template_url'); ?>/images/footer/ddslogo_md.png?v=<?php echo vikalpsangam_VERSION ?>" alt="">
                 </a>
             </div>
             <div class="partner-logo">
                 <a href="http://www.bhoomicollege.org">
-                    <img src="<?php bloginfo('template_url'); ?>/images/footer/bhoomi_md.png" alt="">
+                    <img src="<?php bloginfo('template_url'); ?>/images/footer/bhoomi_md.png?v=<?php echo vikalpsangam_VERSION ?>" alt="">
                 </a>
             </div>
         </div>
@@ -29,17 +29,17 @@
         <div class="footer-left">
             <div id="footer-logo">
                 <a href="/"> <img class="img-responsive"
-                        src="<?php bloginfo('template_url'); ?>/images/footer/footer_big_logo.png" /> </a>
+                        src="<?php bloginfo('template_url'); ?>/images/footer/footer_big_logo.png?v=<?php echo vikalpsangam_VERSION ?>" /> </a>
             </div>
             <div class="footer-social-links-top">
                 <a href="https://twitter.com/VikalpSangam">
-                    <img src="<?php bloginfo('template_url'); ?>/images/footer/twitter_page_footer.png">
+                    <img src="<?php bloginfo('template_url'); ?>/images/footer/twitter_page_footer.png?v=<?php echo vikalpsangam_VERSION ?>">
                 </a>
                 <a href="https://www.facebook.com/pages/Vikalp-Sangam/483165198462325">
-                    <img src="<?php bloginfo('template_url'); ?>/images/footer/facebook_page_footer.png">
+                    <img src="<?php bloginfo('template_url'); ?>/images/footer/facebook_page_footer.png?v=<?php echo vikalpsangam_VERSION ?>">
                 </a>
                 <a href="https://www.instagram.com/vikalpsangam">
-                    <img src="<?php bloginfo('template_url'); ?>/images/footer/instagram.png">
+                    <img src="<?php bloginfo('template_url'); ?>/images/footer/instagram.png?v=<?php echo vikalpsangam_VERSION ?>">
                 </a>
             </div>
         </div>
