@@ -6,14 +6,13 @@ footer {
   .footer-partners {
     width: 100%;
     background-color: #efefef;
-    display: flex;
     justify-content: center;
     flex-direction: row;
     border-top: 8px solid $dark-brick-col;
     .partners-logos {
-      width: 1400px;
+      width: 100%;
       display: flex;
-      justify-content: space-around;
+      justify-content: center;
       align-items: center;
       flex-wrap: wrap;
       .partner-logo {
@@ -56,10 +55,6 @@ footer {
     .footer-left {
       margin-top: 20px;
       margin-bottom: 20px;
-      display: flex;
-      flex-direction: column;
-      align-content: center;
-      flex: 1;
       padding-left: 10px;
       padding-right: 10px;
       .footer-logo {
@@ -129,7 +124,7 @@ footer {
         height: fit-content;
         width: fit-content;
         flex-basis: 0;
-        min-width: 180px;
+        min-width: 120px;
         flex: 1;
         .list-group {
           margin: 0;

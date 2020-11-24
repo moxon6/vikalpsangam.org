@@ -22,8 +22,8 @@
 ?>
 
 <footer>
-    <div class="footer-main">
-        <div class="footer-left">
+    <div class="footer-main row">
+        <div class="footer-left col-lg-3 col-md-6 col-s-12">
             <div class="footer-logo">
                 <a href="/">
                     <img class="img-responsive" src="<?php echo $footer_logo ?>" />
@@ -40,7 +40,7 @@
             </div>
         </div>
 
-        <div class="footer-center">
+        <div class="footer-center col-lg-4 col-md-6 col-s-12">
             <h2 class="subscribe-title">Newsletter</h2>
             <p class="subscribe-description">Enter your email address below to subscribe to our monthly newsletter</p>
             <form action="<?php echo MAILCHIMP_SUBMIT_URL ?>" method="post">
@@ -49,7 +49,7 @@
             </form>
         </div>
 
-        <div class="footer-right">
+        <div class="footer-right col-lg-5 col-md-12">
             <?php
             foreach($footer_menus as $menu) {
                 wp_nav_menu([
@@ -64,9 +64,9 @@
         </div>
     </div>
     <div class="footer-partners">
-        <div class="partners-logos">
+        <div class="partners-logos row">
             <?php foreach($logos as $url => $image): ?>
-            <div class="partner-logo">
+            <div class="partner-logo col-lg-3 col-md-12">
                 <a href="<?php echo $url ?>">
                     <img src="<?php echo $image; ?>">
                 </a>
