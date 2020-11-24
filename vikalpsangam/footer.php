@@ -6,10 +6,10 @@
 
     $footer_menus = ["footer-menu-1", "footer-menu-2", "footer-menu-3"];
     $logos = [
-        "http://www.shikshantar.org" => get_template_image_url("/images/logos/shikshantar_md.png"),
-        "http://www.kalpavriksh.org" => get_template_image_url("/images/logos/kalpavriksh_md.png"),
-        "http://www.ddsindia.com" => get_template_image_url("/images/logos/ddslogo_md.png"),
-        "http://www.bhoomicollege.org" => get_template_image_url("/images/logos/bhoomi_md.png"),
+        "http://www.shikshantar.org" => get_template_image_url("/images/logos/shikshantar.png"),
+        "http://www.kalpavriksh.org" => get_template_image_url("/images/logos/kalpavriksh.png"),
+        "http://www.ddsindia.com" => get_template_image_url("/images/logos/ddsindia.png"),
+        "http://www.bhoomicollege.org" => get_template_image_url("/images/logos/bhoomicollege.png"),
     ];
     $social_links = [
         "https://twitter.com/VikalpSangam" => get_template_image_url("/images/social/twitter.png"),
