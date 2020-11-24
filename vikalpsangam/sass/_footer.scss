@@ -1,12 +1,15 @@
+@import "colors";
+
 footer {
   padding-top: 20px;
 
   .footer-partners {
     width: 100%;
-    background-color: #f1f0f0;
+    background-color: #efefef;
     display: flex;
     justify-content: center;
     flex-direction: row;
+    border-top: 8px solid $dark-brick-col;
     .partners-logos {
       width: 1400px;
       display: flex;
@@ -19,6 +22,8 @@ footer {
         padding-bottom: 20px;
         padding-top: 20px;
         a {
+          display: flex;
+          justify-content: center;
           img {
             width: auto;
             max-width: 80%;
@@ -63,9 +68,15 @@ footer {
       .footer-social-links-top {
         display: flex;
         justify-content: center;
-        a {
-          display: inline-block;
+
+        .social-menu-list {
+          display: flex;
+          list-style: none;
+          a span {
+            display: inline-block;
           margin-right: 10px;
+            display: none;
+          }
         }
       }
     }

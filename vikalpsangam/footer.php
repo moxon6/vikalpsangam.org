@@ -11,46 +11,31 @@
         "http://www.ddsindia.com" => get_template_image_url("/images/logos/ddsindia.png"),
         "http://www.bhoomicollege.org" => get_template_image_url("/images/logos/bhoomicollege.png"),
     ];
-    $social_links = [
-        "https://twitter.com/VikalpSangam" => get_template_image_url("/images/social/twitter.png"),
-        "https://www.facebook.com/VikalpSangam" => get_template_image_url("/images/social/facebook.png"),
-        "https://www.instagram.com/vikalpsangam" => get_template_image_url("/images/social/instagram.png")
-    ];
 
     $footer_logo = get_template_image_url("/images/footer/site-logo.png");
 ?>
 
 <footer>
-    <div class="partners">
-        <div class="partners-logos">
-            <?php foreach($logos as $url => $image): ?>
-            <div class="partner-logo">
-                <a href="<?php echo $url ?>">
-                    <img src="<?php echo $image; ?>">
-                </a>
-            </div>
-            <?php endforeach; ?>
-        </div>
-    </div>
-    <div class="footer-items">
+    <div class="footer-main">
         <div class="footer-left">
-            <div id="footer-logo">
+            <div class="footer-logo">
                 <a href="/">
                     <img class="img-responsive" src="<?php echo $footer_logo ?>" />
                 </a>
             </div>
             <div class="footer-social-links-top">
-                <?php foreach($social_links as $url => $image): ?>
-                <div class="partner-logo">
-                    <a href="<?php echo $url ?>">
-                        <img src="<?php echo $image; ?>">
-                    </a>
-                </div>
-                <?php endforeach; ?>
+                <?php
+                wp_nav_menu([
+                    'theme_location' => "social-links",
+                    'menu_class' => 'social-menu-list',
+                    'add_li_class' => 'social-menu-list-item',
+                    'add_a_class' => 'social-menu-link'
+                ]);
+                ?>
             </div>
         </div>
 
-        <div class="subscribe">
+        <div class="footer-center">
             <h2 class="subscribe-title">Newsletter</h2>
             <p class="subscribe-description">Enter your email address below to subscribe to our monthly newsletter</p>
             <form action="<?php echo MAILCHIMP_SUBMIT_URL ?>" method="post">
@@ -71,6 +56,17 @@
                 ]);
             }
             ?>
+        </div>
+    </div>
+    <div class="footer-partners">
+        <div class="partners-logos">
+            <?php foreach($logos as $url => $image): ?>
+            <div class="partner-logo">
+                <a href="<?php echo $url ?>">
+                    <img src="<?php echo $image; ?>">
+                </a>
+            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </footer>

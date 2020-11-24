@@ -48,6 +48,7 @@ if ( ! function_exists( 'vikalpsangam_setup' ) ) :
 				'footer-menu-1' => esc_html__("Footer 1", "vikalpsangam"),
 				'footer-menu-2' => esc_html__("Footer 2", "vikalpsangam"),
 				'footer-menu-3' => esc_html__("Footer 3", "vikalpsangam"),
+				'social-links' => esc_html__("Social Links Menu", "vikalpsangam"),
 			)
 		);
 
