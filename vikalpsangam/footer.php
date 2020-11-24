@@ -1,3 +1,5 @@
+<?php define("MAILCHIMP_SUBMIT_URL", "//vikalpsangam.us9.list-manage.com/subscribe/post?u=16f6762000d0db3e3e5190bf6&amp;id=4bd0241c3a"); ?>
+
 <footer>
     <div class="partners">
         <div class="partners-logos">
@@ -24,27 +26,38 @@
         </div>
     </div>
     <div class="footer-items">
-        <div id="footer-logo">
-            <a href="/"> <img class="img-responsive hidden-md"
-                    src="<?php bloginfo('template_url'); ?>/images/footer/footer_big_logo.png" /> </a>
-            <a href="/"> <img class="img-responsive visible-md"
-                    src="<?php bloginfo('template_url'); ?>/images/footer/footer_small_logo.png" /> </a>
-        </div>
-        <div class="footer-social-links-top">
-            <a href="https://twitter.com/VikalpSangam">
-                <img src="<?php bloginfo('template_url'); ?>/images/footer/twitter_page_footer.png">
-            </a>
-            <a href="https://www.facebook.com/pages/Vikalp-Sangam/483165198462325">
-                <img src="<?php bloginfo('template_url'); ?>/images/footer/facebook_page_footer.png">
-            </a>
-            <a href="https://www.instagram.com/vikalpsangam">
-                <img src="<?php bloginfo('template_url'); ?>/images/footer/instagram.png">
-            </a>
+        <div class="footer-left">
+            <div id="footer-logo">
+                <a href="/"> <img class="img-responsive"
+                        src="<?php bloginfo('template_url'); ?>/images/footer/footer_big_logo.png" /> </a>
+            </div>
+            <div class="footer-social-links-top">
+                <a href="https://twitter.com/VikalpSangam">
+                    <img src="<?php bloginfo('template_url'); ?>/images/footer/twitter_page_footer.png">
+                </a>
+                <a href="https://www.facebook.com/pages/Vikalp-Sangam/483165198462325">
+                    <img src="<?php bloginfo('template_url'); ?>/images/footer/facebook_page_footer.png">
+                </a>
+                <a href="https://www.instagram.com/vikalpsangam">
+                    <img src="<?php bloginfo('template_url'); ?>/images/footer/instagram.png">
+                </a>
+            </div>
         </div>
 
-        <?php get_template_part( 'template-parts/subscribe' ); ?>
+        <div class="subscribe">
+            <h2 class="subscribe-title">Newsletter</h2>
+            <p class="subscribe-description">Enter your email address below to subscribe to our monthly newsletter</p>
+            <form
+                action="<?php echo MAILCHIMP_SUBMIT_URL ?>"
+                method="post"
+                >
+                <input type="email" name="EMAIL" required placeholder="Email address">
+                <button type="submit"> Sign up </button>
+            </form>
+        </div>
 
-        <?php wp_nav_menu( array(
+        <div class="footer-right">
+            <?php wp_nav_menu( array(
                 'theme_location' => 'footer-menu-1',
                 'container_class' => "list-items",
                 'menu_class' => 'list-group',
@@ -52,7 +65,7 @@
                 'add_a_class' => 'list-group-item-heading'
             )); ?>
 
-        <?php wp_nav_menu( array(
+            <?php wp_nav_menu( array(
                 'theme_location' => 'footer-menu-2',
                 'container_class' => "list-items",
                 'menu_class' => 'list-group',
@@ -60,13 +73,18 @@
                 'add_a_class' => 'list-group-item-heading'
             )); ?>
 
-        <?php wp_nav_menu( array(
+            <?php wp_nav_menu( array(
                 'theme_location' => 'footer-menu-3',
                 'container_class' => "list-items",
                 'menu_class' => 'list-group',
                 'add_li_class'  => 'list-group-item',
                 'add_a_class' => 'list-group-item-heading'
             )); ?>
+        </div>
+
+
+
+
     </div>
 </footer>
 
