@@ -1,6 +1,5 @@
-
 footer {
-  padding-top: 20px;  
+  padding-top: 20px;
 
   .footer-items {
     background-color: #58585a;
@@ -14,7 +13,7 @@ footer {
     align-items: flex-end;
     padding-top: 40px;
     padding-bottom: 60px;
-    flex-wrap: wrap;   
+    flex-wrap: wrap;
   }
 
   .subscribe {
@@ -50,7 +49,6 @@ footer {
         border: none;
       }
     }
-
   }
 
   .footer-left {
@@ -66,8 +64,8 @@ footer {
       margin-bottom: 40px;
     }
     .footer-social-links-top {
-     display: flex;
-     justify-content: center;
+      display: flex;
+      justify-content: center;
     }
   }
 
@@ -127,45 +125,45 @@ footer {
     margin-top: 5px;
     margin-bottom: 20px;
   }
-  
+
   .list-items {
     margin: 0;
     text-align: center;
     white-space: nowrap;
   }
-  
+
   .footer-social-links-bottom {
     margin-bottom: 10px;
   }
-  
+
   .small-screens .spacer {
     margin-top: 5px;
     margin-bottom: 10px;
   }
-  
+
   .logos-collection {
     margin: 10px 0;
-  
+
     img {
       display: block;
       margin: 0 auto;
     }
   }
-  
+
   .link-but-not-a-link {
     cursor: default;
-  
+
     &:hover {
       cursor: default;
     }
   }
-  
+
   .footer-social-links-top,
   .footer-social-links-bottom {
     .col-xs-12 {
       text-align: center;
     }
-  
+
     a {
       display: inline-block;
       margin-right: 10px;
@@ -180,7 +178,6 @@ footer {
   justify-content: center;
   flex-direction: row;
   .partners-logos {
-
     width: 1400px;
     display: flex;
     justify-content: space-around;
@@ -199,6 +196,5 @@ footer {
         }
       }
     }
-    
   }
 }
