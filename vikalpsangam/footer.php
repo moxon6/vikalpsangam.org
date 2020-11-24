@@ -36,8 +36,7 @@
         <div class="footer-left">
             <div id="footer-logo">
                 <a href="/">
-                    <img class="img-responsive"
-                        src="<?php echo $footer_logo ?>" />
+                    <img class="img-responsive" src="<?php echo $footer_logo ?>" />
                 </a>
             </div>
             <div class="footer-social-links-top">
