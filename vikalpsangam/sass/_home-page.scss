@@ -144,7 +144,7 @@
 
     h4 {
       padding-left: 0;
-      font-family: $roboto-light;
+      font-family: $roboto-light !important;
       font-size: 1.125em;
       color: $dark-brick-col;
     }
@@ -166,6 +166,7 @@
     display: flex;
     flex-direction: column;
     border-right: 10px solid $light-gray-col;
+    margin-bottom: 40px;
 
     .stories-by-category {
       display: flex;
@@ -177,6 +178,7 @@
       img {
         width: auto;
         height: auto;
+        max-height: 100%;
       }
     }
   }

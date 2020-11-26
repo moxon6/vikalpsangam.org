@@ -25,7 +25,7 @@
                 $category = $categoryPost["category"];
                 $category_image = get_category_image($category);                 
             ?>
-                <div class="col-xs-6 col-sm-3 category">
+                <div class="col-xs-12 col-sm-6 col-lg-3 category">
 
                     <div class="row top-sub-section">
 
