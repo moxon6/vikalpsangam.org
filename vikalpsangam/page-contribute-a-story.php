@@ -1,7 +1,7 @@
 <?php
 get_header();
 ?>
-<div id="content">
+<div class="content">
     <div class="section generic_section">
         <div class="container main-body-container">
             <div class="row">
@@ -9,6 +9,7 @@ get_header();
                     <div class="space-xs"></div>
                     <div class="space-xs"></div>
                     <div class="space-xs"></div>
+                    <h3><?php the_title(); ?></h3>
                     <?php the_content(); ?>
                 </div>
                 <div class="col-sm-12 col-md-3 right-section">

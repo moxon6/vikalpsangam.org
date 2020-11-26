@@ -130,8 +130,16 @@
     }
 
     input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="url"],
     textarea {
+      @include control-group-styles();
       width: 400px;
+    }
+
+    .mandatory {
+      color: red;
     }
   }
 
