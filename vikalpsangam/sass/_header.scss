@@ -97,11 +97,19 @@ header {
   position: relative;
   display: inline-block;
 
-  i {
+  button {
     position: absolute;
     top: 30%;
     right: 7px;
-    color: $dark-brick-col;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    &:focus {
+      outline: none;
+    }
+    i {
+      color: $dark-brick-col;
+    }
   }
 }
 

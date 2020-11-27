@@ -48,7 +48,9 @@ $tag_names = array_map(
             <li>
                 <form action="/" class="navbar-form navbar-search navbar-right">
                     <span class="search-box-wrapper">
-                        <i class="glyphicon glyphicon-search"></i>
+                        <button type="submit">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
                         <input class="search-query form-control" placeholder="Search" type="text" name="s" value=""> 
                     </span>
                 </form>
