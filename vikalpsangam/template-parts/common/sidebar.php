@@ -3,7 +3,8 @@
 $categories = get_categories([
     "type"      => "post",      
     "orderby"   => "name",
-    "order"     => "ASC" 
+    "order"     => "ASC",
+    "exclude" => get_cat_ID("Perspectives")
 ]);
 
 $recent_activity = get_posts(array(
