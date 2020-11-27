@@ -1,0 +1,14 @@
+{
+	"name": "create-block/vikalpsangam-map",
+	"title": "Vikalpsangam Map",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "Example block written with ESNext standard and JSX support – build step required.",
+	"textdomain": "vikalpsangam-map",
+	"supports": {
+		"html": false
+	},
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "file:./build/style-index.css"
+}
