@@ -1,7 +1,5 @@
 import { registerBlockType } from '@wordpress/blocks';
 import { __ } from '@wordpress/i18n';
-import edit from './edit';
-
 import './style.scss';
 
 registerBlockType( 'create-block/vikalpsangam-map', {
@@ -16,6 +14,6 @@ registerBlockType( 'create-block/vikalpsangam-map', {
 	supports: {
 		html: false,
 	},
-	edit: edit,
+	edit: () => "This is a leafletjs block",
 	save: () => null,
 } );
