@@ -15,7 +15,7 @@ function create_block_vikalpsangam_map_block_init() {
 		$script_asset['version']
 	);
 
-	$editor_css = 'build/index.css';
+	$editor_css = 'build/style-index.css';
 	wp_register_style(
 		'create-block-vikalpsangam-map-block-editor',
 		plugins_url( $editor_css, __FILE__ ),
