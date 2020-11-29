@@ -1,8 +1,12 @@
 <?php
 
 function render_vikalpsangam_map_block() {
-    return '<div id="large-map" class="vikalp-leaflet-block">
-        <div class="loader" role="status">
+    ob_start(); 
+    ?>
+        <div id="large-map" class="vikalp-leaflet-block">
+            <div class="loader" role="status">
+            </div>
         </div>
-    </div>';
+    <?php
+    return ob_get_clean();
 }
