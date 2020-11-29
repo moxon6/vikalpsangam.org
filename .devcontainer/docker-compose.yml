@@ -41,7 +41,7 @@ services:
     volumes:  
       - ../vikalpsangam:/var/www/html/wp-content/themes/vikalpsangam
       - ../uploads/:/var/www/html/wp-content/uploads
-      - ../blocks/vikalpsangam-map/:/var/www/html/wp-content/plugins/vikalpsangam-map
+      - ../vikalpsangam-blocks/:/var/www/html/wp-content/plugins/vikalpsangam-blocks
     restart: always
     environment:
       ENABLE_BROWSERSYNC: "true"
