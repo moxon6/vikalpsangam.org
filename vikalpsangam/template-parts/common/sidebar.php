@@ -88,7 +88,6 @@ $recent_activity = get_posts(array(
 <h5>Stories by Location</h5>
 
 <div id="map" class="sidebar-map"></div>
-<script> renderMap('map'); </script>
 
 <h5>Events</h5>
 <div id="events-in-sidebar" style="padding-bottom: 10px">

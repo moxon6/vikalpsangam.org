@@ -12,13 +12,8 @@ get_header();
                     <div class="space-xs"></div>
                     <div class="space-xs"></div>
 
-                    <div id="map-page-writeup">
-                        <h2><?php the_title() ?></h2>
-                        <?php the_content() ?>
-                        
-                    </div>
-
-                    <div id="large-map"> </div>
+                    <h2><?php the_title() ?></h2>
+                    <?php the_content() ?>
                 </div>
                 <div class="col-sm-12 col-md-3 right-section left-border-separator">
                     <?php get_template_part('template-parts/common/sidebar') ?>
@@ -27,17 +22,6 @@ get_header();
         </div>
     </div>
 </div>
-
-<style>
-    #large-map {
-        height: 800px;
-    }
-</style>
-
-<script>
-
-    renderMap('large-map');
-</script>
 
 <?php
 get_footer();

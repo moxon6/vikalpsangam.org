@@ -10,10 +10,9 @@ registerBlockType( 'create-block/vikalpsangam-map', {
 	),
 	category: 'widgets',
 	icon: 'smiley',
+	attributes: {
 
-	supports: {
-		html: false,
 	},
-	edit: () => "This is a leafletjs block",
+	edit: () => "Vikalpsangam Map Block",
 	save: () => null,
 } );
