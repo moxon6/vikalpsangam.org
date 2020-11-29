@@ -6,36 +6,25 @@ function create_block_vikalpsangam_map_block_init() {
 	$script_asset_path = "$dir/build/index.asset.php";
 	$block_script_asset_path = "$dir/build/block.asset.php";
 	
-	$index_js     = 'build/index.js';
 	$script_asset = require( $script_asset_path );
 	wp_register_script(
 		'create-block-vikalpsangam-map-block-editor',
-		plugins_url( $index_js, __FILE__ ),
+		plugins_url( 'build/index.js' , __FILE__ ),
 		$script_asset['dependencies'],
 		$script_asset['version']
 	);
 
-	$editor_css = 'build/style-index.css';
-	wp_register_style(
-		'create-block-vikalpsangam-map-block-editor',
-		plugins_url( $editor_css, __FILE__ ),
-		array(),
-		filemtime( "$dir/$editor_css" )
-	);
-
-	$style_css = 'build/style-index.css';
 	wp_register_style(
 		'create-block-vikalpsangam-map-block',
-		plugins_url( $style_css, __FILE__ ),
+		plugins_url( "build/style-index.css", __FILE__ ),
 		array(),
-		filemtime( "$dir/$style_css" )
+		filemtime( "build/style-index.css" )
 	);
 
-	$block_js     = 'build/block.js';
 	$block_script_asset = require( $block_script_asset_path );
 	wp_register_script(
 		'vikalpsangam-map',
-		plugins_url( $block_js, __FILE__ ),
+		plugins_url( 'build/block.js', __FILE__ ),
 		["leaflet/js", "leaflet.MarkerCluster/js", 'wp-polyfill', 'wp-api-fetch' ]
 	);
 
@@ -46,10 +35,7 @@ function create_block_vikalpsangam_map_block_init() {
 	wp_enqueue_style('leaflet.MarkerCluster.Default/css', 'https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css' );
 	wp_enqueue_script('leaflet.MarkerCluster/js', 'https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js', ["jquery-1.7", "leaflet/js"] );
 
-	
-	error_reporting(E_ALL);
-	error_reporting(-1);
-	ini_set('error_reporting', E_ALL);
+	require_once "$dir/inc/render.php";
 
 	register_block_type( 'create-block/vikalpsangam-map', array(
 		'editor_script'   => 'create-block-vikalpsangam-map-block-editor',
@@ -58,15 +44,6 @@ function create_block_vikalpsangam_map_block_init() {
 		'script'          => 'vikalpsangam-map',
 		'render_callback' => 'render_vikalpsangam_map_block',
 		));
-
-	function render_vikalpsangam_map_block() {
-		return '<div id="large-map" class="vikalp-leaflet-block">
-			<div class="loader" role="status">
-			</div>
-		</div>';
-	}
-
-
 }
 add_action( 'init', 'create_block_vikalpsangam_map_block_init' );
 
