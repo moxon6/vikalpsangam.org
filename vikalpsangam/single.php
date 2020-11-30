@@ -4,6 +4,8 @@ get_header();
 <?php
     $category = get_the_category()[0];
     $category_link  = get_category_link( $category_name );
+    $author = get_post_meta($post->ID, 'author', true);
+
 ?>
 <div id="content">
     <div class="section generic_section">
@@ -17,8 +19,8 @@ get_header();
                         <?php the_title(); ?>
                     </h2>
                         <div id="author-date-category">
-                            <?php if (get_the_author()) : ?>
-                                <span class="author">By <?php echo get_the_author(); ?></span>
+                            <?php if ($author) : ?>
+                                <span class="author">By <?php echo $author; ?></span>
                             <?php else: ?>
                                 <span>Posted</span>
                             <?php endif ?>
