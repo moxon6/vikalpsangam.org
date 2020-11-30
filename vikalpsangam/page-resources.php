@@ -22,9 +22,6 @@
                     <div class="space-xs"></div>
                     <div class="space-xs"></div>
                     <h2><?php the_title() ?></h2>
-                    <div class="space-xs"></div>
-                    <div class="space-xs"></div>
-                    <div class="space-xs"></div>
                     <?php the_content(); ?>
                 </div>
                 <div class="col-sm-12 col-md-3 right-section left-border-separator">

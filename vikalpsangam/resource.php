@@ -1,6 +1,22 @@
 <?php
     $resource_category = $args["resource_category"];
     get_header();
+
+    $resource_map = [
+        "economics-technologies" => "alternative-economies",
+        "energy" => "energy",
+        "environment-ecology" => "environment-ecology",
+        "food-water" => "food-and-water",
+        "health-hygiene" => "health-hygiene",
+        "knowledge-media" => "knowledge-media",
+        "learning-education" => "learning-and-education",
+        "livelihoods" => "livelihoods",
+        "politics" => "alternative-politics",
+        "settlements-transport" => "settlements",
+        "society-culture-peace" => "society-culture",
+    ];
+
+    $category = get_category_by_slug($resource_map[$resource_category]);
 ?>
 <div id="content">
     <div class="section generic_section">
@@ -10,7 +26,7 @@
                     <div class="space-xs"></div>
                     <div class="space-xs"></div>
                     <div class="space-xs"></div>
-                    <h4>Resources:Economics & Technologies</h4>
+                    <h4>Resources: <?php echo $category->cat_name ?></h4>
                     <p>
                         <a href="/article/<?php echo $resource_category ?>-visual-audio">
                             <img height="77" src="/wp-content/uploads/migrate/logos/audio_visual.png" style="vertical-align: middle;" width="80">
