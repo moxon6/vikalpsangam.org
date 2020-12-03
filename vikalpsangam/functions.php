@@ -293,7 +293,7 @@ function setup_infinite_scroll() {
         'render'    => 'infinite_scroll_render',
         'wrapper'   => false,
 		'type'      => 'click',
-		'posts_per_page' => 6,
+		'posts_per_page' => 9,
     ) );
 }
 
