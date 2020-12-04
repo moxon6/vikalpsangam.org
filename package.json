@@ -49,7 +49,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "mkdir -p .git; ./update-version; git add version.php"
+      "pre-commit": "./update-version"
     }
   },
   "dependencies": {
