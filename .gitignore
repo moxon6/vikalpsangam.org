@@ -1,8 +1,4 @@
-# ignore log files and databases
-db.postgres.sql
-bundle
-vikalpsangam/vendor
-uploads
-deployment_key
-credentials.json
-vikalpsangam-blocks
+node_modules/
+style.css
+style-rtl.css
+vendor
