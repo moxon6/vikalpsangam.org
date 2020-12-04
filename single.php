@@ -44,7 +44,9 @@ get_header();
                             <div class="border-bottom-only"></div>
                         </div>
                     </div>
-                    <?php get_template_part('template-parts/article/comments'); ?>
+                    <div id="article-comments" class="comments-section">
+                        <?php comments_template(); ?>    
+                    </div>
                 </div>
                 <div class="col-sm-12 col-md-3 right-section left-border-separator">
                     <?php get_template_part('template-parts/common/sidebar') ?>
