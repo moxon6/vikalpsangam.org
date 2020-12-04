@@ -50,7 +50,7 @@ jobs:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: vikalpsangam.zip
         asset_name: vikalpsangam.org-${{ steps.version-bump.outputs.newTag }}.zip
-        tag: ${{ github.ref }}
+        tag: ${{ steps.version-bump.outputs.newTag }}
         overwrite: true
         body: "Wordpress Theme for vikalpsangam.org. Version ${{ steps.version-bump.outputs.newTag }}"
 
