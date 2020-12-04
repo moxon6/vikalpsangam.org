@@ -1,4 +1,4 @@
-name: CI
+name: Build and deploy vikalpsangam.org theme
 on:
   push:
     tags:
