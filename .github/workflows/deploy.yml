@@ -50,10 +50,10 @@ jobs:
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: vikalpsangam.zip
-        asset_name: vikalpsangam.org-${{ github.ref }}.zip
+        asset_name: vikalpsangam.org- ${{ github.event.release.tag_name }}.zip
         tag: ${{ github.ref }}
         overwrite: true
-        body: "Wordpress Theme for vikalpsangam.org. Version ${{ github.ref }}"
+        body: "Wordpress Theme for vikalpsangam.org. Version  ${{ github.event.release.tag_name }}"
       
     - name: Install theme using Wordpress cli over ssh
       uses: appleboy/ssh-action@master
