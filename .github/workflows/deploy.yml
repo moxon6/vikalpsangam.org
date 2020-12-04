@@ -33,12 +33,26 @@ jobs:
       run: npm run lint:js
 
     - name: 'Automated Version Bump'
+      id: 'version-bump'
       uses: 'phips28/gh-action-bump-version@master'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: "Update version.php"
+      run: ./update-version
 
     - name: "Create theme bundle"
       run: npm run bundle
+    
+    - name: Upload theme package
+      uses: svenstaro/upload-release-action@v2
+      with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: vikalpsangam.zip
+        asset_name: vikalpsangam.org-${{ steps.version-bump.outputs.newTag }}.zip
+        tag: ${{ github.ref }}
+        overwrite: true
+        body: "Wordpress Theme for vikalpsangam.org. Version ${{ steps.version-bump.outputs.newTag }}"
 
     - name: Deploy Plugins and Themes to WP Server
       uses: appleboy/scp-action@master
@@ -49,17 +63,7 @@ jobs:
         source: "vikalpsangam.zip"
         target: "/tmp"
         port: 22
-    
-    - name: Upload theme package
-      uses: svenstaro/upload-release-action@v2
-      with:
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: vikalpsangam.zip
-        asset_name: vikalpsangam.org-${{ github.event.release.tag_name }}.zip
-        tag: ${{ github.ref }}
-        overwrite: true
-        body: "Wordpress Theme for vikalpsangam.org. Version  ${{ github.event.release.tag_name }}"
-      
+
     - name: Install theme using Wordpress cli over ssh
       uses: appleboy/ssh-action@master
       with:
