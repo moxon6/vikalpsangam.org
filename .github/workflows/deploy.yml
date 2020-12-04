@@ -10,39 +10,30 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - uses: php-actions/composer@v2
-      with: 
-        args: --working-dir vikalpsangam
 
     - uses: actions/setup-node@v1
       with:
         node-version: '12'
 
     - name: "Lint php"
-      working-directory: vikalpsangam
       run: composer lint:php
 
     - name: "npm install"
-      working-directory: vikalpsangam
       run: npm ci
 
     - name: "Lint scss"
-      working-directory: vikalpsangam
       run: npm run lint:scss
 
     - name: "Compile scss -> css"
-      working-directory: vikalpsangam
       run: npm run build:scss
 
     - name: "Compile rtl css"
-      working-directory: vikalpsangam
       run: npm run build:scss-rtl
 
     - name: "Lint js"
-      working-directory: vikalpsangam
       run: npm run lint:js
 
     - name: "Create theme bundle"
-      working-directory: vikalpsangam
       run: npm run bundle
 
     - name: Deploy Plugins and Themes to WP Server
