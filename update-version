@@ -1,5 +1,4 @@
 # /bin/bash
 
 version=$(node -p "require('./package.json').version")
-echo "<?php define('vikalpsangam_VERSION', '$version');" >| version.php 
-git add version.php
+echo "<?php define('vikalpsangam_VERSION', '$version');" >| version.php
