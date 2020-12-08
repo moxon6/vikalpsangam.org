@@ -21,7 +21,7 @@ get_header();
                     <div id="large-map"> </div>
                 </div>
                 <div class="col-sm-12 col-md-3 right-section left-border-separator">
-                    <?php get_template_part('template-parts/common/sidebar') ?>
+                    <?php get_sidebar() ?>
                 </div>
             </div>
         </div>

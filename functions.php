@@ -278,15 +278,6 @@ function register_custom_query_vars( $vars ) {
 }
 add_filter( 'query_vars', 'register_custom_query_vars', 1 );
 
-add_filter( 'home_url', function( $url ) {
-	if ($_GET["local"]) {
-		echo "testing";
-		$url = str_replace( 'localhost:8000', 'wordpress', $url );
-	}
-	
-	return $url;
-});
-
 function setup_infinite_scroll() {
     add_theme_support( 'infinite-scroll', array(
         'container' => 'infinite-scroll-content',
