@@ -1,59 +1,12 @@
 name: CI
 on:
-  push:
-    branches:
-      - 'master'
+  release:
+    types: [published]
+
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - uses: php-actions/composer@v2
-
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '12'
-
-    - name: "Lint php"
-      run: composer lint:php
-
-    - name: "npm install"
-      run: npm ci
-
-    - name: "Lint scss"
-      run: npm run lint:scss
-
-    - name: "Compile scss -> css"
-      run: npm run build:scss
-
-    - name: "Compile rtl css"
-      run: npm run build:scss-rtl
-
-    - name: "Lint js"
-      run: npm run lint:js
-
-    - name: 'Automated Version Bump'
-      id: 'version-bump'
-      uses: 'phips28/gh-action-bump-version@master'
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    
-    - name: "Update version.php"
-      run: ./update-version
-
-    - name: "Create theme bundle"
-      run: npm run bundle
-    
-    - name: Upload theme package
-      uses: svenstaro/upload-release-action@v2
-      with:
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: vikalpsangam.zip
-        asset_name: vikalpsangam.org-${{ steps.version-bump.outputs.newTag }}.zip
-        tag: ${{ steps.version-bump.outputs.newTag }}
-        overwrite: true
-        body: "Wordpress Theme for vikalpsangam.org. Version ${{ steps.version-bump.outputs.newTag }}"
-
     - name: Deploy Plugins and Themes to WP Server
       uses: appleboy/scp-action@master
       with:
@@ -97,4 +50,3 @@ jobs:
             categories-images \
             export-import-menus \
           --activate
-          
