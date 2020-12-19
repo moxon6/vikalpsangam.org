@@ -1,8 +1,7 @@
 name: deploy
 
 on:
-  release:
-    types: [created]
+  deploy-theme:
 
 jobs:
   deploy:
@@ -14,8 +13,8 @@ jobs:
       uses: dsaltares/fetch-gh-release-asset@master
       with:
         repo: "dsaltares/godot-wild-jam-18"
-        version: ${{ github.event.GITHUB_REF }}
-        file: vikalpsangam.org-${{ github.event.GITHUB_REF }}.zip
+        version: ${{ github.event.client_payload.release_tag }}
+        file: vikalpsangam.org-${{ github.event.client_payload.release_tag }}.zip
         token: ${{ secrets.GITHUB_TOKEN }}
     
     - name: Deploy Plugins and Themes to WP Server
