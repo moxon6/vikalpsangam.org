@@ -58,4 +58,4 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         event-type: deploy-theme
-        client-payload: '{"release_tag": "${{ steps.version-bump.outputs.newTag }}}"'
+        client-payload: '{"release_tag": "${{ steps.version-bump.outputs.newTag }}"}'
