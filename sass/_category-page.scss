@@ -56,7 +56,7 @@
   background-color: $light-gray-col;
   border-right: 10px solid #fff;
 
-  p {
+  div {
     position: relative;
     padding: 0;
 
@@ -64,11 +64,8 @@
       position: absolute;
       right: 10px;
 
-      &.read-more-description {
-        bottom: -18px;
-      }
-
-      &.category-desc-collapse-description {
+      &#toggle {
+        cursor: pointer;
         bottom: -18px;
       }
     }
