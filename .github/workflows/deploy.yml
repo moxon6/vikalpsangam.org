@@ -1,8 +1,7 @@
 name: deploy
-
 on:
-  deploy-theme:
-
+  repository_dispatch:
+    types: [deploy-theme]
 jobs:
   deploy:
     runs-on: ubuntu-latest
