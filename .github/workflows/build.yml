@@ -54,8 +54,8 @@ jobs:
         overwrite: true
         body: "Wordpress Theme for vikalpsangam.org. Version ${{ steps.version-bump.outputs.newTag }}"
     - name: Repository Dispatch
-        uses: peter-evans/repository-dispatch@v1
-        with:
-          token: ${{ secrets.REPO_ACCESS_TOKEN }}
-          event-type: deploy-theme
-          client-payload: '{"release_tag": "${{ steps.version-bump.outputs.newTag }}}"'
+      uses: peter-evans/repository-dispatch@v1
+      with:
+        token: ${{ secrets.REPO_ACCESS_TOKEN }}
+        event-type: deploy-theme
+        client-payload: '{"release_tag": "${{ steps.version-bump.outputs.newTag }}}"'
