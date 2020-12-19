@@ -14,19 +14,17 @@
         </div>
     </a>
     <a class="category-image-wrapper" href="<?php echo get_the_permalink(); ?>">
-        <div class="image-sub-section col-xs-12">
-            <?php the_post_thumbnail('medium', array('class' => 'img-responsive category-image')); ?>
-        </div>
+        <?php the_post_thumbnail('medium', array('class' => 'img-responsive category-image')); ?>
     </a>
     <div class="plain-text-sub-section">
-        <p class="col-cs-12 excerpt"> 
+        <p class="col-cs-12 excerpt">
             <?php echo filter_excerpt(get_the_excerpt()); ?>
         </p>
     </div>
-    
+
     <div class="read-more-wrapper">
-            <a class="read-more" href="<?php echo get_the_permalink(); ?>">
-                Read More
-            </a>
-        </div>
+        <a class="read-more" href="<?php echo get_the_permalink(); ?>">
+            Read More
+        </a>
+    </div>
 </div>
