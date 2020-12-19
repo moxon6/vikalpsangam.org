@@ -1,7 +1,8 @@
-name: release
+name: deploy
+
 on:
   release:
-    types: "*"
+    types: [created]
 
 jobs:
   deploy:
