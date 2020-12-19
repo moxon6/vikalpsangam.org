@@ -31,7 +31,7 @@ get_header();
                         <?php
                             while (have_posts()) {
                                 the_post();
-                                get_template_part( 'template-parts/common/article-tile');
+                                get_template_part( 'template-parts/page-stories/article-tile');
                             }
                         ?>
                     </div>
