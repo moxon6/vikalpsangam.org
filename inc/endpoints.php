@@ -1,9 +1,9 @@
 <?php
 
 add_action('rest_api_init', function () {
-    // Several expensive calls - cache this method?
-    function get_article_coordinates($request) {
+    $cache_key = "get_article_coordinates";
 
+    function get_coordinates() {
         $posts = get_posts([
             "numberposts" => -1
         ]);
@@ -18,17 +18,25 @@ add_action('rest_api_init', function () {
                 "longitude" => (float)$longitude,
             ];
         }, $posts);
+    
+        return array_filter(
+            $coordinates, 
+            fn($c) => $c["latitude"] != 0 && $c["longitude"] != 0
+        );
+    }
 
-        $coordinates = array_filter($coordinates, function($c) {
-            return $c["latitude"] != 0 && $c["longitude"] != 0;
-        });
+    function get_article_coordinates($request) {
 
+        $coordinates = get_transient($cache_key);
         if (empty($coordinates)) {
-            return new WP_Error( 'empty_category', 'the array is empty', array('status' => 404) );
+            $coordinates = get_coordinates();
+            set_transient( $cache_key, $coordinates, DAY_IN_SECONDS );
         }
 
         $response = new WP_REST_Response($coordinates);
-        $response->set_status(200);
+		$response->set_status(200);
+		$response->set_headers(array('Cache-Control' => 'max-age=3600'));
+		
         return $response;
     }
 
