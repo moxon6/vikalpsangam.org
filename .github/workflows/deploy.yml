@@ -23,12 +23,6 @@ jobs:
     - name: "Lint scss"
       run: npm run lint:scss
 
-    - name: "Compile scss -> css"
-      run: npm run build:scss
-
-    - name: "Compile rtl css"
-      run: npm run build:scss-rtl
-
     - name: "Lint js"
       run: npm run lint:js
 
@@ -37,13 +31,19 @@ jobs:
       uses: 'phips28/gh-action-bump-version@master'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    
+
     - name: "Update version.php"
       run: ./update-version
 
+    - name: "Compile scss -> css"
+      run: npm run build:scss
+
+    - name: "Compile rtl css"
+      run: npm run build:scss-rtl
+
     - name: "Create theme bundle"
       run: npm run bundle
-    
+
     - name: Upload theme package
       uses: svenstaro/upload-release-action@v2
       with:
