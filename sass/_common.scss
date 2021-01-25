@@ -102,11 +102,6 @@ a {
   border-right: 2px solid $light-gray-col;
 }
 
-.left-border-separator {
-  padding-left: 30px;
-  border-left: 2px solid $light-gray-col;
-}
-
 .space-xs {
   height: 10px;
 }
@@ -204,6 +199,11 @@ a {
 }
 
 @media (min-width: 992px) {
+  .left-border-separator {
+    padding-left: 30px;
+    border-left: 2px solid $light-gray-col;
+  }
+
   #page {
     max-width: 1360px;
     margin-left: auto;
