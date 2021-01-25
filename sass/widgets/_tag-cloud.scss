@@ -1,0 +1,38 @@
+.tag-cloud-wrapper {
+  div.tag-cloud {
+    padding-bottom: 20px;
+    text-align: center;
+  }
+
+  h5 {
+    margin: 10px 0;
+  }
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .tag-weight-1 {
+    font-size: 0.8em;
+    color: $dark-gray-col;
+  }
+
+  .tag-weight-2 {
+    font-size: 1em;
+    color: $yellow-col;
+  }
+
+  .tag-weight-3 {
+    font-size: 1.2em;
+    color: $light-brick-color;
+  }
+
+  .tag-weight-4 {
+    font-size: 1.3em;
+    color: $dark-brick-col;
+  }
+}
