@@ -20,9 +20,7 @@
         <div class="container main-body-container">
             <div class="row">
                 <div class="col-md-9 left-section">
-                    <div class="space-xs"></div>
-                    <div class="space-xs"></div>
-                    <div class="space-xs"></div>
+
 
                     <h4>
                         <p>Found <?php echo $wp_query->found_posts ?> results for your query: <?php echo get_search_query(); ?></p>
