@@ -1,9 +1,14 @@
 figure.wp-block-image {
   margin-bottom: 24px;
   width: fit-content;
+  max-width: 100%;
 
   figcaption {
     text-align: center;
     font-style: italic;
   }
+}
+
+.main-body-container img {
+  max-width: 100%;
 }
