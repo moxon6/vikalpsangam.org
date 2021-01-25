@@ -18,14 +18,12 @@
 
     $category = get_category_by_slug($resource_map[$resource_category]);
 ?>
-<div id="content">
+<div id="page">
     <div class="section generic_section">
         <div class="container main-body-container">
             <div class="row">
                 <div class="col-md-9 left-section">
-                    <div class="space-xs"></div>
-                    <div class="space-xs"></div>
-                    <div class="space-xs"></div>
+
                     <h4>Resources: <?php echo $category->cat_name ?></h4>
                     <p>
                         <a href="/article/<?php echo $resource_category ?>-visual-audio">

@@ -5,8 +5,8 @@ This is based on the wordpress core comments.php
 
 */
     if ( have_comments() ) : ?>
-	<h3 id="comments">
-		<?php
+<h3 id="comments">
+    <?php
 		if ( 1 == get_comments_number() ) {
 			printf(
 				__( 'One response to %s' ),
@@ -20,29 +20,29 @@ This is based on the wordpress core comments.php
 			);
 		}
 		?>
-	</h3>
+</h3>
 
-	<div class="navigation">
-		<div class="alignleft"><?php previous_comments_link(); ?></div>
-		<div class="alignright"><?php next_comments_link(); ?></div>
-	</div>
+<div class="navigation">
+    <div class="alignleft"><?php previous_comments_link(); ?></div>
+    <div class="alignright"><?php next_comments_link(); ?></div>
+</div>
 
-	<ol class="commentlist">
-	<?php wp_list_comments(); ?>
-	</ol>
+<ol class="commentlist">
+    <?php wp_list_comments(); ?>
+</ol>
 
-	<div class="navigation">
-		<div class="alignleft"><?php previous_comments_link(); ?></div>
-		<div class="alignright"><?php next_comments_link(); ?></div>
-	</div>
+<div class="navigation">
+    <div class="alignleft"><?php previous_comments_link(); ?></div>
+    <div class="alignright"><?php next_comments_link(); ?></div>
+</div>
 <?php else : ?>
 
-	<?php if ( comments_open() ) : ?>
+<?php if ( comments_open() ) : ?>
 
-	<?php else : ?>
-		<p class="nocomments"><?php _e( 'Comments are closed.' ); ?></p>
+<?php else : ?>
+<p class="nocomments"><?php _e( 'Comments are closed.' ); ?></p>
 
-	<?php endif; ?>
+<?php endif; ?>
 <?php endif; ?>
 
 <?php comment_form(); ?>
