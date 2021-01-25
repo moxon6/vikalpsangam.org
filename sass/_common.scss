@@ -209,18 +209,23 @@ a {
     margin-left: auto;
     margin-right: auto;
 
-    .left-section {
-      float: left;
-      width: 65%;
-      padding-top: 32px;
-      padding-bottom: 96px;
-    }
+    .main-body-container .row {
 
-    .right-section {
-      float: right;
-      width: 35%;
-      padding-top: 32px;
-      padding-bottom: 96px;
+      display: flex;
+
+      .left-section {
+        width: 65%;
+        padding-top: 32px;
+        padding-bottom: 96px;
+        flex-grow: 1;
+      }
+  
+      .right-section {
+        width: 35%;
+        padding-top: 32px;
+        padding-bottom: 96px;
+        flex-grow: 1;
+      }
     }
   }
 }
