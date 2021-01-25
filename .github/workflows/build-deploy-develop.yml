@@ -1,0 +1,64 @@
+name: Build and deploy to dev environment
+on:
+  push:
+    branches:
+      - 'develop'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: php-actions/composer@v2
+
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '12'
+
+    - name: "Lint php"
+      run: composer lint:php
+
+    - name: "npm install"
+      run: npm ci
+
+    - name: "Lint scss"
+      run: npm run lint:scss
+
+    - name: "Lint js"
+      run: npm run lint:js
+
+    - name: "Update version.php"
+      run: ./update-version
+
+    - name: "Compile scss -> css"
+      run: npm run build:scss
+
+    - name: "Compile rtl css"
+      run: npm run build:scss-rtl
+
+    - name: "Create theme bundle"
+      run: npm run bundle
+
+    - name: Deploy Plugins and Themes to WP Server
+      uses: appleboy/scp-action@master
+      with:
+        username: ${{ secrets.DEPLOYMENT_USER }}
+        host: ${{ secrets.DEPLOYMENT_HOST }}
+        key: ${{ secrets.DEPLOYMENT_KEY }}
+        source: "vikalpsangam.zip"
+        target: "/tmp"
+        port: 22
+
+    - name: Install theme using Wordpress cli over ssh
+      uses: appleboy/ssh-action@master
+      with:
+        username: ${{ secrets.DEPLOYMENT_USER }}
+        host: ${{ secrets.DEPLOYMENT_HOST }}
+        key: ${{ secrets.DEPLOYMENT_KEY }}
+        port: 22
+        script: |
+          sudo wp theme install /tmp/vikalpsangam.zip \
+            --activate \
+            --allow-root \
+            --path=${{ secrets.WORDPRESS_PATH }} \
+            --force
+          
