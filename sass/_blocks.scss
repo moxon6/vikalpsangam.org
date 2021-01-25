@@ -1,6 +1,18 @@
 figure.wp-block-image {
+  padding-bottom: 24px;
+}
+
+article.format-standard {
+  padding-bottom: 40px;
+}
+
+article.format-standard img {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+  height: auto;
+  margin-top: 48px;
   margin-bottom: 24px;
-  width: 100%;
 
   display: flex;
   flex-direction: column;
@@ -10,13 +22,4 @@ figure.wp-block-image {
     text-align: center;
     font-style: italic;
   }
-}
-
-article.format-standard img {
-  display: block;
-  max-width: 100%;
-  margin: 0 auto;
-  height: auto;
-  margin-top: 48px;
-  margin-bottom: 48px;
 }

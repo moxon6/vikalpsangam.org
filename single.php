@@ -35,7 +35,6 @@ get_header();
                         <?php the_content(); ?>
                     </article>
 
-                    <br><br>
                     <div id="story-tags">
                         <?php the_tags("Story Tags: ") ?>
                     </div>
