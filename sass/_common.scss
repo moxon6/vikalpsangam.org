@@ -208,15 +208,17 @@ a {
     max-width: 1280px;
     margin-left: auto;
     margin-right: auto;
-  
+
     .left-section {
       float: left;
       width: 65%;
+      padding-bottom: 96px;
     }
   
     .right-section {
       float: right;
       width: 35%;
+      padding-bottom: 96px;
     }
   }
 }
