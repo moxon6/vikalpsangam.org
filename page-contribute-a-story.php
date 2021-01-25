@@ -1,7 +1,7 @@
 <?php
 get_header();
 ?>
-<div class="content">
+<div id="page">
     <div class="section generic_section">
         <div class="container main-body-container">
             <div class="row">
