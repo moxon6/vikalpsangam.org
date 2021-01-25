@@ -35,7 +35,6 @@
       $fields: author, email, url, comment;
 
       p {
-
         @for $i from 1 through length($fields) {
           &.comment-form-#{nth($fields, $i)} {
             display: flex;
@@ -74,12 +73,10 @@
   }
 
   .comment-meta {
-    
     display: flex;
     flex-wrap: wrap;
 
     .comment-metadata {
-
       .edit-link {
         margin-left: 20px;
       }
@@ -88,7 +85,7 @@
     .comment-author.vcard {
       font-size: 1em;
       color: $light-brick-color;
-      flex-grow:1;
+      flex-grow: 1;
       padding-right: 12px;
 
       .says {

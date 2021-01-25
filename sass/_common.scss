@@ -203,7 +203,7 @@ a {
   }
 }
 
-@media(min-width: 992px) {
+@media (min-width: 992px) {
   #page {
     max-width: 1280px;
     margin-left: auto;
@@ -215,7 +215,7 @@ a {
       padding-top: 32px;
       padding-bottom: 96px;
     }
-  
+
     .right-section {
       float: right;
       width: 35%;
@@ -224,4 +224,3 @@ a {
     }
   }
 }
-
