@@ -12,7 +12,6 @@
   padding-top: 0;
   
   font-family: "Roboto-Black";
-  min-height: 50px;
 
   @include desktop {
     padding-left: 70px;
@@ -35,16 +34,35 @@
     }
   }
 
-  .nav-link {
-    // Todo - Replace with scss-level override later
-    color: $dark-brick-col !important;
-    font-weight: 700;
+  #vikalpsangam-navbar-collapse {
+    min-height: 50px;
+    .nav-item {
+      font-weight: 700;
 
-    @include desktop {
-      padding-left: 15px;
-      padding-right: 15px;
-    }
+      &.active .nav-link {
+        color: #fff !important;
+        background-color: $dark-brick-col;  
+      }
+
+      &:not(.active) .nav-link {
+        color: $dark-brick-col !important;
+        background-color: transparent
+      }
+
+      .nav-link {
+        height: 50px;
+        display: flex;
+        align-items: center;
+
+        @include desktop {
+          padding-left: 15px;
+          padding-right: 15px;
+        }
+
+      }
+    }  
   }
+
 
   form {
     margin-bottom: 0;
