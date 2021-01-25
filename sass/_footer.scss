@@ -79,16 +79,17 @@ footer {
       padding-right: 10px;
       .subscribe-title {
         color: white;
+        text-align: center;
       }
 
       .subscribe-description {
         color: white;
         margin-bottom: 15px;
+        text-align: center;
       }
       form {
         display: flex;
         input {
-          min-width: 300px;
           flex: 1;
           flex-shrink: 1;
           padding-left: 15px;
@@ -158,6 +159,7 @@ footer {
       @media (max-width: 992px) {
         flex-direction: column;
         align-items: center;
+        width: 100%;
       }
     }
   }

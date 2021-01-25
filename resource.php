@@ -18,7 +18,7 @@
 
     $category = get_category_by_slug($resource_map[$resource_category]);
 ?>
-<div id="content">
+<div id="page">
     <div class="section generic_section">
         <div class="container main-body-container">
             <div class="row">

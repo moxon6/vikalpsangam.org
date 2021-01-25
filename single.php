@@ -7,7 +7,7 @@ get_header();
     $author = get_post_meta($post->ID, 'author', true);
 
 ?>
-<div id="content">
+<div id="page">
     <div class="section generic_section">
         <div class="container main-body-container">
             <div class="row">
@@ -33,8 +33,10 @@ get_header();
                         <?php endif ?>
                     </div>
                     <div class="download-social-bar btn-toolbar" role="toolbar"></div>
+                    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                        <?php the_content(); ?>
+                    </article>
 
-                    <?php the_content(); ?>
                     <br><br>
                     <div id="story-tags">
                         <?php the_tags("Story Tags: ") ?>

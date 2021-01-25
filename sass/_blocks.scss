@@ -1,7 +1,10 @@
 figure.wp-block-image {
   margin-bottom: 24px;
-  width: fit-content;
-  max-width: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   figcaption {
     text-align: center;
@@ -9,6 +12,11 @@ figure.wp-block-image {
   }
 }
 
-.main-body-container img {
+article.format-standard img {
+  display: block;
   max-width: 100%;
+  margin: 0 auto;
+  height: auto;
+  margin-top: 48px;
+  margin-bottom: 48px;
 }

@@ -202,3 +202,22 @@ a {
     border-right: 0 none;
   }
 }
+
+@media(min-width: 992px) {
+  #page {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+  
+    .left-section {
+      float: left;
+      width: 65%;
+    }
+  
+    .right-section {
+      float: right;
+      width: 35%;
+    }
+  }
+}
+

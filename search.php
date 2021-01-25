@@ -15,7 +15,7 @@
     global $wp_query;
     get_header(); 
 ?>
-<div id="content">
+<div id="page">
     <div class="section generic_section">
         <div class="container main-body-container">
             <div class="row">
