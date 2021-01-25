@@ -2,22 +2,24 @@
 
 
 function vikalpsangam_scripts() {
-	wp_enqueue_script( 'jquery-1.7', 'https://code.jquery.com/jquery-1.7.1.js', array(), true );	
+	wp_enqueue_script( 'jquery-3.5.1', 'https://code.jquery.com/jquery-3.5.1.slim.min.js', array(), true );	
+
+	wp_enqueue_style("fontawesome-5.15.2", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css");
 	
-	wp_enqueue_script("bootstrap/js", "https://unpkg.com/bootstrap@3.1.1/dist/js/bootstrap.js", ["jquery-1.7"]);
-    wp_enqueue_style("bootstrap/css", "https://unpkg.com/bootstrap@3.1.1/dist/css/bootstrap.css");
+	wp_enqueue_script("bootstrap/js", "https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js", ["jquery-3.5.1"]);
+    wp_enqueue_style("bootstrap/css", "https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css");
 	
-    wp_enqueue_script("leaflet/js", "https://unpkg.com/leaflet@1.7.1/dist/leaflet.js", ["jquery-1.7"]);
+    wp_enqueue_script("leaflet/js", "https://unpkg.com/leaflet@1.7.1/dist/leaflet.js", ["jquery-3.5.1"]);
 	wp_enqueue_style( 'leaflet/css', 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.css' );
     
     wp_enqueue_style('leaflet.MarkerCluster/css', 'https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css' );
 	wp_enqueue_style('leaflet.MarkerCluster.Default/css', 'https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css' );
-	wp_enqueue_script('leaflet.MarkerCluster/js', 'https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js', ["jquery-1.7", "leaflet/js"] );
+	wp_enqueue_script('leaflet.MarkerCluster/js', 'https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js', ["jquery-3.5.1", "leaflet/js"] );
 	
 	wp_enqueue_style( 'vikalpsangam-style', get_stylesheet_uri(), array(), vikalpsangam_VERSION );
 	wp_style_add_data( 'vikalpsangam-style-rtl', 'rtl', 'replace');
 
-	wp_enqueue_script( 'vikalpsangam', get_template_directory_uri() . '/js/site/index.js', ["jquery-1.7", "leaflet/js"], vikalpsangam_VERSION );
+	wp_enqueue_script( 'vikalpsangam', get_template_directory_uri() . '/js/site/index.js', ["jquery-3.5.1", "leaflet/js"], vikalpsangam_VERSION );
 	
 	if(getenv('ENABLE_BROWSERSYNC')) {
 		wp_enqueue_script( 'browser-sync', "http://localhost:3000/browser-sync/browser-sync-client.js", [], null , $in_footer = true);

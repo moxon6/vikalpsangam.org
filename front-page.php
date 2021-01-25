@@ -29,7 +29,7 @@ $categoryPosts = (new Categories())->getCategoryPosts($NUMBER_STORIES_BY_CATEGOR
         <div class="row no-right-margin">
             <div class="col-md-8 col-xs-12">
                 <?php 
-                    get_template_part( 'template-parts/front-page/carousel', null, [ "article_content" => $carousel_items ]); 
+                    // get_template_part( 'template-parts/front-page/carousel', null, [ "article_content" => $carousel_items ]); 
                 ?>
             </div>
             <div class="col-md-4 col-xs-12 featured-list">

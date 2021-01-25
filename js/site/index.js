@@ -36,13 +36,7 @@ function fixCarouselHeight() {
   }
 }
 
-// Reintroduce resize logic
-// TODO - Remove in later revisions
-$(window).resize(() => {
-  fixCarouselHeight();
-});
-
-$(window).load(() => {
+$(window).ready(() => {
   fixCarouselHeight();
   $('.carousel').carousel({
     interval: 5000,
