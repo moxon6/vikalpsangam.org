@@ -13,9 +13,7 @@ get_header();
             <div class="row">
                 <div class="col-md-9 left-section">
 
-                    <h2>
-                        <?php the_title(); ?>
-                    </h2>
+                    <h2><?php the_title(); ?></h2>
                     <div id="author-date-category">
                         <?php if ($author) : ?>
                         <span class="author">By <?php echo $author; ?></span>
@@ -30,7 +28,6 @@ get_header();
                             href="<?php echo get_category_link($category->term_id) ?>"><?php echo $category->cat_name?></a>
                         <?php endif ?>
                     </div>
-                    <div class="download-social-bar btn-toolbar" role="toolbar"></div>
                     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                         <?php the_content(); ?>
                     </article>
