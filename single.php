@@ -45,11 +45,11 @@ get_header();
                             <div class="border-bottom-only"></div>
                         </div>
                     </div>
-
-                    <div id="article-comments" class="comments-section">
-                        <?php comments_template(); ?>
+                    <div class="row">
+                        <div id="article-comments" class="comments-section">
+                            <?php comments_template(); ?>
+                        </div>
                     </div>
-
                 </div>
                 <div class="col-sm-12 col-md-3 right-section left-border-separator">
                     <?php get_sidebar() ?>
