@@ -66,7 +66,7 @@
     <div class="footer-partners">
         <div class="partners-logos row">
             <?php foreach($logos as $url => $image): ?>
-            <div class="partner-logo col-lg-3 col-md-12">
+            <div class="partner-logo">
                 <a href="<?php echo $url ?>">
                     <img src="<?php echo $image; ?>">
                 </a>
