@@ -32,7 +32,7 @@
                 <div class="row top-sub-section">
 
                     <div class="col-xs-3">
-                        <img class="img-responsive category-image" src="<?php echo $category_image ?>" />
+                        <img class="img-fluid category-image" src="<?php echo $category_image ?>" />
                     </div>
 
                     <div class="col-xs-9">
@@ -47,7 +47,7 @@
 
                 <div class="row image-sub-section">
                     <div class="col-xs-12 stories-by-category">
-                        <?php the_post_thumbnail("medium", ["class" => "img-responsive"]); ?>
+                        <?php the_post_thumbnail("medium", ["class" => "img-fluid"]); ?>
                     </div>
                 </div>
 

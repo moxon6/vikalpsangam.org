@@ -14,7 +14,7 @@
         </div>
     </a>
     <a class="category-image-wrapper" href="<?php echo get_the_permalink(); ?>">
-        <?php the_post_thumbnail('medium', array('class' => 'img-responsive category-image')); ?>
+        <?php the_post_thumbnail('medium', array('class' => 'img-fluid category-image')); ?>
     </a>
     <div class="plain-text-sub-section">
         <p class="col-cs-12 excerpt">

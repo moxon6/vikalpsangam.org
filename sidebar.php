@@ -108,7 +108,7 @@ $recent_activity = get_posts(array(
             setup_postdata( $post ); ?>
             <li class="row">
                 <div class="col-xs-4">
-                    <?php the_post_thumbnail('thumbnail', array('class' => 'img-responsive')); ?>
+                    <?php the_post_thumbnail('thumbnail', array('class' => 'img-fluid')); ?>
                 </div>
                 <div class="col-xs-8">
                     <a href="<?php the_permalink(); ?>">

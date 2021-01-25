@@ -4,7 +4,7 @@
             <h4><?php the_title() ?></h4>
         </div>
         <div class="category-image-wrapper">
-            <?php the_post_thumbnail("large", ["class" => "img-responsive category-image"]) ?>
+            <?php the_post_thumbnail("large", ["class" => "img-fluid category-image"]) ?>
         </div>
     </a>
     <div class="plain-text-sub-section">
