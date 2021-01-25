@@ -1,27 +1,17 @@
-@mixin mobile {
-  @media (max-width: 767px) { @content; }
-}
-
-@mixin desktop {
-  @media (min-width: 768px) { @content; }
-}
-
 #vikalpsangam-navbar {
   box-shadow: 0 2px 2px 0 rgba(50, 50, 50, 0.3);
-  padding-bottom: 0;
-  padding-top: 0;
-  
   font-family: "Roboto-Black";
-
+  
   @include desktop {
-    padding-left: 70px;
-    padding-right: 100px;
+    padding: 0 100px 0 70px;
+  }
+
+  @include mobile {
+    padding: 0 16px 0 16px;
   }
 
   .navbar-brand {
-    display: block;
     height: 50px;
-    overflow: hidden;
 
     @include mobile {
       width: 65px;
@@ -36,65 +26,61 @@
 
   #vikalpsangam-navbar-collapse {
     min-height: 50px;
-    .nav-item {
-      font-weight: 700;
 
-      &.active .nav-link {
-        color: #fff !important;
-        background-color: $dark-brick-col;  
-      }
+    @include mobile {
+      margin-bottom: 24px;
+    }
 
-      &:not(.active) .nav-link {
-        color: $dark-brick-col !important;
-        background-color: transparent
-      }
-
-      .nav-link {
-        height: 50px;
-        display: flex;
-        align-items: center;
-
-        @include desktop {
-          padding-left: 15px;
-          padding-right: 15px;
+    .navbar-nav {
+      .nav-item {
+        font-weight: 700;
+  
+        &.active .nav-link {
+          color: #fff !important;
+          background-color: $dark-brick-col;  
         }
-
+  
+        &:not(.active) .nav-link {
+          color: $dark-brick-col !important;
+          background-color: transparent
+        }
+  
+        .nav-link {
+          height: 50px;
+          display: flex;
+          align-items: center;
+          padding-left: 16px;
+  
+          @include desktop {
+            padding-right: 16px;
+          }
+        }
+      }  
+    }
+    .search-box {
+      margin-bottom: 0;
+      position: relative;
+  
+      @include mobile {
+        margin-top: 24px;
       }
-    }  
-  }
-
-
-  form {
-    margin-bottom: 0;
-    position: relative;
-    
-      button {
+      
+      .search-box-submit-button {
         position: absolute;
         top: calc(50% - 10px);
         right: 7px;
         padding: 0;
         border: 0;
         background-color: transparent;
-        &:focus {
-          outline: none;
-        }
-        i {
+  
+        .search-icon {
           color: $dark-brick-col;
         }
       }
-
-      input {
+  
+      .search-box-input {
         width: 100%;
       }
-  }
-  
-  
-
-  // Mobile alterations
-  @media(max-width: 767px) {
-
-    #vikalpsangam-navbar-collapse {
-      margin-bottom: 24px;
     }
   }
 }

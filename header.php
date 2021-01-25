@@ -49,11 +49,11 @@ $tag_names = array_map(
                     'add_a_class' => 'nav-link'
                 )); ?>
 
-            <form action="/" class="form-inline">
-                <button type="submit">
-                    <i class="fas fa-search"></i>
+            <form action="/" class="form-inline search-box">
+                <button class="search-box-submit-button" type="submit">
+                    <i class="fas fa-search search-icon"></i>
                 </button>
-                <input class="search-query form-control" placeholder="Search" type="text" name="s" value="">
+                <input class="search-query form-control search-box-input" placeholder="Search" type="text">
             </form>
         </div>
     </nav>
