@@ -211,6 +211,7 @@ a {
 
     .main-body-container .row {
       display: flex;
+      flex-wrap: wrap;
 
       .left-section {
         width: 65%;
