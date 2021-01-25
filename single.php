@@ -18,19 +18,20 @@ get_header();
                     <h2>
                         <?php the_title(); ?>
                     </h2>
-                        <div id="author-date-category">
-                            <?php if ($author) : ?>
-                                <span class="author">By <?php echo $author; ?></span>
-                            <?php else: ?>
-                                <span>Posted</span>
-                            <?php endif ?>
-                                <span class="text">on</span>          
-                                <span class="date"><?php echo get_the_date("M. d, Y") ?></span> 
-                            <?php if (get_category_link($category->term_id)): ?>
-                                <span class="text">in</span>
-                                <a href="<?php echo get_category_link($category->term_id) ?>"><?php echo $category->cat_name?></a>
-                            <?php endif ?>
-                        </div>
+                    <div id="author-date-category">
+                        <?php if ($author) : ?>
+                        <span class="author">By <?php echo $author; ?></span>
+                        <?php else: ?>
+                        <span>Posted</span>
+                        <?php endif ?>
+                        <span class="text">on</span>
+                        <span class="date"><?php echo get_the_date("M. d, Y") ?></span>
+                        <?php if (get_category_link($category->term_id)): ?>
+                        <span class="text">in</span>
+                        <a
+                            href="<?php echo get_category_link($category->term_id) ?>"><?php echo $category->cat_name?></a>
+                        <?php endif ?>
+                    </div>
                     <div class="download-social-bar btn-toolbar" role="toolbar"></div>
 
                     <?php the_content(); ?>
@@ -44,9 +45,11 @@ get_header();
                             <div class="border-bottom-only"></div>
                         </div>
                     </div>
+
                     <div id="article-comments" class="comments-section">
-                        <?php comments_template(); ?>    
+                        <?php comments_template(); ?>
                     </div>
+
                 </div>
                 <div class="col-sm-12 col-md-3 right-section left-border-separator">
                     <?php get_sidebar() ?>
