@@ -25,7 +25,7 @@ $categoryPosts = (new Categories())->getCategoryPosts($NUMBER_STORIES_BY_CATEGOR
 ?>
 
 
-<section class="container-fluid">
+<section class="container-fluid top-section">
     <div class="row no-right-margin">
         <div class="col-md-8 col-xs-12">
             <?php 
@@ -33,7 +33,7 @@ $categoryPosts = (new Categories())->getCategoryPosts($NUMBER_STORIES_BY_CATEGOR
                 ?>
         </div>
         <div class="col-md-4 col-xs-12 featured-list">
-            <?php get_template_part( 'template-parts/front-page/highlights', null, [ "article_content" => $promoted_articles ]); ?>
+            <?php  // get_template_part( 'template-parts/front-page/highlights', null, [ "article_content" => $promoted_articles ]); ?>
         </div>
     </div>
 </section>
