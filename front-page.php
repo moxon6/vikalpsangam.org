@@ -24,36 +24,36 @@ $categoryPosts = (new Categories())->getCategoryPosts($NUMBER_STORIES_BY_CATEGOR
 
 ?>
 
-<div>
-    <section class="top-carousel-wrapper">
-        <div class="row no-right-margin">
-            <div class="col-md-8 col-xs-12">
-                <?php 
-                    // get_template_part( 'template-parts/front-page/carousel', null, [ "article_content" => $carousel_items ]); 
+
+<section class="container-fluid">
+    <div class="row no-right-margin">
+        <div class="col-md-8 col-xs-12">
+            <?php 
+                    get_template_part( 'template-parts/front-page/carousel', null, [ "article_content" => $carousel_items ]); 
                 ?>
-            </div>
-            <div class="col-md-4 col-xs-12 featured-list">
-                <?php get_template_part( 'template-parts/front-page/highlights', null, [ "article_content" => $promoted_articles ]); ?>
+        </div>
+        <div class="col-md-4 col-xs-12 featured-list">
+            <?php get_template_part( 'template-parts/front-page/highlights', null, [ "article_content" => $promoted_articles ]); ?>
+        </div>
+    </div>
+</section>
+
+<section class="category-section">
+    <?php get_template_part( 'template-parts/front-page/categories', null, [ "categoryPosts" => $categoryPosts ]); ?>
+</section>
+
+<?php wp_reset_postdata(); ?>
+
+<section class="about-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>ABOUT VIKALP SANGAM</h3>
+                <?php the_content(); ?>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="category-section">
-        <?php get_template_part( 'template-parts/front-page/categories', null, [ "categoryPosts" => $categoryPosts ]); ?>
-    </section>
-
-    <?php wp_reset_postdata(); ?>
-
-    <section class="about-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h3>ABOUT VIKALP SANGAM</h3>
-                    <?php the_content(); ?>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
 
 <?php get_footer();
