@@ -1,6 +1,9 @@
 @import "colors";
 
-footer {
+footer.container-fluid {
+
+  padding: 0;
+
   .footer-partners {
     width: 100%;
     background-color: #efefef;
@@ -56,6 +59,8 @@ footer {
       padding-left: 10px;
       padding-right: 10px;
       .footer-logo {
+        display: flex;
+        justify-content: center;
         margin-bottom: 40px;
       }
       .footer-social-links-top {
@@ -110,8 +115,6 @@ footer {
       margin-bottom: 20px;
       display: flex;
       justify-content: space-between;
-      width: 50%;
-      flex: 2;
       flex-wrap: wrap;
       padding-left: 10px;
       padding-right: 10px;

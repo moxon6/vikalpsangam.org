@@ -21,9 +21,9 @@
     $footer_logo = get_template_image_url("/images/footer/site-logo.png");
 ?>
 
-<footer>
+<footer class="container-fluid">
     <div class="footer-main row">
-        <div class="footer-left col-lg-3 col-md-6 col-s-12">
+        <div class="footer-left col-xl-3 col-md-12">
             <div class="footer-logo">
                 <a href="/">
                     <img class="img-fluid" src="<?php echo $footer_logo ?>" />
@@ -40,7 +40,7 @@
             </div>
         </div>
 
-        <div class="footer-center col-lg-4 col-md-6 col-s-12">
+        <div class="footer-center col-xl-3 col-lg-12 col-md-8">
             <h2 class="subscribe-title">Newsletter</h2>
             <p class="subscribe-description">Enter your email address below to subscribe to our monthly newsletter</p>
             <form action="<?php echo MAILCHIMP_SUBMIT_URL ?>" method="post">
@@ -49,7 +49,7 @@
             </form>
         </div>
 
-        <div class="footer-right col-lg-5 col-md-12">
+        <div class="footer-right col-xl-6 col-md-12">
             <?php
             foreach($footer_menus as $menu) {
                 wp_nav_menu([
