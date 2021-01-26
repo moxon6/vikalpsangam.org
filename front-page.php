@@ -42,14 +42,15 @@ $categoryPosts = (new Categories())->getCategoryPosts($NUMBER_STORIES_BY_CATEGOR
         <?php get_template_part( 'template-parts/front-page/categories', null, [ "categoryPosts" => $categoryPosts ]); ?>
     </section>
 
+    <?php wp_reset_postdata(); ?>
+
     <section class="about-section">
         <div class="container">
-            <h2>ABOUT VIKALP SANGAM</h2>
-            <div class="row no-margin">
-                <?php 
-        wp_reset_postdata();
-        the_content();
-        ?>
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>ABOUT VIKALP SANGAM</h3>
+                    <?php the_content(); ?>
+                </div>
             </div>
         </div>
     </section>

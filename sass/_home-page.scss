@@ -125,6 +125,10 @@
 }
 
 .about-section {
+
+  padding-top: 32px;
+  padding-bottom: 16px;
+
   h2 {
     font-size: 1.125em;
   }
@@ -135,9 +139,6 @@
 }
 
 .category-section {
-  h2 {
-    font-size: 1.125em;
-  }
 
   .top-sub-section {
     background-color: $white;
@@ -178,7 +179,7 @@
       img {
         width: 100%;
         height: auto;
-        object-fit: contain;
+        object-fit: cover;
       }
     }
   }
