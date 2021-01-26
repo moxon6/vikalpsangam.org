@@ -5,9 +5,9 @@
 
 <div id="page">
     <div class="section generic_section">
-        <div class="container main-body-container">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-md-9 left-section">
+                <main class="col-md-8 left-section">
 
 
                     <div class="category-page-heading">
@@ -47,7 +47,7 @@
                     </div>
 
                 </div>
-                <div class="col-sm-12 col-md-3 right-section left-border-separator">
+                <aside class="col-sm-12 col-md-4 right-section left-border-separator">
                     <?php get_sidebar() ?>
                 </div>
             </div>

@@ -9,9 +9,9 @@ get_header();
 ?>
 <div id="page">
     <div class="section generic_section">
-        <div class="container main-body-container">
-            <div class="row">
-                <div class="col-md-9 left-section">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <main class="col-md-8 left-section">
 
                     <h2><?php the_title(); ?></h2>
                     <div id="author-date-category">
@@ -46,10 +46,10 @@ get_header();
                             <?php comments_template(); ?>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-12 col-md-3 right-section left-border-separator">
+                </main>
+                <aside class="col-sm-12 col-md-4 right-section left-border-separator">
                     <?php get_sidebar() ?>
-                </div>
+                </aside>
             </div>
         </div>
     </div>
