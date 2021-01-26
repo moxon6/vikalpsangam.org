@@ -28,7 +28,7 @@ $tag_names = array_map(
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
 
-    <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top d-flex" id="vikalpsangam-navbar">
+    <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top d-flex" id="vikalpsangam-navbar">
 
         <a class="navbar-brand" href="/"></a>
 
