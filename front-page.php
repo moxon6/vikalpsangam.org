@@ -55,7 +55,7 @@ $categoryPosts = (new Categories())->getCategoryPosts($NUMBER_STORIES_BY_CATEGOR
                     </a>
                 </div>
             </div>
-            <div class="col-xl-4 col-md-12 featured-list">
+            <div class="col-xl-4 col-md-12 featured-list pt-4 pt-xl-1">
 
                 <h2>Highlights</h2>
 
