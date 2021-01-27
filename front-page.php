@@ -24,10 +24,10 @@ $categoryPosts = (new Categories())->getCategoryPosts($NUMBER_STORIES_BY_CATEGOR
 
 ?>
 
-<section>
-    <div class="container-fluid top-section-container">
+<section class="main-section">
+    <div class="container-fluid main-section-container">
         <div class="row ml-auto mr-auto pt-4 pb-4">
-            <div class="col-xl-8 col-md-12 carousel-section">
+            <div class="col-xl-8 col-md-12">
                 <?php get_template_part( 'template-parts/front-page/carousel', null, [ "article_content" => $carousel_items ]); ?>
             </div>
             <div class="col-xl-4 col-md-12 featured-list">
@@ -45,9 +45,9 @@ $categoryPosts = (new Categories())->getCategoryPosts($NUMBER_STORIES_BY_CATEGOR
 
 <?php wp_reset_postdata(); ?>
 
-<section>
+<section class="about-section">
     <div class="container-fluid about-section-container">
-        <div class="about-section row">
+        <div class=" row about-section-row">
             <div class="col-md-12">
                 <h3>ABOUT VIKALP SANGAM</h3>
                 <?php the_content(); ?>
