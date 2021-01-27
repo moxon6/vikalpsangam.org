@@ -1,81 +1,57 @@
 @import "colors.scss";
 @import "fonts.scss";
 
-.about-section {
-  .about-section-container {
-    max-width: 1600px;
-    .about-section-row {
-      padding-top: 32px;
-      padding-bottom: 16px;
-
-      h2 {
-        font-size: 1.125em;
-      }
-
-      p {
-        padding-bottom: 12px;
-      }
-    }
-  }
-}
-
 .main-section {
-  .carousel-control {
-    font-size: 2em;
-  }
-
-  .front-page-carousel {
-    .carousel-inner {
-      max-height: 100%;
-    }
-  }
-
-  .carousel-image {
-    @include desktop {
-      height: 553px;
-    }
-    @include mobile {
-      height: 250px;
-    }
-
-    object-fit: cover;
-  }
-
   .main-section-container {
     max-width: 1600px;
     padding-left: 0;
     padding-right: 0;
-  }
 
-  .carousel {
-    @include desktop {
-      height: 553px;
-    }
+    #vikalpsangam-org-carousel {
+      @include desktop {
+        height: 553px;
+      }
 
-    @include mobile {
-      height: 250px;
-    }
-  }
+      @include mobile {
+        height: 250px;
+      }
 
-  .featured-list {
-    display: flex;
-    flex-direction: column;
+      .carousel-inner {
+        max-height: 100%;
 
-    .card-body {
-      padding: 8px;
+        .carousel-image {
+          @include desktop {
+            height: 553px;
+          }
+          @include mobile {
+            height: 250px;
+          }
 
-      p {
-        margin-bottom: 0;
-        font-size: 0.75em;
+          object-fit: cover;
+        }
       }
     }
 
-    .highlight-card {
-      flex: 1;
+    #featured-list {
+      display: flex;
+      flex-direction: column;
 
-      .highlight-card-row {
-        align-items: center;
-        height: 100%;
+      .card-body {
+        padding: 8px;
+
+        p {
+          margin-bottom: 0;
+          font-size: 0.75em;
+        }
+      }
+
+      .highlight-card {
+        flex: 1;
+
+        .highlight-card-row {
+          align-items: center;
+          height: 100%;
+        }
       }
     }
   }
@@ -131,6 +107,24 @@
         padding: 8px;
         height: 120px;
         flex-grow: 0;
+      }
+    }
+  }
+}
+
+.about-section {
+  .about-section-container {
+    max-width: 1600px;
+    .about-section-row {
+      padding-top: 32px;
+      padding-bottom: 16px;
+
+      h2 {
+        font-size: 1.125em;
+      }
+
+      p {
+        padding-bottom: 12px;
       }
     }
   }

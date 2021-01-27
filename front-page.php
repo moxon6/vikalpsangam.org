@@ -28,6 +28,7 @@ $categoryPosts = (new Categories())->getCategoryPosts($NUMBER_STORIES_BY_CATEGOR
     <div class="container-fluid main-section-container">
         <div class="row ml-auto mr-auto pt-4 pb-4">
             <div class="col-xl-8 col-md-12">
+
                 <div id="vikalpsangam-org-carousel" class="carousel slide front-page-carousel">
                     <ol class="carousel-indicators">
                         <li data-target="#vikalpsangam-org-carousel" data-slide-to="0" class=""></li>
@@ -54,8 +55,9 @@ $categoryPosts = (new Categories())->getCategoryPosts($NUMBER_STORIES_BY_CATEGOR
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
+
             </div>
-            <div class="col-xl-4 col-md-12 featured-list pt-4 pt-xl-1">
+            <div id="featured-list" class="col-xl-4 col-md-12 pt-4 pt-xl-1">
 
                 <h2>Highlights</h2>
 
