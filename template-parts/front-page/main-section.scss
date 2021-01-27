@@ -1,0 +1,55 @@
+#main-section {
+  .main-section-container {
+    max-width: 1600px;
+    padding-left: 0;
+    padding-right: 0;
+
+    #vikalpsangam-org-carousel {
+      @include desktop {
+        height: 553px;
+      }
+
+      @include mobile {
+        height: 250px;
+      }
+
+      .carousel-inner {
+        max-height: 100%;
+
+        .carousel-image {
+          @include desktop {
+            height: 553px;
+          }
+          @include mobile {
+            height: 250px;
+          }
+
+          object-fit: cover;
+        }
+      }
+    }
+
+    #featured-list {
+      display: flex;
+      flex-direction: column;
+
+      .card-body {
+        padding: 8px;
+
+        p {
+          margin-bottom: 0;
+          font-size: 0.75em;
+        }
+      }
+
+      .highlight-card {
+        flex: 1;
+
+        .highlight-card-row {
+          align-items: center;
+          height: 100%;
+        }
+      }
+    }
+  }
+}

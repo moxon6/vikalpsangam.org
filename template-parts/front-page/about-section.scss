@@ -1,0 +1,17 @@
+#about-section {
+  .about-section-container {
+    max-width: 1600px;
+    .about-section-row {
+      padding-top: 32px;
+      padding-bottom: 16px;
+
+      h2 {
+        font-size: 1.125em;
+      }
+
+      p {
+        padding-bottom: 12px;
+      }
+    }
+  }
+}
