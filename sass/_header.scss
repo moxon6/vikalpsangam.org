@@ -1,7 +1,7 @@
 #vikalpsangam-navbar {
   box-shadow: 0 2px 2px 0 rgba(50, 50, 50, 0.3);
   font-family: "Roboto-Black";
-  
+
   @include desktop {
     padding: 0 100px 0 70px;
   }
@@ -34,37 +34,37 @@
     .navbar-nav {
       .nav-item {
         font-weight: 700;
-  
+
         &.active .nav-link {
           color: #fff !important;
-          background-color: $dark-brick-col;  
+          background-color: $dark-brick-col;
         }
-  
+
         &:not(.active) .nav-link {
           color: $dark-brick-col !important;
-          background-color: transparent
+          background-color: transparent;
         }
-  
+
         .nav-link {
           height: 50px;
           display: flex;
           align-items: center;
           padding-left: 16px;
-  
+
           @include desktop {
             padding-right: 16px;
           }
         }
-      }  
+      }
     }
     .search-box {
       margin-bottom: 0;
       position: relative;
-  
+
       @include mobile {
         margin-top: 24px;
       }
-      
+
       .search-box-submit-button {
         position: absolute;
         top: calc(50% - 10px);
@@ -72,12 +72,12 @@
         padding: 0;
         border: 0;
         background-color: transparent;
-  
+
         .search-icon {
           color: $dark-brick-col;
         }
       }
-  
+
       .search-box-input {
         width: 100%;
       }

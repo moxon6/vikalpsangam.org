@@ -2,15 +2,20 @@
     "extends": [
         "stylelint-prettier/recommended"
     ],
-    "plugins": ["stylelint-prettier"],
+    "plugins": [
+        "stylelint-prettier"
+    ],
     "rules": {
         "no-descending-specificity": null,
         "selector-attribute-quotes": null,
         "block-no-empty": [
             true,
             {
-                "ignore": ["comments"]
+                "ignore": [
+                    "comments"
+                ]
             }
-        ]
+        ],
+        "indentation": 2
     }
 }

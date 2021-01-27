@@ -1,19 +1,17 @@
 @import "colors.scss";
 @import "fonts.scss";
 
-
 .about-section {
   .about-section-container {
     max-width: 1600px;
     .about-section-row {
-
       padding-top: 32px;
       padding-bottom: 16px;
-    
+
       h2 {
         font-size: 1.125em;
       }
-    
+
       p {
         padding-bottom: 12px;
       }
@@ -22,7 +20,6 @@
 }
 
 .main-section {
-
   .carousel-control {
     font-size: 2em;
   }
@@ -40,10 +37,9 @@
     @include mobile {
       height: 250px;
     }
-    
+
     object-fit: cover;
   }
-  
 
   .main-section-container {
     max-width: 1600px;
@@ -55,29 +51,28 @@
     @include desktop {
       height: 553px;
     }
-  
+
     @include mobile {
       height: 250px;
     }
   }
-  
-  
+
   .featured-list {
     display: flex;
     flex-direction: column;
-  
+
     .card-body {
       padding: 8px;
-  
+
       p {
         margin-bottom: 0;
         font-size: 0.75em;
       }
     }
-  
+
     .highlight-card {
       flex: 1;
-  
+
       .highlight-card-row {
         align-items: center;
         height: 100%;
@@ -92,51 +87,50 @@
     padding-left: 48px;
     padding-right: 48px;
     max-width: 1600px;
-  
+
     .category-card {
-        height: 100%;
-    }
-  
-    .category-card-image {
+      height: 100%;
+
+      .category-card-image {
         height: 200px;
         width: 100%;
         object-fit: cover;
         background-color: #9f332f;
-    }
-  
-    .card-header-wrapper {
+      }
+
+      .category-card-header-wrapper {
         flex-shrink: 0;
         flex-grow: 1;
         min-height: 120px;
         max-height: 150px;
-        
-    }
-  
-    .card-header {
-        color: #9e332e;
-        text-decoration: none;
-        text-transform: uppercase;
-        height: 100%;
-        padding-left: 4px;
-        padding-right: 4px;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-    }
-  
-    .card-header span {
-        text-align: center;
-        font-size: 20px;
-    }
-  
-    .card-header-category-image {
+
+        .category-card-header {
+          color: #9e332e;
+          text-decoration: none;
+          text-transform: uppercase;
+          height: 100%;
+          padding-left: 4px;
+          padding-right: 4px;
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+
+          span {
+            text-align: center;
+            font-size: 20px;
+          }
+        }
+      }
+
+      .card-header-category-image {
         width: 70px;
-    }
-  
-    .card-body {
+      }
+
+      .card-body {
         padding: 8px;
         height: 120px;
         flex-grow: 0;
+      }
     }
   }
 }

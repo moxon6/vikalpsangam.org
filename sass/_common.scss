@@ -209,17 +209,16 @@ a {
       display: flex;
       flex-wrap: wrap;
 
-      > main, aside {
+      > main,
+      aside {
         padding-top: 32px;
         padding-bottom: 96px;
       }
-
     }
   }
 }
 
 @media print {
-
   nav#vikalpsangam-navbar {
     display: none !important;
   }
@@ -235,6 +234,4 @@ a {
   .comments-section {
     display: none;
   }
-  
-
 }
