@@ -24,7 +24,7 @@ $categoryPosts = (new Categories())->getCategoryPosts($NUMBER_STORIES_BY_CATEGOR
 
 ?>
 
-<section class="main-section">
+<section id="main-section">
     <div class="container-fluid main-section-container">
         <div class="row ml-auto mr-auto pt-4 pb-4">
             <div class="col-xl-8 col-md-12">
@@ -82,7 +82,7 @@ $categoryPosts = (new Categories())->getCategoryPosts($NUMBER_STORIES_BY_CATEGOR
     </div>
 </section>
 
-<section class="categories-section">
+<section id="categories-section">
     <div class="container categories-section-container pt-4 pb-4">
         <div class="row justify-content-between">
             <div class="col-sm-6 col-xs-12">
@@ -132,7 +132,7 @@ $categoryPosts = (new Categories())->getCategoryPosts($NUMBER_STORIES_BY_CATEGOR
 
 <?php wp_reset_postdata(); ?>
 
-<section class="about-section">
+<section id="about-section">
     <div class="container-fluid about-section-container">
         <div class=" row about-section-row">
             <div class="col-md-12">

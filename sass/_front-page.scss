@@ -1,7 +1,7 @@
 @import "colors.scss";
 @import "fonts.scss";
 
-.main-section {
+#main-section {
   .main-section-container {
     max-width: 1600px;
     padding-left: 0;
@@ -57,7 +57,7 @@
   }
 }
 
-.categories-section {
+#categories-section {
   background-color: #e6e7e8;
 
   .categories-section-container {
@@ -112,7 +112,7 @@
   }
 }
 
-.about-section {
+#about-section {
   .about-section-container {
     max-width: 1600px;
     .about-section-row {
