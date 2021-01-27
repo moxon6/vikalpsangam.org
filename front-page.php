@@ -28,11 +28,11 @@ $categoryPosts = (new Categories())->getCategoryPosts($NUMBER_STORIES_BY_CATEGOR
     <div class="container-fluid main-section-container">
         <div class="row ml-auto mr-auto pt-4 pb-4">
             <div class="col-xl-8 col-md-12">
-                <div id="carouselExampleIndicators" class="carousel slide front-page-carousel">
+                <div id="vikalpsangam-org-carousel" class="carousel slide front-page-carousel">
                     <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class=""></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1" class="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2" class=""></li>
+                        <li data-target="#vikalpsangam-org-carousel" data-slide-to="0" class=""></li>
+                        <li data-target="#vikalpsangam-org-carousel" data-slide-to="1" class="active"></li>
+                        <li data-target="#vikalpsangam-org-carousel" data-slide-to="2" class=""></li>
                     </ol>
                     <div class="carousel-inner">
 
@@ -45,11 +45,11 @@ $categoryPosts = (new Categories())->getCategoryPosts($NUMBER_STORIES_BY_CATEGOR
                         <?php } ?>
 
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <a class="carousel-control-prev" href="#vikalpsangam-org-carousel" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
                     </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <a class="carousel-control-next" href="#vikalpsangam-org-carousel" role="button" data-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
