@@ -24,29 +24,30 @@ $categoryPosts = (new Categories())->getCategoryPosts($NUMBER_STORIES_BY_CATEGOR
 
 ?>
 
-
-<section class="container-fluid top-section">
-    <div class="row no-right-margin">
-        <div class="col-md-8 col-xs-12">
-            <?php 
-                    get_template_part( 'template-parts/front-page/carousel', null, [ "article_content" => $carousel_items ]); 
-                ?>
-        </div>
-        <div class="col-md-4 col-xs-12 featured-list">
-            <?php  // get_template_part( 'template-parts/front-page/highlights', null, [ "article_content" => $promoted_articles ]); ?>
+<section>
+    <div class="container-fluid top-section-container">
+        <div class="row ml-auto mr-auto pt-4 pb-4">
+            <div class="col-xl-8 col-md-12 carousel-section">
+                <?php get_template_part( 'template-parts/front-page/carousel', null, [ "article_content" => $carousel_items ]); ?>
+            </div>
+            <div class="col-xl-4 col-md-12 featured-list">
+                <?php  get_template_part( 'template-parts/front-page/highlights', null, [ "article_content" => $promoted_articles ]); ?>
+            </div>
         </div>
     </div>
 </section>
 
-<section class="category-section">
-    <?php get_template_part( 'template-parts/front-page/categories', null, [ "categoryPosts" => $categoryPosts ]); ?>
+<section class="categories-section">
+    <div class="container categories-section-container pt-4 pb-4">
+        <?php get_template_part( 'template-parts/front-page/categories', null, [ "categoryPosts" => $categoryPosts ]); ?>
+    </div>
 </section>
 
 <?php wp_reset_postdata(); ?>
 
-<section class="about-section">
-    <div class="container">
-        <div class="row">
+<section>
+    <div class="container-fluid about-section-container">
+        <div class="about-section row">
             <div class="col-md-12">
                 <h3>ABOUT VIKALP SANGAM</h3>
                 <?php the_content(); ?>

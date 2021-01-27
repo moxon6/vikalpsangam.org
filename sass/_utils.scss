@@ -5,3 +5,9 @@
 @mixin desktop {
     @media (min-width: 768px) { @content; }
 }
+
+.mobile-only {
+    @include desktop {
+        display: none;
+    }
+}

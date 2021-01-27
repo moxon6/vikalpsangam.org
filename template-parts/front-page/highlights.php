@@ -1,24 +1,27 @@
 <?php 
     $article_content = $args['article_content'];
 ?>
+
 <h2>Highlights</h2>
-<ul class="list-unstyled">
-    <?php foreach ($article_content as $key => $post) { 
-        setup_postdata( $post ); 
-    ?>
-        <li class="row">
-            <div class="col-xs-4">                
+
+
+    <?php foreach ($article_content as $key => $post) : setup_postdata( $post ); ?>
+
+
+    <div class="card mb-3 highlight-card">
+        <div class="row g-0 highlight-card-row">
+            <div class="col-md-3 pr-0 pl-1">
                 <?php the_post_thumbnail('thumbnail', array('class' => 'img-fluid')); ?>
             </div>
-            <div class="col-xs-8">
-                <a href="<?php the_permalink(); ?>">
-                    <h4 id="featured-article" class="media-heading">
-                        <?php the_title(); ?>
-                    </h4>
-                </a>                
-                <!-- TODO: Truncate to 130 -->
-                <p><?php the_excerpt(); ?></p>
+            <div class="col-md-9">
+                <div class="card-body">
+                    <h4 class="media-heading"><?php the_title(); ?></h4>
+                    <p class="card-text"><?php the_excerpt(); ?></p>
+                </div>
             </div>
-        </li>
-    <?php } ?>
-</ul>
+        </div>
+    </div>
+
+
+
+    <?php endforeach ?>
