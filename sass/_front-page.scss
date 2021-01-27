@@ -83,6 +83,7 @@
 
 .categories-section {
   background-color: #e6e7e8;
+
   .categories-section-container {
     padding-left: 48px;
     padding-right: 48px;
@@ -115,15 +116,15 @@
           align-items: center;
           flex-direction: column;
 
-          span {
+          .category-card-category-name {
             text-align: center;
             font-size: 20px;
           }
-        }
-      }
 
-      .card-header-category-image {
-        width: 70px;
+          .card-header-category-image {
+            width: 70px;
+          }
+        }
       }
 
       .card-body {

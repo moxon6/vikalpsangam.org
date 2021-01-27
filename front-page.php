@@ -105,7 +105,7 @@ $categoryPosts = (new Categories())->getCategoryPosts($NUMBER_STORIES_BY_CATEGOR
                         href="/article/category/<?php echo $category->slug; ?>">
                         <div class="card-header category-card-header">
                             <img class="card-header-category-image" src="<?php echo $category_image ?>" />
-                            <span><?php echo $category -> name ?></span>
+                            <span class="category-card-category-name"><?php echo $category -> name ?></span>
                         </div>
                     </a>
 
