@@ -10,7 +10,7 @@
                 <h4>Stories By Category</h4>
             </div>
         </div>
-        <div class="row justify-content-md-center">
+        <div class="row justify-content-center">
 
 
             <?php 
@@ -20,10 +20,8 @@
                 $category = $categoryPost["category"];
                 $category_image = get_category_image($category);                 
             ?>
-            <div class="col-xs-12 col-lg-6 col-xl-3 mt-4">
+            <div class="col-xs-12 col-sm-8 col-lg-6 col-xl-3 mt-4">
                 <div class="card category-card">
-
-
                     <a class="see-all-stories category-card-header-wrapper"
                         href="/article/category/<?php echo $category->slug; ?>">
                         <div class="card-header category-card-header">

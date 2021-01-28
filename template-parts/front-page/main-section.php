@@ -45,19 +45,19 @@
             </div>
             <div id="featured-list" class="col-xl-4 col-md-12 pt-4">
 
-                <h4>Highlights</h4>
+                <h3 class="highlights-title">Highlights</h3>
 
                 <?php foreach ($promoted_articles as $key => $post) : setup_postdata( $post ); ?>
 
                 <div class="card mb-3 highlight-card container-fluid">
-                    <div class="row g-0 highlight-card-row justify-content-md-center">
-                        <div class="col-md-12 col-lg-3 pr-0 pl-0 d-flex highlight-card-thumbnail-col">
+                    <div class="row g-0 highlight-card-row justify-content-space-between">
+                        <div class="col-3 highlight-card-thumbnail-col">
                             <?php the_post_thumbnail('thumbnail', array('class' => 'img-fluid featured-list-image')); ?>
                         </div>
-                        <div class="col-md-9">
-                            <div class="card-body">
+                        <div class="col-9 highlight-card-text-col">
+                            <div class="card-body featured-list-card-body">
                                 <h6><?php the_title(); ?></h6>
-                                <p class="card-text"><?php the_excerpt(); ?></p>
+                                <?php the_excerpt(); ?>
                             </div>
                         </div>
                     </div>
@@ -68,11 +68,6 @@
     </div>
 </section>
 
-<style>
-
-</style>
-
-
 <script>
 jQuery(window).ready(() => {
     jQuery("#mainSlider").slick({
@@ -81,6 +76,9 @@ jQuery(window).ready(() => {
         slidesToShow: 1,
         centerMode: true,
         variableWidth: true,
+        mobileFirst: true,
+
+
     });
 });
 </script>

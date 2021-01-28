@@ -29,18 +29,5 @@ async function renderMap(id) {
   map.addLayer(markers);
 }
 
-function fixCarouselHeight() {
-  if ($('.featured-list').length > 0 && $('.featured-list').offset().left > 200) {
-    const featureListHeight = $('.featured-list').innerHeight();
-    $('.fill-image').css('height', featureListHeight);
-  }
-}
-
-$(window).ready(() => {
-  fixCarouselHeight();
-  $('.carousel').carousel({
-    interval: 5000,
-  });
-});
-
 window.renderMap = renderMap;
+

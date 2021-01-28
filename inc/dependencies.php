@@ -13,7 +13,7 @@ function vikalpsangam_scripts() {
 	wp_enqueue_style("slick/css", "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css");
 	wp_enqueue_style("slick-theme/css", "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css");
 	wp_enqueue_script("slick/js", "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js", [ "jquery" ]);	
-		
+
     wp_enqueue_script("leaflet/js", "https://unpkg.com/leaflet@1.7.1/dist/leaflet.js");
 	wp_enqueue_style( 'leaflet/css', 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.css' );
     
@@ -24,7 +24,7 @@ function vikalpsangam_scripts() {
 	wp_enqueue_style( 'vikalpsangam-style', get_stylesheet_uri(), array(), vikalpsangam_VERSION );
 	wp_style_add_data( 'vikalpsangam-style-rtl', 'rtl', 'replace');
 
-	wp_enqueue_script( 'vikalpsangam', get_template_directory_uri() . '/js/site/index.js', ["jquery-3.5.1", "leaflet/js"], vikalpsangam_VERSION );
+	wp_enqueue_script( 'vikalpsangam', get_template_directory_uri() . '/js/site/index.js', ["jquery", "leaflet/js"], vikalpsangam_VERSION );
 	
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
