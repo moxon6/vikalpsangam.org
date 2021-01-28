@@ -1,0 +1,119 @@
+#main-section {
+  .main-section-container {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 1600px;
+
+    #vikalpsangam-org-carousel {
+      @include desktop {
+        height: 553px;
+      }
+
+      @include mobile {
+        height: 250px;
+      }
+
+      .carousel-thumbnail {
+        height: 553px;
+      }
+
+      .slider-item {
+        position: relative;
+        .carousel-caption {
+          position: absolute;
+          bottom: 24px;
+          left: 10%;
+          padding: 10px 20px;
+          text-align: left;
+          text-shadow: none;
+          background-color: rgba(255, 255, 255, 0.8);
+          p {
+            font-size: 0.75em;
+            color: $dark-brick-col;
+          }
+        }
+      }
+
+      .carousel-inner {
+        max-height: 100%;
+
+        .carousel-item {
+          .carousel-image {
+            @include desktop {
+              height: 553px;
+            }
+            @include mobile {
+              height: 250px;
+            }
+
+            object-fit: cover;
+          }
+
+          .carousel-caption {
+            bottom: 14%;
+            left: 10%;
+            width: auto;
+            padding: 10px 20px;
+            text-align: left;
+            text-shadow: none;
+            background-color: rgba(255, 255, 255, 0.8);
+            p {
+              font-size: 0.75em;
+              color: $dark-brick-col;
+            }
+          }
+        }
+      }
+    }
+
+    #featured-list {
+      display: flex;
+      flex-direction: column;
+
+      .card-body {
+        padding: 8px;
+
+        p {
+          margin-bottom: 0;
+          font-size: 0.75em;
+        }
+      }
+
+      .highlight-card {
+        flex: 1;
+
+        .highlight-card-row {
+          align-items: center;
+          height: 100%;
+
+          .highlight-card-thumbnail-col {
+            height: 100%;
+
+            .featured-list-image {
+              margin-left: 0;
+              margin-right: 0;
+              width: auto;
+              max-width: 150px;
+              border-right: 1px solid #dfdfdf;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+#mainSlider:not(.slick-initialized) {
+  overflow: hidden;
+  > :not(:first-child) {
+    display: none;
+
+    .carousel-thumbnail {
+      width: 100%;
+    }
+  }
+}
+
+.slick-slide:not(.slick-current) {
+  opacity: 0.4;
+}

@@ -7,7 +7,7 @@
     <div class="container stories-by-category-section-container pt-4 pb-4">
         <div class="row justify-content-between">
             <div class="col-sm-6 col-xs-12">
-                <h2>Stories By Category</h2>
+                <h4>Stories By Category</h4>
             </div>
         </div>
         <div class="row justify-content-md-center">
