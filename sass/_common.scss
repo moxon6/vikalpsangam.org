@@ -203,12 +203,16 @@ a {
     .container-fluid .row {
       display: flex;
       flex-wrap: wrap;
+    }
+  }
+}
 
-      > main,
-      aside {
-        padding-top: 32px;
-        padding-bottom: 96px;
-      }
+#page {
+  .container-fluid .row {
+    > main,
+    aside {
+      padding-top: 32px;
+      padding-bottom: 96px;
     }
   }
 }
