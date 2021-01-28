@@ -12,8 +12,9 @@
  */
 @import "utils";
 
-@import "colors.scss";
-@import "fonts.scss";
+@import "colors";
+@import "fonts";
+@import "globals";
 
 @import "blocks";
 @import "common";
@@ -27,4 +28,4 @@
 @import "related-posts";
 @import "infinite-scroll";
 @import "migration-styles";
-@import "../template-parts/index.scss";
+@import "../template-parts/index";
