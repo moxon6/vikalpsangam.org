@@ -1,0 +1,17 @@
+@media print {
+  nav#vikalpsangam-navbar {
+    display: none !important;
+  }
+
+  footer {
+    display: none;
+  }
+
+  aside.right-section {
+    display: none;
+  }
+
+  .comments-section {
+    display: none;
+  }
+}
