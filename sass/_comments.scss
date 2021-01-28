@@ -129,15 +129,6 @@
       color: $dark-gray-col;
     }
 
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    input[type="url"],
-    textarea {
-      @include control-group-styles();
-      width: 100%;
-    }
-
     .mandatory {
       color: red;
     }
@@ -216,34 +207,5 @@
 
   #add-new-comments-form-wrapper {
     display: none;
-  }
-}
-
-@media (max-width: 399px) {
-  .comments-section form input[type="text"],
-  .comments-section form textarea {
-    width: 100%;
-  }
-
-  .comments-section {
-    ul {
-      padding: 4px;
-
-      li > ul {
-        margin: 0;
-      }
-    }
-  }
-}
-
-@media (min-width: 400px) and (max-width: 767px) {
-  .comments-section {
-    ul {
-      padding: 4px;
-
-      li > ul {
-        margin: 0;
-      }
-    }
   }
 }
