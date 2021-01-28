@@ -12,7 +12,8 @@
                     <div class="category-page-heading">
                         <div class="category-title-link no-icon"><?php single_tag_title() ?></div>
                     </div>
-                    <div id="infinite-scroll-content" class="row category-page-category-list-wrapper category-topping-wrapper">                        
+                    <div id="infinite-scroll-content"
+                        class="row category-page-category-list-wrapper category-topping-wrapper">
                         <?php
                             while (have_posts()) {
                                 the_post();
@@ -20,11 +21,11 @@
                             }
                         ?>
                     </div>
-                </div>
+                </main>
 
                 <aside class="col-sm-12 col-md-4 right-section left-border-separator">
                     <?php get_sidebar() ?>
-                </div>
+                </aside>
             </div>
         </div>
     </div>

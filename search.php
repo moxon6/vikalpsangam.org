@@ -1,14 +1,14 @@
 <style>
-    .screen-reader-text {
-        display: none;
-    }
+.screen-reader-text {
+    display: none;
+}
 
-    .nav-links {
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: space-between;
-        font-size: x-large;
-    }
+.nav-links {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    font-size: x-large;
+}
 </style>
 
 <?php
@@ -23,7 +23,8 @@
 
 
                     <h4>
-                        <p>Found <?php echo $wp_query->found_posts ?> results for your query: <?php echo get_search_query(); ?></p>
+                        <p>Found <?php echo $wp_query->found_posts ?> results for your query:
+                            <?php echo get_search_query(); ?></p>
                     </h4>
 
                     <div id="search-results" class="list-group">
@@ -32,22 +33,22 @@
                         while ( have_posts() ) {
                             the_post();
                             ?>
-                                <a class="list-group-item" href="<?php echo get_permalink() ?>">
-                                    <h4><span class="list-group-item-heading"><?php echo get_the_title() ?></span></h4>
-                                    <p class="list-group-item-text"><?php the_excerpt() ?></p>
-                                    <span class="badge">Read More</span>
-                                    <br>
-                                </a>
+                        <a class="list-group-item" href="<?php echo get_permalink() ?>">
+                            <h4><span class="list-group-item-heading"><?php echo get_the_title() ?></span></h4>
+                            <p class="list-group-item-text"><?php the_excerpt() ?></p>
+                            <span class="badge">Read More</span>
+                            <br>
+                        </a>
                         <?php } ?>
                     </div>
                     <?php the_posts_navigation(); ?>
-                </div>
+                </main>
                 <aside class="col-sm-12 col-md-4 right-section left-border-separator">
                     <?php get_sidebar() ?>
-                </div>
+                </aside>
+            </div>
         </div>
-    </div>
 
-</div>
-<?php
+    </div>
+    <?php
 get_footer();

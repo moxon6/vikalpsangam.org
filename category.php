@@ -46,16 +46,13 @@
                     ?>
                     </div>
 
-                </div>
+                </main>
                 <aside class="col-sm-12 col-md-4 right-section left-border-separator">
                     <?php get_sidebar() ?>
-                </div>
+                </aside>
             </div>
-
         </div>
-
     </div>
-
 </div>
 <script>
 const short = $(".category-description .short")

@@ -8,10 +8,10 @@
                 <main class="col-md-8 left-section">
                     <h2><?php the_title() ?></h2>
                     <?php the_content(); ?>
-                </div>
+                </main>
                 <aside class="col-sm-12 col-md-4 right-section left-border-separator">
                     <?php get_sidebar() ?>
-                </div>
+                </aside>
             </div>
         </div>
     </div>

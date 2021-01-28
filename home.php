@@ -34,10 +34,10 @@ get_header();
                             }
                         ?>
                     </div>
-                </div>
+                </main>
                 <aside class="col-sm-12 col-md-4 right-section left-border-separator">
                     <?php get_sidebar() ?>
-                </div>
+                </aside>
             </div>
         </div>
     </div>

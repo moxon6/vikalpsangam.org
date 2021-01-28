@@ -27,45 +27,51 @@
                     <h4>Resources: <?php echo $category->cat_name ?></h4>
                     <p>
                         <a href="/article/<?php echo $resource_category ?>-visual-audio">
-                            <img height="77" src="/wp-content/uploads/migrate/logos/audio_visual.png" style="vertical-align: middle;" width="80">
+                            <img height="77" src="/wp-content/uploads/migrate/logos/audio_visual.png"
+                                style="vertical-align: middle;" width="80">
                             <span>Visual & Audio</span>
                         </a>
                     </p>
                     <p>
                         <a href="/article/<?php echo $resource_category ?>-books-reports-newsletters">
-                            <img height="78" src="/wp-content/uploads/migrate/logos/papers.png" style="vertical-align: middle;" width="80">
+                            <img height="78" src="/wp-content/uploads/migrate/logos/papers.png"
+                                style="vertical-align: middle;" width="80">
                             <span>Books, Reports & Newsletters</span>
                         </a>
                     </p>
                     <p>
                         <a href="/article/<?php echo $resource_category ?>-websites">
-                            <img height="80" src="/wp-content/uploads/migrate/logos/websites.png" style="vertical-align: middle;" width="80">
+                            <img height="80" src="/wp-content/uploads/migrate/logos/websites.png"
+                                style="vertical-align: middle;" width="80">
                             <span>Websites</span>
                         </a>
                     </p>
                     <p>
                         <a href="/article/<?php echo $resource_category ?>-networks">
-                            <img height="77" src="/wp-content/uploads/migrate/logos/networks.png" style="vertical-align: middle;" width="80">
+                            <img height="77" src="/wp-content/uploads/migrate/logos/networks.png"
+                                style="vertical-align: middle;" width="80">
                             <span>Networks</span>
                         </a>
                     </p>
                     <p>
                         <a href="/article/<?php echo $resource_category ?>-tools">
-                            <img height="75" src="/wp-content/uploads/migrate/logos/tools_r.png" style="vertical-align: middle;" width="80">
+                            <img height="75" src="/wp-content/uploads/migrate/logos/tools_r.png"
+                                style="vertical-align: middle;" width="80">
                             <span>Tools</span>
                         </a>
                     </p>
                     <p>
                         <a href="/article/<?php echo $resource_category ?>-alternative-products">
-                            <img height="83" src="/wp-content/uploads/migrate/logos/products.png" style="vertical-align: middle;" width="81">
+                            <img height="83" src="/wp-content/uploads/migrate/logos/products.png"
+                                style="vertical-align: middle;" width="81">
                             <span>Alternative Products & Services</span>
                         </a>
                     </p>
 
-                </div>
+                </main>
                 <aside class="col-sm-12 col-md-4 right-section left-border-separator">
                     <?php get_sidebar() ?>
-                </div>
+                </aside>
             </div>
         </div>
     </div>
