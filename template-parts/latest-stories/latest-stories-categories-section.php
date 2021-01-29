@@ -30,7 +30,7 @@ $categories = get_categories([
 
         <div class="row category-page-category-list-wrapper">
             <?php foreach($posts as $post):
-                get_template_part( 'template-parts/latest-stories/latest-stories-tile', null, [ "post" => $post ]);
+                get_template_part( 'template-parts/common/article-tile', null, [ "post" => $post ]);
             endforeach ?>
         </div>
         <div class="see-all-stories-wrapper">
