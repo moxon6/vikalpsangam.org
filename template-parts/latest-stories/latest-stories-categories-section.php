@@ -9,10 +9,8 @@ $categories = get_categories([
 
 ?>
 
-<section class="container-fluid" id="storypage-categories">
+<section class="container-fluid">
     <div class="row">
-
-
         <?php foreach($categories as $category) :
             $posts = get_posts(array(
                 'numberposts'	=> 3,
@@ -26,15 +24,16 @@ $categories = get_categories([
         <div class="col-xs-12 category-topping-wrapper">
 
             <?php get_template_part( 'template-parts/common/category-header', null, [ "category" => $category ]); ?>
-
-            <div class="row category-page-category-list-wrapper">
-                <?php foreach($posts as $post):
-		?>
-                <div class="col-xs-4 col-md-6 col-lg-4 pb-4">
-                    <?php get_template_part( 'template-parts/common/article-tile'); ?>
+            <div class="container-fluid">
+                <div class="row category-page-category-list-wrapper">
+                    <?php foreach($posts as $post): ?>
+                    <div class="col-xs-4 col-md-6 col-lg-4 pb-4">
+                        <?php get_template_part( 'template-parts/common/article-tile'); ?>
+                    </div>
+                    <?php endforeach ?>
                 </div>
-                <?php                endforeach ?>
             </div>
+
         </div>
         <?php endforeach ?>
     </div>

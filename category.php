@@ -5,14 +5,14 @@
 
 <div id="page">
     <div class="section generic_section">
-        <div class="container-fluid">
+        <section class="container-fluid">
             <div class="row">
                 <main class="col-md-8 left-section">
 
                     <?php get_template_part( 'template-parts/common/category-header', null, ["category" => $category]); ?>
 
                     <div class="container-fluid">
-                        <div id="infinite-scroll-content" class="row">
+                        <div class="row" id="infinite-scroll-content">
                             <?php while (have_posts()): the_post(); ?>
                             <div class="col-xs-4 col-md-6 col-lg-4 pb-4">
                                 <?php get_template_part( 'template-parts/common/article-tile'); ?>
@@ -27,7 +27,7 @@
                     <?php get_sidebar() ?>
                 </aside>
             </div>
-        </div>
+        </section>
     </div>
 </div>
 <script>
