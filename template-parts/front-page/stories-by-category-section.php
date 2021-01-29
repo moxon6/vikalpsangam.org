@@ -19,25 +19,11 @@
                 setup_postdata( $post );
                 $category = $categoryPost["category"];
                 $category_image = get_category_image($category);                 
-            ?>
-            <div class="col-xs-12 col-sm-8 col-lg-6 col-xl-3 mt-4">
-                <div class="card category-card">
-                    <a class="see-all-stories category-card-header-wrapper"
-                        href="/article/category/<?php echo $category->slug; ?>">
-                        <div class="card-header header">
-                            <img class="category-image" src="<?php echo $category_image ?>" />
-                            <span class="category-name"><?php echo $category -> name ?></span>
-                        </div>
-                    </a>
-
-                    <a class="see-all-stories card-body-wrapper" href="<?php the_permalink(); ?>">
-                        <?php the_post_thumbnail("medium", ["class" => "card-img-top category-card-image"]); ?>
-                        <div class="card-body">
-                            <span class="card-title"><?php the_title(); ?></span>
-                        </div>
-                    </a>
-                </div>
+                ?>
+            <div class="col-xs-4 col-md-6 col-lg-4 pb-4">
+                <?php get_template_part( 'template-parts/common/article-tile'); ?>
             </div>
+            <?php            ?>
 
             <?php endforeach ?>
         </div>

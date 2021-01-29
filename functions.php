@@ -300,7 +300,11 @@ add_action('after_setup_theme', 'setup_infinite_scroll');
 function infinite_scroll_render() {
     while (have_posts()) {
 		the_post();
-		get_template_part('template-parts/common/article-tile');
+		?>
+<div class="col-xs-4 col-md-6 col-lg-4 pb-4">
+    <?php get_template_part( 'template-parts/common/article-tile'); ?>
+</div>
+<?php
     }
 }
 

@@ -1,4 +1,4 @@
-<div class="col-xs-4 col-md-6 col-lg-4 pb-4 article-tile">
+<div class="article-tile">
     <div class="card article-tile-card">
         <?php the_post_thumbnail("large", ["class" => "card-img-top article-tile-image"]) ?>
         <div class="card-body">

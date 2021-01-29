@@ -29,8 +29,11 @@ $categories = get_categories([
 
             <div class="row category-page-category-list-wrapper">
                 <?php foreach($posts as $post):
-                    get_template_part( 'template-parts/common/article-tile', null, [ "post" => $post ]);
-                endforeach ?>
+		?>
+                <div class="col-xs-4 col-md-6 col-lg-4 pb-4">
+                    <?php get_template_part( 'template-parts/common/article-tile'); ?>
+                </div>
+                <?php                endforeach ?>
             </div>
         </div>
         <?php endforeach ?>

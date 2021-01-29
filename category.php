@@ -13,12 +13,11 @@
 
                     <div class="container-fluid">
                         <div id="infinite-scroll-content" class="row">
-                            <?php
-                                while (have_posts()) {
-                                    the_post();
-                                    get_template_part( 'template-parts/common/article-tile');
-                                }
-                            ?>
+                            <?php while (have_posts()): the_post(); ?>
+                            <div class="col-xs-4 col-md-6 col-lg-4 pb-4">
+                                <?php get_template_part( 'template-parts/common/article-tile'); ?>
+                            </div>
+                            <?php endwhile ?>
                         </div>
                     </div>
 
