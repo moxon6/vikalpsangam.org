@@ -174,3 +174,8 @@
     width: 47%;
   }
 }
+
+.category-page-header {
+  @include category-header;
+  margin-bottom: 16px;
+}

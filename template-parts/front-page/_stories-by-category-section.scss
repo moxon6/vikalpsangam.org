@@ -15,30 +15,7 @@
       }
 
       .category-card-header-wrapper {
-        height: 95px;
-
-        .category-card-header {
-          color: #9e332e;
-          text-decoration: none;
-          text-transform: uppercase;
-          height: 100%;
-          display: flex;
-          padding-left: 8px;
-          padding-right: 8px;
-
-          justify-content: start;
-          align-items: center;
-
-          .category-card-category-name {
-            font-size: 20px;
-          }
-
-          .card-header-category-image {
-            width: 70px;
-            height: 70px;
-            margin-right: 16px;
-          }
-        }
+        @include category-header;
       }
 
       .card-body {

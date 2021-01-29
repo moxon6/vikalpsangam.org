@@ -171,12 +171,46 @@
   height: 57px;
 }
 
+.article-tile-text {
+  font-size: 14px;
+  height: 105px;
+  @include clamp(5);
+}
+
 .article-tile {
   @include mobile {
     display: flex;
     justify-content: center;
     .article-tile-card {
       max-width: 450px;
+    }
+  }
+}
+
+@mixin category-header {
+  height: 95px;
+  display: block;
+
+  .header {
+    color: #9e332e;
+    text-decoration: none;
+    text-transform: uppercase;
+    height: 100%;
+    display: flex;
+    padding-left: 8px;
+    padding-right: 8px;
+
+    justify-content: start;
+    align-items: center;
+
+    .category-name {
+      font-size: 20px;
+    }
+
+    .category-image {
+      width: 70px;
+      height: 70px;
+      margin-right: 16px;
     }
   }
 }

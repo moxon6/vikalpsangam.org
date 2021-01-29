@@ -9,6 +9,14 @@
             <div class="row">
                 <main class="col-md-8 left-section">
 
+                    <a class="see-all-stories category-page-header"
+                        href="/article/category/<?php echo $category->slug; ?>">
+                        <div class="card-header header">
+                            <img class="category-image" src="<?php echo get_category_image(null); ?>" />
+                            <span class="category-name"><?php single_cat_title(); ?></span>
+                        </div>
+                    </a>
+
 
                     <div id="infinite-scroll-content" class="row">
                         <?php

@@ -24,9 +24,9 @@
                 <div class="card category-card">
                     <a class="see-all-stories category-card-header-wrapper"
                         href="/article/category/<?php echo $category->slug; ?>">
-                        <div class="card-header category-card-header">
-                            <img class="card-header-category-image" src="<?php echo $category_image ?>" />
-                            <span class="category-card-category-name"><?php echo $category -> name ?></span>
+                        <div class="card-header header">
+                            <img class="category-image" src="<?php echo $category_image ?>" />
+                            <span class="category-name"><?php echo $category -> name ?></span>
                         </div>
                     </a>
 
