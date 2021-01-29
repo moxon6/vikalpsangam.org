@@ -1,78 +1,25 @@
-<?php
-    get_header();
-    $categories = get_categories([
-        "type"      => "post",      
-        "orderby"   => "name",
-        "order"     => "ASC",
-        "exclude" => get_cat_ID("Perspectives")
-    ]);
-?>
-
+<?php get_header(); ?>
 
 <div id="page">
     <div class="section generic_section">
         <div class="container-fluid">
             <div class="row">
+
                 <main class="col-md-8 left-section">
 
+                    <h2><?=the_title(); ?></h2>
 
-                    <div class="row top-title">
-                        <div class="col-xs-7 heading">
-                            <h2><?=the_title(); ?></h2>
-                        </div>
-                        <div class="col-xs-5 link">
-                            <a class="read-more" href="/stories/">Show all latest stories</a>
-                        </div>
-                    </div>
+                    <a class="read-more" href="/stories/">Show all latest stories</a>
 
-                    <div class="row border-bottom-only-wrapper">
-                        <div class="col-xs-12">
-                            <div class="border-bottom-only"></div>
-                        </div>
-                    </div>
-                    <section id="storypage-categories" class="row">
-                        <?php foreach($categories as $category){
-                            $posts = get_posts(array(
-                                'numberposts'	=> 3,
-                                'post_type'		=> 'post',
-                                "orderby"   => "date",
-                                "order"     => "DSC",
-                                'category'	=> $category -> cat_ID
-                            ));
-                        ?>
+                    <?php get_template_part( 'template-parts/latest-stories/latest-stories-categories-section', null, []); ?>
 
-                        <div class="col-xs-12 category-topping-wrapper">
-                            <div class="category-page-heading">
-                                <a class="category-title-link"
-                                    style="background-image: url('<?php echo get_category_image($category); ?>')"
-                                    href="<?php echo get_category_link($category->term_id); ?>">
-                                    <?php echo $category -> name ?>
-                                </a>
-                            </div>
-
-                            <div class="row category-page-category-list-wrapper">
-                                <?php foreach($posts as $post){
-                                    get_template_part( 'template-parts/latest-stories/latest-stories-tile', null, [ "post" => $post ]);
-                                } ?>
-                            </div>
-                            <div class="see-all-stories-wrapper">
-                                <a class="see-all-stories" href="<?php echo get_category_link($category->term_id); ?>">
-                                    See all stories </a>
-                            </div>
-                        </div>
-                        <?php } ?>
-                    </section>
                 </main>
                 <aside class="col-sm-12 col-md-4 sidebar-aside">
                     <?php get_sidebar() ?>
                 </aside>
             </div>
-
         </div>
-
     </div>
-
 </div>
 
-<?php
-    get_footer();
+<?php get_footer(); ?>

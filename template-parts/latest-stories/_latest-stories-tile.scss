@@ -1,0 +1,23 @@
+.latest-stories-tile {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin-bottom: 25px;
+  background-color: #f1f1f2;
+  border-right: 10px solid $white;
+
+  .read-more-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 30px;
+    background-color: $light-gray-col;
+
+    a {
+      font-size: 0.75em;
+
+      text-transform: none;
+      // font-weight: bold;
+    }
+  }
+}

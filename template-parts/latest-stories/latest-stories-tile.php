@@ -1,4 +1,4 @@
-<div class="col-xs-6 col-sm-4 category">
+<div class="col-xs-6 col-sm-4 latest-stories-tile">
     <a class="category-link-wrapper" href="<?php echo get_the_permalink(); ?>">
         <div class="top-sub-section">
             <h4><?php the_title() ?></h4>

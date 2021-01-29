@@ -18,7 +18,6 @@
         <div class="container-fluid">
             <div class="row">
                 <main class="col-md-8 left-section">
-
                     <h2><?php the_title() ?></h2>
                     <?php the_content(); ?>
                 </main>
