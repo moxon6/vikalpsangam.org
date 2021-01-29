@@ -148,3 +148,35 @@
     }
   }
 }
+
+.article-tile-image {
+  height: 180px;
+}
+
+@mixin clamp($i) {
+  display: -webkit-box;
+  -webkit-line-clamp: $i;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@for $i from 1 through 5 {
+  .clamp-#{$i} {
+    @include clamp($i);
+  }
+}
+
+.article-tile-title {
+  @include clamp(3);
+  height: 57px;
+}
+
+.article-tile {
+  @include mobile {
+    display: flex;
+    justify-content: center;
+    .article-tile-card {
+      max-width: 450px;
+    }
+  }
+}
