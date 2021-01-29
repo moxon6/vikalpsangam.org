@@ -27,15 +27,13 @@ get_header();
                     </div>
                     <div id="infinite-scroll-content"
                         class="row category-page-category-list-wrapper category-topping-wrapper">
-                        <?php
-                            while (have_posts()) {
-                                the_post();
-                                ?>
+                        <?php while (have_posts()): the_post(); ?>
+
                         <div class="col-xs-4 col-md-6 col-lg-4 pb-4">
-                            <?php get_template_part( 'template-parts/common/article-tile'); ?>
+                            <?php get_template_part( 'template-parts/common/article-tile', null, ["category" => get_the_category()[0] ]); ?>
                         </div>
-                        <?php                            }
-                        ?>
+
+                        <?php endwhile ?>
                     </div>
                 </main>
                 <aside class="col-sm-12 col-md-4 sidebar-aside">

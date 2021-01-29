@@ -43,13 +43,15 @@
                 </div>
 
             </div>
-            <div id="featured-list" class="col-xl-4 col-md-12 pt-4">
+            <div id="featured-list" class="col-xl-4 col-md-12 pt-2">
 
-                <h3 class="highlights-title">Highlights</h3>
-
+                <div class="featured-list-title-wrapper">
+                    <img class="title-image" src="/wp-content/uploads/migrate/VS-Favicon.png">
+                    <h3 class="highlights-title" style="margin-bottom: 0;">Highlights</h3>
+                </div>
                 <?php foreach ($promoted_articles as $key => $post) : setup_postdata( $post ); ?>
 
-                <div class="card mb-3 highlight-card container-fluid">
+                <div class="card mb-2 highlight-card container-fluid">
                     <div class="row g-0 highlight-card-row justify-content-space-between">
                         <div class="col-3 highlight-card-thumbnail-col">
                             <?php the_post_thumbnail('thumbnail', array('class' => 'img-fluid featured-list-image')); ?>

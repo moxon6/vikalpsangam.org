@@ -21,7 +21,7 @@
                 $category_image = get_category_image($category);                 
                 ?>
             <div class="col-xs-4 col-md-6 col-lg-3 pb-4">
-                <?php get_template_part( 'template-parts/common/article-tile'); ?>
+                <?php get_template_part( 'template-parts/common/article-tile', null, [ "category" => $category ]); ?>
             </div>
             <?php            ?>
 
