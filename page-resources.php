@@ -22,7 +22,7 @@
                     <h2><?php the_title() ?></h2>
                     <?php the_content(); ?>
                 </main>
-                <aside class="col-sm-12 col-md-4 right-section left-border-separator">
+                <aside class="col-sm-12 col-md-4 sidebar-aside">
                     <?php get_sidebar() ?>
                 </aside>
             </div>

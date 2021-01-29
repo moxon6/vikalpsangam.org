@@ -61,8 +61,13 @@
   height: 10px;
 }
 
-.right-section {
+.sidebar-aside {
   padding-bottom: 20px;
+
+  @include desktop {
+    padding-left: 30px;
+    border-left: 2px solid $light-gray-col;
+  }
 
   h5 {
     padding-top: 10px;
@@ -121,12 +126,7 @@
   margin: 0 auto;
 }
 
-@media (min-width: 992px) {
-  .left-border-separator {
-    padding-left: 30px;
-    border-left: 2px solid $light-gray-col;
-  }
-
+@include desktop {
   #page {
     max-width: 1360px;
     margin-left: auto;

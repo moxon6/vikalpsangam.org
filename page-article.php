@@ -52,7 +52,7 @@
 
                             <div class="row category-page-category-list-wrapper">
                                 <?php foreach($posts as $post){
-                                    get_template_part( 'template-parts/common/article-tile', null, [ "post" => $post ]);
+                                    get_template_part( 'template-parts/latest-stories/latest-stories-tile', null, [ "post" => $post ]);
                                 } ?>
                             </div>
                             <div class="see-all-stories-wrapper">
@@ -63,7 +63,7 @@
                         <?php } ?>
                     </section>
                 </main>
-                <aside class="col-sm-12 col-md-4 right-section left-border-separator">
+                <aside class="col-sm-12 col-md-4 sidebar-aside">
                     <?php get_sidebar() ?>
                 </aside>
             </div>

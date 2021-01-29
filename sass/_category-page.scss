@@ -1,49 +1,6 @@
 @import "colors.scss";
 @import "fonts.scss";
 
-.top-title {
-  margin-right: 15px;
-  margin-left: 0;
-
-  .heading {
-    padding: 0;
-  }
-
-  h1 {
-    padding: 0;
-    margin: 0;
-  }
-
-  .link {
-    text-align: right;
-  }
-
-  a {
-    position: relative;
-    bottom: -32px;
-  }
-}
-
-.border-bottom-only-wrapper {
-  margin-right: 15px;
-  margin-left: 0;
-  border-right: 10px solid $white;
-
-  .col-xs-12 {
-    padding: 0;
-  }
-}
-
-.border-bottom-only {
-  border-bottom: 2px solid $light-gray-col;
-}
-
-#storypage-categories {
-  margin-top: 20px;
-  margin-right: 15px;
-  margin-left: 0;
-}
-
 .category-page-heading {
   margin: 0;
   background-color: $dark-gray-col;
