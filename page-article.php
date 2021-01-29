@@ -7,10 +7,6 @@
 
                 <main class="col-md-8 left-section">
 
-                    <h2><?=the_title(); ?></h2>
-
-                    <a class="read-more" href="/stories/">Show all latest stories</a>
-
                     <?php get_template_part( 'template-parts/latest-stories/latest-stories-categories-section', null, []); ?>
 
                 </main>
