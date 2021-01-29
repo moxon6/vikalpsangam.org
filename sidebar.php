@@ -16,29 +16,30 @@ $recent_activity = get_posts(array(
 
 ?>
 
-<!-- TODO: Replace these spacer -->
-<div class="space-xs"></div>
-<div class="space-xs"></div>
-<div class="space-xs"></div>
+<div class="sidebar">
+    <!-- TODO: Replace these spacer -->
+    <div class="space-xs"></div>
+    <div class="space-xs"></div>
+    <div class="space-xs"></div>
 
-<h5>Story Categories</h5>
-<div id="category-list" class="category-list-wrapper">
-    <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-12 no-padding">
-            <ul class="list-unstyled">
-                <?php foreach($categories as $category){ ?>
+    <h5>Story Categories</h5>
+    <div id="category-list" class="category-list-wrapper">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-12 no-padding">
+                <ul class="list-unstyled">
+                    <?php foreach($categories as $category){ ?>
                     <li>
                         <img class="sidebar-icon" src="<?php echo get_category_image($category); ?>">
                         <a href="<?php echo get_category_link($category->term_id); ?>"><?php echo $category->name ?></a>
                     </li>
-                <?php } ?>
+                    <?php } ?>
 
-            </ul>
+                </ul>
+            </div>
         </div>
     </div>
-</div>
 
-<?php
+    <?php
     function get_tags_from_post($posts) {
         $ids = [];
         $tags = [];
@@ -63,11 +64,11 @@ $recent_activity = get_posts(array(
 ?>
 
 
-<h5>Explore Stories</h5>
-<div id="tag-cloud" class="tag-cloud-wrapper">
-    <div class="tag-cloud">
-        
-        <?php 
+    <h5>Explore Stories</h5>
+    <div id="tag-cloud" class="tag-cloud-wrapper">
+        <div class="tag-cloud">
+
+            <?php 
             function getWeight($count) {
                 if ($count > 150) {
                     return 3;
@@ -79,27 +80,31 @@ $recent_activity = get_posts(array(
             }
             foreach($tags as $tag){ 
             ?>
-            <a href="/article/tag/<?php echo $tag->slug; ?>" class="tag-weight-<?php echo getWeight($tag->count); ?>"><?php echo $tag->name ?> </a>
+            <a href="/article/tag/<?php echo $tag->slug; ?>"
+                class="tag-weight-<?php echo getWeight($tag->count); ?>"><?php echo $tag->name ?> </a>
 
-        <?php } ?>
+            <?php } ?>
+        </div>
     </div>
-</div>
 
-<h5>Stories by Location</h5>
+    <h5>Stories by Location</h5>
 
-<div id="map" class="sidebar-map"></div>
-<script> renderMap('map'); </script>
+    <div id="map" class="sidebar-map"></div>
+    <script>
+    renderMap('map');
+    </script>
 
-<h5>Events</h5>
-<div id="events-in-sidebar" style="padding-bottom: 10px">
-    <div data-tockify-component="mini" data-tockify-calendar="alternatives"></div>
-    <script data-cfasync="false" data-tockify-script="embed" src="https://public.tockify.com/browser/embed.js"></script>
-</div>
+    <h5>Events</h5>
+    <div id="events-in-sidebar" style="padding-bottom: 10px">
+        <div data-tockify-component="mini" data-tockify-calendar="alternatives"></div>
+        <script data-cfasync="false" data-tockify-script="embed" src="https://public.tockify.com/browser/embed.js">
+        </script>
+    </div>
 
-<h5>Recent Posts</h5>
-<div class="featured-list in-sidebar">    
-    <ul class="list-unstyled">
-        <?php foreach($recent_activity as $post){ 
+    <h5>Recent Posts</h5>
+    <div class="featured-list in-sidebar">
+        <ul class="list-unstyled">
+            <?php foreach($recent_activity as $post){ 
             setup_postdata( $post ); ?>
             <li class="row">
                 <div class="col-xs-4">
@@ -110,11 +115,12 @@ $recent_activity = get_posts(array(
                         <h4 id="featured-article" class="media-heading">
                             <?php the_title(); ?>
                         </h4>
-                    </a>                
+                    </a>
                     <!-- TODO: Truncate to 130 -->
                     <p><?php the_excerpt(); ?></p>
                 </div>
             </li>
-        <?php } ?>
-    </ul>
+            <?php } ?>
+        </ul>
+    </div>
 </div>

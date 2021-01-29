@@ -1,7 +1,6 @@
 <?php
 
 add_action('rest_api_init', function () {
-    $cache_key = "get_article_coordinates";
 
     function get_coordinates() {
         $posts = get_posts([
@@ -26,6 +25,8 @@ add_action('rest_api_init', function () {
     }
 
     function get_article_coordinates($request) {
+        
+        $cache_key = "get_article_coordinates";
 
         $coordinates = get_transient($cache_key);
         if (empty($coordinates)) {

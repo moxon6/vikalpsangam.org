@@ -24,7 +24,7 @@ $categoryPosts = (new Categories())->getCategoryPosts($NUMBER_STORIES_BY_CATEGOR
 
 ?>
 
-<div id="content">
+<div>
     <section class="top-carousel-wrapper">
         <div class="row no-right-margin">
             <div class="col-md-8 col-xs-12">
@@ -44,13 +44,13 @@ $categoryPosts = (new Categories())->getCategoryPosts($NUMBER_STORIES_BY_CATEGOR
 
     <section class="about-section">
         <div class="container">
-        <h2>ABOUT VIKALP SANGAM</h2>
-    <div class="row no-margin">
-       <?php 
+            <h2>ABOUT VIKALP SANGAM</h2>
+            <div class="row no-margin">
+                <?php 
         wp_reset_postdata();
         the_content();
         ?>
-    </div>
+            </div>
         </div>
     </section>
 </div>

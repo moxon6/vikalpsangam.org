@@ -6,14 +6,12 @@ get_header();
  */
 ?>
 
-<div id="content">
+<div id="page">
     <div class="section generic_section">
         <div class="container main-body-container">
             <div class="row">
-                <div class="col-md-9 right-border-separator left-section">
-                    <div class="space-xs"></div>
-                    <div class="space-xs"></div>
-                    <div class="space-xs"></div>
+                <div class="col-md-9 left-section">
+
                     <div class="row top-title">
                         <div class="col-xs-7 heading">
                             <h2><?php single_post_title(); ?></h2>
@@ -27,7 +25,8 @@ get_header();
                             <div class="border-bottom-only"></div>
                         </div>
                     </div>
-                    <div id="infinite-scroll-content" class="row category-page-category-list-wrapper category-topping-wrapper">                        
+                    <div id="infinite-scroll-content"
+                        class="row category-page-category-list-wrapper category-topping-wrapper">
                         <?php
                             while (have_posts()) {
                                 the_post();
@@ -36,7 +35,7 @@ get_header();
                         ?>
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-3 right-section">
+                <div class="col-sm-12 col-md-3 right-section left-border-separator">
                     <?php get_sidebar() ?>
                 </div>
             </div>
