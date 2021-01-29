@@ -38,7 +38,7 @@ function fixCarouselHeight() {
 
 // Reintroduce resize logic
 // TODO - Remove in later revisions
-$( window ).resize(function() {
+$(window).resize(() => {
   fixCarouselHeight();
 });
 
