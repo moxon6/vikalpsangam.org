@@ -22,14 +22,14 @@
 <section id="main-section">
     <div class="container-fluid main-section-container">
         <div class="row ml-auto mr-auto pb-1">
-            <div class="col-xl-8 col-md-12">
+            <div class="col-xl-8 col-md-12 pl-0 pr-0 pl-md-4 pr-md-4">
                 <div id="vikalpsangam-org-carousel">
                     <div id="mainSlider">
                         <?php foreach ($carousel_items as $key => $post) { setup_postdata( $post );  ?>
                         <div class="slider-item">
                             <a href="#">
                                 <img class="carousel-thumbnail" src="<?php the_post_thumbnail_url(); ?>">
-                                <div class="carousel-caption">
+                                <div class="slick-carousel-caption">
                                     <h4><?php the_title(); ?></h4>
                                     <?php the_excerpt(); ?>
                                 </div>
