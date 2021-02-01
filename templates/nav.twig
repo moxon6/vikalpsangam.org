@@ -8,6 +8,14 @@
 
 	<div class="collapse navbar-collapse justify-content-end" id="vikalpsangam-navbar-collapse">
 
+		<ul id="menu-header-menu" class="navbar-nav mr-3">
+			{% for item in header_menu.items %}
+				<li class="nav-item {{ item.classes|join(' ') }}">
+					<a class="nav-link" href="{{ item.link }}">{{ item.title }}</a>
+				</li>
+			{% endfor %}
+		</ul>
+
 		<form action="/" class="form-inline search-box">
 			<button class="search-box-submit-button" type="submit">
 				<i class="fas fa-search search-icon"></i>
