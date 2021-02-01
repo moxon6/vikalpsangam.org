@@ -7,6 +7,8 @@
 
                 <main class="col-md-8 left-section">
 
+                    <h2><?php the_title() ?></h2>
+
                     <?php get_template_part( 'template-parts/latest-stories/latest-stories-categories-section', null, []); ?>
 
                 </main>
