@@ -11,8 +11,7 @@ get_header();
     <div class="section generic_section">
         <div class="container-fluid">
             <div class="row justify-content-center">
-                <main class="col-md-8 left-section">
-
+                <main class="col-lg-8 col-md-12 left-section">
                     <h2><?php the_title(); ?></h2>
                     <div id="author-date-category">
                         <?php if ($author) : ?>
@@ -47,7 +46,7 @@ get_header();
                         </div>
                     </div>
                 </main>
-                <aside class="col-sm-12 col-md-4 sidebar-aside">
+                <aside class="col-lg-4 col-md-12 sidebar-aside">
                     <?php get_sidebar() ?>
                 </aside>
             </div>
