@@ -24,7 +24,7 @@ $categories = get_categories([
         <div class="col-xs-12 category-topping-wrapper">
 
             <?php get_template_part( 'template-parts/common/category-header', null, [ "category" => $category ]); ?>
-            <div class="container-fluid">
+            <div class="container-fluid p-0">
                 <div class="row category-page-category-list-wrapper">
                     <?php foreach($posts as $post): ?>
                     <div class="col-xs-4 col-md-6 col-lg-4 pb-4">

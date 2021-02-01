@@ -11,7 +11,7 @@
 
                     <?php get_template_part( 'template-parts/common/category-header', null, ["category" => $category]); ?>
 
-                    <div class="container-fluid">
+                    <div class="container-fluid p-0">
                         <div class="row" id="infinite-scroll-content">
                             <?php while (have_posts()): the_post(); ?>
                             <div class="col-xs-4 col-md-6 col-lg-4 pb-4">

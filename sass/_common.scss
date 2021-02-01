@@ -188,7 +188,7 @@
 }
 
 @mixin category-header {
-  height: 95px;
+  height: 70px;
   display: block;
 
   .header {
@@ -202,14 +202,15 @@
 
     justify-content: start;
     align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.125);
 
     .category-name {
       font-size: 20px;
     }
 
     .category-image {
-      width: 70px;
-      height: 70px;
+      width: 60px;
+      height: 60px;
       margin-right: 16px;
     }
   }
