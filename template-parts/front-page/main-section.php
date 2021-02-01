@@ -49,22 +49,10 @@
                     <img class="title-image" src="/wp-content/uploads/migrate/VS-Favicon.png">
                     <h3 class="highlights-title" style="margin-bottom: 0;">Highlights</h3>
                 </div>
-                <?php foreach ($promoted_articles as $key => $post) : setup_postdata( $post ); ?>
-
-                <div class="card mb-2 highlight-card container-fluid">
-                    <div class="row g-0 highlight-card-row justify-content-space-between">
-                        <div class="col-3 highlight-card-thumbnail-col">
-                            <?php the_post_thumbnail('thumbnail', array('class' => 'img-fluid featured-list-image')); ?>
-                        </div>
-                        <div class="col-9 highlight-card-text-col">
-                            <div class="card-body featured-list-card-body">
-                                <h6><?php the_title(); ?></h6>
-                                <?php the_excerpt(); ?>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <?php endforeach ?>
+                <?php foreach ($promoted_articles as $key => $post) {
+                    setup_postdata( $post );
+                    get_template_part( 'template-parts/common/highlight-card');
+                } ?>
             </div>
         </div>
     </div>
