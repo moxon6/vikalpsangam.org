@@ -30,4 +30,3 @@ async function renderMap(id) {
 }
 
 window.renderMap = renderMap;
-
