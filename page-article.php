@@ -6,8 +6,12 @@
             <div class="row">
 
                 <main class="col-md-8 left-section">
-
-                    <h2><?php the_title() ?></h2>
+                    <div class="d-flex justify-content-between mb-4">
+                        <h2><?php the_title(); ?></h2>
+                        <div>
+                            <a href="/stories/" class="btn btn-primary">Show all latest stories</a>
+                        </div>
+                    </div>
 
                     <?php get_template_part( 'template-parts/latest-stories/latest-stories-categories-section', null, []); ?>
 
