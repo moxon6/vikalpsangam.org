@@ -9,6 +9,8 @@
 
 include 'version.php';
 
+require_once( __DIR__ . '/vendor/autoload.php' );
+
 if ( ! function_exists( 'vikalpsangam_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
