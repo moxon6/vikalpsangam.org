@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
-	{% include 'header.twig' %}
+	{% include 'partials/header.twig' %}
 
 	<body class="{{body_class}}">
 		{{ function("wp_body_open") }}
 
-		{% include 'nav.twig' %}
+		{% include 'partials/nav.twig' %}
 
 		<div id="page">
 			<div class="section generic_section">
@@ -20,6 +20,6 @@
 				</div>
 			</div>
 
-			{% include 'footer.twig' %}
+			{% include 'partials/footer.twig' %}
 		</body>
 	</html>
