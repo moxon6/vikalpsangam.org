@@ -25,7 +25,7 @@
             </a>
             <p class="card-text article-tile-text"><?php echo filter_excerpt(get_the_excerpt()); ?></p>
         </div>
-        <footer class="card-footer article-tile-footer">
+        <footer class="card-footer d-flex justify-content-end p-0">
             <a href="<?php echo get_the_permalink(); ?>" class="btn btn-primary btn-sm">Read More</a>
         </footer>
     </div>
