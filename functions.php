@@ -34,12 +34,10 @@ if ( ! class_exists( 'Timber' ) ) {
 	return;
 }
 
-
 Timber::$dirname = array( 'templates', 'views' );
 Timber::$autoescape = false;
 
 class VikalpsangamOrgSite extends Timber\Site {
-	/** Add timber support. */
 	public function __construct() {
 		add_filter( 'timber/context', array( $this, 'add_to_context' ) );
 		parent::__construct();
@@ -48,6 +46,21 @@ class VikalpsangamOrgSite extends Timber\Site {
 	private function get_template_image_url($image_url) {
         return get_bloginfo('template_url') . $image_url . "?v=" . vikalpsangam_VERSION;
 	}
+
+	private function get_tags_from_post($posts) {
+        $ids = [];
+        $tags = [];
+        foreach($posts as $post) {
+            $post_tags = get_the_tags($post->ID);
+            foreach($post_tags as $tag) {
+                if (!in_array($tag->term_id, $ids)) {
+                    $ids[] = $tag->term_id;
+                    $tags[] = $tag;
+                }
+            }
+        }
+        return $tags;
+    }
 	
 	private function setup_footer_context($context) {
 		$context['footer_logo'] = $this->get_template_image_url("/images/footer/site-logo.png");
@@ -78,15 +91,46 @@ class VikalpsangamOrgSite extends Timber\Site {
 		$context["header_menu"] = new \Timber\Menu( 'header-menu' );
 		return $context;
 	}
-	
-	public function add_to_context( $context ) {
-		ini_set('display_errors', 1);
-		ini_set('display_startup_errors', 1);
-		error_reporting(E_ALL);
-		$context = $this->setup_footer_context($context);
-		$context = $this->setup_header_context($context);
+
+	private function setup_sidebar_context($context) {
+		$categories = get_categories([
+			"type"      => "post",      
+			"orderby"   => "name",
+			"order"     => "ASC",
+			"exclude" => get_cat_ID("Perspectives")
+		]);
+
+		$context["sidebar_categories"] = Timber::get_terms('category', [
+			'hide_empty' => 1,
+			"exclude" => get_cat_ID("Perspectives")
+		]);
+
+
+		$context["sidebar_recent_activity"] = get_posts(array(
+			'numberposts' => 5,
+			'post_type'	=> 'post',
+			"orderby" => "date",
+			"order" => "DSC"
+		));
+
+		$context["sidebar_tag_cloud"] = $this->get_tags_from_post(get_posts(array(
+			'numberposts' => 10,
+			'post_type'	=> 'post',
+			"orderby" => "date",
+			"order" => "DSC"
+		)));
+		
 		return $context;
 	}
+	
+	public function add_to_context( $context ) {
+		$context = $this->setup_footer_context($context);
+		$context = $this->setup_header_context($context);
+		$context = $this->setup_sidebar_context($context);
+		return $context;
+	}
+
+	
 }
 
 new VikalpsangamOrgSite();
@@ -277,20 +321,9 @@ if (is_admin()) {
 require get_template_directory() . '/inc/endpoints.php';
 
 function get_category_image($category) {
-	$term_id = $category->term_id;
-	$cache_key = "category_image_$term_id";
 
-	$category_image = get_transient($cache_key);	
-	if (!$category_image) {
-		$category_image = z_taxonomy_image_url($term_id);
-		set_transient($cache_key, $category_image, DAY_IN_SECONDS );
-	}
-	
-	if (!strpos($category_image, "Favicon")) {
-		// TODO : Optimise thumbnails post phase 1
-		// $category_image = str_replace(".", "-150x150.", $category_image); // Postfix -150x150 to the image
-	}
-	return $category_image;
+	$image = get_field('image', $category);
+	return  esc_url($image['url']);
 }
 
 function filter_excerpt($excerpt) {
