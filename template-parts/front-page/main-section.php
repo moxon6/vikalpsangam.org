@@ -34,9 +34,6 @@
                                     <?php the_excerpt(); ?>
                                 </div>
                             </a>
-
-
-
                         </div>
                         <?php } ?>
                     </div>
@@ -47,7 +44,7 @@
 
                 <div class="featured-list-title-wrapper">
                     <img class="title-image" src="/wp-content/uploads/migrate/VS-Favicon.png">
-                    <h3 class="highlights-title" style="margin-bottom: 0;">Highlights</h3>
+                    <h3 class="highlights-title mb-0">Highlights</h3>
                 </div>
                 <?php foreach ($promoted_articles as $key => $post) {
                     setup_postdata( $post );
