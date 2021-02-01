@@ -103,24 +103,10 @@ $recent_activity = get_posts(array(
 
     <h5>Recent Posts</h5>
     <div class="featured-list in-sidebar">
-        <ul class="list-unstyled">
-            <?php foreach($recent_activity as $post){ 
-            setup_postdata( $post ); ?>
-            <li class="row">
-                <div class="col-xs-4">
-                    <?php the_post_thumbnail('thumbnail', array('class' => 'img-fluid')); ?>
-                </div>
-                <div class="col-xs-8">
-                    <a href="<?php the_permalink(); ?>">
-                        <h4 id="featured-article" class="media-heading">
-                            <?php the_title(); ?>
-                        </h4>
-                    </a>
-                    <!-- TODO: Truncate to 130 -->
-                    <p><?php the_excerpt(); ?></p>
-                </div>
-            </li>
-            <?php } ?>
-        </ul>
+        <?php foreach($recent_activity as $post){ 
+            setup_postdata( $post );
+            get_template_part( 'template-parts/common/highlight-card');
+        } ?>
+
     </div>
 </div>
