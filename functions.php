@@ -74,11 +74,17 @@ class VikalpsangamOrgSite extends Timber\Site {
 		return $context;
 	}
 
+	private function setup_header_context($context) {
+		$context["header_menu"] = new \Timber\Menu( 'header-menu' );
+		return $context;
+	}
+	
 	public function add_to_context( $context ) {
 		ini_set('display_errors', 1);
 		ini_set('display_startup_errors', 1);
 		error_reporting(E_ALL);
 		$context = $this->setup_footer_context($context);
+		$context = $this->setup_header_context($context);
 		return $context;
 	}
 }
