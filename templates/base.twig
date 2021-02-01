@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	{% include 'header.twig' %}
+
+	<body class="{{body_class}}">
+		{{ function("wp_body_open") }}
+
+		{% include 'nav.twig' %}
+
+		<div id="page">
+			<div class="section generic_section">
+				<div class="container-fluid">
+					<div class="row">
+						<main class="col-xl-8 col-md-12 left-section">
+							<h2>{{ post.title }}</h2>
+							{{ post.content }}
+						</main>
+						<aside class="col-xl-4 col-md-12 sidebar-aside"></aside>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		{% include 'footer.twig' %}
+	</body>
+</html>

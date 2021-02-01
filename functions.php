@@ -38,6 +38,53 @@ if ( ! class_exists( 'Timber' ) ) {
 Timber::$dirname = array( 'templates', 'views' );
 Timber::$autoescape = false;
 
+class VikalpsangamOrgSite extends Timber\Site {
+	/** Add timber support. */
+	public function __construct() {
+		add_filter( 'timber/context', array( $this, 'add_to_context' ) );
+		parent::__construct();
+	}
+
+	private function get_template_image_url($image_url) {
+        return get_bloginfo('template_url') . $image_url . "?v=" . vikalpsangam_VERSION;
+	}
+	
+	private function setup_footer_context($context) {
+		$context['footer_logo'] = $this->get_template_image_url("/images/footer/site-logo.png");
+		
+		$context['footer_logos'] = [
+			[ "url" => "http://www.shikshantar.org", "image" => $this->get_template_image_url("/images/logos/shikshantar.png")],
+			[ "url" => "http://www.kalpavriksh.org", "image" => $this->get_template_image_url("/images/logos/kalpavriksh.png")],
+			[ "url" => "http://www.ddsindia.com", "image" => $this->get_template_image_url("/images/logos/ddsindia.png")],
+			[ "url" => "http://www.bhoomicollege.org", "image" => $this->get_template_image_url("/images/logos/bhoomicollege.png")]
+		];
+		
+		$context["social_links"] = [
+			["url" => "https://twitter.com/VikalpSangam", "image" => $this->get_template_image_url("/images/social/twitter.png")],
+			["url" => "https://www.facebook.com/VikalpSangam", "image" => $this->get_template_image_url("/images/social/facebook.png")],
+			["url" => "https://www.instagram.com/vikalpsangam", "image" => $this->get_template_image_url("/images/social/instagram.png")]
+		];
+
+		$context["footer_menus"] = [
+			new \Timber\Menu( 'footer-menu-1' ),
+			new \Timber\Menu( 'footer-menu-2' ),
+			new \Timber\Menu( 'footer-menu-3' )
+		];
+
+		return $context;
+	}
+
+	public function add_to_context( $context ) {
+		ini_set('display_errors', 1);
+		ini_set('display_startup_errors', 1);
+		error_reporting(E_ALL);
+		$context = $this->setup_footer_context($context);
+		return $context;
+	}
+}
+
+new VikalpsangamOrgSite();
+
 
 if ( ! function_exists( 'vikalpsangam_setup' ) ) :
 	/**
