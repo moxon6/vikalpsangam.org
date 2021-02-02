@@ -10,7 +10,7 @@
 				<a href="{{ post.link }}">
 					<h6>{{ post.title}}</h6>
 				</a>
-				{{ post.preview }}
+				<p>{{ post.preview.read_more(false).length(20) }}</p>
 			</div>
 		</div>
 	</div>

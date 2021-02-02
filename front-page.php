@@ -1,8 +1,8 @@
 <?php
 
-// $context = Timber::context();
-// $timber_post = new Timber\Post();
-// $context['post'] = $timber_post;
+$context = Timber::context();
+$timber_post = new Timber\Post();
+$context['post'] = $timber_post;
 // Timber::render( array( 'page-index.twig', 'page.twig' ), $context );
 
 $NUMBER_OF_CAROUSEL_ITEMS = 3;
@@ -33,6 +33,6 @@ $context["category_posts"] = (new Categories())->getCategoryPosts($NUMBER_STORIE
 
 <?php Timber::render( array( 'partials/front-page-stories-by-category-section.twig' ), $context ); ?>
 
-<?php get_template_part( 'template-parts/front-page/about-section'); ?>
+<?php Timber::render( array( 'partials/front-page-about-section.twig' ), $context ); ?>
 
 <?php get_footer();
