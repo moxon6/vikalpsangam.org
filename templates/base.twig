@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-	{% include 'partials/header.twig' %}
+	{% include 'partials/head.twig' %}
 
 	<body class="{{body_class}}">
 		{{ function("wp_body_open") }}
@@ -12,14 +12,20 @@
 			<div class="section generic_section">
 				<div class="container-fluid">
 					<div class="row">
-						<main class="col-xl-8 col-md-12 left-section"> {% block content %}{% endblock %}
-							</main>
-							<aside class="col-xl-4 col-md-12 sidebar-aside"></aside>
-						</div>
+						<main class="col-xl-8 col-md-12 left-section">
+							{% block content %}
+								<span/>
+							{% endblock %}
+						</main>
+						<aside class="col-xl-4 col-md-12 sidebar-aside">
+							{% include 'partials/sidebar.twig' %}
+						</aside>
 					</div>
 				</div>
 			</div>
 
-			{% include 'partials/footer.twig' %}
-		</body>
-	</html>
+		</div>
+
+		{% include 'partials/footer.twig' %}
+	</body>
+</html>

@@ -40,6 +40,7 @@ Timber::$autoescape = false;
 class VikalpsangamOrgSite extends Timber\Site {
 	public function __construct() {
 		add_filter( 'timber/context', array( $this, 'add_to_context' ) );
+		add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
 		parent::__construct();
 	}
 
@@ -93,12 +94,6 @@ class VikalpsangamOrgSite extends Timber\Site {
 	}
 
 	private function setup_sidebar_context($context) {
-		$categories = get_categories([
-			"type"      => "post",      
-			"orderby"   => "name",
-			"order"     => "ASC",
-			"exclude" => get_cat_ID("Perspectives")
-		]);
 
 		$context["sidebar_categories"] = Timber::get_terms('category', [
 			'hide_empty' => 1,
@@ -106,7 +101,7 @@ class VikalpsangamOrgSite extends Timber\Site {
 		]);
 
 
-		$context["sidebar_recent_activity"] = get_posts(array(
+		$context["sidebar_recent_activity"] = Timber::get_posts(array(
 			'numberposts' => 5,
 			'post_type'	=> 'post',
 			"orderby" => "date",
@@ -130,7 +125,18 @@ class VikalpsangamOrgSite extends Timber\Site {
 		return $context;
 	}
 
-	
+	function add_to_twig( $twig ) {
+		$twig->addFilter( new Timber\Twig_Filter( 'tagWeight', function ($count) {
+			if ($count > 150) {
+				return 3;
+			}
+			if ($count > 50) {
+				return 2;
+			}
+			return 1;
+		}));
+		return $twig;
+	}	
 }
 
 new VikalpsangamOrgSite();
