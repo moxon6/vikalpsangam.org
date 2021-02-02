@@ -17,11 +17,7 @@
 
 					<div class="container-fluid p-0">
 						<div class="row category-page-category-list-wrapper">
-							{% for post in category_group.posts %}
-								<div class="col-xs-4 col-md-6 col-lg-4 pb-4">
-									{% include 'partials/article-tile.twig' with {'post': post } only %}
-								</div>
-							{% endfor %}
+							{% include 'partials/article-tile-loop.twig' with {'posts': category_group.posts } only %}
 						</div>
 					</div>
 
