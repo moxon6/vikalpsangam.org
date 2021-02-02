@@ -1,22 +1,15 @@
-<div
-	class="sidebar">
-	<!-- TODO: Replace these spacer -->
-	<div class="space-xs"></div>
-	<div class="space-xs"></div>
-	<div class="space-xs"></div>
+<div class="sidebar">
 
 	<h5>Story Categories</h5>
 	<div id="category-list" class="category-list-wrapper">
 		<div class="row">
 			<div class="col-xs-12 col-sm-6 col-md-12 no-padding">
 				<ul class="list-unstyled">
-
 					{% for category in sidebar_categories %}
 						<li>
 							<img class="sidebar-icon" src="{{ Image(category.meta('image')).src }}">
 							<a href="{{ category.link }}">{{ category.name }}</a>
 						</li>
-
 					{% endfor %}
 				</ul>
 			</div>
@@ -26,17 +19,13 @@
 	<h5>Explore Stories</h5>
 	<div id="tag-cloud" class="tag-cloud-wrapper">
 		<div class="tag-cloud">
-
-
 			{% for tag in sidebar_tag_cloud %}
 				<a href="/article/tag/{{ tag.slug }}" class="tag-weight-{{ tag.count | tagWeight }}">{{ tag.name }}</a>
 			{% endfor %}
-
 		</div>
 	</div>
 
 	<h5>Stories by Location</h5>
-
 	<div id="map" class="sidebar-map"></div>
 	<script>
 		renderMap('map');
@@ -48,13 +37,9 @@
 		<script data-cfasync="false" data-tockify-script="embed" src="https://public.tockify.com/browser/embed.js"></script>
 	</div>
 
-
 	<div class="featured-list in-sidebar">
-
 		{% for post in sidebar_recent_activity %}
 			{% include 'partials/highlight-card.twig' %}
 		{% endfor %}
-
-
 	</div>
 </div>
