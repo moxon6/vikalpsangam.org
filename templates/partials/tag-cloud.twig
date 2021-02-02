@@ -1,0 +1,7 @@
+<div id="tag-cloud" class="tag-cloud-wrapper">
+	<div class="tag-cloud">
+		{% for tag in sidebar_tag_cloud %}
+			<a href="/article/tag/{{ tag.slug }}" class="tag-weight-{{ tag.count | tagWeight }}">{{ tag.name }}</a>
+		{% endfor %}
+	</div>
+</div>
