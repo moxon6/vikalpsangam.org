@@ -1,27 +1,21 @@
-<?php get_header(); ?>
+<?php
 
-<div id="page">
-    <div class="section generic_section">
-        <div class="container-fluid">
-            <div class="row">
+$context = Timber::context();
+$timber_post = new Timber\Post();
+$context['post'] = $timber_post;
 
-                <main class="col-md-8 left-section">
-                    <div class="d-flex justify-content-between mb-4">
-                        <h2><?php the_title(); ?></h2>
-                        <div>
-                            <a href="/stories/" class="btn btn-primary">Show all latest stories</a>
-                        </div>
-                    </div>
+$context["stories_by_category"] = array_map(
+    fn($category) => [
+        "category" => $category,
+        "posts" => Timber::get_posts(array(
+            'numberposts'	=> 3,
+            'post_type'		=> 'post',
+            "orderby"   => "date",
+            "order"     => "DSC",
+            'category'	=> $category -> cat_ID
+        ))
+    ],
+    $context["post_categories"]
+);
 
-                    <?php get_template_part( 'template-parts/latest-stories/latest-stories-categories-section', null, []); ?>
-
-                </main>
-                <aside class="col-sm-12 col-md-4 sidebar-aside">
-                    <?php get_sidebar() ?>
-                </aside>
-            </div>
-        </div>
-    </div>
-</div>
-
-<?php get_footer(); ?>
+Timber::render( array( 'page-' . $timber_post->post_name . '.twig', 'page.twig' ), $context );
