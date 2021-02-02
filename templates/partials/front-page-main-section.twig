@@ -1,0 +1,50 @@
+<section id="main-section">
+	<div class="container-fluid main-section-container">
+		<div class="row ml-auto mr-auto pb-1">
+			<div class="col-xl-8 col-md-12 pl-0 pr-0 pl-md-4 pr-md-4">
+				<div id="vikalpsangam-org-carousel">
+					<div id="mainSlider">
+						{% for post in carousel_items %}
+
+
+							<div class="slider-item">
+								<a href="#">
+									<img src="{{ post.thumbnail.src("large") }}" class="carousel-thumbnail">
+									<div class="slick-carousel-caption">
+										<h4>{{ post.title }}</h4>
+										{{ post.preview.read_more(false).length(20) }}
+									</div>
+								</a>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+
+			</div>
+			<div id="featured-list" class="col-xl-4 col-md-12 pt-2">
+
+				<div class="featured-list-title-wrapper">
+					<img class="title-image" src="/wp-content/uploads/migrate/VS-Favicon.png">
+					<h3 class="highlights-title mb-0">Highlights</h3>
+				</div>
+				{% for post in promoted_articles %}
+					{% include 'partials/highlight-card.twig' %}
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
+<script>
+	jQuery(window).ready(() => {
+jQuery("#mainSlider").slick({
+infinite: true,
+speed: 300,
+slidesToShow: 1,
+centerMode: true,
+variableWidth: true,
+mobileFirst: true
+
+
+});
+});
+</script>
