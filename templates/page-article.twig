@@ -13,7 +13,7 @@
 			{% for category_group in stories_by_category %}
 
 				<div class="col-xs-12 category-topping-wrapper">
-					{% include 'partials/category-header.twig' with {'category': category_group.category } only %}
+					{% include 'partials/term-header.twig' with {'term': category_group.category } only %}
 
 					<div class="container-fluid p-0">
 						<div class="row category-page-category-list-wrapper">
