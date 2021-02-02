@@ -84,6 +84,8 @@ class VikalpsangamOrgSite extends Timber\Site {
 			new \Timber\Menu( 'footer-menu-2' ),
 			new \Timber\Menu( 'footer-menu-3' )
 		];
+		
+		$context["MAILCHIMP_SUBMIT_URL"] = "//vikalpsangam.us9.list-manage.com/subscribe/post?u=16f6762000d0db3e3e5190bf6&amp;id=4bd0241c3a";
 
 		return $context;
 	}

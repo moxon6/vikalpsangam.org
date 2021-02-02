@@ -20,7 +20,7 @@
 		<div class="footer-center col-xl-3 col-lg-12 col-md-8">
 			<h2 class="subscribe-title">Newsletter</h2>
 			<p class="subscribe-description">Enter your email address below to subscribe to our monthly newsletter</p>
-			<form action="<?php echo MAILCHIMP_SUBMIT_URL ?>" method="post">
+			<form action="{{ MAILCHIMP_SUBMIT_URL }}" method="post">
 				<input type="email" name="EMAIL" required placeholder="Email address">
 				<button type="submit">Sign up</button>
 			</form>
