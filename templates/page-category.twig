@@ -1,0 +1,15 @@
+{% extends "base.twig" %}
+{% block content %}
+
+	{% include 'partials/category-header.twig' with {'category': post.category } only %}
+
+	<div class="container-fluid p-0">
+		<div class="row" id="infinite-scroll-content">
+			{% for post in posts %}
+				<div class="col-xs-4 col-md-6 col-lg-4 pb-4">
+					{% include 'partials/article-tile.twig' with {'post': post } only %}
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}
