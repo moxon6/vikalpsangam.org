@@ -7,6 +7,7 @@
 
 $NUMBER_OF_CAROUSEL_ITEMS = 3;
 $NUMBER_PROMOTED_ARTICLES = 3;
+$NUMBER_STORIES_BY_CATEGORY = 4;
 
 $context["carousel_items"] = Timber::get_posts(array(
     'numberposts'	=> $NUMBER_OF_CAROUSEL_ITEMS,
@@ -22,13 +23,15 @@ $context["promoted_articles"] = Timber::get_posts(array(
     'meta_value'	=> '1'
 ));
 
+$context["category_posts"] = (new Categories())->getCategoryPosts($NUMBER_STORIES_BY_CATEGORY);
+
 ?>
 
 <?php get_header(); ?>
 
 <?php Timber::render( array( 'partials/front-page-main-section.twig' ), $context ); ?>
 
-<?php get_template_part( 'template-parts/front-page/stories-by-category-section'); ?>
+<?php Timber::render( array( 'partials/front-page-stories-by-category-section.twig' ), $context ); ?>
 
 <?php get_template_part( 'template-parts/front-page/about-section'); ?>
 

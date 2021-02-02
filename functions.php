@@ -386,8 +386,8 @@ class Categories {
 		$this->usedCategories[] = $category->term_id;
 
 		return [
-			"post" => $post,
-			"category" => $category
+			"post" => new Timber\Post($post),
+			"category" => new Timber\Term($category)
 		];
 	}
 
