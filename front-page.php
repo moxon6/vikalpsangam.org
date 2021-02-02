@@ -1,5 +1,63 @@
 <?php
 
+class CategoryPostsBuilder {
+        
+	function __construct() {
+		$this->unusedCategories = array_map(
+			fn($category) => $category->term_id,
+			array_values(get_categories())
+		);
+
+		$this->unusedCategories = array_filter(
+			$this->unusedCategories, 
+			fn($cat) => $cat != get_cat_ID("Perspectives")
+		);
+
+		$this->usedCategories = [];
+		$this->usedPosts = [];
+	}
+
+	function getRelevantCategory($post) {        
+		return wp_get_post_categories(
+			$post -> ID,
+			[ 
+				'fields' => 'all',
+				"exclude" => $this->usedCategories
+			]
+		)[0];
+	}
+
+	function getLatestRelevantPost() {
+		$post = get_posts(array(
+			'numberposts'	=> 1,
+			'post_type'		=> 'post',
+			"orderby"   => "date",
+			"order"     => "DSC",
+			'category__in'	=> $this->unusedCategories,
+			"exclude" => $this->usedPosts
+		))[0];
+
+		$this->usedPosts[] = $post->ID;
+
+		$category = $this->getRelevantCategory($post);
+
+		$this->unusedCategories = array_filter($this->unusedCategories, fn($cat) => $cat != $category->term_id);
+		$this->usedCategories[] = $category->term_id;
+
+		return [
+			"post" => new Timber\Post($post),
+			"category" => new Timber\Term($category)
+		];
+	}
+
+	function getCategoryPosts($n) {
+		return array_map(
+			fn($i) => $this->getLatestRelevantPost(),
+			range(0, $n - 1)
+		);
+	}
+}
+
 $context = Timber::context();
 $timber_post = new Timber\Post();
 $context['post'] = $timber_post;
@@ -22,7 +80,7 @@ $context["promoted_articles"] = Timber::get_posts(array(
     'meta_value'	=> '1'
 ));
 
-$context["category_posts"] = (new Categories())->getCategoryPosts($NUMBER_STORIES_BY_CATEGORY);
+$context["category_posts"] = (new CategoryPostsBuilder())->getCategoryPosts($NUMBER_STORIES_BY_CATEGORY);
 
 Timber::render( array( 'page-front.twig', 'page.twig' ), $context );
 
