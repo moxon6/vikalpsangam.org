@@ -19,6 +19,12 @@ if ( file_exists( $composer_autoload ) ) {
 Timber::$dirname = array( 'templates', 'views' );
 Timber::$autoescape = false;
 
+function buffer($fn) {
+	ob_start();
+	$fn();
+	return ob_get_clean();
+}
+
 class VikalpsangamOrgSite extends Timber\Site {
 	public function __construct() {
 		add_filter( 'timber/context', array( $this, 'add_to_context' ) );

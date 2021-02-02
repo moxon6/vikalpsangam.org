@@ -58,32 +58,33 @@
         }
       }
     }
-    .search-box {
-      margin-bottom: 0;
-      position: relative;
-      font-family: "Roboto";
+  }
+}
 
-      @include mobile {
-        margin-top: 24px;
-      }
+.search-box {
+  margin-bottom: 0;
+  position: relative;
+  font-family: "Roboto";
 
-      .search-box-submit-button {
-        position: absolute;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        right: 0px;
-        padding: 0;
-        border: 0;
-        background-color: transparent;
+  @include mobile {
+    margin-top: 24px;
+  }
 
-        .search-icon {
-          color: $dark-brick-col;
-        }
-      }
+  .search-box-submit-button {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    right: 0px;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
 
-      .search-box-input {
-        width: 100%;
-      }
+    .search-icon {
+      color: $dark-brick-col;
     }
+  }
+
+  .search-box-input {
+    width: 100%;
   }
 }
