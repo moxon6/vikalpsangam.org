@@ -12,7 +12,7 @@ $context["stories_by_category"] = array_map(
             'post_type'		=> 'post',
             "orderby"   => "date",
             "order"     => "DSC",
-            'category'	=> $category -> cat_ID
+            'category'	=> $category -> id
         ))
     ],
     $context["post_categories"]
