@@ -95,14 +95,16 @@ class VikalpsangamOrgSite extends Timber\Site {
 		return $context;
 	}
 
-	private function setup_sidebar_context($context) {
-
-		$context["sidebar_categories"] = Timber::get_terms('category', [
+	private function setup_common_context($context) {
+		$context["post_categories"] = Timber::get_terms('category', [
 			'hide_empty' => 1,
 			"exclude" => get_cat_ID("Perspectives")
 		]);
 
+		return $context;
+	}
 
+	private function setup_sidebar_context($context) {
 		$context["sidebar_recent_activity"] = Timber::get_posts(array(
 			'numberposts' => 5,
 			'post_type'	=> 'post',
@@ -124,6 +126,7 @@ class VikalpsangamOrgSite extends Timber\Site {
 		$context = $this->setup_footer_context($context);
 		$context = $this->setup_header_context($context);
 		$context = $this->setup_sidebar_context($context);
+		$context = $this->setup_common_context($context);
 		return $context;
 	}
 
