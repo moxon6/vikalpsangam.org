@@ -28,28 +28,12 @@ function buffer($fn) {
 class VikalpsangamOrgSite extends Timber\Site {
 	public function __construct() {
 		add_filter( 'timber/context', array( $this, 'add_to_context' ) );
-		add_filter( 'timber/twig', array( $this, 'add_to_twig' ) );
 		parent::__construct();
 	}
 
 	private function get_template_image_url($image_url) {
         return get_bloginfo('template_url') . $image_url . "?v=" . vikalpsangam_VERSION;
 	}
-
-	private function get_tags_from_post($posts) {
-        $ids = [];
-        $tags = [];
-        foreach($posts as $post) {
-            $post_tags = get_the_tags($post->ID);
-            foreach($post_tags as $tag) {
-                if (!in_array($tag->term_id, $ids)) {
-                    $ids[] = $tag->term_id;
-                    $tags[] = $tag;
-                }
-            }
-        }
-        return $tags;
-    }
 	
 	private function setup_footer_context($context) {
 		$context['footer_logo'] = $this->get_template_image_url("/images/footer/site-logo.png");
@@ -107,7 +91,32 @@ class VikalpsangamOrgSite extends Timber\Site {
 			"order" => "DSC"
 		)));
 		
+		add_filter('wp_generate_tag_cloud_data', function ($tags_data) {
+			foreach ($tags_data as $key => $tag) {
+				$weight = $this->get_tag_weight($tag["real_count"]);
+				$tags_data[$key]['class'] .=  " tag-weight-$weight";
+			}			
+			return $tags_data;
+		});
+
+		$context["sidebar_tag_cloud_widget"] = wp_tag_cloud([
+			"echo" => false,
+			'smallest'   => 0.8,
+			'largest'    => 1.4,
+			'unit' => 'em'
+		]);
+		
 		return $context;
+	}
+
+	private function get_tag_weight($count) {
+		if ($count > 150) {
+			return 3;
+		}
+		if ($count > 100) {
+			return 2;
+		}
+		return 1;
 	}
 	
 	public function add_to_context( $context ) {
@@ -117,19 +126,6 @@ class VikalpsangamOrgSite extends Timber\Site {
 		$context = $this->setup_common_context($context);
 		return $context;
 	}
-
-	function add_to_twig( $twig ) {
-		$twig->addFilter( new Timber\Twig_Filter( 'tagWeight', function ($count) {
-			if ($count > 150) {
-				return 3;
-			}
-			if ($count > 50) {
-				return 2;
-			}
-			return 1;
-		}));
-		return $twig;
-	}	
 }
 
 new VikalpsangamOrgSite();
