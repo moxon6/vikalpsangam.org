@@ -42,7 +42,7 @@
     "build:scss": "node-sass --importer node_modules/node-sass-package-importer/dist/cli.js -o . style.scss",
     "build:scss-rtl": "rtlcss style.css style-rtl.css",
     "browsersync": "browser-sync start --files \"**/*.(php|js|css)\"",
-    "lint:scss": "wp-scripts lint-style sass",
+    "lint:scss": "wp-scripts lint-style \"views/**/*.scss\"",
     "lint:js": "wp-scripts lint-js 'js/**/*.js'",
     "bundle": "dir-archiver --src . --dest ./vikalpsangam.zip --exclude $(cat .buildignore)",
     "copy-fonts": "cp node_modules/bootstrap-sass/assets/fonts/bootstrap/* fonts -n"
