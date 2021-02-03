@@ -16,7 +16,6 @@ if ( file_exists( $composer_autoload ) ) {
 	$timber = new Timber\Timber();
 }
 
-Timber::$dirname = array( 'templates', 'views' );
 Timber::$autoescape = false;
 
 function buffer($fn) {
