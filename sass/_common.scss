@@ -49,32 +49,3 @@
     @include clamp($i);
   }
 }
-
-@mixin category-header {
-  height: 70px;
-  display: block;
-
-  .header {
-    color: #9e332e;
-    text-decoration: none;
-    text-transform: uppercase;
-    height: 100%;
-    display: flex;
-    padding-left: 8px;
-    padding-right: 8px;
-
-    justify-content: start;
-    align-items: center;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-
-    .category-name {
-      font-size: 20px;
-    }
-
-    .category-image {
-      width: 60px;
-      height: 60px;
-      margin-right: 16px;
-    }
-  }
-}
