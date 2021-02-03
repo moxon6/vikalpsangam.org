@@ -3,4 +3,4 @@ style.css
 style-rtl.css
 vendor
 version.php
-sass/_version.scss
+_version.scss

@@ -11,10 +11,6 @@
  * GitHub Theme URI: https://github.com/moxon6/vikalpsangam.org
  */
 
-@import "fonts";
-@import "mixins";
-@import "colors";
-
+@import "scss/index";
 @import "node_modules/bootstrap/scss/bootstrap";
-
-@import "../templates/index";
+@import "templates/index";
