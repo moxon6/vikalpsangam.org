@@ -2,14 +2,7 @@
 	<div class="card post-tile-card">
 
 		{% if category %}
-
-			<a class="see-all-stories category-card-header-wrapper" href="{{ category.link }}">
-				<div class="card-header header">
-					<img class="category-image" src="{{ Image(category.meta('image')).src }}"/>
-					<span class="category-name">{{ category.name }}</span>
-				</div>
-			</a>
-
+			{% include 'partials/_term-header.twig' with {'term': category } only %}
 		{% endif %}
 
 		<a href="{{ post.link }}">

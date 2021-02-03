@@ -1,11 +1,5 @@
-@import "partials/post-tile";
-@import "partials/carousel";
-@import "partials/category-header";
-@import "partials/footer";
-@import "partials/highlight-card";
-@import "partials/nav";
-@import "partials/search-form";
-@import "partials/sidebar";
-@import "partials/categories-list";
+@import "partials/index";
 
+@import "base-content";
 @import "page-front";
+@import "page-single";

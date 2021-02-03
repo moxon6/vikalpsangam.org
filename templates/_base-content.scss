@@ -1,0 +1,12 @@
+.sidebar-aside {
+  padding-bottom: 20px;
+
+  @include desktop {
+    padding-left: 30px;
+    border-left: 2px solid $light-gray-col;
+  }
+
+  h5 {
+    padding-top: 10px;
+  }
+}

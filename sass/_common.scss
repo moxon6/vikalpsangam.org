@@ -1,93 +1,6 @@
 @import "colors.scss";
 @import "fonts.scss";
 
-.category-title-link {
-  background-size: contain;
-}
-
-.menu-arrow-after {
-  position: absolute;
-  top: 80%;
-  left: 50%;
-  display: block;
-  width: 0;
-  height: 0;
-  margin-left: -10px;
-  content: "";
-  border-color: transparent transparent $white transparent;
-  border-style: solid;
-  border-width: 10px;
-}
-
-.see-all-stories-wrapper {
-  padding-right: 10px;
-  margin: 0 0 20px 0;
-  text-align: right;
-}
-
-.see-all-stories {
-  font-size: 1.125em;
-  color: $dark-brick-col;
-  text-decoration: none;
-  text-transform: uppercase;
-
-  &:hover {
-    color: $dark-brick-col;
-    text-decoration: none;
-  }
-
-  &.top {
-    display: block;
-    float: right;
-    margin-top: 20px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    text-align: right;
-  }
-}
-
-.read-more {
-  color: $dark-brick-col;
-  text-decoration: none;
-  text-transform: uppercase;
-
-  &:hover {
-    color: $dark-brick-col;
-    text-decoration: none;
-  }
-}
-
-.space-xs {
-  height: 10px;
-}
-
-.sidebar-aside {
-  padding-bottom: 20px;
-
-  @include desktop {
-    padding-left: 30px;
-    border-left: 2px solid $light-gray-col;
-  }
-
-  h5 {
-    padding-top: 10px;
-  }
-}
-
-.no-padding {
-  padding: 0;
-}
-
-.border-bottom-only-wrapper {
-  &.default-margin-right-margin {
-    margin-right: -15px;
-  }
-
-  &.default-margin-left-margin {
-    margin-left: -15px;
-  }
-}
-
 .btn-primary {
   color: $white;
   background-color: $dark-brick-col;
@@ -99,31 +12,6 @@
     background-color: $dark-brick-col;
     border: 1px solid $light-gray-col;
   }
-}
-
-.form-control {
-  border-radius: 0;
-}
-
-#author-date-category,
-#story-tags {
-  .text {
-    color: $dark-gray-col;
-  }
-
-  a {
-    color: $dark-brick-col;
-    text-decoration: none;
-
-    &:hover {
-      color: $dark-brick-col;
-      text-decoration: none;
-    }
-  }
-}
-
-.img-fluid {
-  margin: 0 auto;
 }
 
 @include desktop {
@@ -149,10 +37,6 @@
   }
 }
 
-.post-tile-image {
-  height: 180px;
-}
-
 @mixin clamp($i) {
   display: -webkit-box;
   -webkit-line-clamp: $i;
@@ -167,6 +51,7 @@
 }
 
 .post-tile-title {
+  height: 180px;
   @include clamp(3);
   height: 57px;
 }

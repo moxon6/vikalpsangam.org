@@ -1,4 +1,7 @@
 {% extends "base-content.twig" %}
+
+{% set page_id = 'page-single' %}
+
 {% block content %}
 	<h2>{{ post.title }}</h2>
 	<div id="author-date-category">
@@ -36,12 +39,9 @@
 
 		{% endfor %}
 	</div>
-	<div class="space-xs"></div>
-	<div class="row border-bottom-only-wrapper default-margin-right-margin">
-		<div class="col-xs-12">
-			<div class="border-bottom-only"></div>
-		</div>
-	</div>
+
+	<hr/>
+
 	<div class="row">
 		<div id="article-comments" class="comments-section">
 			{{ function("comments_template") }}

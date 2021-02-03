@@ -1,0 +1,18 @@
+#page-single {
+  #author-date-category,
+  #story-tags {
+    .text {
+      color: $dark-gray-col;
+    }
+
+    a {
+      color: $dark-brick-col;
+      text-decoration: none;
+
+      &:hover {
+        color: $dark-brick-col;
+        text-decoration: none;
+      }
+    }
+  }
+}
