@@ -1,7 +1,49 @@
 {% extends "base.twig" %}
 
 {% block page %}
-	{% include 'partials/front-page-main-section.twig' %}
-	{% include 'partials/front-page-stories-by-category-section.twig' %}
-	{% include 'partials/front-page-about-section.twig' %}
+	<section id="main-section">
+		<div class="container-fluid main-section-container">
+			<div class="row ml-auto mr-auto pb-1">
+				<div class="col-xl-8 col-md-12 pl-0 pr-0 pl-md-4 pr-md-4">
+					{% include 'partials/carousel.twig' %}
+				</div>
+				<div class="col-xl-4 col-md-12 pt-2">
+					{% include 'partials/highlights.twig' %}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="stories-by-category-section">
+		<div class="container stories-by-category-section-container pt-4 pb-4">
+			<div class="row justify-content-between">
+				<div class="col-sm-6 col-xs-12">
+					<h4>Stories By Category</h4>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				{% for category_post in category_posts %}
+					<div class="col-xs-4 col-md-6 col-lg-3 pb-4">
+						{% include 'partials/article-tile.twig' with category_post only %}
+					</div>
+				{% endfor %}
+			</div>
+			<div class="row justify-content-between mt-4">
+				<div class="col-12 d-flex justify-content-end">
+					<a class="btn btn-primary" href="/article">SEE ALL CATEGORIES</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="about-section">
+		<div class="container-fluid about-section-container">
+			<div class=" row about-section-row">
+				<div class="col-md-12">
+					<h3>ABOUT VIKALP SANGAM</h3>
+					{{ post.content }}
+				</div>
+			</div>
+		</div>
+	</section>
 {% endblock %}
