@@ -100,10 +100,7 @@ class VikalpsangamOrgSite extends Timber\Site {
 		});
 
 		$context["sidebar_tag_cloud_widget"] = wp_tag_cloud([
-			"echo" => false,
-			'smallest'   => 0.8,
-			'largest'    => 1.4,
-			'unit' => 'em'
+			"echo" => false
 		]);
 		
 		return $context;
