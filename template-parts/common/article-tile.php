@@ -8,9 +8,7 @@
         </div>
     </a>
     <div class="plain-text-sub-section">
-        <p class="col-cs-12 excerpt">
-            <?php echo filter_excerpt(get_the_excerpt()); ?>
-        </p>
+        <p class="col-cs-12 excerpt"><?php echo get_the_excerpt(); ?></p>
     </div>
     <div class="read-more-wrapper">
         <a class="read-more" href="<?php echo get_the_permalink(); ?>">
