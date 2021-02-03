@@ -1,7 +1,7 @@
 <div class="sidebar">
 
 	<h5>Story Categories</h5>
-	{% include 'partials/categories-list.twig' %}
+	{% include 'partials/_categories-list.twig' %}
 
 
 	<h5>Explore Stories</h5>
@@ -16,12 +16,12 @@
 	</script>
 
 	<h5>Events</h5>
-	{% include 'partials/events.twig' %}
+	{% include 'partials/_events.twig' %}
 
 	<h5>Recent posts</h5>
 	<div class="featured-list in-sidebar">
 		{% for post in sidebar_recent_activity %}
-			{% include 'partials/highlight-card.twig' %}
+			{% include 'partials/_highlight-card.twig' %}
 		{% endfor %}
 	</div>
 </div>

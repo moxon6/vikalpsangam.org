@@ -4,6 +4,6 @@
 
 {% for post in posts %}
 	<div class="col-xs-4 col-md-6 col-lg-4 pb-4">
-		{% include 'partials/article-tile.twig' with {'post': post, 'category': category } only %}
+		{% include 'partials/_article-tile.twig' with {'post': post, 'category': category } only %}
 	</div>
 {% endfor %}

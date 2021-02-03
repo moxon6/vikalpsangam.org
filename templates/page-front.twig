@@ -5,10 +5,10 @@
 		<div class="container-fluid main-section-container">
 			<div class="row ml-auto mr-auto pb-1">
 				<div class="col-xl-8 col-md-12 pl-0 pr-0 pl-md-4 pr-md-4">
-					{% include 'partials/carousel.twig' %}
+					{% include 'partials/_carousel.twig' %}
 				</div>
 				<div class="col-xl-4 col-md-12 pt-2">
-					{% include 'partials/highlights.twig' %}
+					{% include 'partials/_highlights.twig' %}
 				</div>
 			</div>
 		</div>
@@ -24,7 +24,7 @@
 			<div class="row justify-content-center">
 				{% for category_post in category_posts %}
 					<div class="col-xs-4 col-md-6 col-lg-3 pb-4">
-						{% include 'partials/article-tile.twig' with category_post only %}
+						{% include 'partials/_article-tile.twig' with category_post only %}
 					</div>
 				{% endfor %}
 			</div>

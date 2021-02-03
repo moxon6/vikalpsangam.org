@@ -342,7 +342,7 @@ function infinite_scroll_render() {
 	$context = [
 		'posts' => Timber::get_posts(),
 	];
-	Timber::render('partials/article-tile-loop.twig', $context);
+	Timber::render('partials/_article-tile-loop.twig', $context);
 }
 
 function jetpackme_more_related_posts( $options ) {

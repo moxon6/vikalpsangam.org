@@ -1,11 +1,11 @@
 {% extends "base-content.twig" %}
 {% block content %}
 
-	{% include 'partials/term-header.twig' with {'term': term } only %}
+	{% include 'partials/_term-header.twig' with {'term': term } only %}
 
 	<div class="container-fluid p-0">
 		<div class="row" id="infinite-scroll-content">
-			{% include 'partials/article-tile-loop.twig' with {'posts': posts } only %}
+			{% include 'partials/_article-tile-loop.twig' with {'posts': posts } only %}
 		</div>
 	</div>
 {% endblock %}
