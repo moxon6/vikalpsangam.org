@@ -27,16 +27,6 @@
   }
 }
 
-#page {
-  .container-fluid .row {
-    > main,
-    aside {
-      padding-top: 32px;
-      padding-bottom: 96px;
-    }
-  }
-}
-
 @mixin clamp($i) {
   display: -webkit-box;
   -webkit-line-clamp: $i;

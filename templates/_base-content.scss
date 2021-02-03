@@ -1,5 +1,12 @@
+.left-section {
+  padding-top: 32px;
+  padding-bottom: 96px;
+}
+
 .sidebar-aside {
   padding-bottom: 20px;
+  padding-top: 32px;
+  padding-bottom: 96px;
 
   @include desktop {
     padding-left: 30px;
