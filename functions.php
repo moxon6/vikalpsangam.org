@@ -34,6 +34,8 @@ if ( ! function_exists( 'vikalpsangam_setup' ) ) :
 		 */
 		add_theme_support( 'title-tag' );
 
+		add_theme_support( 'wp-block-styles' );
+
 		/*
 		 * Enable support for Post Thumbnails on posts and pages.
 		 *
@@ -87,15 +89,6 @@ if ( ! function_exists( 'vikalpsangam_setup' ) ) :
 	}
 endif;
 add_action( 'after_setup_theme', 'vikalpsangam_setup' );
-
-
-
-function smartwp_remove_wp_block_library_css(){
-    wp_dequeue_style( 'wp-block-library' );
-    wp_dequeue_style( 'wp-block-library-theme' );
-	wp_dequeue_style( 'wc-block-style' ); // Remove WooCommerce block CSS
-} 
-add_action( 'wp_enqueue_scripts', 'smartwp_remove_wp_block_library_css', 100 );
 
 remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('wp_print_styles', 'print_emoji_styles');
