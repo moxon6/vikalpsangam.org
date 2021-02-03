@@ -17,3 +17,29 @@
     padding-top: 10px;
   }
 }
+
+@include desktop {
+  #page {
+    max-width: 1360px;
+    margin-left: auto;
+    margin-right: auto;
+
+    .container-fluid .row {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+.btn-primary {
+  color: $white;
+  background-color: $dark-brick-col;
+  border: 1px solid $light-gray-col;
+  border-radius: 0;
+
+  &:hover {
+    color: $white;
+    background-color: $dark-brick-col;
+    border: 1px solid $light-gray-col;
+  }
+}
