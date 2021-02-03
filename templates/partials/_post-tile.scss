@@ -1,9 +1,6 @@
 .excerpt {
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
+  @include clamp(4);
   height: 68px;
-  overflow: hidden;
 }
 
 .card-header {
@@ -24,7 +21,6 @@
 }
 
 .post-tile-title {
-  height: 180px;
   @include clamp(3);
   height: 57px;
 }
