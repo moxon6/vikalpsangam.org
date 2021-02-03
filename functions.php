@@ -221,6 +221,12 @@ class Categories {
 			fn($category) => $category->term_id,
 			array_values(get_categories())
 		);
+
+		$this->unusedCategories = array_filter(
+			$this->unusedCategories, 
+			fn($cat) => $cat != get_cat_ID("Perspectives")
+		);
+
 		$this->usedCategories = [];
 		$this->usedPosts = [];
 	}
