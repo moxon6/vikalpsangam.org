@@ -81,45 +81,6 @@
     }
   }
 
-  #mainSlider:not(.slick-initialized) {
-    overflow: hidden;
-    > :not(:first-child) {
-      display: none;
-
-      .carousel-thumbnail {
-        width: 100%;
-      }
-    }
-  }
-
-  .slick-slide a {
-    display: flex;
-    justify-content: center;
-  }
-
-  .slick-slide:not(.slick-current) {
-    opacity: 0.2;
-
-    &:focus-within:hover {
-      opacity: 1;
-    }
-
-    .slick-carousel-caption {
-      @include mobile {
-        display: none;
-      }
-    }
-  }
-
-  .slick-slide.slick-current {
-    .slick-carousel-caption {
-      position: initial;
-      @include mobile {
-        max-width: 100vw;
-      }
-    }
-  }
-
   #about-section {
     .about-section-container {
       max-width: 1440px;
