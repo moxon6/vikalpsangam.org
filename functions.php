@@ -93,7 +93,7 @@ class VikalpsangamOrgSite extends Timber\Site {
 		
 		add_filter('wp_generate_tag_cloud_data', function ($tags_data) {
 			foreach ($tags_data as $key => $tag) {
-				$weight = $this->get_tag_weight($tag["real_count"]);
+				$weight = floor($tag["real_count"] / 50);
 				$tags_data[$key]['class'] .=  " tag-weight-$weight";
 			}			
 			return $tags_data;
@@ -107,16 +107,6 @@ class VikalpsangamOrgSite extends Timber\Site {
 		]);
 		
 		return $context;
-	}
-
-	private function get_tag_weight($count) {
-		if ($count > 150) {
-			return 3;
-		}
-		if ($count > 100) {
-			return 2;
-		}
-		return 1;
 	}
 	
 	public function add_to_context( $context ) {
