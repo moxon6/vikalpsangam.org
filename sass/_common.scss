@@ -1,6 +1,18 @@
 @import "colors.scss";
 @import "fonts.scss";
 
+@mixin mobile {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
 .btn-primary {
   color: $white;
   background-color: $dark-brick-col;

@@ -1,0 +1,45 @@
+// Jetpack styles
+
+#infinite-handle {
+  display: flex;
+  width: 100%;
+  margin-bottom: 25px;
+
+  span {
+    width: 100%;
+
+    button {
+      width: 100%;
+    }
+  }
+}
+
+.jp-relatedposts {
+  padding-top: 32px;
+  border-top: 2px solid $light-gray-col;
+
+  h3.jp-relatedposts-headline em {
+    font-size: 20px;
+
+    &::before {
+      border-top: 0 !important;
+    }
+  }
+}
+
+.jp-relatedposts-grid {
+  display: flex;
+}
+
+// Contact-form
+
+#page {
+  form.contact-form {
+    width: 600px;
+
+    .email,
+    .name {
+      width: 100%;
+    }
+  }
+}

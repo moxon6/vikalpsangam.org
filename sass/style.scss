@@ -12,20 +12,14 @@
  */
 
 @import "colors";
+@import "fonts";
 
 @import "node_modules/bootstrap/scss/bootstrap";
 
-@import "utils";
-
-@import "fonts";
 @import "globals";
 
 @import "blocks";
 @import "common";
-@import "contacts-form";
 @import "comments";
-@import "related-posts";
-@import "infinite-scroll";
-@import "print";
 
 @import "../templates/index";

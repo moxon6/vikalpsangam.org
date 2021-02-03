@@ -1,4 +1,7 @@
 .comments-section {
+  @media print {
+    display: none;
+  }
   padding-left: 24px;
   padding-right: 24px;
   .commentlist {

@@ -1,6 +1,10 @@
 footer.container-fluid {
   padding: 0;
 
+  @media print {
+    display: none;
+  }
+
   .footer-partners {
     width: 100%;
     background-color: #efefef;

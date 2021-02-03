@@ -1,4 +1,8 @@
 .sidebar {
+  @media print {
+    display: none;
+  }
+
   .sidebar-map {
     height: 400px;
   }
