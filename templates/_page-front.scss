@@ -1,0 +1,221 @@
+#page-front {
+  #main-section {
+    .main-section-container {
+      padding-left: 0;
+      padding-right: 0;
+
+      #vikalpsangam-org-carousel {
+        @include desktop {
+          height: 553px;
+        }
+
+        .carousel-thumbnail {
+          @include desktop {
+            height: 553px;
+          }
+
+          @include mobile {
+            height: 350px;
+          }
+        }
+
+        .slider-item {
+          position: relative;
+
+          a {
+            outline: none;
+          }
+
+          .slick-carousel-caption {
+            position: absolute;
+            max-width: calc(min(80%, 80vw));
+            bottom: 24px;
+            padding: 10px 20px;
+            text-align: left;
+            text-shadow: none;
+            background-color: rgba(255, 255, 255, 0.8);
+
+            @include mobile {
+              h4 {
+                font-size: 0.75em;
+              }
+            }
+
+            p {
+              font-size: 0.75em;
+              color: $dark-brick-col;
+
+              display: -webkit-box;
+              -webkit-line-clamp: 2;
+              -webkit-box-orient: vertical;
+              overflow: hidden;
+            }
+          }
+        }
+
+        .carousel-inner {
+          max-height: 100%;
+
+          .carousel-item {
+            .carousel-image {
+              @include desktop {
+                height: 553px;
+              }
+              @include mobile {
+                height: 350px;
+              }
+
+              object-fit: cover;
+            }
+
+            .slick-carousel-caption {
+              bottom: 14%;
+              left: 10%;
+              width: auto;
+              padding: 10px 20px;
+              text-align: left;
+              text-shadow: none;
+              background-color: rgba(255, 255, 255, 0.8);
+              p {
+                font-size: 0.75em;
+                color: $dark-brick-col;
+              }
+            }
+          }
+        }
+      }
+
+      #featured-list {
+        display: flex;
+        flex-direction: column;
+
+        .featured-list-title-wrapper {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .title-image {
+            margin: 0;
+            height: 64px;
+            width: 64px;
+            margin-right: 12px;
+          }
+        }
+
+        .highlights-title {
+          text-align: center;
+        }
+
+        .featured-list-card-body {
+          padding: 8px;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+
+          p {
+            position: relative;
+            margin-bottom: 0;
+            font-size: 0.75em;
+            overflow: hidden;
+          }
+        }
+      }
+    }
+  }
+
+  #stories-by-category-section {
+    background-color: #e8e8e8;
+
+    .stories-by-category-section-container {
+      max-width: 1440px;
+
+      .category-card {
+        height: 100%;
+
+        .category-card-image {
+          height: 200px;
+          width: 100%;
+          object-fit: cover;
+          background-color: #9f332f;
+        }
+
+        .category-card-header-wrapper {
+          @include category-header;
+        }
+
+        .card-body {
+          padding: 8px;
+          flex: 1;
+          flex-grow: 0;
+
+          .card-title {
+            width: 100%;
+            font-size: 16px;
+
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+          }
+        }
+      }
+    }
+  }
+
+  #mainSlider:not(.slick-initialized) {
+    overflow: hidden;
+    > :not(:first-child) {
+      display: none;
+
+      .carousel-thumbnail {
+        width: 100%;
+      }
+    }
+  }
+
+  .slick-slide a {
+    display: flex;
+    justify-content: center;
+  }
+
+  .slick-slide:not(.slick-current) {
+    opacity: 0.2;
+
+    &:focus-within:hover {
+      opacity: 1;
+    }
+
+    .slick-carousel-caption {
+      @include mobile {
+        display: none;
+      }
+    }
+  }
+
+  .slick-slide.slick-current {
+    .slick-carousel-caption {
+      position: initial;
+      @include mobile {
+        max-width: 100vw;
+      }
+    }
+  }
+
+  #about-section {
+    .about-section-container {
+      max-width: 1440px;
+      .about-section-row {
+        padding-top: 32px;
+        padding-bottom: 16px;
+
+        h2 {
+          font-size: 1.125em;
+        }
+
+        p {
+          padding-bottom: 12px;
+        }
+      }
+    }
+  }
+}
