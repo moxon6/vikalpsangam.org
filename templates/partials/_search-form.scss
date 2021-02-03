@@ -1,0 +1,27 @@
+.search-box {
+  margin-bottom: 0;
+  position: relative;
+  font-family: "Roboto";
+
+  @include mobile {
+    margin-top: 24px;
+  }
+
+  .search-box-submit-button {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    right: 0px;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+
+    .search-icon {
+      color: $dark-brick-col;
+    }
+  }
+
+  .search-box-input {
+    width: 100%;
+  }
+}
