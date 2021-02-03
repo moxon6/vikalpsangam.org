@@ -311,7 +311,7 @@ add_action( 'widgets_init', 'vikalpsangam_widgets_init' );
  */
 require get_template_directory() . '/inc/dependencies.php';
 
-require get_template_directory() . '/inc/functions/page-stories.php';
+require get_template_directory() . '/inc/functions/perspectives-patches.php';
 
 if (is_admin()) {
 	require get_template_directory() . '/inc/admin/admin.php';
