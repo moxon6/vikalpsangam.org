@@ -149,7 +149,7 @@
   }
 }
 
-.article-tile-image {
+.post-tile-image {
   height: 180px;
 }
 
@@ -166,22 +166,22 @@
   }
 }
 
-.article-tile-title {
+.post-tile-title {
   @include clamp(3);
   height: 57px;
 }
 
-.article-tile-text {
+.post-tile-text {
   font-size: 14px;
   height: 105px;
   @include clamp(5);
 }
 
-.article-tile {
+.post-tile {
   @include mobile {
     display: flex;
     justify-content: center;
-    .article-tile-card {
+    .post-tile-card {
       max-width: 450px;
     }
   }
