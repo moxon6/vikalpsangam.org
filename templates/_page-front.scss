@@ -47,37 +47,6 @@
 
     .stories-by-category-section-container {
       max-width: 1440px;
-
-      .category-card {
-        height: 100%;
-
-        .category-card-image {
-          height: 200px;
-          width: 100%;
-          object-fit: cover;
-          background-color: #9f332f;
-        }
-
-        .category-card-header-wrapper {
-          @include category-header;
-        }
-
-        .card-body {
-          padding: 8px;
-          flex: 1;
-          flex-grow: 0;
-
-          .card-title {
-            width: 100%;
-            font-size: 16px;
-
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-          }
-        }
-      }
     }
   }
 
