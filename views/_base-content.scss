@@ -30,16 +30,3 @@
     }
   }
 }
-
-.btn-primary {
-  color: $white;
-  background-color: $dark-brick-col;
-  border: 1px solid $light-gray-col;
-  border-radius: 0;
-
-  &:hover {
-    color: $white;
-    background-color: $dark-brick-col;
-    border: 1px solid $light-gray-col;
-  }
-}
