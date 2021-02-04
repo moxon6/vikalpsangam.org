@@ -1,18 +1,17 @@
-<div id="vikalpsangam-org-carousel">
-	<div id="mainSlider">
-		{% for post in carousel_items %}
-			<div class="slider-item">
-				<a href="#">
-					<img src="{{ post.thumbnail.src("large") }}" class="carousel-thumbnail">
-					<div class="slick-carousel-caption">
-						<h4>{{ post.title }}</h4>
-						{{ post.preview.read_more(false).length(20) }}
-					</div>
-				</a>
+<div id="mainSlider">
+	{% for post in carousel_items %}
+		<a class="slider-item" href="#">
+
+			<img src="{{ post.thumbnail.src("large") }}" class="carousel-thumbnail">
+			<div class="slick-carousel-caption">
+				<h4 class="post-title">{{ post.title }}</h4>
+				<p class="post-excerpt">{{ post.preview.read_more(false).length(20) }}</p>
 			</div>
-		{% endfor %}
-	</div>
+
+		</a>
+	{% endfor %}
 </div>
+
 
 <script>
 	jQuery(window).ready(() => {
