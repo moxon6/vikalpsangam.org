@@ -1,5 +1,4 @@
 .comment {
-  padding-bottom: 12px;
   margin-bottom: 12px;
 }
 
@@ -27,4 +26,8 @@
   &:not(:last-child) {
     margin-right: 4px;
   }
+}
+
+.child-comments {
+  margin-top: 20px;
 }

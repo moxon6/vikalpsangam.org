@@ -13,6 +13,13 @@
 			<a class="comment-button">Edit</a>
 			<a class="comment-button">Reply</a>
 		</div>
+
+		<div class="child-comments">
+			{% for child_comment in comment.children %}
+				{% include 'partials/_comment.twig' with { 'comment': child_comment } %}
+			{% endfor %}
+		</div>
+
 	</div>
 
 </article>
