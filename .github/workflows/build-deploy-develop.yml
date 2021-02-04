@@ -13,11 +13,6 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: '12'
-    
-    - name: "Composer install"
-      run: composer install
-      with:
-        dev: no
 
     - name: "Lint php"
       run: composer lint:php
