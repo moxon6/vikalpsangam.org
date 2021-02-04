@@ -311,6 +311,7 @@ function filter_excerpt($excerpt) {
 	return wp_trim_words($excerpt, apply_filters("excerpt_length", 20));
 }
 
+add_filter('comment_form_field_url', '__return_false');
 
 function custom_rewrite_rule() {
 	add_rewrite_rule( '^resources\/(.*)\/?', 'index.php?pagename=resources&resource=$matches[1]', 'top' );

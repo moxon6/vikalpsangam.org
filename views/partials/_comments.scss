@@ -8,4 +8,47 @@
 }
 
 .comment-respond {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.comment .comment-respond {
+  border-top: 1px solid #80808052;
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+.comment-reply-title {
+  font-size: 18px;
+}
+
+.comment-form {
+  position: relative;
+}
+
+#cancel-comment-reply-link {
+  margin-left: 20px;
+}
+
+.comment-form-comment {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+  margin-bottom: 30px;
+
+  textarea#comment {
+    padding: 12px;
+  }
+}
+
+.form-submit {
+  position: absolute;
+  bottom: -30px;
+  margin-bottom: 0;
+  right: 0;
+  height: 30px;
+  input {
+    @extend .btn;
+    @extend .btn-primary;
+  }
 }

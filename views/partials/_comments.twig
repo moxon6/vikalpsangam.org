@@ -2,6 +2,14 @@
 
 	{{ function('comment_form') }}
 
+	<script>
+		const commentTextarea = document.querySelector('textarea#comment')
+commentTextarea.setAttribute("rows", 1)
+commentTextarea.setAttribute("placeholder", "Your comment")
+
+autosize(commentTextarea);
+	</script>
+
 	{% for comment in post.comments %}
 		{% include 'partials/_comment.twig' %}
 	{% endfor %}
