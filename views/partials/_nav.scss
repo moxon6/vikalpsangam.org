@@ -1,4 +1,6 @@
 #vikalpsangam-navbar {
+  @include global-styles();
+
   @media print {
     display: none;
   }

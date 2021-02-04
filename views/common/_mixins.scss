@@ -17,6 +17,14 @@
   overflow: hidden;
 }
 
+@mixin header-style {
+  font-family: $roboto-black;
+  color: $dark-brick-col;
+  text-shadow: none;
+  text-transform: uppercase;
+  opacity: 1;
+}
+
 @mixin global-styles {
   // The set of global styles present on the original site.
   // TODO: Gradually imgrate away from using this
@@ -29,18 +37,6 @@
   h4,
   h5,
   h6 {
-    font-family: $roboto-black;
-    color: $dark-brick-col;
-    text-shadow: none;
-    text-transform: uppercase;
-    opacity: 1;
-  }
-
-  a {
-    color: $dark-brick-col;
-
-    &:hover {
-      color: $dark-brick-col;
-    }
+    @include header-style;
   }
 }

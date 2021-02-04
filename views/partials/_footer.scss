@@ -1,4 +1,6 @@
 footer.container-fluid {
+  @include global-styles();
+
   padding: 0;
 
   @media print {
