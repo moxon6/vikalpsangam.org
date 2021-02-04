@@ -25,8 +25,7 @@ function vikalpsangam_scripts() {
 
 	wp_enqueue_script( 'vikalpsangam', get_template_directory_uri() . '/js/site/index.js', ["jquery", "leaflet/js"], vikalpsangam_VERSION );
 	
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
+	wp_enqueue_script( 'comment-reply' );
+	
 }
 add_action( 'wp_enqueue_scripts', 'vikalpsangam_scripts' );

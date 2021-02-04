@@ -18,7 +18,8 @@
   padding-top: 12px;
 }
 
-.comment-button {
+.comment-button,
+.comment-reply-link {
   color: $dark-gray-col;
   &:not(:first-child) {
     margin-left: 4px;
