@@ -1,6 +1,4 @@
 #vikalpsangam-navbar {
-  @include global-styles();
-
   @media print {
     display: none;
   }
@@ -57,6 +55,7 @@
           align-items: center;
           padding-left: 16px;
           font-size: 18px;
+          @include header-style;
 
           @include desktop {
             padding-right: 16px;

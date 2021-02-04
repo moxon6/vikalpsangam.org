@@ -1,5 +1,6 @@
 footer.container-fluid {
-  @include global-styles();
+  font-family: $roboto;
+  font-size: 16px;
 
   padding: 0;
 
@@ -84,6 +85,7 @@ footer.container-fluid {
       padding-left: 10px;
       padding-right: 10px;
       .subscribe-title {
+        @include header-style;
         color: white;
         text-align: center;
       }
