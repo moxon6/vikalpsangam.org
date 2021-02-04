@@ -18,12 +18,22 @@
   padding-top: 20px;
 }
 
+.comment-reply-wrapper {
+  min-width: 600px;
+}
+
 .comment-reply-title {
   font-size: 18px;
 }
 
 .comment-form {
   position: relative;
+  display: flex;
+  flex-direction: column;
+
+  .comment-notes {
+    width: 100%;
+  }
 }
 
 #cancel-comment-reply-link {
@@ -33,11 +43,60 @@
 .comment-form-comment {
   display: flex;
   flex-direction: column;
-  margin-bottom: 0;
   margin-bottom: 30px;
+
+  label {
+    display: none;
+  }
 
   textarea#comment {
     padding: 12px;
+    @extend .form-control;
+  }
+}
+
+@mixin form-field {
+  width: 50%;
+  input,
+  textarea {
+    @extend .form-control;
+    padding: 12px;
+    width: 100%;
+  }
+  label {
+    display: none;
+  }
+}
+
+.comment-notes {
+  order: 4;
+  font-size: small;
+}
+
+.comment-form-cookies-consent {
+  order: 5;
+  font-size: small;
+}
+
+.comment-form-comment {
+  order: 3;
+  @include form-field;
+}
+
+.comment-form-author {
+  @include form-field;
+  order: 1;
+  input {
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+}
+.comment-form-email {
+  @include form-field;
+  order: 2;
+  input {
+    padding-top: 4px;
+    padding-bottom: 4px;
   }
 }
 
@@ -47,8 +106,16 @@
   margin-bottom: 0;
   right: 0;
   height: 30px;
+
   input {
     @extend .btn;
     @extend .btn-primary;
   }
+}
+
+.logged-in-as {
+  position: absolute;
+  bottom: -28px;
+  height: 28px;
+  margin-bottom: 0;
 }

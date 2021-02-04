@@ -1,5 +1,6 @@
 .comment {
   margin-bottom: 12px;
+  width: 100%;
 }
 
 .comment-avatar {
@@ -8,6 +9,7 @@
 
 .comment-body {
   margin-left: 16px;
+  flex: 1;
 }
 
 .comment-content p:last-child {
