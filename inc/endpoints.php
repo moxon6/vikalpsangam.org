@@ -1,7 +1,6 @@
 <?php
 
-add_action('rest_api_init', function () {
-
+function register_map_endpoint() {
     function get_coordinates() {
         $posts = get_posts([
             "numberposts" => -1
@@ -45,4 +44,28 @@ add_action('rest_api_init', function () {
 		'methods'  => 'GET',
 		'callback' => 'get_article_coordinates'
 	));
+}
+
+function register_comments_endpoint() {
+
+    function get_comments_rest($request) {       
+        $response = new WP_REST_Response(
+            Timber::compile(
+                'partials/_comments.twig', 
+                [ "post" => new Timber\Post($request["post_id"])]
+            )
+        );
+        $response->set_status(200);
+        return $response;
+    }
+
+	register_rest_route( 'vikalpsangam/v1', 'comments/(?P<post_id>\d+)', array(
+		'methods'  => 'GET',
+		'callback' => 'get_comments_rest'
+	));
+}
+
+add_action('rest_api_init', function () {
+    register_map_endpoint();
+    register_comments_endpoint();
 });
