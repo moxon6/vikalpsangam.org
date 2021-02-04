@@ -43,9 +43,7 @@
 	<hr/>
 
 	<div class="row">
-		<div id="article-comments" class="comments-section">
-			{{ function("comments_template") }}
-		</div>
+		{% include "partials/_comments.twig" %}
 	</div>
 
 {% endblock %}
