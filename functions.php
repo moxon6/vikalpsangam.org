@@ -195,14 +195,8 @@ require get_template_directory() . '/inc/endpoints.php';
 
 function get_category_image($category) {
 	$term_id = $category->term_id;
-	$cache_key = "category_image_$term_id";
+	$category_image = z_taxonomy_image_url($term_id);
 
-	$category_image = get_transient($cache_key);	
-	if (!$category_image) {
-		$category_image = z_taxonomy_image_url($term_id);
-		set_transient($cache_key, $category_image, DAY_IN_SECONDS );
-	}
-	
 	if (!strpos($category_image, "Favicon")) {
 		// TODO : Optimise thumbnails post phase 1
 		// $category_image = str_replace(".", "-150x150.", $category_image); // Postfix -150x150 to the image
