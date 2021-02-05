@@ -32,11 +32,14 @@ async function renderMap(id) {
 
 window.renderMap = renderMap;
 
-const setupForm = () => {
+const parseHTMLEntities = str => jQuery("<textarea/>").html(str).text()
+
+const setupForm = () => {  
   const commentTextarea = document.querySelector('textarea#comment')
   if (commentTextarea) {
     commentTextarea.setAttribute("rows", 4)
-    commentTextarea.setAttribute("placeholder", "Your comment")  
+    commentTextarea.setAttribute("placeholder", "Your comment")
+    commentTextarea.onkeydown = () => commentTextarea.setCustomValidity("")
     autosize(commentTextarea);
   }
   
@@ -53,16 +56,30 @@ const setupForm = () => {
   const commentForm = document.querySelector("form#commentform");
 
   commentForm.onsubmit = async (e) => {
+
     e.preventDefault();
     
-    await fetch('/wp-comments-post.php', {
-      method: 'POST',
-      body: new FormData(commentForm)
-    });
+    const formValues = Object.fromEntries(new FormData(commentForm))
 
-    commentForm.reset()
+    const comments = new wp.api.collections.Comments()
+    window.comments = comments;
+
+    await comments.create({ 
+      content: formValues.comment,
+      parent: formValues.comment_parent,
+      post: formValues.comment_post_ID
+    },{
+      error : function(model, response){
+        commentTextarea.setCustomValidity(parseHTMLEntities(response.responseJSON.message));
+        commentTextarea.reportValidity();
+      },
+      success: function(model, response){
+        updateFormComments();
+        commentForm.reset()
+      }
+    })
+
     
-    updateFormComments();
     return false;
   };
 }
