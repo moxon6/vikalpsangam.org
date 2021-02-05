@@ -82,6 +82,6 @@ $context["promoted_articles"] = Timber::get_posts(array(
 
 $context["category_posts"] = (new CategoryPostsBuilder())->getCategoryPosts($NUMBER_STORIES_BY_CATEGORY);
 
-Timber::render( array( 'page-front.twig', 'page.twig' ), $context );
+Timber::render( array( 'pages/page-front.twig', 'pages/page.twig' ), $context );
 
 ?>
