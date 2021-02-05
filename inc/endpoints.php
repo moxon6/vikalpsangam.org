@@ -46,6 +46,8 @@ function register_map_endpoint() {
 	));
 }
 
+add_filter( 'rest_allow_anonymous_comments', '__return_true' ); 
+
 function register_comments_endpoint() {
 
     function get_comments_rest($request) {       

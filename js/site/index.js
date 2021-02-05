@@ -54,28 +54,40 @@ const setupForm = () => {
   }
 
   const commentForm = document.querySelector("form#commentform");
+  const submitMessage = document.querySelector("#submit-message");
 
   commentForm.onsubmit = async (e) => {
+
+    submitMessage.style.display = "none";
 
     e.preventDefault();
     
     const formValues = Object.fromEntries(new FormData(commentForm))
 
     const comments = new wp.api.collections.Comments()
-    window.comments = comments;
+
 
     await comments.create({ 
       content: formValues.comment,
       parent: formValues.comment_parent,
-      post: formValues.comment_post_ID
+      post: formValues.comment_post_ID,
+      author_name: formValues.author,
+      author_email: formValues.email
     },{
       error : function(model, response){
         commentTextarea.setCustomValidity(parseHTMLEntities(response.responseJSON.message));
         commentTextarea.reportValidity();
       },
       success: function(model, response){
-        updateFormComments();
         commentForm.reset()
+
+        if (response.status === "approve") {
+          updateFormComments();
+        } else {
+          submitMessage.style.display = "unset";
+          submitMessage.innerText = "Comment submitted successfully, pending moderation";
+        }
+
       }
     })
 
