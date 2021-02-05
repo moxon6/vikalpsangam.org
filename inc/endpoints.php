@@ -49,10 +49,14 @@ function register_map_endpoint() {
 function register_comments_endpoint() {
 
     function get_comments_rest($request) {       
+        global $post;
+        $post = get_post($request["post_id"]);
+        setup_postdata($post);
+
         $response = new WP_REST_Response(
             Timber::compile(
                 'partials/_comments.twig', 
-                [ "post" => new Timber\Post($request["post_id"])]
+                [ "post" => new Timber\Post($post)]
             )
         );
         $response->set_status(200);

@@ -2,22 +2,7 @@
 
 	{{ function('comment_form') }}
 
-	<script>
-		const commentTextarea = document.querySelector('textarea#comment')
-commentTextarea.setAttribute("rows", 4)
-commentTextarea.setAttribute("placeholder", "Your comment")
-
-const author = document.querySelector('input#author')
-if (author) {
-author.setAttribute("placeholder", "Name *")
-}
-const email = document.querySelector('input#email')
-if (email) {
-email.setAttribute("placeholder", "Email *")
-}
-
-autosize(commentTextarea);
-	</script>
+	<script></script>
 
 	{% for comment in post.comments %}
 		{% include 'partials/_comment.twig' %}

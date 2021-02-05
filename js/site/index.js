@@ -1,3 +1,4 @@
+
 async function renderMap(id) {
   const mean = (arr) => arr.reduce((x, y) => x + y, 0) / arr.length;
 
@@ -30,3 +31,51 @@ async function renderMap(id) {
 }
 
 window.renderMap = renderMap;
+
+const setupForm = () => {
+  const commentTextarea = document.querySelector('textarea#comment')
+  if (commentTextarea) {
+    commentTextarea.setAttribute("rows", 4)
+    commentTextarea.setAttribute("placeholder", "Your comment")  
+    autosize(commentTextarea);
+  }
+  
+  const author = document.querySelector('input#author')
+  if (author) {
+    author.setAttribute("placeholder", "Name *")
+  }
+  
+  const email = document.querySelector('input#email')
+  if (email) {
+    email.setAttribute("placeholder", "Email *")
+  }
+
+  const commentForm = document.querySelector("form#commentform");
+
+  commentForm.onsubmit = async (e) => {
+    e.preventDefault();
+    
+    await fetch('/wp-comments-post.php', {
+      method: 'POST',
+      body: new FormData(commentForm)
+    });
+
+    commentForm.reset()
+    
+    updateFormComments();
+    return false;
+  };
+}
+
+async function updateFormComments() {
+  const postId = document.querySelector(".post").id.split("-")[1]
+  const response = await wp.apiRequest({ path: `/vikalpsangam/v1/comments/${postId}`})
+
+  diff.outerHTML(
+    document.querySelector("#article-comments"),
+    new DOMParser().parseFromString(response, 'text/html').body.innerHTML
+  )
+  setupForm();
+}
+
+jQuery(window).ready(setupForm)

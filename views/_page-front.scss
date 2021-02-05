@@ -23,6 +23,8 @@
 
         .highlights-title {
           text-align: center;
+          text-transform: uppercase;
+          color: $dark-brick-col;
         }
 
         .featured-list-card-body {
@@ -47,6 +49,11 @@
 
     .stories-by-category-section-container {
       max-width: 1440px;
+    }
+
+    .stories-by-category-header {
+      text-transform: uppercase;
+      color: $dark-brick-col;
     }
   }
 
