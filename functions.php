@@ -194,14 +194,8 @@ if (is_admin()) {
 require get_template_directory() . '/inc/endpoints.php';
 
 function get_category_image($category) {
-	$term_id = $category->term_id;
-	$category_image = z_taxonomy_image_url($term_id);
-
-	if (!strpos($category_image, "Favicon")) {
-		// TODO : Optimise thumbnails post phase 1
-		// $category_image = str_replace(".", "-150x150.", $category_image); // Postfix -150x150 to the image
-	}
-	return $category_image;
+	$image = get_field('image', $category);
+	return  esc_url($image['url']);
 }
 
 function filter_excerpt($excerpt) {
