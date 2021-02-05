@@ -1,8 +1,12 @@
 figure.wp-block-image {
   padding-bottom: 24px;
+}
 
-  img {
-    height: auto;
+.wp-block-image {
+  figure {
+    img {
+      height: auto;
+    }
   }
 }
 
