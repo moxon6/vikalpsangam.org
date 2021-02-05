@@ -1,6 +1,10 @@
 <div class="post-tile">
 	<div class="card post-tile-card">
 
+		{% if not category and header_fallback %}
+			{% set category = { name: "Vikalp Sangam" } %}
+		{% endif %}
+
 		{% if category %}
 			{% include 'partials/_term-header.twig' with {'term': category } only %}
 		{% endif %}
