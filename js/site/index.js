@@ -81,7 +81,7 @@ const setupForm = () => {
       success: function(model, response){
         commentForm.reset()
 
-        if (response.status === "approve") {
+        if (response.status === "approved") {
           updateFormComments();
         } else {
           submitMessage.style.display = "unset";
