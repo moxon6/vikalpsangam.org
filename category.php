@@ -13,8 +13,8 @@
                     <div class="category-page-heading">
 
                         <a class="category-title-link"
-                            style="background-image: url('<?php echo get_category_image(null); ?>')"
-                            href="<?php echo get_category_link(null); ?>">
+                            style="background-image: url('<?php echo get_category_image($category) ?>')"
+                            href="<?php echo get_category_link($category->id); ?>">
                             <?php single_cat_title(); ?>
                         </a>
 
