@@ -18,4 +18,4 @@ $context["stories_by_category"] = array_map(
     $context["post_categories"]
 );
 
-Timber::render( array( 'pages/page-' . $timber_post->post_name . '.twig', 'pages/page.twig' ), $context );
+Timber::render( array( 'pages/_page-' . $timber_post->post_name . '.twig', 'pages/page.twig' ), $context );

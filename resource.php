@@ -22,5 +22,5 @@
     $context["post"] = new Timber\Post();
     $context["category"] = new Timber\Term($category);
     $context["resource_category"] = $resource_category;
-    Timber::render( array( 'pages/page-resource.twig' ), $context );
+    Timber::render( array( 'pages/_page-resource.twig' ), $context );
 ?>
