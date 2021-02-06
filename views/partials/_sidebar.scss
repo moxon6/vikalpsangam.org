@@ -3,6 +3,10 @@
     display: none;
   }
 
+  .sidebar-header {
+    @include header-style;
+  }
+
   .sidebar-map {
     height: 400px;
   }
