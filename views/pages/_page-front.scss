@@ -64,6 +64,10 @@
         padding-top: 32px;
         padding-bottom: 16px;
 
+        .page-front-about-header {
+          @include header-style;
+        }
+
         h2 {
           font-size: 1.125em;
         }
