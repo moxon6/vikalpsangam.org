@@ -26,7 +26,7 @@
                                 </a>
                             </div>
                             <div class="short">
-                                <p><?php echo get_option('category_short_description_' . $category->slug); ?></p>
+                                <p><?php echo get_field('short-description', $category); ?></p>
                                 <a id="toggle" class="read-more-description">
                                     <span class="glyphicon glyphicon-circle-arrow-down"></span> Read More
                                 </a>
