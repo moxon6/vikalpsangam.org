@@ -11,18 +11,20 @@
 			<details>
 				<summary class="alert p-0 pl-2 m-0">
 					<div class="d-flex">
-						<p>Environmental conservation and sustainability, respecting ecological integrity and limits</p>
+						<p>{{ term.meta("short-description") }}</p>
 						<p class="btn btn-link p-0 ml-4 border-0 read-more">Read More</p>
 						<p class="btn btn-link p-0 ml-4 border-0 read-less">Read Less</p>
 					</div>
 				</summary>
-				<p class="alert alert-light mb-0 pb-2 pt-0">The search for dignified, ecologically sustainable and meaningful livelihoods and jobs is featured in this section. This includes the continuation and enhancement of fulfilling traditional occupations that communities choose to continue, including in agriculture, pastoralism, forestry, fisheries, crafts, and others in the primary economy. It also includes sustainable, dignified jobs in manufacturing and service sectors where producers and service-providers are in control of their destinies and revenues are equitably distributed.</p>
+				<div class="alert alert-light mb-0 pb-2 pt-0">
+					{{ term.description }}
+				</div>
 			</summary>
 		</details>
 	</div>
 </div>
 
-<div class=" container-fluid p-0 mt-4">
+<div class="container-fluid p-0 mt-4">
 	<div class="row" id="infinite-scroll-content">
 		{% include 'partials/_post-tile-loop.twig' with {'posts': posts } only %}
 	</div>

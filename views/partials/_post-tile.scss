@@ -21,8 +21,8 @@
 }
 
 .post-tile-title {
-  @include clamp(3);
-  height: 57px;
+  @include clamp(4);
+  height: #{19 * 4}px;
 }
 
 .post-tile-text {
