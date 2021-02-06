@@ -7,6 +7,9 @@
         "jquery": true
     },
     "globals": {
-        "L": "readonly"
+        "L": "readonly",
+        "autosize": "readonly",
+        "wp": "readonly",
+        "diff": "readonly"
     }
 }
