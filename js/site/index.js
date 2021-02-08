@@ -102,4 +102,24 @@ async function updateFormComments() {
   setupForm();
 }
 
-jQuery(window).ready(setupForm);
+jQuery(window).ready(() => {
+  if (jQuery("form#commentform").length) {
+    setupForm()
+  }
+});
+
+jQuery(window).ready(() => {
+  if (jQuery('#mainSlider').length) {
+    jQuery('#mainSlider').slick({
+      infinite: true,
+      speed: 300,
+      slidesToShow: 1,
+      centerMode: true,
+      variableWidth: true,
+      mobileFirst: true,
+      arrows: false,
+      autoplay: true,
+      autoplaySpeed: 5000
+    });
+  }
+});
