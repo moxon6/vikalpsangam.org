@@ -10,6 +10,14 @@
   width: 100%;
   padding-left: 20px;
   padding-right: 64px;
+
+  .loading-spinner {
+    display: none;
+  }
+
+  &.loading .loading-spinner {
+    display: block;
+  }
 }
 
 .comment-respond {
