@@ -1,0 +1,32 @@
+#page-term {
+  .category-page-category-list-wrapper {
+    padding-top: 16px;
+  }
+
+  details {
+    summary {
+      outline: none;
+      &::-webkit-details-marker {
+        display: none;
+      }
+    }
+
+    .read-less {
+      display: none;
+    }
+
+    .read-more {
+      display: block;
+    }
+
+    &[open] {
+      .read-less {
+        display: block;
+      }
+
+      .read-more {
+        display: none;
+      }
+    }
+  }
+}

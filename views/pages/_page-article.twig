@@ -1,0 +1,30 @@
+{% extends "layouts/_base-content.twig" %}
+
+{% set page_id = 'page-article' %}
+
+{% block content %}
+	<div class="d-flex justify-content-between mb-4">
+		<h2 class="page-title">{{post.title}}</h2>
+		<div>
+			<a href="/stories/" class="btn btn-primary">Show all latest stories</a>
+		</div>
+	</div>
+
+	<section class="container-fluid">
+		<div class="row">
+			{% for category_group in stories_by_category %}
+
+				<div class="col-xs-12 category-topping-wrapper">
+					{% include 'partials/_term-header.twig' with {'term': category_group.category } only %}
+
+					<div class="container-fluid p-0">
+						<div class="row category-page-category-list-wrapper">
+							{% include 'partials/_post-tile-loop.twig' with {'posts': category_group.posts } only %}
+						</div>
+					</div>
+
+				</div>
+			{% endfor %}
+		</div>
+	</section>
+{% endblock %}

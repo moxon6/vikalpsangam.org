@@ -1,0 +1,67 @@
+#vikalpsangam-navbar {
+  @media print {
+    display: none;
+  }
+
+  box-shadow: 0 2px 2px 0 rgba(50, 50, 50, 0.3);
+  font-family: "Roboto-Black";
+
+  @include desktop {
+    padding: 0 100px 0 70px;
+  }
+
+  @include mobile {
+    padding: 0 16px 0 16px;
+  }
+
+  .navbar-brand {
+    height: 50px;
+
+    @include mobile {
+      width: 65px;
+      background: url(images/header_small_logo.png) no-repeat left center;
+    }
+
+    @include desktop {
+      width: 325px;
+      background: url(images/header_big_logo.png) no-repeat left center;
+    }
+  }
+
+  #vikalpsangam-navbar-collapse {
+    min-height: 50px;
+
+    @include mobile {
+      margin-bottom: 24px;
+    }
+
+    .navbar-nav {
+      .nav-item {
+        font-weight: 700;
+
+        &.active .nav-link {
+          color: #fff !important;
+          background-color: $dark-brick-col;
+        }
+
+        &:not(.active) .nav-link {
+          color: $dark-brick-col !important;
+          background-color: transparent;
+        }
+
+        .nav-link {
+          height: 50px;
+          display: flex;
+          align-items: center;
+          padding-left: 16px;
+          font-size: 18px;
+          @include header-style;
+
+          @include desktop {
+            padding-right: 16px;
+          }
+        }
+      }
+    }
+  }
+}

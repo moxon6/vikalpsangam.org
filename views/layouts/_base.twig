@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	{% include 'partials/_head.twig' %}
+
+	<body id={{page_id}} class="{{body_class}}">
+		{{ function("wp_body_open") }}
+
+		{% include 'partials/_nav.twig' %}
+
+		{% block page %}<span/>
+		{% endblock %}
+
+		{% include 'partials/_footer.twig' %}
+	</body>
+</html>

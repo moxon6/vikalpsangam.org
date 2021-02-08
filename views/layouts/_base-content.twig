@@ -1,0 +1,21 @@
+{% extends "layouts/_base.twig" %}
+
+{% block page %}
+	<div id="page">
+		<div class="section generic_section">
+			<div class="container-fluid">
+				<div class="row">
+					<main class="col-xl-8 col-md-12 left-section">
+						{% block content %}
+							<span/>
+						{% endblock %}
+					</main>
+					<aside class="col-xl-4 col-md-12 sidebar-aside">
+						{% include 'partials/_sidebar.twig' %}
+					</aside>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

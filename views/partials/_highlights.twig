@@ -1,0 +1,9 @@
+<div id="featured-list">
+	<div class="featured-list-title-wrapper">
+		<img class="title-image" src="/wp-content/uploads/migrate/VS-Favicon.png">
+		<h3 class="highlights-title mb-0">Highlights</h3>
+	</div>
+	{% for post in promoted_articles %}
+		{% include 'partials/_highlight-card.twig' %}
+	{% endfor %}
+</div>

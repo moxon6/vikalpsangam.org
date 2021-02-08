@@ -1,0 +1,26 @@
+{% extends "layouts/_base-content.twig" %}
+{% block content %}
+
+	<h4>
+		<p>Found
+			{{ found_posts }}
+			results for your query:
+			{{ search_query }}</p>
+	</h4>
+
+	<div id="search-results" class="list-group">
+		{% for post in posts %}
+			<a class="list-group-item" href="{{ post.link }}">
+				<h4>
+					<span class="list-group-item-heading">{{ post.title }}</span>
+				</h4>
+				<p class="list-group-item-text">{{ post.preview.read_more(false).length(20) }}</p>
+				<span class="badge">Read More</span>
+				<br>
+			</a>
+		{% endfor %}
+	</div>
+
+	{{ function("the_posts_navigation") }}
+
+{% endblock %}

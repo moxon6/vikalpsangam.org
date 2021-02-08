@@ -1,0 +1,28 @@
+<article key={{comment.id}} class="comment d-flex">
+
+	<img class="comment-avatar" src={{comment.avatar }}/>
+	<div class="comment-body">
+		<div class="comment-reply-wrapper" id="comment-{{ comment.id }}">
+			<strong>{{ comment.author.name }}</strong>
+			<small>{{ comment.date }}
+				at
+				{{comment.time}}</small>
+			<div class="comment-content">
+				{{ comment.content }}
+			</div>
+			<div class="comment-footer">
+				<a class="comment-button">Edit</a>
+				{{ comment.reply_link }}
+			</div>
+		</div>
+
+		<div class="child-comments">
+			{% for child_comment in comment.children %}
+				{% include 'partials/_comment.twig' with { 'comment': child_comment } %}
+			{% endfor %}
+		</div>
+
+	</div>
+
+
+</article>

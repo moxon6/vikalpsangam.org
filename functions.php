@@ -9,6 +9,114 @@
 
 include 'version.php';
 
+$composer_autoload = __DIR__ . '/vendor/autoload.php';
+
+if ( file_exists( $composer_autoload ) ) {
+	require_once $composer_autoload;
+	$timber = new Timber\Timber();
+}
+
+Timber::$autoescape = false;
+
+function buffer($fn) {
+	ob_start();
+	$fn();
+	return ob_get_clean();
+}
+
+class VikalpsangamOrgSite extends Timber\Site {
+	public function __construct() {
+		add_filter( 'timber/context', array( $this, 'add_to_context' ) );
+		parent::__construct();
+	}
+
+	private function get_template_image_url($image_url) {
+        return get_bloginfo('template_url') . $image_url . "?v=" . vikalpsangam_VERSION;
+	}
+	
+	private function setup_footer_context($context) {
+		$context['footer_logo'] = $this->get_template_image_url("/images/footer/site-logo.png");
+		
+		$context['footer_logos'] = [
+			[ "url" => "http://www.shikshantar.org", "image" => $this->get_template_image_url("/images/logos/shikshantar.png")],
+			[ "url" => "http://www.kalpavriksh.org", "image" => $this->get_template_image_url("/images/logos/kalpavriksh.png")],
+			[ "url" => "http://www.ddsindia.com", "image" => $this->get_template_image_url("/images/logos/ddsindia.png")],
+			[ "url" => "http://www.bhoomicollege.org", "image" => $this->get_template_image_url("/images/logos/bhoomicollege.png")]
+		];
+		
+		$context["social_links"] = [
+			["url" => "https://twitter.com/VikalpSangam", "image" => $this->get_template_image_url("/images/social/twitter.png")],
+			["url" => "https://www.facebook.com/VikalpSangam", "image" => $this->get_template_image_url("/images/social/facebook.png")],
+			["url" => "https://www.instagram.com/vikalpsangam", "image" => $this->get_template_image_url("/images/social/instagram.png")]
+		];
+
+		$context["footer_menus"] = [
+			new \Timber\Menu( 'footer-menu-1' ),
+			new \Timber\Menu( 'footer-menu-2' ),
+			new \Timber\Menu( 'footer-menu-3' )
+		];
+		
+		$context["MAILCHIMP_SUBMIT_URL"] = "//vikalpsangam.us9.list-manage.com/subscribe/post?u=16f6762000d0db3e3e5190bf6&amp;id=4bd0241c3a";
+
+		return $context;
+	}
+
+	private function setup_header_context($context) {
+		$context["header_menu"] = new \Timber\Menu( 'header-menu' );
+		return $context;
+	}
+
+	private function setup_common_context($context) {
+		$context["post_categories"] = Timber::get_terms('category', [
+			'hide_empty' => 1,
+			"exclude" => get_cat_ID("Perspectives")
+		]);
+
+		return $context;
+	}
+
+	private function setup_sidebar_context($context) {
+		$context["sidebar_recent_activity"] = Timber::get_posts(array(
+			'numberposts' => 5,
+			'post_type'	=> 'post',
+			"orderby" => "date",
+			"order" => "DSC"
+		));
+
+		$context["sidebar_tag_cloud"] = $this->get_tags_from_post(get_posts(array(
+			'numberposts' => 10,
+			'post_type'	=> 'post',
+			"orderby" => "date",
+			"order" => "DSC"
+		)));
+		
+		add_filter('wp_generate_tag_cloud_data', function ($tags_data) {
+			foreach ($tags_data as $key => $tag) {
+				$weight = floor($tag["real_count"] / 50);
+				$tags_data[$key]['class'] .=  " tag-weight-$weight";
+			}			
+			return $tags_data;
+		});
+
+		$context["sidebar_tag_cloud_widget"] = wp_tag_cloud([
+			"echo" => false
+		]);
+		
+		return $context;
+	}
+	
+	public function add_to_context( $context ) {
+		$context = $this->setup_footer_context($context);
+		$context = $this->setup_header_context($context);
+		$context = $this->setup_sidebar_context($context);
+		$context = $this->setup_common_context($context);
+		return $context;
+	}
+}
+
+new VikalpsangamOrgSite();
+
+
 if ( ! function_exists( 'vikalpsangam_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
@@ -185,7 +293,7 @@ add_action( 'widgets_init', 'vikalpsangam_widgets_init' );
  */
 require get_template_directory() . '/inc/dependencies.php';
 
-require get_template_directory() . '/inc/functions/page-stories.php';
+require get_template_directory() . '/inc/functions/perspectives-patches.php';
 
 if (is_admin()) {
 	require get_template_directory() . '/inc/admin/admin.php';
@@ -194,71 +302,16 @@ if (is_admin()) {
 require get_template_directory() . '/inc/endpoints.php';
 
 function get_category_image($category) {
+
 	$image = get_field('image', $category);
-	return esc_url($image['url']);
+	return  esc_url($image['url']);
 }
 
 function filter_excerpt($excerpt) {
 	return wp_trim_words($excerpt, apply_filters("excerpt_length", 20));
 }
 
-class Categories {
-        
-	function __construct() {
-		$this->unusedCategories = array_map(
-			fn($category) => $category->term_id,
-			array_values(get_categories())
-		);
-
-		$this->unusedCategories = array_filter(
-			$this->unusedCategories, 
-			fn($cat) => $cat != get_cat_ID("Perspectives")
-		);
-
-		$this->usedCategories = [];
-		$this->usedPosts = [];
-	}
-
-	function getRelevantCategory($post) {        
-		return wp_get_post_categories(
-			$post -> ID,
-			[ 
-				'fields' => 'all',
-				"exclude" => $this->usedCategories
-			]
-		)[0];
-	}
-
-	function getLatestRelevantPost() {
-		$post = get_posts(array(
-			'numberposts'	=> 1,
-			'post_type'		=> 'post',
-			"orderby"   => "date",
-			"order"     => "DSC",
-			'category__in'	=> $this->unusedCategories,
-			"exclude" => $this->usedPosts
-		))[0];
-
-		$this->usedPosts[] = $post->ID;
-
-		$category = $this->getRelevantCategory($post);
-
-		$this->unusedCategories = array_filter($this->unusedCategories, fn($cat) => $cat != $category->term_id);
-		$this->usedCategories[] = $category->term_id;
-
-		return [
-			"post" => $post,
-			"category" => $category
-		];
-	}
-
-	function getCategoryPosts($n) {
-		return array_map(
-			fn($i) => $this->getLatestRelevantPost(),
-			range(0, $n - 1)
-		);
-	}
-}
+add_filter('comment_form_field_url', '__return_false');
 
 function custom_rewrite_rule() {
 	add_rewrite_rule( '^resources\/(.*)\/?', 'index.php?pagename=resources&resource=$matches[1]', 'top' );
@@ -286,10 +339,10 @@ function setup_infinite_scroll() {
 add_action('after_setup_theme', 'setup_infinite_scroll');
 
 function infinite_scroll_render() {
-    while (have_posts()) {
-		the_post();
-		get_template_part('template-parts/common/article-tile');
-    }
+	$context = [
+		'posts' => Timber::get_posts(),
+	];
+	Timber::render('partials/_post-tile-loop.twig', $context);
 }
 
 function jetpackme_more_related_posts( $options ) {

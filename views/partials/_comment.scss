@@ -1,0 +1,46 @@
+@keyframes come-in {
+  from {
+    opacity: 0;
+    background-color: $dark-brick-col;
+  }
+}
+
+.comment {
+  margin-bottom: 12px;
+  width: 100%;
+
+  opacity: 1;
+  animation: come-in 1s ease forwards;
+}
+
+.comment-avatar {
+  height: 40px;
+}
+
+.comment-body {
+  margin-left: 16px;
+  flex: 1;
+}
+
+.comment-content p:last-child {
+  margin-bottom: 0;
+}
+
+.comment-footer {
+  padding-top: 12px;
+}
+
+.comment-button,
+.comment-reply-link {
+  color: $dark-gray-col;
+  &:not(:first-child) {
+    margin-left: 4px;
+  }
+  &:not(:last-child) {
+    margin-right: 4px;
+  }
+}
+
+.child-comments {
+  margin-top: 20px;
+}

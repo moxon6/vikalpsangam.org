@@ -1,58 +1,87 @@
-<?php get_header(); ?>
-
 <?php
+
+class CategoryPostsBuilder {
+        
+	function __construct() {
+		$this->unusedCategories = array_map(
+			fn($category) => $category->term_id,
+			array_values(get_categories())
+		);
+
+		$this->unusedCategories = array_filter(
+			$this->unusedCategories, 
+			fn($cat) => $cat != get_cat_ID("Perspectives")
+		);
+
+		$this->usedCategories = [];
+		$this->usedPosts = [];
+	}
+
+	function getRelevantCategory($post) {        
+		return wp_get_post_categories(
+			$post -> ID,
+			[ 
+				'fields' => 'all',
+				"exclude" => $this->usedCategories
+			]
+		)[0];
+	}
+
+	function getLatestRelevantPost() {
+		$post = get_posts(array(
+			'numberposts'	=> 1,
+			'post_type'		=> 'post',
+			"orderby"   => "date",
+			"order"     => "DSC",
+			'category__in'	=> $this->unusedCategories,
+			"exclude" => $this->usedPosts
+		))[0];
+
+		$this->usedPosts[] = $post->ID;
+
+		$category = $this->getRelevantCategory($post);
+
+		$this->unusedCategories = array_filter($this->unusedCategories, fn($cat) => $cat != $category->term_id);
+		$this->usedCategories[] = $category->term_id;
+
+		return [
+			"post" => new Timber\Post($post),
+			"category" => new Timber\Term($category)
+		];
+	}
+
+	function getCategoryPosts($n) {
+		return array_map(
+			fn($i) => $this->getLatestRelevantPost(),
+			range(0, $n - 1)
+		);
+	}
+}
+
+$context = Timber::context();
+$timber_post = new Timber\Post();
+$context['post'] = $timber_post;
 
 $NUMBER_OF_CAROUSEL_ITEMS = 3;
 $NUMBER_PROMOTED_ARTICLES = 3;
 $NUMBER_STORIES_BY_CATEGORY = 4;
 
-$carousel_items = get_posts(array(
-	'numberposts'	=> $NUMBER_OF_CAROUSEL_ITEMS,
-	'post_type'		=> 'post',
-	'meta_key'		=> 'add_to_carousel',
-	'meta_value'	=> '1'
+$context["carousel_items"] = Timber::get_posts(array(
+    'numberposts'	=> $NUMBER_OF_CAROUSEL_ITEMS,
+    'post_type'		=> 'post',
+    'meta_key'		=> 'add_to_carousel',
+    'meta_value'	=> '1'
 ));
 
-$promoted_articles = get_posts(array(
-	'numberposts'	=> $NUMBER_PROMOTED_ARTICLES,
-	'post_type'		=> 'post',
-	'meta_key'		=> 'promoted',
-	'meta_value'	=> '1'
+$context["promoted_articles"] = Timber::get_posts(array(
+    'numberposts'	=> $NUMBER_PROMOTED_ARTICLES,
+    'post_type'		=> 'post',
+    'meta_key'		=> 'promoted',
+    'meta_value'	=> '1'
 ));
 
-$categoryPosts = (new Categories())->getCategoryPosts($NUMBER_STORIES_BY_CATEGORY);
+$context["category_posts"] = (new CategoryPostsBuilder())->getCategoryPosts($NUMBER_STORIES_BY_CATEGORY);
+
+Timber::render( array( 'pages/_page-front.twig' ), $context );
 
 ?>
-
-<div>
-    <section class="top-carousel-wrapper">
-        <div class="row no-right-margin">
-            <div class="col-md-8 col-xs-12">
-                <?php 
-                    get_template_part( 'template-parts/front-page/carousel', null, [ "article_content" => $carousel_items ]); 
-                ?>
-            </div>
-            <div class="col-md-4 col-xs-12 featured-list">
-                <?php get_template_part( 'template-parts/front-page/highlights', null, [ "article_content" => $promoted_articles ]); ?>
-            </div>
-        </div>
-    </section>
-
-    <section class="category-section">
-        <?php get_template_part( 'template-parts/front-page/categories', null, [ "categoryPosts" => $categoryPosts ]); ?>
-    </section>
-
-    <section class="about-section">
-        <div class="container">
-            <h2>ABOUT VIKALP SANGAM</h2>
-            <div class="row no-margin">
-                <?php 
-        wp_reset_postdata();
-        the_content();
-        ?>
-            </div>
-        </div>
-    </section>
-</div>
-
-<?php get_footer();

@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top d-flex" id="vikalpsangam-navbar">
+
+	<a class="navbar-brand" href="/"></a>
+
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#vikalpsangam-navbar-collapse" aria-controls="vikalpsangam-navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+
+	<div class="collapse navbar-collapse justify-content-end" id="vikalpsangam-navbar-collapse">
+
+		<ul id="menu-header-menu" class="navbar-nav mr-3">
+			{% for item in header_menu.items %}
+				<li class="nav-item {{ item.classes|join(' ') }}">
+					<a class="nav-link" href="{{ item.link }}">{{ item.title }}</a>
+				</li>
+			{% endfor %}
+		</ul>
+
+		{% include "partials/_search-form.twig" %}
+	</div>
+</nav>

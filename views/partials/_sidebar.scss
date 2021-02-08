@@ -1,0 +1,58 @@
+.sidebar {
+  @media print {
+    display: none;
+  }
+
+  .sidebar-header {
+    @include header-style;
+  }
+
+  .sidebar-map {
+    height: 400px;
+  }
+
+  .sidebar-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 3px;
+    margin-bottom: 5px;
+    image-rendering: -moz-crisp-edges; /* Firefox */
+    image-rendering: -o-crisp-edges; /* Opera */
+    image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming) */
+    image-rendering: crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
+  }
+
+  .sidebar-tag-cloud {
+    padding-bottom: 20px;
+    text-align: center;
+
+    .tag-weight-1 {
+      font-size: 0.8em !important;
+      color: $dark-gray-col;
+    }
+
+    .tag-weight-2 {
+      font-size: 1em !important;
+      color: $yellow-col;
+    }
+
+    .tag-weight-3 {
+      font-size: 1.2em !important;
+      color: $light-brick-color;
+    }
+
+    .tag-weight-4 {
+      font-size: 1.3em !important;
+      color: $dark-brick-col;
+    }
+  }
+
+  .featured-list {
+    font-size: small;
+
+    .featured-list-card-body {
+      padding: 0;
+    }
+  }
+}

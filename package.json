@@ -1,6 +1,6 @@
 {
   "name": "vikalpsangam",
-  "version": "3.1.11",
+  "version": "4.1.0",
   "description": "http://vikalpsangam.org Theme",
   "license": "GPL-2.0-or-later",
   "keywords": [
@@ -38,14 +38,15 @@
   },
   "scripts": {
     "setup-hooks": "npx husky install",
-    "watch:scss": "node-sass -o . sass/style.scss -w",
-    "build:scss": "node-sass --importer node_modules/node-sass-package-importer/dist/cli.js -o . sass/style.scss",
+    "watch:scss": "node-sass -o . style.scss -w",
+    "build:scss": "node-sass --importer node_modules/node-sass-package-importer/dist/cli.js -o . style.scss",
     "build:scss-rtl": "rtlcss style.css style-rtl.css",
     "browsersync": "browser-sync start --files \"**/*.(php|js|css)\"",
-    "lint:scss": "wp-scripts lint-style sass/**/*.scss",
+    "lint:scss": "wp-scripts lint-style \"views/**/*.scss\"",
     "lint:js": "wp-scripts lint-js 'js/**/*.js'",
     "bundle": "dir-archiver --src . --dest ./vikalpsangam.zip --exclude $(cat .buildignore)",
-    "copy-fonts": "cp node_modules/bootstrap-sass/assets/fonts/bootstrap/* fonts -n"
+    "copy-fonts": "cp node_modules/bootstrap-sass/assets/fonts/bootstrap/* fonts -n",
+    "quicklint": "npm run lint:scss -- --fix ; npm run lint:js -- --fix"
   },
   "husky": {
     "hooks": {
@@ -53,6 +54,7 @@
     }
   },
   "dependencies": {
+    "bootstrap": "^4.6.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
     "node-sass-package-importer": "^5.3.2"

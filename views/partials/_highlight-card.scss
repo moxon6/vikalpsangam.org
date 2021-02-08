@@ -1,0 +1,32 @@
+.highlight-card {
+  flex: 1;
+  background-color: #f7f7f7;
+
+  .highlight-card-row {
+    align-items: center;
+    height: 150px;
+
+    .highlight-card-thumbnail-col {
+      background-color: white;
+      flex: 0 0 150px;
+      max-width: 150px;
+      padding-left: 0;
+      padding-right: 0;
+      height: 100%;
+
+      .featured-list-image {
+        margin-left: 0;
+        margin-right: 0;
+        width: 150px;
+        border-right: 1px solid #dfdfdf;
+        object-fit: scale-down;
+      }
+    }
+
+    .highlight-card-text-col {
+      height: 100%;
+
+      max-width: calc(100% - 150px);
+    }
+  }
+}
