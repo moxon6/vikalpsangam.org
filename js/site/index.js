@@ -102,13 +102,13 @@ async function updateFormComments() {
   setupForm();
 }
 
-jQuery(window).ready(() => {
+jQuery(() => {
   if (jQuery('form#commentform').length) {
     setupForm();
   }
 });
 
-jQuery(window).ready(() => {
+jQuery(() => {
   if (jQuery('#mainSlider').length) {
     jQuery('#mainSlider').slick({
       infinite: true,
