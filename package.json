@@ -45,7 +45,8 @@
     "lint:scss": "wp-scripts lint-style \"views/**/*.scss\"",
     "lint:js": "wp-scripts lint-js 'js/**/*.js'",
     "bundle": "dir-archiver --src . --dest ./vikalpsangam.zip --exclude $(cat .buildignore)",
-    "copy-fonts": "cp node_modules/bootstrap-sass/assets/fonts/bootstrap/* fonts -n"
+    "copy-fonts": "cp node_modules/bootstrap-sass/assets/fonts/bootstrap/* fonts -n",
+    "quicklint": "npm run lint:scss -- --fix ; npm run lint:js -- --fix"
   },
   "husky": {
     "hooks": {

@@ -103,8 +103,8 @@ async function updateFormComments() {
 }
 
 jQuery(window).ready(() => {
-  if (jQuery("form#commentform").length) {
-    setupForm()
+  if (jQuery('form#commentform').length) {
+    setupForm();
   }
 });
 
@@ -118,7 +118,7 @@ jQuery(window).ready(() => {
       variableWidth: true,
       mobileFirst: true,
       autoplay: true,
-      autoplaySpeed: 5000
+      autoplaySpeed: 5000,
     });
   }
 });
