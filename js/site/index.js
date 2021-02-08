@@ -58,7 +58,7 @@ const setupForm = () => {
   commentForm.onsubmit = async (e) => {
     submitMessage.style.display = 'none';
 
-    jQuery('#article-comments').addClass("loading")
+    jQuery('#article-comments').addClass('loading');
 
     e.preventDefault();
 
@@ -74,13 +74,12 @@ const setupForm = () => {
       author_email: formValues.email,
     }, {
       error(model, response) {
-        jQuery('#article-comments').removeClass("loading")
+        jQuery('#article-comments').removeClass('loading');
         commentTextarea.setCustomValidity(parseHTMLEntities(response.responseJSON.message));
         commentTextarea.reportValidity();
-        
       },
       success(model, response) {
-        jQuery('#article-comments').removeClass("loading")
+        jQuery('#article-comments').removeClass('loading');
         commentForm.reset();
 
         if (response.status === 'approved') {
