@@ -34,6 +34,8 @@ window.renderMap = renderMap;
 const parseHTMLEntities = (str) => jQuery('<textarea/>').html(str).text();
 
 const setupForm = () => {
+  jQuery('#article-comments').removeClass('loading');
+
   const commentTextarea = document.querySelector('textarea#comment');
   if (commentTextarea) {
     commentTextarea.setAttribute('rows', 4);
@@ -79,7 +81,6 @@ const setupForm = () => {
         commentTextarea.reportValidity();
       },
       success(model, response) {
-        jQuery('#article-comments').removeClass('loading');
         commentForm.reset();
 
         if (response.status === 'approved') {
