@@ -59,6 +59,10 @@ $arrow-size: 30px;
       }
     }
 
+    &:not(.slick-current):not(:hover:focus-within) {
+      opacity: 0.3;
+    }
+
     .slick-carousel-caption {
       position: absolute;
       max-width: calc(min(80%, 80vw));
