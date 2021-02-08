@@ -117,7 +117,6 @@ jQuery(window).ready(() => {
       centerMode: true,
       variableWidth: true,
       mobileFirst: true,
-      arrows: false,
       autoplay: true,
       autoplaySpeed: 5000
     });
