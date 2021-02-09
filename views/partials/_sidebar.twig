@@ -1,5 +1,7 @@
 <div class="sidebar">
 
+	{{ sidebar }}
+
 	<h5 class="sidebar-header">Story Categories</h5>
 	{% include 'partials/_categories-list.twig' %}
 
@@ -8,12 +10,6 @@
 	<div class="sidebar-tag-cloud">
 		{{ sidebar_tag_cloud_widget }}
 	</div>
-
-	<h5 class="sidebar-header">Stories by Location</h5>
-	<div id="sidebar-map" class="sidebar-map"></div>
-	<script>
-		renderMap('sidebar-map');
-	</script>
 
 	<h5 class="sidebar-header">Events</h5>
 	{% include 'partials/_events.twig' %}

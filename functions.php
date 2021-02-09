@@ -108,6 +108,9 @@ class VikalpsangamOrgSite extends Timber\Site {
 	public function add_to_context( $context ) {
 		$context = $this->setup_footer_context($context);
 		$context = $this->setup_header_context($context);
+		
+		$context['sidebar'] = Timber::get_widgets('sidebar-1');
+
 		$context = $this->setup_sidebar_context($context);
 		$context = $this->setup_common_context($context);
 		return $context;
@@ -276,13 +279,9 @@ add_action( 'after_setup_theme', 'vikalpsangam_content_width', 0 );
 function vikalpsangam_widgets_init() {
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Sidebar', 'vikalpsangam' ),
+			'name'          => 'The Main SIdebar',
 			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'vikalpsangam' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
+			'description'   => 'Add widgets here.'
 		)
 	);
 }
