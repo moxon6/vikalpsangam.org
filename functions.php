@@ -24,6 +24,14 @@ function buffer($fn) {
 	return ob_get_clean();
 }
 
+add_filter('wp_generate_tag_cloud_data', function ($tags_data) {
+	foreach ($tags_data as $key => $tag) {
+		$weight = floor($tag["real_count"] / 50);
+		$tags_data[$key]['class'] .=  " tag-weight-$weight";
+	}			
+	return $tags_data;
+});
+
 class VikalpsangamOrgSite extends Timber\Site {
 	public function __construct() {
 		add_filter( 'timber/context', array( $this, 'add_to_context' ) );
@@ -89,14 +97,6 @@ class VikalpsangamOrgSite extends Timber\Site {
 			"orderby" => "date",
 			"order" => "DSC"
 		)));
-		
-		add_filter('wp_generate_tag_cloud_data', function ($tags_data) {
-			foreach ($tags_data as $key => $tag) {
-				$weight = floor($tag["real_count"] / 50);
-				$tags_data[$key]['class'] .=  " tag-weight-$weight";
-			}			
-			return $tags_data;
-		});
 
 		$context["sidebar_tag_cloud_widget"] = wp_tag_cloud([
 			"echo" => false
