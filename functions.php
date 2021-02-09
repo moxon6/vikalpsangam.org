@@ -279,7 +279,7 @@ add_action( 'after_setup_theme', 'vikalpsangam_content_width', 0 );
 function vikalpsangam_widgets_init() {
 	register_sidebar(
 		array(
-			'name'          => 'The Main SIdebar',
+			'name'          => 'The Main Sidebar',
 			'id'            => 'sidebar-1',
 			'description'   => 'Add widgets here.'
 		)
