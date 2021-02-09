@@ -1,4 +1,8 @@
 .sidebar {
+  > li.widget {
+    list-style: none;
+  }
+
   @media print {
     display: none;
   }
@@ -7,8 +11,9 @@
     @include header-style;
   }
 
-  .sidebar-map {
-    height: 400px;
+  .widgettitle {
+    @include header-style;
+    font-size: 20px;
   }
 
   .sidebar-icon {
