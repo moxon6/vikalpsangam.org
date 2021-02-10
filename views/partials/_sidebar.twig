@@ -1,15 +1,3 @@
-<div class="sidebar">
-
+<div class="sidebar pl-2">
 	{{ get_sidebar() }}
-
-
-	<h5 class="sidebar-header">Events</h5>
-	{% include 'partials/_events.twig' %}
-
-	<h5 class="sidebar-header">Recent posts</h5>
-	<div class="featured-list in-sidebar">
-		{% for post in sidebar_recent_activity %}
-			{% include 'partials/_highlight-card.twig' %}
-		{% endfor %}
-	</div>
 </div>

@@ -74,4 +74,29 @@ figure.wp-block-image {
       font-size: medium;
     }
   }
+
+  .rpwwt-widget {
+    li {
+      background-color: #f7f7f7;
+      border: 1px solid #d8d8d8;
+      margin-bottom: 12px;
+      border-left: 2px solid $dark-brick-col;
+
+      .wp-post-image {
+        margin-top: 0;
+        margin-bottom: 0;
+        height: 125px;
+        width: 125px;
+      }
+
+      .rpwwt-post-title {
+        @include clamp(2);
+      }
+
+      .rpwwt-post-excerpt {
+        font-size: 14px;
+        @include clamp(3);
+      }
+    }
+  }
 }
