@@ -108,10 +108,15 @@ class VikalpsangamOrgSite extends Timber\Site {
 	public function add_to_context( $context ) {
 		$context = $this->setup_footer_context($context);
 		$context = $this->setup_header_context($context);
-		
-		$context['sidebar'] = Timber::get_widgets('sidebar-1');
 
-		$context = $this->setup_sidebar_context($context);
+		add_filter( 'timber/twig', function( \Twig_Environment $twig ) {
+			$twig->addFunction(new \Twig\TwigFunction(
+				'get_sidebar', 
+				fn() => Timber::get_widgets('sidebar-1')
+			));
+			return $twig;
+		} );
+
 		$context = $this->setup_common_context($context);
 		return $context;
 	}
