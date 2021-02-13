@@ -13,3 +13,7 @@
 
 @import "views/index";
 @import "node_modules/bootstrap/scss/bootstrap";
+
+html {
+  font-size: 16px !important; // TODO: Fix root issue requiring this override (may be related to litespeed cache)
+}
