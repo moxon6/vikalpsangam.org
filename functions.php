@@ -162,22 +162,6 @@ if ( ! function_exists( 'vikalpsangam_setup' ) ) :
 			)
 		);
 
-		function add_additional_class_on_li($classes, $item, $args) {
-			if(isset($args->add_li_class)) {
-				$classes[] = $args->add_li_class;
-			}
-			return $classes;
-		}
-		add_filter('nav_menu_css_class', 'add_additional_class_on_li', 1, 3);
-		
-		function add_additional_class_on_a($attrs, $item, $args) {
-			if(isset($args->add_a_class)) {
-				$attrs['class'] = $args->add_a_class;
-			}
-			return $attrs;
-		}
-		add_filter('nav_menu_link_attributes', 'add_additional_class_on_a', 1, 3);
-
 		/*
 		 * Switch default core markup for search form, comment form, and comments
 		 * to output valid HTML5.
@@ -203,26 +187,7 @@ remove_action('wp_print_styles', 'print_emoji_styles');
 remove_action('wp_head', 'rest_output_link_wp_head', 10);
 remove_action('wp_head', 'wlwmanifest_link');
 
-add_filter('nav_menu_css_class' , 'special_nav_class' , 10 , 2);
-
-function special_nav_class ($classes, $item) {
-  if (
-		in_array('current-menu-item', $classes) or 
-		in_array('current-page-ancestor', $classes) or
-		in_array('current-post-ancestor', $classes) or
-		$item->post_name == "stories" && ( 
-		  (
-			  (is_single() && !has_category("policy-edits")) ||
-			  is_tag() || 
-			  (is_category() && !is_category("policy-edits"))
-		  )
-		)
-    )
-	{
-		$classes[] = 'active';
-	}
-	return $classes;
-}
+// TODO: Fix Perspectives active nav classes
 
 function remove_tagline($title)
 {
@@ -311,9 +276,6 @@ if (!is_admin()) {
 
 require get_template_directory() . '/inc/endpoints.php';
 
-function filter_excerpt($excerpt) {
-	return wp_trim_words($excerpt, apply_filters("excerpt_length", 20));
-}
 
 add_filter('comment_form_field_url', '__return_false');
 
