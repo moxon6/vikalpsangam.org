@@ -311,12 +311,6 @@ if (!is_admin()) {
 
 require get_template_directory() . '/inc/endpoints.php';
 
-function get_category_image($category) {
-
-	$image = get_field('image', $category);
-	return  esc_url($image['url']);
-}
-
 function filter_excerpt($excerpt) {
 	return wp_trim_words($excerpt, apply_filters("excerpt_length", 20));
 }
