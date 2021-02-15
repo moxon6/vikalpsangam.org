@@ -12,6 +12,7 @@ function register_map_endpoint() {
             return [
                 "title" => get_the_title( $post->ID ),
                 "url" => get_the_permalink($post->ID),
+                "category" => $post->post_category[0],
                 "latitude" => (float)$latitude,
                 "longitude" => (float)$longitude,
             ];
@@ -19,7 +20,7 @@ function register_map_endpoint() {
     
         return array_filter(
             $coordinates, 
-            fn($c) => $c["latitude"] != 0 && $c["longitude"] != 0
+            fn($c) => $c["latitude"] != 0 && $c["longitude"] != 0 && c["category"]
         );
     }
 
@@ -27,7 +28,7 @@ function register_map_endpoint() {
         
         $cache_key = "get_article_coordinates";
 
-        $coordinates = get_transient($cache_key);
+        $coordinates = get_coordinates();
         if (empty($coordinates)) {
             $coordinates = get_coordinates();
             set_transient( $cache_key, $coordinates, DAY_IN_SECONDS );
@@ -40,7 +41,7 @@ function register_map_endpoint() {
         return $response;
     }
 
-	register_rest_route( 'vikalpsangam/v1', 'map', array(
+	register_rest_route( 'vikalpsangam/v2', 'map', array(
 		'methods'  => 'GET',
 		'callback' => 'get_article_coordinates'
 	));

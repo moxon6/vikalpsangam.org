@@ -27,7 +27,8 @@ function vikalpsangam_scripts() {
 	wp_enqueue_style( 'vikalpsangam-style', get_stylesheet_uri(), array(), vikalpsangam_VERSION );
 	wp_style_add_data( 'vikalpsangam-style-rtl', 'rtl', 'replace');
 
-	wp_enqueue_script( 'vikalpsangam', get_template_directory_uri() . '/js/site/index.js', ["jquery", "leaflet/js", "wp-api"], vikalpsangam_VERSION );
+	wp_enqueue_script( 'vikalpsangam-comments-ajax/js', get_template_directory_uri() . '/js/site/comments-ajax.js', ["jquery", "leaflet/js", "wp-api"], vikalpsangam_VERSION );
+	wp_enqueue_script( 'vikalpsangam-stories-map/js', get_template_directory_uri() . '/js/site/stories-map.js', ["jquery", "leaflet/js", "wp-api"], vikalpsangam_VERSION );
 	
 	wp_enqueue_script( 'wp-api' );
 	
