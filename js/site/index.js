@@ -17,6 +17,7 @@ const colorIcon = (color) => {
 
 }
 
+
 const icons = Array(20).fill(0).map(_ => colorIcon(randomColor()))
 
 const randomIcon = () => icons[Math.floor(Math.random()*icons.length)];
@@ -43,12 +44,38 @@ async function renderMap(id) {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
   }).addTo(map);
 
+
+	var legend = L.control({position: 'bottomright'});
+
+	legend.onAdd = function (map) {
+
+		var div = L.DomUtil.create('div', 'info legend'),
+			grades = [0, 10, 20, 50, 100, 200, 500, 1000],
+			labels = [],
+			from, to;
+
+		for (var i = 0; i < grades.length; i++) {
+			from = grades[i];
+			to = grades[i + 1];
+
+			labels.push(
+				'<i style="background:' + randomColor() + '"></i> ' +
+				from + (to ? '&ndash;' + to : '+'));
+		}
+
+		div.innerHTML = labels.join('<br>');
+		return div;
+	};
+
+	legend.addTo(map);
+
+
   const markers = coordinates.map((coordinate) => {
     const marker = L.marker([coordinate.latitude, coordinate.longitude], { icon: randomIcon() });
     marker.bindPopup(`<a href="${coordinate.url}">${coordinate.title}</a>`);
     return marker
   });
-  // map.addLayer(L.layerGroup(markers));
+   map.addLayer(L.layerGroup(markers));
 }
 
 window.renderMap = renderMap;
