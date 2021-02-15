@@ -17,12 +17,33 @@ const colorIcon = (color) => {
 
 }
 
+const categories = [
+  "ECONOMICS AND TECHNOLOGIES",
+  "ENERGY",
+  "ENVIRONMENT AND ECOLOGY",
+  "FOOD AND WATER",
+  "HEALTH AND HYGIENE",
+  "LEARNING AND EDUCATION",
+  "LIVELIHOODS",
+  "POLITICS",
+  "SETTLEMENTS AND TRANSPORT",
+  "SOCIETY, CULTURE AND PEACE",
+  "OTHERS"
+]
+
 const colors = [
-  "#ef476fff",
-  "#ffd166ff",
-  "#06d6a0ff",
-  "#118ab2ff",
-  "#073b4cff",
+  "#a6cee3",
+
+  "#1f78b4",
+  "#b2df8a",
+  "#33a02c",
+  "#fb9a99",
+  "#e31a1c",
+  "#fdbf6f",
+  "#ff7f00",
+  "#cab2d6",
+  "#6a3d9a",
+  "#dddddd",
 ]
 
 const icons = colors.map(color => colorIcon(color))
@@ -31,7 +52,6 @@ const randomIcon = () => icons[Math.floor(Math.random()*icons.length)];
 
 
 async function renderMap(id) {
-  const mean = (arr) => arr.reduce((x, y) => x + y, 0) / arr.length;
 
   async function fetchCoordinates() {
     const response = await fetch('/wp-json/vikalpsangam/v1/map');
@@ -39,13 +59,18 @@ async function renderMap(id) {
     return Object.values(coordinatesMap);
   }
 
-  const INITIAL_ZOOM_LEVEL = 5;
+  const INITIAL_ZOOM_LEVEL = 6;
   const coordinates = await fetchCoordinates();
 
-  const map = L.map(id).setView([
-    mean(coordinates.map((x) => x.latitude)),
-    mean(coordinates.map((x) => x.longitude)),
-  ], INITIAL_ZOOM_LEVEL);
+  const bounds = new L.LatLngBounds([
+    [ Math.min(...coordinates.map(x => x.latitude)), Math.min(...coordinates.map(x => x.longitude)) ],
+    [ Math.max(...coordinates.map(x => x.latitude)), Math.max(...coordinates.map(x => x.longitude)) ]
+  ])
+
+  const map = L.map(id, {
+    center: bounds.getCenter(),
+    zoom: INITIAL_ZOOM_LEVEL
+  });
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -56,33 +81,36 @@ async function renderMap(id) {
 
 	legend.onAdd = function (map) {
 
-		var div = L.DomUtil.create('div', 'info legend'),
-			grades = [0, 10, 20, 50, 100, 200, 500, 1000],
-			labels = [],
-			from, to;
+    const div = L.DomUtil.create('div')
 
-		for (var i = 0; i < grades.length; i++) {
-			from = grades[i];
-			to = grades[i + 1];
+    const labels = categories.map((category, i) => 
+      `<li class="category" style="--bullet-color: ${colors[i]}">
+        <div class="bullet"></div>
+        ${category}
+      </li>
+      `
+    )
 
-			labels.push(
-				'<i style="background:' + randomColor() + '"></i> ' +
-				from + (to ? '&ndash;' + to : '+'));
-		}
+    div.innerHTML = `<ul class="category-list">
+      ${labels.join("")}
+    </ul>`
 
-		div.innerHTML = labels.join('<br>');
 		return div;
 	};
 
 	legend.addTo(map);
 
+  const markers = L.markerClusterGroup({
+    maxClusterRadius: 0
+  });
 
-  const markers = coordinates.map((coordinate) => {
+  coordinates.forEach((coordinate) => {
     const marker = L.marker([coordinate.latitude, coordinate.longitude], { icon: randomIcon() });
     marker.bindPopup(`<a href="${coordinate.url}">${coordinate.title}</a>`);
-    return marker
+    marker.addTo(map)
   });
-   map.addLayer(L.layerGroup(markers));
+  //  map.addLayer(markers);
+
 }
 
 window.renderMap = renderMap;
