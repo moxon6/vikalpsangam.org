@@ -1,0 +1,29 @@
+.leaflet-marker-icon {
+  background-color: transparent;
+  border: 0;
+}
+
+#page-map {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  .content {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+
+    .left {
+      flex: 1;
+      height: 100%;
+      #large-map {
+        height: 100%;
+      }
+    }
+
+    .right {
+      width: 480px;
+      height: 100%;
+    }
+  }
+}

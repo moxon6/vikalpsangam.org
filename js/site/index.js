@@ -1,3 +1,27 @@
+const randomColor = () => '#'+(Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0');
+
+const colorIcon = (color) => {
+
+  const styles = `
+    background-color: ${color};
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 50%;
+    display: block;`
+  
+  return L.divIcon({
+
+    html: `<span style="${styles}" />`
+  })
+
+}
+
+const icons = Array(20).fill(0).map(_ => colorIcon(randomColor()))
+
+const randomIcon = () => icons[Math.floor(Math.random()*icons.length)];
+
+
 async function renderMap(id) {
   const mean = (arr) => arr.reduce((x, y) => x + y, 0) / arr.length;
 
@@ -19,14 +43,12 @@ async function renderMap(id) {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
   }).addTo(map);
 
-  const markers = L.markerClusterGroup();
-
-  coordinates.forEach((coordinate) => {
-    const marker = L.marker([coordinate.latitude, coordinate.longitude]);
+  const markers = coordinates.map((coordinate) => {
+    const marker = L.marker([coordinate.latitude, coordinate.longitude], { icon: randomIcon() });
     marker.bindPopup(`<a href="${coordinate.url}">${coordinate.title}</a>`);
-    markers.addLayer(marker);
+    return marker
   });
-  map.addLayer(markers);
+  // map.addLayer(L.layerGroup(markers));
 }
 
 window.renderMap = renderMap;

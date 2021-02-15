@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% set page_id = 'page-map' %}
+
+<html lang="en">
+
+	{% include 'partials/_head.twig' %}
+
+	<body id={{page_id}} class="{{body_class}}">
+		{{ function("wp_body_open") }}
+
+		{% include 'partials/_nav.twig' %}
+		<div class="content">
+
+			<div class="left">
+				<div id="large-map"></div>
+				<script>
+					renderMap('large-map');
+				</script>
+			</div>
+			<div class="right"></div>
+
+		</div>
+
+
+	</body>
+</html>
