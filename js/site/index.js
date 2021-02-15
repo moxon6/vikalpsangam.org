@@ -1,4 +1,4 @@
-const randomColor = () => '#'+(Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0');
+const randomColor = () => colors[Math.floor(Math.random()*colors.length)];
 
 const colorIcon = (color) => {
 
@@ -17,8 +17,15 @@ const colorIcon = (color) => {
 
 }
 
+const colors = [
+  "#ef476fff",
+  "#ffd166ff",
+  "#06d6a0ff",
+  "#118ab2ff",
+  "#073b4cff",
+]
 
-const icons = Array(20).fill(0).map(_ => colorIcon(randomColor()))
+const icons = colors.map(color => colorIcon(color))
 
 const randomIcon = () => icons[Math.floor(Math.random()*icons.length)];
 
