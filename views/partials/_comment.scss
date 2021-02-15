@@ -43,4 +43,11 @@
 
 .child-comments {
   margin-top: 20px;
+  @include desktop {
+    margin-left: -24px;
+  }
+
+  @include mobile {
+    margin-left: -32px;
+  }
 }
