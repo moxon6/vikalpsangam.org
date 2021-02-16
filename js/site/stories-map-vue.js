@@ -10,6 +10,7 @@ async function renderMap() {
     Vue.component('l-tile-layer', window.Vue2Leaflet.LTileLayer);
     Vue.component('l-marker', window.Vue2Leaflet.LMarker);
     Vue.component('l-popup', window.Vue2Leaflet.LPopup);
+    Vue.component('l-control', window.Vue2Leaflet.LControl);
 
     const responseJson = await wp.apiRequest({ path: `vikalpsangam/v2/map` });
     
@@ -41,20 +42,22 @@ async function renderMap() {
         },
         computed: {
             visibleMarkers: function() {
-                if (!this.selectedCategory) return this.coordinates
-                return this.coordinates.filter(
-                    coordinate => coordinate.categories.includes(this.selectedCategory)
-                )
+                return this.selectedCategory
+                    ? this.coordinates.filter(coordinate => coordinate.categories.includes(this.selectedCategory))
+                    : this.coordinates
             }
         },
         methods: {
             getIcon(coordinate) {
-                if (this.selectedCategory) {
-                    return categories[this.selectedCategory].icon
-                } else {
-                    return categories[coordinate.categories[0]].icon
-                }
+                return this.selectedCategory 
+                    ? categories[this.selectedCategory].icon
+                    : categories[coordinate.categories[0]].icon
             },
+            getCategoryStyle(category) {
+                return {
+                    '--bullet-color': category.color
+                }
+            }
         }
     })
 }

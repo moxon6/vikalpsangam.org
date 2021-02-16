@@ -5,6 +5,17 @@
             :lat-lng="[coordinate.latitude, coordinate.longitude]">
             <l-popup>Hello!</l-popup>
         </l-marker>
+
+        <l-control position="bottomright">
+            <ul class="category-list">
+                <li v-for="(category) in categories" data-category=${category.cat_ID} class="category"
+                    :style="getCategoryStyle(category)">
+                    <div class="bullet"></div>
+                    {{ category.name }}
+                </li>
+            </ul>
+        </l-control>
+
     </l-map>
 </div>
 
