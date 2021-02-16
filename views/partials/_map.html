@@ -1,0 +1,13 @@
+<div id="large-map">
+    <l-map :center="center" :zoom="zoom">
+        <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
+        <l-marker :icon="getIcon(coordinate)" v-for="coordinate in visibleMarkers"
+            :lat-lng="[coordinate.latitude, coordinate.longitude]">
+            <l-popup>Hello!</l-popup>
+        </l-marker>
+    </l-map>
+</div>
+
+<script>
+    renderMap()
+</script>
