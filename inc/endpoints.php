@@ -2,17 +2,10 @@
 
 function register_map_endpoint() {
 
-    
-
-
     function get_coordinates() {
         $posts = get_posts([
             "numberposts" => -1
         ]);
-
-        ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
         $coordinates = array_map(function($post) {
             $latitude = get_post_meta($post->ID, 'latitude', TRUE);
@@ -72,9 +65,8 @@ error_reporting(E_ALL);
             "coordinates" => $coordinates,
             "categories" => $categories
         ]);
-		$response->set_status(200);
-		$response->set_headers(array('Cache-Control' => 'max-age=1'));
-		
+        $response->set_status(200);
+        $response->set_headers(array('Cache-Control' => 'max-age=3600'));			
         return $response;
     }
 
