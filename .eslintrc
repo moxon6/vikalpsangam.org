@@ -10,6 +10,8 @@
         "L": "readonly",
         "autosize": "readonly",
         "wp": "readonly",
-        "diff": "readonly"
+        "diff": "readonly",
+        "Vue": "readonly",
+        "_": "readonly"
     }
 }

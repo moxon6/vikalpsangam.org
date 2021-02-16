@@ -19,15 +19,16 @@ function vikalpsangam_scripts() {
 
     wp_enqueue_script("leaflet/js", "https://unpkg.com/leaflet@1.7.1/dist/leaflet.js");
 	wp_enqueue_style( 'leaflet/css', 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.css' );
-    
-    wp_enqueue_style('leaflet.MarkerCluster/css', 'https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css' );
-	wp_enqueue_style('leaflet.MarkerCluster.Default/css', 'https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css' );
-	wp_enqueue_script('leaflet.MarkerCluster/js', 'https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js', ["leaflet/js"] );
-	
+
+	wp_enqueue_script("vue/js", "//cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js");
+
+	wp_enqueue_script("vue-leaflet/js", "//unpkg.com/vue2-leaflet", ["vue/js", "leaflet/js"]);
+
 	wp_enqueue_style( 'vikalpsangam-style', get_stylesheet_uri(), array(), vikalpsangam_VERSION );
 	wp_style_add_data( 'vikalpsangam-style-rtl', 'rtl', 'replace');
 
-	wp_enqueue_script( 'vikalpsangam', get_template_directory_uri() . '/js/site/index.js', ["jquery", "leaflet/js", "wp-api"], vikalpsangam_VERSION );
+	wp_enqueue_script( 'vikalpsangam', get_template_directory_uri() . '/js/site/comments-ajax.js', ["jquery", "wp-api"], vikalpsangam_VERSION );
+	wp_enqueue_script( 'vikalpsangam-map', get_template_directory_uri() . '/js/site/stories-map.js', ["vue-leaflet/js"], vikalpsangam_VERSION );
 	
 	wp_enqueue_script( 'wp-api' );
 	
