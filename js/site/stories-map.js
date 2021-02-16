@@ -59,23 +59,33 @@ function addAttribution(map) {
   }).addTo(map);
 }
 
-function addLegend(map, app) {
+function addLegend(map, categories, selectCategory) {
 
 	var legend = L.control({position: 'bottomright'});
 
 	legend.onAdd = function () {
     const div = L.DomUtil.create('div')
-    const labels = app.categories.map((category, i) => 
-      `<li class="category" style="--bullet-color: ${colors[i]}">
+    debugger
+    const labels = categories.map((category, i) => `
+    <li data-category=${category.cat_ID} class="category" style="--bullet-color: ${colors[i]}">
         <div class="bullet"></div>
         ${category.name}
-      </li>
-      `
+    </li>
+    `
     )
 
     div.innerHTML = `<ul class="category-list">
       ${labels.join("")}
     </ul>`
+
+    div.querySelectorAll(".category").forEach(category => {
+      category.addEventListener("click", (e) => {
+        e.preventDefault()
+        const categoryId = category.dataset.category;
+        console.log("Toggling category " + categoryId)
+      })
+    })
+
 
 		return div;
 	};
@@ -91,41 +101,40 @@ async function renderMap(id) {
 
   const response = await fetch('/wp-json/vikalpsangam/v2/map');
   const responseJson = await response.json();
+  const coordinates = Object.values(responseJson.coordinates);
+  const categories = responseJson.categories;
 
-  const app = {
-    selectedCategory: null,
-    categories: responseJson.categories,
-    coordinates: Object.values(responseJson.coordinates)
+  
+  function selectCategory(selectedCategory) {
+    for (const marker of this.markers) {
+      const { categories } = marker.coordinate
+      if (!selectedCategory || categories.includes(selectedCategory)) {
+        marker.addTo(map)
+      } else {
+        try {
+          marker.remove()  
+        } catch (e) {
+        }
+      }
+    }
   }
+  
   
 
   const map = L.map(id, {
-    center: getBounds(app.coordinates).getCenter(),
+    center: getBounds(coordinates).getCenter(),
     zoom: INITIAL_ZOOM_LEVEL,
   });
 
   addAttribution(map);
-  addLegend(map, app);
+  addLegend(map, categories, selectCategory);
 
-  const markers = app.coordinates.map(
+  const markers = coordinates.map(
     (coordinate) => {
       const icon = randomIcon()
       const marker = L.marker([coordinate.latitude, coordinate.longitude], { icon });
+      marker.coordinate = coordinate
       marker.bindPopup(`<a href="${coordinate.url}">${coordinate.title}</a>`);
-
-      marker.updateCategory = function () {
-        const categories = filterCategories(coordinate.categories)
-
-        if (Math.random() < 0.5) {
-          marker.addTo(map)
-        } else {
-          try {
-            marker.remove()
-          } catch(e) {
-          }
-        }
-      };
-
       return marker;
     },
   );
