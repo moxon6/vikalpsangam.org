@@ -33,8 +33,9 @@
 
 .category-list {
   background-color: white;
-  padding: 15px;
-  list-style: none;
+  padding: 16px;
+  padding-top: 4px;
+
   box-shadow: rgba(0, 0, 0, 0.2) 0 0 4px 2px;
   border-radius: 4px;
   .category {
@@ -48,6 +49,9 @@
       border: 1px solid rgba(0, 0, 0, 0.2);
     }
 
+    display: list-item;
+    background-color: transparent;
+    border: none;
     margin-bottom: 7px;
     font-size: 10px;
     color: #666666;
@@ -56,5 +60,24 @@
     text-transform: uppercase;
     text-align: left;
     line-height: 10px;
+
+    &.selected {
+      font-weight: 900;
+    }
+  }
+
+  .category-list-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .category-list-header-image {
+      width: 48px;
+    }
+    p {
+      @include header-style;
+      margin: 0;
+      margin-left: 4px;
+      font-size: 16px;
+    }
   }
 }

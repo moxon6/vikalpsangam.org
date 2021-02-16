@@ -57,6 +57,9 @@ async function renderMap() {
                 return {
                     '--bullet-color': category.color
                 }
+            },
+            selectCategory(category) {
+                this.selectedCategory = this.selectedCategory !== category.cat_ID ? category.cat_ID : null;
             }
         }
     })
