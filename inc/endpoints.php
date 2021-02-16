@@ -58,7 +58,7 @@ function register_map_endpoint() {
         $categories = get_categories();
 
         foreach($categories as $category) {
-            $category->color = $colors[array_rand($colors)];
+            $category->color = get_field('color', $category) ?? "white";
         }
 
         $response = new WP_REST_Response([
