@@ -28,6 +28,8 @@ async function renderMap() {
     
     const coordinates = Object.values(responseJson.coordinates)
     
+    debugger;
+
     window.app = new Vue({
         el: '#large-map',
         data: {

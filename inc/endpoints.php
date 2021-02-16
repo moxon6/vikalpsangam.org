@@ -10,6 +10,10 @@ function register_map_endpoint() {
             "numberposts" => -1
         ]);
 
+        ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
         $coordinates = array_map(function($post) {
             $latitude = get_post_meta($post->ID, 'latitude', TRUE);
             $longitude = get_post_meta($post->ID, 'longitude', TRUE);
@@ -19,6 +23,8 @@ function register_map_endpoint() {
                 "categories" => $post->post_category,
                 "latitude" => (float)$latitude,
                 "longitude" => (float)$longitude,
+                "thumbnail" => get_the_post_thumbnail_url($post),
+                "excerpt" => get_the_excerpt($post)
             ];
         }, $posts);
     

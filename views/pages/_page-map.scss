@@ -1,4 +1,26 @@
 #page-map {
+  .leaflet-popup-content-wrapper {
+    background: transparent;
+    padding: 0;
+  }
+
+  .leaflet-popup-content {
+    margin: 0;
+    width: 300px !important;
+
+    .btn-primary {
+      color: white;
+    }
+
+    .popup-title {
+      color: $dark-brick-col;
+    }
+
+    .popup-image {
+      object-fit: cover;
+    }
+  }
+
   .story-marker-icon {
     > div {
       width: 100%;
