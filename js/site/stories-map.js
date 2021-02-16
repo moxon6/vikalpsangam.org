@@ -59,16 +59,16 @@ function addAttribution(map) {
   }).addTo(map);
 }
 
-function addLegend(map) {
+function addLegend(map, app) {
 
 	var legend = L.control({position: 'bottomright'});
 
 	legend.onAdd = function () {
     const div = L.DomUtil.create('div')
-    const labels = categories.map((category, i) => 
+    const labels = app.categories.map((category, i) => 
       `<li class="category" style="--bullet-color: ${colors[i]}">
         <div class="bullet"></div>
-        ${category}
+        ${category.name}
       </li>
       `
     )
