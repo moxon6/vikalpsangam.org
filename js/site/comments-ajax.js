@@ -1,5 +1,3 @@
-
-
 const parseHTMLEntities = (str) => jQuery('<textarea/>').html(str).text();
 
 const setupForm = () => {
