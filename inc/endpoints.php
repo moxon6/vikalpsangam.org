@@ -34,7 +34,12 @@ function register_map_endpoint() {
             set_transient( $cache_key, $coordinates, DAY_IN_SECONDS );
         }
 
-        $response = new WP_REST_Response($coordinates);
+        $categories = get_categories();
+
+        $response = new WP_REST_Response([
+            "coordinates" => $coordinates,
+            "categories" => $categories
+        ]);
 		$response->set_status(200);
 		$response->set_headers(array('Cache-Control' => 'max-age=3600'));
 		
