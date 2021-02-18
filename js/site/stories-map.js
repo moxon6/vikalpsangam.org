@@ -21,6 +21,9 @@ async function renderMap() {
   Vue.component('l-popup', window.Vue2Leaflet.LPopup);
   Vue.component('l-control', window.Vue2Leaflet.LControl);
 
+  Vue.use(VueLazyload)
+
+
   window.app = new Vue({
     el: '#large-map',
     data: {

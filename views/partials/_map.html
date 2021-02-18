@@ -13,7 +13,7 @@
                 <div class="card post-tile-card">
 
                     <a :href="coordinate.url">
-                        <img :src="coordinate.thumbnail" class="card-img-top popup-image    ">
+                        <img v-lazy="coordinate.thumbnail" class="card-img-top popup-image    ">
                     </a>
 
                     <div class="card-body">

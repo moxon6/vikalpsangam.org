@@ -20,13 +20,18 @@ function vikalpsangam_scripts() {
     wp_enqueue_script("leaflet/js", "https://unpkg.com/leaflet@1.7.1/dist/leaflet.js");
 	wp_enqueue_style( 'leaflet/css', 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.css' );
 
+
+	wp_enqueue_script("vue-lazyload/js", "https://unpkg.com/vue-lazyload/vue-lazyload.js");
+	
+
+
 	wp_enqueue_script("leaflet-fullscreen/js", "https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js");
 	wp_enqueue_style( 'leaflet-fullscreen/css', "https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css");
 
 
 	wp_enqueue_script("vue/js", "//cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js");
 
-	wp_enqueue_script("vue-leaflet/js", "//unpkg.com/vue2-leaflet", ["vue/js", "leaflet/js", "leaflet-fullscreen/js"]);
+	wp_enqueue_script("vue-leaflet/js", "//unpkg.com/vue2-leaflet", ["vue/js", "leaflet/js", "leaflet-fullscreen/js", "vue-lazyload/js"]);
 
 	wp_enqueue_style( 'vikalpsangam-style', get_stylesheet_uri(), array(), vikalpsangam_VERSION );
 	wp_style_add_data( 'vikalpsangam-style-rtl', 'rtl', 'replace');
