@@ -65,7 +65,7 @@ async function renderMap() {
         this.selectedCategory = this.selectedCategory !== category.cat_ID ? category.cat_ID : null;
       },
       showMarker(coordinate) {
-        return !this.selectedCategory || coordinate.categories.includes(this.selectedCategory)
+        return !this.selectedCategory || coordinate.categories.includes(this.selectedCategory);
       },
 
       async fetchData() {
