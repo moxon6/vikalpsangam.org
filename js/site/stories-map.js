@@ -9,10 +9,9 @@ const getCenter = (coordinates) => [
   ],
 ];
 
-const center = [21.6, 82.5]
+const center = [21.6, 82.5];
 
-const onMobile = window.matchMedia("(max-width: 700px)").matches
-
+const onMobile = window.matchMedia('(max-width: 700px)').matches;
 
 async function renderMap() {
   Vue.component('l-map', window.Vue2Leaflet.LMap);
@@ -21,10 +20,9 @@ async function renderMap() {
   Vue.component('l-popup', window.Vue2Leaflet.LPopup);
   Vue.component('l-control', window.Vue2Leaflet.LControl);
 
-  Vue.use(VueLazyload)
+  Vue.use(window.VueLazyload);
 
-
-  window.app = new Vue({
+  const app = new Vue({
     el: '#large-map',
     data: {
       message: 'Hello Vue!',
@@ -34,12 +32,11 @@ async function renderMap() {
       center,
       coordinates: [],
       categories: [],
-      selectedCategory: null
+      selectedCategory: null,
     },
     mounted() {
       const map = this.$refs.map.mapObject;
-      map.addControl(new L.Control.Fullscreen({ position: "topright"}));    
-
+      map.addControl(new L.Control.Fullscreen({ position: 'topright' }));
     },
     computed: {
       visibleMarkers() {
@@ -51,7 +48,7 @@ async function renderMap() {
     methods: {
       onMapReady() {
         if (onMobile) {
-          jQuery(this.$refs.categories).collapse()
+          jQuery(this.$refs.categories).collapse();
         }
       },
       getIcon(coordinate) {
@@ -82,18 +79,14 @@ async function renderMap() {
           }))
           .indexBy('cat_ID')
           .value();
-        
+
         this.coordinates = Object.values(responseJson.coordinates);
-        this.center = new L.LatLngBounds(getCenter(this.coordinates)).getCenter()
-      }
+        this.center = new L.LatLngBounds(getCenter(this.coordinates)).getCenter();
+      },
     },
   });
 
-  app.fetchData()
-
-
-
-  return app;
+  app.fetchData();
 }
 
 window.renderMap = renderMap;
