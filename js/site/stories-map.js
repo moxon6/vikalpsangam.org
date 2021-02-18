@@ -64,6 +64,9 @@ async function renderMap() {
       selectCategory(category) {
         this.selectedCategory = this.selectedCategory !== category.cat_ID ? category.cat_ID : null;
       },
+      showMarker(coordinate) {
+        return !this.selectedCategory || coordinate.categories.includes(this.selectedCategory)
+      },
 
       async fetchData() {
         const responseJson = await wp.apiRequest({ path: 'vikalpsangam/v2/map' });
@@ -87,6 +90,7 @@ async function renderMap() {
   });
 
   app.fetchData();
+  window.app = app;
 }
 
 window.renderMap = renderMap;
