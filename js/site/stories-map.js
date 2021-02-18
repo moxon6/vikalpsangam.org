@@ -28,7 +28,7 @@ async function renderMap() {
       message: 'Hello Vue!',
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-      zoom: 6,
+      zoom: onMobile ? 5 : 6,
       center,
       coordinates: [],
       categories: [],
