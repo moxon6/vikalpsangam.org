@@ -11,7 +11,7 @@ const getCenter = (coordinates) => [
 
 const center = [21.6, 82.5]
 
-const onMobile = window.matchMedia("(max-width: 700px)")
+const onMobile = window.matchMedia("(max-width: 700px)").matches
 
 
 async function renderMap() {
@@ -34,12 +34,12 @@ async function renderMap() {
       center,
       coordinates: [],
       categories: [],
-      selectedCategory: null,
-      showMenu: true,
+      selectedCategory: null
     },
     mounted() {
       const map = this.$refs.map.mapObject;
       map.addControl(new L.Control.Fullscreen({ position: "topright"}));    
+
     },
     computed: {
       visibleMarkers() {
@@ -49,6 +49,11 @@ async function renderMap() {
       },
     },
     methods: {
+      onMapReady() {
+        if (onMobile) {
+          jQuery(this.$refs.categories).collapse()
+        }
+      },
       getIcon(coordinate) {
         return this.selectedCategory
           ? this.categories[this.selectedCategory].icon
@@ -77,14 +82,9 @@ async function renderMap() {
           }))
           .indexBy('cat_ID')
           .value();
-      
+        
         this.coordinates = Object.values(responseJson.coordinates);
         this.center = new L.LatLngBounds(getCenter(this.coordinates)).getCenter()
-
-        this.$refs.map.mapObject.fitBounds(
-          this.coordinates.map(c => [c.latitude, c.longitude])
-        )
-
       }
     },
   });
