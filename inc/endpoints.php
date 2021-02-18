@@ -11,6 +11,7 @@ function register_map_endpoint() {
             $latitude = get_post_meta($post->ID, 'latitude', TRUE);
             $longitude = get_post_meta($post->ID, 'longitude', TRUE);
             return [
+                "id" => $post->ID,
                 "title" => get_the_title( $post->ID ),
                 "url" => get_the_permalink($post->ID),
                 "categories" => $post->post_category,

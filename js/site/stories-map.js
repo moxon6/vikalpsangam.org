@@ -11,6 +11,9 @@ const getCenter = (coordinates) => [
 
 const center = [21.6, 82.5]
 
+const onMobile = window.matchMedia("(max-width: 700px)")
+
+
 async function renderMap() {
   Vue.component('l-map', window.Vue2Leaflet.LMap);
   Vue.component('l-tile-layer', window.Vue2Leaflet.LTileLayer);
@@ -29,6 +32,11 @@ async function renderMap() {
       coordinates: [],
       categories: [],
       selectedCategory: null,
+      showMenu: true,
+    },
+    mounted() {
+      const map = this.$refs.map.mapObject;
+      map.addControl(new L.Control.Fullscreen({ position: "topright"}));    
     },
     computed: {
       visibleMarkers() {
@@ -69,6 +77,11 @@ async function renderMap() {
       
         this.coordinates = Object.values(responseJson.coordinates);
         this.center = new L.LatLngBounds(getCenter(this.coordinates)).getCenter()
+
+        this.$refs.map.mapObject.fitBounds(
+          this.coordinates.map(c => [c.latitude, c.longitude])
+        )
+
       }
     },
   });

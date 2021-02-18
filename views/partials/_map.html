@@ -1,7 +1,13 @@
 <div id="large-map">
-    <l-map :center="center" :zoom="zoom">
+    <div class="loading-overlay" v-if="!coordinates.length">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+
+    <l-map ref="map" :center="center" :zoom="zoom">
         <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
-        <l-marker :icon="getIcon(coordinate)" v-for="coordinate in visibleMarkers"
+        <l-marker :key="coordinate.id" :icon="getIcon(coordinate)" v-for="coordinate in visibleMarkers"
             :lat-lng="[coordinate.latitude, coordinate.longitude]">
             <l-popup>
                 <div class="card post-tile-card">
@@ -26,18 +32,25 @@
         </l-marker>
 
         <l-control position="bottomright">
-            <div class="category-list">
-                <div class="category-list-header">
+
+            <div v-if="coordinates.length" class="category-list">
+                <a class="category-list-header" data-toggle="collapse" href="#categories">
                     <img class="category-list-header-image" src="/wp-content/uploads/migrate/VS-Favicon.png">
                     <p>Filter by category</p>
+                    <h5 v-on:click="showMenu = !showMenu" class="ml-2 mb-0 text-primary">
+                        <i class="fas fa-angle-down collapse-icon"></i>
+                    </h5>
+                </a>
+
+                <div id="categories" class="collapse show">
+                    <button v-on:click="selectCategory(category)" v-for="(category) in categories"
+                        v-bind:class="[{ selected: category.cat_ID === selectedCategory }, 'category'] "
+                        :style="getCategoryStyle(category)">
+                        <div class="bullet"></div>
+                        {{ category.name }}
+                    </button>
                 </div>
 
-                <button v-on:click="selectCategory(category)" v-for="(category) in categories"
-                    v-bind:class="[{ selected: category.cat_ID === selectedCategory }, 'category'] "
-                    :style="getCategoryStyle(category)">
-                    <div class="bullet"></div>
-                    {{ category.name }}
-                </button>
             </div>
         </l-control>
 
