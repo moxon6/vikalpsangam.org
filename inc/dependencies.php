@@ -29,7 +29,7 @@ function vikalpsangam_scripts() {
 	wp_enqueue_style( 'leaflet-fullscreen/css', "https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css");
 
 
-	wp_enqueue_script("vue/js", "//cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js");
+	wp_enqueue_script("vue/js", "//cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.min.js");
 
 	wp_enqueue_script("vue-leaflet/js", "//unpkg.com/vue2-leaflet", ["vue/js", "leaflet/js", "leaflet-fullscreen/js", "vue-lazyload/js"]);
 

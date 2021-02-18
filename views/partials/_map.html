@@ -39,7 +39,8 @@
                 </a>
 
                 <div id="categories" class="collapse show" ref="categories">
-                    <button v-on:click="selectCategory(category)" v-for="(category) in categories"
+                    <button :key="category.cat_ID" v-on:click="selectCategory(category)"
+                        v-for="(category) in categories"
                         v-bind:class="[{ selected: category.cat_ID === selectedCategory }, 'category'] "
                         :style="getCategoryStyle(category)">
                         <div class="bullet"></div>
