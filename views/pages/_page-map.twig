@@ -4,9 +4,9 @@
 
 {% block page %}
 	{# 
-						The following 'verbatim' section is served to the client unmodified.
-						This wrapper is required because the twig templating syntax conflicts with the Vue templating syntax.
-					#}
+		The following 'verbatim' section is served to the client unmodified.
+		This wrapper is required because the twig templating syntax conflicts with the Vue templating syntax.
+	#}
 	{% verbatim %}
 		<div id="large-map">
 			<l-map ref="map" :center="center" :zoom="zoom" @ready="onMapReady()">
@@ -15,11 +15,9 @@
 					<l-marker v-if="showMarker(coordinate)" :icon="getIcon(coordinate)" :lat-lng="[coordinate.latitude, coordinate.longitude]">
 						<l-popup>
 							<div class="card post-tile-card">
-
 								<a :href="coordinate.url">
 									<img v-lazy="coordinate.thumbnail" class="card-img-top popup-image    ">
 								</a>
-
 								<div class="card-body">
 									<a :href="coordinate.url">
 										<h6 class="card-title popup-title">{{ coordinate.title }}</h6>
@@ -30,8 +28,6 @@
 									<a :href="coordinate.url" class="btn btn-primary btn-sm">Read More</a>
 								</footer>
 							</div>
-
-
 						</l-popup>
 					</l-marker>
 				</div>
@@ -44,14 +40,12 @@
 								<i class="fas fa-angle-up collapse-icon"></i>
 							</h5>
 						</a>
-
 						<div id="categories" class="collapse show" ref="categories">
 							<button :key="category.cat_ID" v-on:click="selectCategory(category)" v-for="(category) in categories" v-bind:class="[{ selected: category.cat_ID === selectedCategory }, 'category'] " :style="category.menuItemStyle">
 								<div class="bullet"></div>
 								{{ category.name }}
 							</button>
 						</div>
-
 					</div>
 				</l-control>
 			</l-map>
@@ -64,7 +58,6 @@
 				renderMap(document.currentScript.parentElement)
 			</script>
 		</div>
-
 	{% endverbatim %}
 {% endblock %}
 
