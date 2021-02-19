@@ -60,41 +60,37 @@ async function renderMap() {
           ? this.categories[this.selectedCategory].icon
           : this.categories[coordinate.categories[0]].icon;
       },
-      getCategoryStyle(category) {
-        return {
-          '--bullet-color': category.color,
-        };
-      },
       selectCategory(category) {
         this.selectedCategory = this.selectedCategory !== category.cat_ID ? category.cat_ID : null;
       },
       showMarker(coordinate) {
         return !this.selectedCategory || coordinate.categories.includes(this.selectedCategory);
       },
-
       async fetchData() {
-        const responseJson = await wp.apiRequest({ path: 'vikalpsangam/v2/map' });
+        const response = await wp.apiRequest({ path: 'vikalpsangam/v2/map' });
 
         this.categories = _
-          .chain(responseJson.categories)
+          .chain(response.categories)
           .map((category) => ({
             ...category,
             icon: L.divIcon({
               className: 'story-marker-icon',
               html: `<div style='background-color: ${category.color}'></div>`,
             }),
+            menuItemStyle: {
+              '--bullet-color': category.color,
+            }
           }))
           .indexBy('cat_ID')
           .value();
 
-        this.coordinates = Object.values(responseJson.coordinates);
+        this.coordinates = Object.values(response.coordinates);
         this.center = new L.LatLngBounds(getCenter(this.coordinates)).getCenter();
       },
     },
   });
 
   app.fetchData();
-  window.app = app;
 }
 
 window.renderMap = renderMap;
