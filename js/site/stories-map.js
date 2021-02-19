@@ -79,7 +79,7 @@ async function renderMap(el) {
             }),
             menuItemStyle: {
               '--bullet-color': category.color,
-            }
+            },
           }))
           .indexBy('cat_ID')
           .value();
