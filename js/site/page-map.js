@@ -15,8 +15,6 @@ const getCenter = (coordinates) => [
 
 const center = [21.6, 82.5];
 
-const onMobile = window.matchMedia('(max-width: 700px)').matches;
-
 async function renderMap(el) {
   Vue.component('l-map', window.Vue2Leaflet.LMap);
   Vue.component('l-tile-layer', window.Vue2Leaflet.LTileLayer);
@@ -26,13 +24,21 @@ async function renderMap(el) {
 
   Vue.use(window.VueLazyload);
 
+  const onMobile = el.clientWidth <= 767
+
+  const zoom = (
+    el.clientWidth > 767 ? 6 :
+    el.clientWidth > 600 ? 5 :
+    4
+  )
+
   const app = new Vue({
     el,
     data: {
       message: 'Hello Vue!',
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-      zoom: onMobile ? 5 : 6,
+      zoom,
       center,
       coordinates: [],
       categories: [],

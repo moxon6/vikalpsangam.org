@@ -10,11 +10,9 @@
 	</div>
 
 	<h5 class="sidebar-header">Stories by Location</h5>
-	<div id="sidebar-map" class="sidebar-map"></div>
-	<script>
-		renderMap('sidebar-map');
-	</script>
-
+	
+	{% include 'partials/_map.twig' %}
+	
 	<h5 class="sidebar-header">Events</h5>
 	{% include 'partials/_events.twig' %}
 
