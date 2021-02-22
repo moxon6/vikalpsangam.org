@@ -10,3 +10,5 @@ archive.pipe(
 archive.glob('**', {
   ignore,
 });
+
+archive.finalize();
