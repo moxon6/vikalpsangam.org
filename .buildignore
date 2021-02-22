@@ -20,3 +20,12 @@ sass
 style.css.map
 update-version
 vikalpsangam.zip
+
+# Ignore source files from features
+
+features/stories-map/.cache
+features/stories-map/stories-map.js
+features/stories-map/stories-map.scss
+features/stories-map/package*.json
+features/stories-map/.gitignore
+features/stories-map/node_modules
