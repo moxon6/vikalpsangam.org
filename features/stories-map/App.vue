@@ -1,5 +1,5 @@
 <template>
-  <div class="map-container">
+  <div class="stories-map">
     <l-map ref="map" :center="center" :zoom="zoom" @ready="onMapReady()">
       <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
       <div v-for="coordinate in coordinates" :key="coordinate.id">
@@ -176,10 +176,6 @@ $dark-brick-col: #9e332e;
   flex: 1;
   height: 100%;
   position: relative;
-
-  .map-container {
-    height: 100%;
-  }
 
   .leaflet-popup-content-wrapper {
     background: transparent;
