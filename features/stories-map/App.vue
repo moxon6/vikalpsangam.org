@@ -95,7 +95,7 @@ const getCenter = (coordinates) => [
   ],
 ];
 
-const App = {
+export default {
   components: {
     LMap,
     LTileLayer,
@@ -117,6 +117,7 @@ const App = {
     };
   },
   mounted() {
+    debugger;
     const map = this.$refs.map.mapObject;
 
     this.onMobile = this.$el.clientWidth <= 767;
@@ -170,11 +171,6 @@ const App = {
     },
   },
 };
-
-window.renderMap = (el) =>
-  new Vue({
-    render: (createElement) => createElement(App),
-  }).$mount(el);
 </script>
 
 <style lang="scss">

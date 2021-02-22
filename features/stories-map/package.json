@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "parcel build App.vue --no-source-maps --public-url '.'",
-    "watch": "parcel watch App.vue --no-source-maps --public-url '.'"
+    "build": "parcel build index.js --no-source-maps --public-url '.'",
+    "watch": "parcel watch index.js --no-source-maps --public-url '.'"
   },
   "author": "",
   "license": "ISC",
