@@ -8,8 +8,11 @@ import {
 } from 'vue2-leaflet';
 import L from 'leaflet';
 import VueLazyload from 'vue-lazyload';
+
 import 'leaflet/dist/leaflet.css';
 import './stories-map.scss';
+import 'leaflet-fullscreen';
+import 'leaflet-fullscreen/dist/leaflet.fullscreen.css';
 
 Vue.component('l-map', LMap);
 Vue.component('l-tile-layer', LTileLayer);
@@ -59,8 +62,8 @@ async function renderMap(el) {
       selectedCategory: null,
     },
     mounted() {
-      // const map = this.$refs.map.mapObject;
-      // map.addControl(new L.Control.Fullscreen({ position: 'topright' }));
+      const map = this.$refs.map.mapObject;
+      map.addControl(new L.Control.Fullscreen({ position: 'topright' }));
     },
     computed: {
       visibleMarkers() {
