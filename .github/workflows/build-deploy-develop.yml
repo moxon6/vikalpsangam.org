@@ -27,15 +27,13 @@ jobs:
       run: npm run lint:js
 
     - name: "stories-map / npm install"
+      working-directory: features/stories-map
       run: "npm ci"
-      with:
-        working-directory: features/stories-map
-    
-    - name: "stories-map / build"
-      run: "npm run build"
-      with:
-        working-directory: features/stories-map
 
+    - name: "stories-map / build"
+      working-directory: features/stories-map
+      run: "npm run build"
+      
     - name: "Update version.php"
       run: ./update-version
 
