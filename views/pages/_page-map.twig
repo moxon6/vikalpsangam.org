@@ -8,7 +8,10 @@
 		This wrapper is required because the twig templating syntax conflicts with the Vue templating syntax.
 	#}
 	<div id="large-map">
-		{% include 'features/stories-map/stories-map.twig' %}
+		<div></div>
+		<script>
+			renderMap(document.currentScript.previousElementSibling)
+		</script>
 	</div>
 {% endblock %}
 
