@@ -1,23 +1,15 @@
 $dark-brick-col: #9e332e;
 
-.map-container {
-  height: 100%;
-}
-
-@mixin header-style {
-  font-family: "Roboto-Black";
-  color: $dark-brick-col;
-  text-shadow: none;
-  text-transform: uppercase;
-  opacity: 1;
-}
-
 .stories-map {
   box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.4);
 
   flex: 1;
   height: 100%;
   position: relative;
+
+  .map-container {
+    height: 100%;
+  }
 
   .leaflet-popup-content-wrapper {
     background: transparent;
@@ -113,7 +105,11 @@ $dark-brick-col: #9e332e;
         width: 48px;
       }
       p {
-        @include header-style;
+        font-family: "Roboto-Black";
+        color: $dark-brick-col;
+        text-shadow: none;
+        text-transform: uppercase;
+        opacity: 1;
         margin: 0;
         margin-left: 4px;
         font-size: 16px;
