@@ -80,6 +80,14 @@ import VueLazyload from "vue-lazyload";
 import Vue from "vue";
 Vue.use(VueLazyload);
 
+const setVh = () =>
+  document.documentElement.style.setProperty(
+    "--vh",
+    `${window.innerHeight * 0.01}px`
+  );
+setVh();
+window.addEventListener("resize", setVh);
+
 import "leaflet/dist/leaflet.css";
 import "leaflet-fullscreen";
 import "leaflet-fullscreen/dist/leaflet.fullscreen.css";
