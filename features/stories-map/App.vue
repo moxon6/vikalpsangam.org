@@ -42,6 +42,7 @@
             data-toggle="collapse"
             href="#categories"
           >
+            <img class="category-list-header-image" />
             <p>Filter by category</p>
             <h5 class="ml-2 mb-0 text-primary">
               <i class="fas fa-angle-up collapse-icon"></i>
@@ -78,6 +79,8 @@ import { LMap, LTileLayer, LMarker, LPopup, LControl } from "vue2-leaflet";
 import VueLazyload from "vue-lazyload";
 import Vue from "vue";
 Vue.use(VueLazyload);
+
+console.log(document.currentScript);
 
 import "leaflet/dist/leaflet.css";
 import "leaflet-fullscreen";
@@ -273,6 +276,7 @@ $dark-brick-col: #9e332e;
       align-items: center;
       .category-list-header-image {
         width: 48px;
+        content: url("./logo.png");
       }
       p {
         font-family: "Roboto-Black";
