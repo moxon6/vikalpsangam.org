@@ -108,7 +108,9 @@ async function renderMap(el) {
           .value();
 
         this.coordinates = Object.values(response.coordinates);
-        this.center = new L.LatLngBounds(getCenter(this.coordinates)).getCenter();
+        // const x = new L.LatLngBounds(getCenter(this.coordinates));
+        // window.x = x;
+        // this.center = x.getCenter();
       },
     },
   });
