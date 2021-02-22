@@ -83,8 +83,6 @@ import "leaflet/dist/leaflet.css";
 import "leaflet-fullscreen";
 import "leaflet-fullscreen/dist/leaflet.fullscreen.css";
 
-const onMobile = false;
-
 const getCenter = (coordinates) => [
   [
     Math.min(...coordinates.map((x) => x.latitude)),
@@ -119,12 +117,18 @@ export default {
   },
   mounted() {
     const map = this.$refs.map.mapObject;
+
+    this.onMobile = this.$el.clientWidth <= 767;
+
+    this.zoom =
+      this.$el.clientWidth > 767 ? 6 : this.$el.clientWidth > 600 ? 5 : 4;
+
     map.addControl(new L.Control.Fullscreen({ position: "topright" }));
     this.fetchData();
   },
   methods: {
     onMapReady() {
-      if (onMobile) {
+      if (this.onMobile) {
         jQuery(this.$refs.categories).collapse();
       }
     },
