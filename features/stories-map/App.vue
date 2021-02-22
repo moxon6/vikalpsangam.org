@@ -80,8 +80,6 @@ import VueLazyload from "vue-lazyload";
 import Vue from "vue";
 Vue.use(VueLazyload);
 
-console.log(document.currentScript);
-
 import "leaflet/dist/leaflet.css";
 import "leaflet-fullscreen";
 import "leaflet-fullscreen/dist/leaflet.fullscreen.css";
