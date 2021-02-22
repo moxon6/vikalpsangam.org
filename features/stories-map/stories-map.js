@@ -9,7 +9,7 @@ import {
 import L from 'leaflet';
 import VueLazyload from 'vue-lazyload';
 import 'leaflet/dist/leaflet.css';
-import './page-map.css';
+import './stories-map.scss';
 
 Vue.component('l-map', LMap);
 Vue.component('l-tile-layer', LTileLayer);

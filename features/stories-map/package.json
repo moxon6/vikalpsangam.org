@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "parcel build src/page-map.js --no-source-maps",
-    "watch": "parcel watch src/page-map.js --no-source-maps"
+    "build": "parcel build stories-map.js --no-source-maps",
+    "watch": "parcel watch stories-map.js --no-source-maps"
   },
   "author": "",
   "license": "ISC",
@@ -18,5 +18,8 @@
   },
   "browserslist": [
     "last 1 Chrome version"
-  ]
+  ],
+  "devDependencies": {
+    "cssnano": "^4.1.10"
+  }
 }
