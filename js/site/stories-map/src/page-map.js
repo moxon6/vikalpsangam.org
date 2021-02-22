@@ -1,3 +1,22 @@
+import Vue from 'vue/dist/vue';
+import {
+  LMap,
+  LTileLayer,
+  LMarker,
+  LPopup,
+  LControl,
+} from 'vue2-leaflet';
+import L from 'leaflet';
+import VueLazyload from 'vue-lazyload';
+import 'leaflet/dist/leaflet.css';
+import './page-map.css';
+
+Vue.component('l-map', LMap);
+Vue.component('l-tile-layer', LTileLayer);
+Vue.component('l-marker', LMarker);
+Vue.component('l-popup', LPopup);
+Vue.component('l-control', LControl);
+
 const setVh = () => document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
 setVh();
 window.addEventListener('resize', setVh);
@@ -16,21 +35,16 @@ const getCenter = (coordinates) => [
 const center = [21.6, 82.5];
 
 async function renderMap(el) {
-  Vue.component('l-map', window.Vue2Leaflet.LMap);
-  Vue.component('l-tile-layer', window.Vue2Leaflet.LTileLayer);
-  Vue.component('l-marker', window.Vue2Leaflet.LMarker);
-  Vue.component('l-popup', window.Vue2Leaflet.LPopup);
-  Vue.component('l-control', window.Vue2Leaflet.LControl);
+  Vue.use(VueLazyload);
 
-  Vue.use(window.VueLazyload);
-
-  const onMobile = el.clientWidth <= 767
+  const onMobile = el.clientWidth <= 767;
 
   const zoom = (
-    el.clientWidth > 767 ? 6 :
-    el.clientWidth > 600 ? 5 :
-    4
-  )
+    // eslint-disable-next-line no-nested-ternary
+    el.clientWidth > 767 ? 6
+      : el.clientWidth > 600 ? 5
+        : 4
+  );
 
   const app = new Vue({
     el,
@@ -45,8 +59,8 @@ async function renderMap(el) {
       selectedCategory: null,
     },
     mounted() {
-      const map = this.$refs.map.mapObject;
-      map.addControl(new L.Control.Fullscreen({ position: 'topright' }));
+      // const map = this.$refs.map.mapObject;
+      // map.addControl(new L.Control.Fullscreen({ position: 'topright' }));
     },
     computed: {
       visibleMarkers() {

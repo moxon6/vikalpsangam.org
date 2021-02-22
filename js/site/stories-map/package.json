@@ -1,0 +1,22 @@
+{
+  "name": "stories-map",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "parcel build src/page-map.js --no-source-maps",
+    "watch": "parcel watch src/page-map.js --no-source-maps"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "leaflet": "^1.7.1",
+    "vue": "^2.6.12",
+    "vue-lazyload": "^1.3.3",
+    "vue2-leaflet": "^2.6.0"
+  },
+  "browserslist": [
+    "last 1 Chrome version"
+  ]
+}
