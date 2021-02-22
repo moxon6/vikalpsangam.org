@@ -1,5 +1,9 @@
 $dark-brick-col: #9e332e;
 
+.map-container {
+  height: 100%;
+}
+
 @mixin header-style {
   font-family: "Roboto-Black";
   color: $dark-brick-col;
