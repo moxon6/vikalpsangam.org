@@ -20,7 +20,7 @@ function infinite_scroll_render() {
 }
 
 function jetpackme_more_related_posts( $options ) {
-    $options['size'] = 4;
+    $options['size'] = 6;
     return $options;
 }
 add_filter( 'jetpack_relatedposts_filter_options', 'jetpackme_more_related_posts' );
