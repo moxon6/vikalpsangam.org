@@ -270,7 +270,7 @@ if (is_admin()) {
 
 if (!is_admin()) {
 	function wpb_search_filter($query) {
-		if ($query->is_search) {
+		if ($query->is_search && !isset($query->query["post_type"]) ) {
 		$query->set('post_type', 'post');
 		}
 		return $query;
