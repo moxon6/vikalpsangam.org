@@ -2,39 +2,41 @@
   <div class="stories-map">
     <l-map ref="map" :center="center" :zoom="zoom" @ready="onMapReady()">
       <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
-      <div v-for="coordinate in coordinates" :key="coordinate.id">
-        <l-marker
-          v-if="showMarker(coordinate)"
-          :icon="getIcon(coordinate)"
-          :lat-lng="[coordinate.latitude, coordinate.longitude]"
-        >
-          <l-popup>
-            <div class="card post-tile-card">
-              <a :href="coordinate.url">
-                <img
-                  v-lazy="coordinate.thumbnail"
-                  class="card-img-top popup-image"
-                />
-              </a>
-              <div class="card-body">
+      <v-marker-cluster>
+        <div v-for="coordinate in coordinates" :key="coordinate.id">
+          <l-marker
+            v-if="showMarker(coordinate)"
+            :icon="getIcon(coordinate)"
+            :lat-lng="[coordinate.latitude, coordinate.longitude]"
+          >
+            <l-popup>
+              <div class="card post-tile-card">
                 <a :href="coordinate.url">
-                  <h6 class="card-title popup-title">
-                    {{ coordinate.title }}
-                  </h6>
+                  <img
+                    v-lazy="coordinate.thumbnail"
+                    class="card-img-top popup-image"
+                  />
                 </a>
-                <p class="card-text post-tile-text">
-                  {{ coordinate.excerpt }}
-                </p>
+                <div class="card-body">
+                  <a :href="coordinate.url">
+                    <h6 class="card-title popup-title">
+                      {{ coordinate.title }}
+                    </h6>
+                  </a>
+                  <p class="card-text post-tile-text">
+                    {{ coordinate.excerpt }}
+                  </p>
+                </div>
+                <footer class="card-footer d-flex justify-content-end p-0">
+                  <a :href="coordinate.url" class="btn btn-primary btn-sm"
+                    >Read More</a
+                  >
+                </footer>
               </div>
-              <footer class="card-footer d-flex justify-content-end p-0">
-                <a :href="coordinate.url" class="btn btn-primary btn-sm"
-                  >Read More</a
-                >
-              </footer>
-            </div>
-          </l-popup>
-        </l-marker>
-      </div>
+            </l-popup>
+          </l-marker>
+        </div>
+      </v-marker-cluster>
       <l-control position="bottomright">
         <div class="category-list">
           <a
@@ -77,6 +79,7 @@
 <script>
 import { LMap, LTileLayer, LMarker, LPopup, LControl } from "vue2-leaflet";
 import VueLazyload from "vue-lazyload";
+import Vue2LeafletMarkerCluster from "vue2-leaflet-markercluster";
 import Vue from "vue";
 Vue.use(VueLazyload);
 
@@ -91,6 +94,8 @@ window.addEventListener("resize", setVh);
 import "leaflet/dist/leaflet.css";
 import "leaflet-fullscreen";
 import "leaflet-fullscreen/dist/leaflet.fullscreen.css";
+import "leaflet.markercluster/dist/MarkerCluster.css";
+import "leaflet.markercluster/dist/MarkerCluster.Default.css";
 
 const getCenter = (coordinates) => [
   [
@@ -110,6 +115,7 @@ export default {
     LMarker,
     LPopup,
     LControl,
+    "v-marker-cluster": Vue2LeafletMarkerCluster,
   },
   data() {
     return {
