@@ -10,7 +10,11 @@
 	<div id="large-map">
 		<div></div>
 		<script>
-			renderMap(document.currentScript.previousElementSibling)
+			renderMap(document.currentScript.previousElementSibling, {
+				clusterOptions: {
+					disableClusteringAtZoom: 1,
+      		  	}
+			})
 		</script>
 	</div>
 {% endblock %}

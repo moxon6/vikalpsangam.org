@@ -2,7 +2,7 @@
   <div class="stories-map">
     <l-map ref="map" :center="center" :zoom="zoom" @ready="onMapReady()">
       <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
-      <v-marker-cluster>
+      <v-marker-cluster :options="clusterOptions">
         <div v-for="coordinate in coordinates" :key="coordinate.id">
           <l-marker
             v-if="showMarker(coordinate)"
@@ -37,7 +37,7 @@
           </l-marker>
         </div>
       </v-marker-cluster>
-      <l-control position="bottomright">
+      <l-control position="bottomright" v-if="showCategoriesMenu">
         <div class="category-list">
           <a
             class="category-list-header"
@@ -117,6 +117,15 @@ export default {
     LControl,
     "v-marker-cluster": Vue2LeafletMarkerCluster,
   },
+  props: {
+    clusterOptions: {
+      type: Object,
+    },
+    showCategoriesMenu: {
+      type: Boolean,
+      default: true,
+    },
+  },
   data() {
     return {
       message: "Hello Vue!",
@@ -131,7 +140,6 @@ export default {
     };
   },
   mounted() {
-    debugger;
     const map = this.$refs.map.mapObject;
 
     this.onMobile = this.$el.clientWidth <= 767;
@@ -141,6 +149,7 @@ export default {
 
     map.addControl(new L.Control.Fullscreen({ position: "topright" }));
     this.fetchData();
+    console.log(this);
   },
   methods: {
     onMapReady() {
