@@ -149,7 +149,6 @@ export default {
 
     map.addControl(new L.Control.Fullscreen({ position: "topright" }));
     this.fetchData();
-    console.log(this);
   },
   methods: {
     onMapReady() {
