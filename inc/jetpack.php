@@ -48,3 +48,7 @@ function jetpackme_filter_require_category( $filters ) {
     return $filters;
 }
 add_filter( 'jetpack_relatedposts_filter_filters', 'jetpackme_filter_require_category' );
+
+add_filter( 'jetpack_sso_bypass_login_forward_wpcom', '__return_true' ); 
+
+add_filter( 'jetpack_remove_login_form', '__return_true' );
