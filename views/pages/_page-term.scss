@@ -28,5 +28,10 @@
         display: none;
       }
     }
+
+    .description-wrapper {
+      border-left: 2px solid $dark-brick-col;
+      padding-left: 8px;
+    }
   }
 }

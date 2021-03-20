@@ -8,8 +8,16 @@
   align-items: flex-start;
   flex-direction: column;
   width: 100%;
-  padding-left: 20px;
-  padding-right: 64px;
+
+  @include desktop {
+    padding-left: 20px;
+    padding-right: 64px;
+  }
+
+  @include mobile {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 
   .loading-spinner {
     display: none;
@@ -23,6 +31,9 @@
 .comment-respond {
   width: 100%;
   margin-bottom: 50px;
+  @include mobile {
+    margin-bottom: 80px;
+  }
 }
 
 .comment .comment-respond {
@@ -32,7 +43,9 @@
 }
 
 .comment-reply-wrapper {
-  min-width: 600px;
+  @include desktop {
+    min-width: 600px;
+  }
 }
 
 .comment-reply-title {
@@ -69,7 +82,14 @@
 }
 
 @mixin form-field {
-  width: 50%;
+  @include desktop {
+    width: 50%;
+  }
+
+  @include mobile {
+    width: 100%;
+  }
+
   input,
   textarea {
     @extend .form-control;
@@ -123,6 +143,10 @@
   input {
     @extend .btn;
     @extend .btn-primary;
+  }
+
+  @include mobile {
+    bottom: -60px;
   }
 }
 

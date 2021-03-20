@@ -1,6 +1,6 @@
 {
   "name": "vikalpsangam",
-  "version": "4.1.1",
+  "version": "4.1.11",
   "description": "http://vikalpsangam.org Theme",
   "license": "GPL-2.0-or-later",
   "keywords": [
@@ -42,9 +42,9 @@
     "build:scss": "node-sass --importer node_modules/node-sass-package-importer/dist/cli.js -o . style.scss",
     "build:scss-rtl": "rtlcss style.css style-rtl.css",
     "browsersync": "browser-sync start --files \"**/*.(php|js|css)\"",
-    "lint:scss": "wp-scripts lint-style \"views/**/*.scss\"",
+    "lint:scss": "wp-scripts lint-style \"(views|features)/**/*.scss\"",
     "lint:js": "wp-scripts lint-js 'js/**/*.js'",
-    "bundle": "dir-archiver --src . --dest ./vikalpsangam.zip --exclude $(cat .buildignore)",
+    "bundle": "node bundle.js",
     "copy-fonts": "cp node_modules/bootstrap-sass/assets/fonts/bootstrap/* fonts -n",
     "quicklint": "npm run lint:scss -- --fix ; npm run lint:js -- --fix"
   },
@@ -54,9 +54,11 @@
     }
   },
   "dependencies": {
+    "archiver": "^5.2.0",
     "bootstrap": "^4.6.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
+    "glob": "^7.1.6",
     "node-sass-package-importer": "^5.3.2"
   }
 }

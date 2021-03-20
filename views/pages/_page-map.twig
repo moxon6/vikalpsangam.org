@@ -1,0 +1,25 @@
+{% set page_id = 'page-map' %}
+
+{% extends "layouts/_base.twig" %}
+
+{% block page %}
+	{# 
+		The following 'verbatim' section is served to the client unmodified.
+		This wrapper is required because the twig templating syntax conflicts with the Vue templating syntax.
+	#}
+	<div id="large-map">
+		<div></div>
+		<script>
+			renderMap(document.currentScript.previousElementSibling, {
+				clusterOptions: {
+					disableClusteringAtZoom: 1,
+      		  	}
+			})
+		</script>
+	</div>
+{% endblock %}
+
+
+{% block footer %}
+	{# Replace footer with empty block #}
+{% endblock %}

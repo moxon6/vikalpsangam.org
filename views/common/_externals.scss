@@ -14,21 +14,28 @@
   }
 }
 
-.jp-relatedposts {
-  padding-top: 32px;
-  border-top: 2px solid $light-gray-col;
+#page {
+  .jp-relatedposts {
+    padding-top: 32px;
+    border-top: 2px solid $light-gray-col;
 
-  h3.jp-relatedposts-headline em {
-    font-size: 20px;
+    h3.jp-relatedposts-headline em {
+      font-size: 20px;
 
-    &::before {
-      border-top: 0 !important;
+      &::before {
+        border-top: 0 !important;
+      }
     }
   }
-}
 
-.jp-relatedposts-grid {
-  display: flex;
+  .jp-relatedposts-items {
+    display: flex;
+    flex-wrap: wrap;
+
+    .jp-relatedposts-post {
+      width: 240px;
+    }
+  }
 }
 
 // Contact-form

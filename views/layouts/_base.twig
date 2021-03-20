@@ -11,6 +11,8 @@
 		{% block page %}<span/>
 		{% endblock %}
 
-		{% include 'partials/_footer.twig' %}
+		{% block footer %}
+			{% include 'partials/_footer.twig' %}
+		{% endblock %}
 	</body>
 </html>

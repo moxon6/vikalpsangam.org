@@ -170,22 +170,6 @@ if ( ! function_exists( 'vikalpsangam_setup' ) ) :
 			)
 		);
 
-		function add_additional_class_on_li($classes, $item, $args) {
-			if(isset($args->add_li_class)) {
-				$classes[] = $args->add_li_class;
-			}
-			return $classes;
-		}
-		add_filter('nav_menu_css_class', 'add_additional_class_on_li', 1, 3);
-		
-		function add_additional_class_on_a($attrs, $item, $args) {
-			if(isset($args->add_a_class)) {
-				$attrs['class'] = $args->add_a_class;
-			}
-			return $attrs;
-		}
-		add_filter('nav_menu_link_attributes', 'add_additional_class_on_a', 1, 3);
-
 		/*
 		 * Switch default core markup for search form, comment form, and comments
 		 * to output valid HTML5.
@@ -211,26 +195,7 @@ remove_action('wp_print_styles', 'print_emoji_styles');
 remove_action('wp_head', 'rest_output_link_wp_head', 10);
 remove_action('wp_head', 'wlwmanifest_link');
 
-add_filter('nav_menu_css_class' , 'special_nav_class' , 10 , 2);
-
-function special_nav_class ($classes, $item) {
-  if (
-		in_array('current-menu-item', $classes) or 
-		in_array('current-page-ancestor', $classes) or
-		in_array('current-post-ancestor', $classes) or
-		$item->post_name == "stories" && ( 
-		  (
-			  (is_single() && !has_category("policy-edits")) ||
-			  is_tag() || 
-			  (is_category() && !is_category("policy-edits"))
-		  )
-		)
-    )
-	{
-		$classes[] = 'active';
-	}
-	return $classes;
-}
+// TODO: Fix Perspectives active nav classes
 
 function remove_tagline($title)
 {
@@ -303,17 +268,18 @@ if (is_admin()) {
 	require get_template_directory() . '/inc/admin/admin.php';
 }
 
+if (!is_admin()) {
+	function wpb_search_filter($query) {
+		if ($query->is_search) {
+		$query->set('post_type', 'post');
+		}
+		return $query;
+	}
+	add_filter('pre_get_posts','wpb_search_filter');	
+}
+
 require get_template_directory() . '/inc/endpoints.php';
 
-function get_category_image($category) {
-
-	$image = get_field('image', $category);
-	return  esc_url($image['url']);
-}
-
-function filter_excerpt($excerpt) {
-	return wp_trim_words($excerpt, apply_filters("excerpt_length", 20));
-}
 
 add_filter('comment_form_field_url', '__return_false');
 
@@ -330,51 +296,4 @@ function register_custom_query_vars( $vars ) {
 }
 add_filter( 'query_vars', 'register_custom_query_vars', 1 );
 
-function setup_infinite_scroll() {
-    add_theme_support( 'infinite-scroll', array(
-        'container' => 'infinite-scroll-content',
-        'render'    => 'infinite_scroll_render',
-        'wrapper'   => false,
-		'type'      => 'click',
-		'posts_per_page' => 9,
-    ) );
-}
-
-add_action('after_setup_theme', 'setup_infinite_scroll');
-
-function infinite_scroll_render() {
-	$context = [
-		'posts' => Timber::get_posts(),
-	];
-	Timber::render('partials/_post-tile-loop.twig', $context);
-}
-
-function jetpackme_more_related_posts( $options ) {
-    $options['size'] = 4;
-    return $options;
-}
-add_filter( 'jetpack_relatedposts_filter_options', 'jetpackme_more_related_posts' );
-
-function jetpackme_filter_exclude_policy_edits( $filters ) {
-    $filters[] = array(
-        'not' => array(
-            'term' => array(
-                'category.slug' => 'policy-edits',
-            ),
-        ),
-    );
- 
-    return $filters;
-}
-add_filter( 'jetpack_relatedposts_filter_filters', 'jetpackme_filter_exclude_policy_edits' );
-
-function jetpackme_filter_require_category( $filters ) {
-    $filters[] = array(
-        'exists' => array(
-            'field' => 'category.slug',
-        ),
-    );
- 
-    return $filters;
-}
-add_filter( 'jetpack_relatedposts_filter_filters', 'jetpackme_filter_require_category' );
+require get_template_directory() . '/inc/jetpack.php';
