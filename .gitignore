@@ -5,3 +5,5 @@ vendor
 version.php
 _version.scss
 vikalpsangam.zip
+.cache
+dist
