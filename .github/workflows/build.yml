@@ -34,8 +34,12 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
-    - name: "Update version.php"
-      run: ./update-version
+    - name: "Increment Version"
+      run: | 
+        npm version patch
+        version=$(node -p "require('./package.json').version")
+        echo "<?php define('vikalpsangam_VERSION', '$version');" >| version.php
+        echo "\$theme-version: \"$version\";" >| _version.scss
 
     - name: "Compile scss -> css"
       run: npm run build:scss
@@ -45,6 +49,11 @@ jobs:
 
     - name: "Create theme bundle"
       run: npm run bundle
+    
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
     
     - name: Upload theme package
       uses: svenstaro/upload-release-action@v2
