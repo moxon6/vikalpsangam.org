@@ -5,13 +5,12 @@
 {% block content %}
 	<h2 class="post-title">{{ post.title }}</h2>
 	<div id="author-date-category">
+		{% spaceless %}
 
 		{% set author = post.meta("author") %}
 
 		{% if author %}
-			<span class="author">By
-				{{ author }}
-			</span>
+			<span class="author">By {{ author }}</span>
 		{% else %}
 			<span>Posted</span>
 		{% endif %}
@@ -23,6 +22,8 @@
 			<span class="text">in</span>
 			<a href="{{ post.categories[0].link }}">{{ post.categories[0].name }}</a>
 		{% endif %}
+
+		{% endspaceless  %}
 	</div>
 	<article id="post-{{post.id}}" class="{{post.class}}">
 		{{ post.content }}

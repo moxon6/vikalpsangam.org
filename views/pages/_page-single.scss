@@ -19,6 +19,12 @@
   .post-title {
     @include header-style;
   }
+
+  #author-date-category {
+    > :is(span, a):not(:last-child) {
+      margin-right: 4px;
+    }
+  }
 }
 
 /*
