@@ -220,9 +220,6 @@ function remove_tagline($title)
     return $title;
 }
 add_filter('document_title_parts', 'remove_tagline');
-
-//Remove the REST API endpoint.
-remove_action('rest_api_init', 'wp_oembed_register_route');
  
 // Turn off oEmbed auto discovery.
 add_filter( 'embed_oembed_discover', '__return_false' );
