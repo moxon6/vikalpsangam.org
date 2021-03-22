@@ -29,6 +29,7 @@ jobs:
       run: npm run lint:js
 
     - name: "Increment Version"
+      id: "version-bump"
       run: | 
         git config --global user.email ${{ github.actor }}
         git config --global user.name ${{ github.actor }}
@@ -36,6 +37,7 @@ jobs:
         version=$(node -p "require('./package.json').version")
         echo "<?php define('vikalpsangam_VERSION', '$version');" >| version.php
         echo "\$theme-version: \"$version\";" >| _version.scss
+        echo "::set-output name=version::$version"
 
     - name: "Compile scss -> css"
       run: npm run build:scss
@@ -56,7 +58,7 @@ jobs:
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: vikalpsangam.org.zip
-        asset_name: vikalpsangam.org-${{ steps.version-bump.outputs.newTag }}.zip
-        tag: ${{ steps.version-bump.outputs.newTag }}
+        asset_name: vikalpsangam.org-${{ steps.version-bump.outputs.version }}.zip
+        tag: ${{ steps.version-bump.outputs.version }}
         overwrite: true
-        body: "Wordpress Theme for vikalpsangam.org. Version ${{ steps.version-bump.outputs.newTag }}"
+        body: "Wordpress Theme for vikalpsangam.org. Version ${{ steps.version-bump.outputs.version }}"
