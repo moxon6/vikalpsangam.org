@@ -125,6 +125,15 @@ class VikalpsangamOrgSite extends Timber\Site {
 new VikalpsangamOrgSite();
 
 
+add_filter( 'template_include', 'get_password_protected_template', 99 );
+function get_password_protected_template( $template ) {
+    global $post;
+    if ( ! empty( $post ) && post_password_required( $post->ID ) ) {
+        $template = locate_template( ['password-protected.php' ] );
+    }
+    return $template;
+};
+
 if ( ! function_exists( 'vikalpsangam_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
