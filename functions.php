@@ -24,6 +24,14 @@ function buffer($fn) {
 	return ob_get_clean();
 }
 
+add_filter('wp_generate_tag_cloud_data', function ($tags_data) {
+	foreach ($tags_data as $key => $tag) {
+		$weight = floor($tag["real_count"] / 50);
+		$tags_data[$key]['class'] .=  " tag-weight-$weight";
+	}			
+	return $tags_data;
+});
+
 class VikalpsangamOrgSite extends Timber\Site {
 	public function __construct() {
 		add_filter( 'timber/context', array( $this, 'add_to_context' ) );
@@ -89,14 +97,6 @@ class VikalpsangamOrgSite extends Timber\Site {
 			"orderby" => "date",
 			"order" => "DSC"
 		)));
-		
-		add_filter('wp_generate_tag_cloud_data', function ($tags_data) {
-			foreach ($tags_data as $key => $tag) {
-				$weight = floor($tag["real_count"] / 50);
-				$tags_data[$key]['class'] .=  " tag-weight-$weight";
-			}			
-			return $tags_data;
-		});
 
 		$context["sidebar_tag_cloud_widget"] = wp_tag_cloud([
 			"echo" => false
@@ -108,7 +108,15 @@ class VikalpsangamOrgSite extends Timber\Site {
 	public function add_to_context( $context ) {
 		$context = $this->setup_footer_context($context);
 		$context = $this->setup_header_context($context);
-		$context = $this->setup_sidebar_context($context);
+
+		add_filter( 'timber/twig', function( \Twig_Environment $twig ) {
+			$twig->addFunction(new \Twig\TwigFunction(
+				'get_sidebar', 
+				fn() => Timber::get_widgets('sidebar-1')
+			));
+			return $twig;
+		} );
+
 		$context = $this->setup_common_context($context);
 		return $context;
 	}
@@ -241,13 +249,9 @@ add_action( 'after_setup_theme', 'vikalpsangam_content_width', 0 );
 function vikalpsangam_widgets_init() {
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Sidebar', 'vikalpsangam' ),
+			'name'          => 'The Main Sidebar',
 			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'vikalpsangam' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
+			'description'   => 'Add widgets here.'
 		)
 	);
 }
@@ -266,7 +270,7 @@ if (is_admin()) {
 
 if (!is_admin()) {
 	function wpb_search_filter($query) {
-		if ($query->is_search) {
+		if ($query->is_search && !isset($query->query["post_type"]) ) {
 		$query->set('post_type', 'post');
 		}
 		return $query;

@@ -11,7 +11,6 @@ function vikalpsangam_scripts() {
 
 	wp_enqueue_script("autosize/js", "https://cdn.jsdelivr.net/npm/autosize@4.0.2/dist/autosize.min.js");
 	wp_enqueue_script("diffhtml", "//unpkg.com/diffhtml/dist/diffhtml.min.js");
-	
 
 	wp_enqueue_style("slick/css", "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css");
 	wp_enqueue_style("slick-theme/css", "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css");
@@ -21,10 +20,7 @@ function vikalpsangam_scripts() {
 	wp_style_add_data( 'vikalpsangam-style-rtl', 'rtl', 'replace');
 
 	wp_enqueue_script( 'vikalpsangam/comments-ajax', get_template_directory_uri() . '/js/site/comments-ajax.js', ["jquery", "wp-api"], vikalpsangam_VERSION );
-	
-	wp_enqueue_script( 'vikalpsangam/stories-map', get_template_directory_uri() . '/features/stories-map/dist/index.js', [], vikalpsangam_VERSION );
-	wp_enqueue_style("vikalpsangam/stories-map/css", get_template_directory_uri() . '/features/stories-map/dist/index.css');
-
+		
 	wp_enqueue_script( 'wp-api' );
 	
 	wp_enqueue_script( 'comment-reply' );

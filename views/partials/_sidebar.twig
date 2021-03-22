@@ -1,35 +1,3 @@
-<div class="sidebar">
-
-	<h5 class="sidebar-header">Story Categories</h5>
-	{% include 'partials/_categories-list.twig' %}
-
-
-	<h5 class="sidebar-header">Explore Stories</h5>
-	<div class="sidebar-tag-cloud">
-		{{ sidebar_tag_cloud_widget }}
-	</div>
-
-	<a href="/map">
-		<h5 class="sidebar-header">Stories by Location</h5>
-	</a>
-	
-	<div class="sidebar-map">
-		<div></div>
-		<script>
-			renderMap(document.currentScript.previousElementSibling, {
-				showCategoriesMenu: false
-			})
-		</script>
-	</div>
-	
-	
-	<h5 class="sidebar-header">Events</h5>
-	{% include 'partials/_events.twig' %}
-
-	<h5 class="sidebar-header">Recent posts</h5>
-	<div class="featured-list in-sidebar">
-		{% for post in sidebar_recent_activity %}
-			{% include 'partials/_highlight-card.twig' %}
-		{% endfor %}
-	</div>
+<div class="sidebar pl-2">
+	{{ get_sidebar() }}
 </div>
