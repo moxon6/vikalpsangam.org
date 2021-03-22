@@ -77,7 +77,11 @@ class VikalpsangamOrgSite extends Timber\Site {
 	private function setup_common_context($context) {
 		$context["post_categories"] = Timber::get_terms('category', [
 			'hide_empty' => 1,
-			"exclude" => get_cat_ID("Perspectives")
+			"exclude" => [
+				get_cat_ID("Perspectives"),
+				get_cat_ID("Uncategorised"),
+				get_cat_ID("Uncategorized"),
+			]
 		]);
 
 		return $context;
