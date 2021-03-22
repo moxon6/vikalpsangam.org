@@ -28,12 +28,6 @@ jobs:
     - name: "Lint js"
       run: npm run lint:js
 
-    - name: 'Automated Version Bump'
-      id: 'version-bump'
-      uses: 'phips28/gh-action-bump-version@master'
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    
     - name: "Increment Version"
       run: | 
         npm version patch
