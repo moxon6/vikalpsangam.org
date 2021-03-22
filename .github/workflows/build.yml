@@ -28,16 +28,18 @@ jobs:
     - name: "Lint js"
       run: npm run lint:js
 
+    - name: 'Automated Version Bump'
+      id: 'version-bump'
+      uses: 'phips28/gh-action-bump-version@master'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     - name: "Increment Version"
       id: "version-bump"
       run: | 
-        git config --global user.email ${{ github.actor }}
-        git config --global user.name ${{ github.actor }}
-        npm version patch
         version=$(node -p "require('./package.json').version")
         echo "<?php define('vikalpsangam_VERSION', '$version');" >| version.php
         echo "\$theme-version: \"$version\";" >| _version.scss
-        echo "::set-output name=version::$version"
 
     - name: "Compile scss -> css"
       run: npm run build:scss
@@ -48,17 +50,12 @@ jobs:
     - name: "Create theme bundle"
       run: npm run bundle
     
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-    
     - name: Upload theme package
       uses: svenstaro/upload-release-action@v2
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: vikalpsangam.org.zip
-        asset_name: vikalpsangam.org-${{ steps.version-bump.outputs.version }}.zip
-        tag: ${{ steps.version-bump.outputs.version }}
+        asset_name: vikalpsangam.org-${{ steps.version-bump.outputs.newTag }}.zip
+        tag: ${{ steps.version-bump.outputs.newTag }}
         overwrite: true
-        body: "Wordpress Theme for vikalpsangam.org. Version ${{ steps.version-bump.outputs.version }}"
+        body: "Wordpress Theme for vikalpsangam.org. Version ${{ steps.version-bump.outputs.newTag }}"
