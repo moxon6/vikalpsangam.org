@@ -34,7 +34,8 @@ class CategoryPostsBuilder {
 			"orderby"   => "date",
 			"order"     => "DSC",
 			'category__in'	=> $this->unusedCategories,
-			"exclude" => $this->usedPosts
+			"exclude" => $this->usedPosts,
+			'has_password'   => false
 		))[0];
 
 		$this->usedPosts[] = $post->ID;
