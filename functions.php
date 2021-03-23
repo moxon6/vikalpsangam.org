@@ -86,28 +86,6 @@ class VikalpsangamOrgSite extends Timber\Site {
 
 		return $context;
 	}
-
-	private function setup_sidebar_context($context) {
-		$context["sidebar_recent_activity"] = Timber::get_posts(array(
-			'numberposts' => 5,
-			'post_type'	=> 'post',
-			"orderby" => "date",
-			"order" => "DSC"
-		));
-
-		$context["sidebar_tag_cloud"] = $this->get_tags_from_post(get_posts(array(
-			'numberposts' => 10,
-			'post_type'	=> 'post',
-			"orderby" => "date",
-			"order" => "DSC"
-		)));
-
-		$context["sidebar_tag_cloud_widget"] = wp_tag_cloud([
-			"echo" => false
-		]);
-		
-		return $context;
-	}
 	
 	public function add_to_context( $context ) {
 		$context = $this->setup_footer_context($context);
@@ -307,3 +285,9 @@ function register_custom_query_vars( $vars ) {
 add_filter( 'query_vars', 'register_custom_query_vars', 1 );
 
 require get_template_directory() . '/inc/jetpack.php';
+
+$excluded_categories = [
+	get_cat_ID("Perspectives"),
+	get_cat_ID("Uncategorised"),
+	get_cat_ID("Uncategorized")
+];

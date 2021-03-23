@@ -2,16 +2,16 @@
 
 class CategoryPostsBuilder {
         
-	function __construct() {
+	function __construct($excluded_categories) {
 		$this->unusedCategories = array_map(
 			fn($category) => $category->term_id,
-			array_values(get_categories())
+			array_values(get_categories([
+				"exclude" => $excluded_categories
+			]))
 		);
 
-		$this->unusedCategories = array_filter(
-			$this->unusedCategories, 
-			fn($cat) => $cat != get_cat_ID("Perspectives")
-		);
+		echo json_encode($excluded_categories);
+		echo json_encode($this->unusedCategories);
 
 		$this->usedCategories = [];
 		$this->usedPosts = [];
@@ -71,17 +71,21 @@ $context["carousel_items"] = Timber::get_posts(array(
     'numberposts'	=> $NUMBER_OF_CAROUSEL_ITEMS,
     'post_type'		=> 'post',
     'meta_key'		=> 'add_to_carousel',
-    'meta_value'	=> '1'
+    'meta_value'	=> '1',
+	'category__not_in'	=> $excluded_categories,
+	'has_password'   => false	
 ));
 
 $context["promoted_articles"] = Timber::get_posts(array(
     'numberposts'	=> $NUMBER_PROMOTED_ARTICLES,
     'post_type'		=> 'post',
     'meta_key'		=> 'promoted',
-    'meta_value'	=> '1'
+    'meta_value'	=> '1',
+	'category__not_in'	=> $excluded_categories,
+	'has_password'   => false
 ));
 
-$context["category_posts"] = (new CategoryPostsBuilder())->getCategoryPosts($NUMBER_STORIES_BY_CATEGORY);
+$context["category_posts"] = (new CategoryPostsBuilder($excluded_categories))->getCategoryPosts($NUMBER_STORIES_BY_CATEGORY);
 
 Timber::render( array( 'pages/_page-front.twig' ), $context );
 
