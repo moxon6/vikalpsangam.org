@@ -10,9 +10,6 @@ class CategoryPostsBuilder {
 			]))
 		);
 
-		echo json_encode($excluded_categories);
-		echo json_encode($this->unusedCategories);
-
 		$this->usedCategories = [];
 		$this->usedPosts = [];
 	}
