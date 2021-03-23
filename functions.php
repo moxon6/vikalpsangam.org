@@ -291,3 +291,11 @@ $excluded_categories = [
 	get_cat_ID("Uncategorised"),
 	get_cat_ID("Uncategorized")
 ];
+
+function exclude_categories_related_posts_widget($args, $instance) {
+	global $excluded_categories;
+	$args['category__not_in'] = $excluded_categories;
+	$args['has_password'] = false;
+	return $args;
+}
+add_filter('widget_posts_args', 'exclude_categories_related_posts_widget', 1, 2);
