@@ -2,6 +2,7 @@
 
 
 function vikalpsangam_scripts() {
+	$build_time = filemtime( get_template_directory().'/style.css');
 
 	wp_enqueue_script('jquery');
 
@@ -16,10 +17,10 @@ function vikalpsangam_scripts() {
 	wp_enqueue_style("slick-theme/css", "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css");
 	wp_enqueue_script("slick/js", "//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js", [ "jquery" ]);	
 
-	wp_enqueue_style( 'vikalpsangam-style', get_stylesheet_uri(), array(), vikalpsangam_VERSION );
+	wp_enqueue_style( 'vikalpsangam-style', get_stylesheet_uri(), array(), $build_time);
 	wp_style_add_data( 'vikalpsangam-style-rtl', 'rtl', 'replace');
 
-	wp_enqueue_script( 'vikalpsangam/comments-ajax', get_template_directory_uri() . '/js/site/comments-ajax.js', ["jquery", "wp-api"], vikalpsangam_VERSION );
+	wp_enqueue_script( 'vikalpsangam/comments-ajax', get_template_directory_uri() . '/js/site/comments-ajax.js', ["jquery", "wp-api"], $build_time);
 		
 	wp_enqueue_script( 'wp-api' );
 	
