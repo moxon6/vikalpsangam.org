@@ -11,6 +11,8 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - uses: php-actions/composer@v2
+      with:
+        dev: no
 
     - uses: actions/setup-node@v1
       with:
