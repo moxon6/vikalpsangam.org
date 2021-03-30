@@ -23,5 +23,6 @@
     "features/stories-map/stories-map.scss",
     "features/stories-map/package*.json",
     "features/stories-map/.gitignore",
-    "features/stories-map/node_modules/**"
+    "features/stories-map/node_modules/**",
+    "vendor/timber/timber/tests"
 ]
