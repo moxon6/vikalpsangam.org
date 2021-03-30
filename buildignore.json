@@ -24,5 +24,8 @@
     "features/stories-map/package*.json",
     "features/stories-map/.gitignore",
     "features/stories-map/node_modules/**",
-    "vendor/timber/timber/tests/**"
+    "vendor/timber/timber/tests/**",
+    "vendor/timber/timber/docs/**",
+    "vendor/timber/timber/docs/**",
+    "vendor/twig/twig/doc/**"
 ]
