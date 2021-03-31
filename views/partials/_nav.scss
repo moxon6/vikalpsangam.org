@@ -39,12 +39,12 @@
       .nav-item {
         font-weight: 700;
 
-        &.active .nav-link {
+        &.current-menu-item .nav-link {
           color: #fff !important;
           background-color: $dark-brick-col;
         }
 
-        &:not(.active) .nav-link {
+        &:not(.current-menu-item) .nav-link {
           color: $dark-brick-col !important;
           background-color: transparent;
         }
