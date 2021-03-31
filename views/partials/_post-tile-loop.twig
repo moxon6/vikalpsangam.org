@@ -4,7 +4,7 @@
 		{% set header_fallback = true %}
 	{% endif %}
 
-	<div class="col-xs-4 col-md-6 col-lg-4 pb-4">
+	<div class="col-xs-4 col-md-6 col-lg-4 pb-4 d-flex flex-column">
 		{% include 'partials/_post-tile.twig' with {'post': post, 'category': category, 'header_fallback': header_fallback } only %}
 	</div>
 {% endfor %}
