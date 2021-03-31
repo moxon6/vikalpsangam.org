@@ -6,23 +6,23 @@
   box-shadow: 0 2px 2px 0 rgba(50, 50, 50, 0.3);
   font-family: "Roboto-Black";
 
-  @include desktop {
+  @media (min-width: 992px) {
     padding: 0 100px 0 70px;
   }
 
-  @include mobile {
+  @media (max-width: 991px) {
     padding: 0 16px 0 16px;
   }
 
   .navbar-brand {
     height: 50px;
 
-    @include mobile {
+    @media (max-width: 1279px) {
       width: 65px;
       background: url(images/header_small_logo.png) no-repeat left center;
     }
 
-    @include desktop {
+    @media (min-width: 1280px) {
       width: 325px;
       background: url(images/header_big_logo.png) no-repeat left center;
     }
