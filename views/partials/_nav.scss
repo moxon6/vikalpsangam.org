@@ -1,3 +1,5 @@
+$logo-width-l: 275px;
+
 @mixin collapsed {
   @media (max-width: 991px) {
     @content;
@@ -16,14 +18,14 @@
 
   .navbar-brand {
     height: 50px;
+    flex-basis: $logo-width-l;
+    margin-right: 0;
 
-    @media (max-width: 1279px) {
-      width: 65px;
+    &[max-width~="#{$logo-width-l}"] {
       background: url(images/header_small_logo.png) no-repeat left center;
     }
 
-    @media (min-width: 1280px) {
-      width: 325px;
+    &[min-width~="#{$logo-width-l}"] {
       background: url(images/header_big_logo.png) no-repeat left center;
     }
   }
