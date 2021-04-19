@@ -307,3 +307,11 @@ function register_custom_query_vars( $vars ) {
 add_filter( 'query_vars', 'register_custom_query_vars', 1 );
 
 require get_template_directory() . '/inc/jetpack.php';
+
+function exclude_password_protected_posts( $where = '' ) {
+    if (!is_single() && !is_admin()) {
+        $where .= " AND post_password = ''";
+    }
+    return $where;
+}
+add_filter( 'posts_where', 'exclude_password_protected_posts' );
