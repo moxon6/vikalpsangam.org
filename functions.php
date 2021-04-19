@@ -252,9 +252,6 @@ require get_template_directory() . '/inc/dependencies.php';
 
 require get_template_directory() . '/inc/functions/perspectives-patches.php';
 
-if (is_admin()) {
-	require get_template_directory() . '/inc/admin/admin.php';
-}
 
 if (!is_admin()) {
 	function wpb_search_filter($query) {

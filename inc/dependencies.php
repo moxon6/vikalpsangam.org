@@ -28,6 +28,11 @@ function vikalpsangam_scripts() {
 	wp_enqueue_script( 'wp-api' );
 	
 	wp_enqueue_script( 'comment-reply' );
-	
 }
 add_action( 'wp_enqueue_scripts', 'vikalpsangam_scripts' );
+
+function vikalpsangam_scripts_admin(){ 
+    wp_enqueue_script('admin-overrides', get_template_directory_uri() .'/js/admin/index.js', []);
+	wp_enqueue_style('reorder-post-sidebar', get_template_directory_uri() . '/admin-sidebar.css');
+}
+add_action( 'admin_enqueue_scripts', 'vikalpsangam_scripts_admin' );
