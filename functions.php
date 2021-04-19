@@ -299,3 +299,11 @@ function exclude_categories_related_posts_widget($args, $instance) {
 	return $args;
 }
 add_filter('widget_posts_args', 'exclude_categories_related_posts_widget', 1, 2);
+
+function exclude_password_protected_posts( $where = '' ) {
+    if (!is_single() && !is_admin()) {
+        $where .= " AND post_password = ''";
+    }
+    return $where;
+}
+add_filter( 'posts_where', 'exclude_password_protected_posts' );
