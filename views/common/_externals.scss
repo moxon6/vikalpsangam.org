@@ -107,3 +107,11 @@ figure.wp-block-image {
     }
   }
 }
+
+.sharedaddy,
+.jp-relatedposts,
+.comment-respond {
+  @media print {
+    display: none !important;
+  }
+}
