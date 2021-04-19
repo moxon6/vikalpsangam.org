@@ -8,7 +8,7 @@ $logo-width-l: 275px;
 
 #vikalpsangam-navbar {
   @media print {
-    display: none;
+    display: none !important;
   }
 
   box-shadow: 0 2px 2px 0 rgba(50, 50, 50, 0.3);
