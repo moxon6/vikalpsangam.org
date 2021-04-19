@@ -1,3 +1,9 @@
+@mixin collapsed {
+  @media (max-width: 991px) {
+    @content;
+  }
+}
+
 #vikalpsangam-navbar {
   @media print {
     display: none;
@@ -6,13 +12,7 @@
   box-shadow: 0 2px 2px 0 rgba(50, 50, 50, 0.3);
   font-family: "Roboto-Black";
 
-  @media (min-width: 992px) {
-    padding: 0 100px 0 70px;
-  }
-
-  @media (max-width: 991px) {
-    padding: 0 16px 0 16px;
-  }
+  padding: 0 16px 0 16px;
 
   .navbar-brand {
     height: 50px;
@@ -31,7 +31,7 @@
   #vikalpsangam-navbar-collapse {
     min-height: 50px;
 
-    @include mobile {
+    @include collapsed {
       margin-bottom: 24px;
     }
 
