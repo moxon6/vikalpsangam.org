@@ -11,7 +11,7 @@
 	<section class="container-fluid">
 		<div class="row">
 			<div class="container-fluid p-0">
-				<div class="row category-page-category-list-wrapper">
+				<div class="row category-page-category-list-wrapper" id="infinite-scroll-content">
 					{% include 'partials/_post-tile-loop.twig' with {'posts': posts, 'show_categories': true } only %}
 				</div>
 			</div>

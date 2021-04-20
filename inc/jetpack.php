@@ -13,10 +13,12 @@ function setup_infinite_scroll() {
 add_action('after_setup_theme', 'setup_infinite_scroll');
 
 function infinite_scroll_render() {
-	$context = [
-		'posts' => Timber::get_posts(),
-	];
-	Timber::render('partials/_post-tile-loop.twig', $context);
+    global $wp_query;
+    $context = [
+        'posts' => Timber::get_posts(),
+        'show_categories' => $wp_query->query['pagename'] == "stories"
+    ];
+    Timber::render('partials/_post-tile-loop.twig', $context);
 }
 
 function jetpackme_more_related_posts( $options ) {
