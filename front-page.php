@@ -69,7 +69,6 @@ $context["carousel_items"] = Timber::get_posts(array(
     'post_type'		=> 'post',
     'meta_key'		=> 'add_to_carousel',
     'meta_value'	=> '1',
-	'category__not_in'	=> $excluded_categories,
 	'has_password'   => false	
 ));
 
