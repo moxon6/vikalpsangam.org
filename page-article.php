@@ -12,7 +12,8 @@ $context["stories_by_category"] = array_map(
             'post_type'		=> 'post',
             "orderby"   => "date",
             "order"     => "DSC",
-            'category'	=> $category -> id
+            'category'	=> $category -> id,
+            'post_password' => '',
         ))
     ],
     $context["post_categories"]

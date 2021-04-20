@@ -10,7 +10,11 @@ class CategoryPostsBuilder {
 
 		$this->unusedCategories = array_filter(
 			$this->unusedCategories, 
-			fn($cat) => $cat != get_cat_ID("Perspectives")
+			fn($cat) => (
+				$cat != get_cat_ID("Perspectives") 
+				&& $cat != get_cat_ID("Uncategorised") 
+				&& $cat != get_cat_ID("Uncategorized")
+			)
 		);
 
 		$this->usedCategories = [];
@@ -33,6 +37,7 @@ class CategoryPostsBuilder {
 			'post_type'		=> 'post',
 			"orderby"   => "date",
 			"order"     => "DSC",
+			'post_password' => '',
 			'category__in'	=> $this->unusedCategories,
 			"exclude" => $this->usedPosts
 		))[0];
@@ -70,14 +75,16 @@ $context["carousel_items"] = Timber::get_posts(array(
     'numberposts'	=> $NUMBER_OF_CAROUSEL_ITEMS,
     'post_type'		=> 'post',
     'meta_key'		=> 'add_to_carousel',
-    'meta_value'	=> '1'
+    'meta_value'	=> '1',
+	'post_password' => ''
 ));
 
 $context["promoted_articles"] = Timber::get_posts(array(
     'numberposts'	=> $NUMBER_PROMOTED_ARTICLES,
     'post_type'		=> 'post',
     'meta_key'		=> 'promoted',
-    'meta_value'	=> '1'
+    'meta_value'	=> '1',
+	'post_password' => ''
 ));
 
 $context["category_posts"] = (new CategoryPostsBuilder())->getCategoryPosts($NUMBER_STORIES_BY_CATEGORY);
