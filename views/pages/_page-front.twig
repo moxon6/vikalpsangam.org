@@ -2,50 +2,49 @@
 
 {% set page_id = 'page-front' %}
 
+
 {% block page %}
-	<section id="main-section">
-		<div class="container-fluid main-section-container">
-			<div class="row ml-auto mr-auto pb-1">
-				<div class="col-xl-8 col-md-12 pl-0 pr-0 pl-md-4 pr-md-4">
-					{% include 'partials/_carousel.twig' %}
-				</div>
-				<div class="col-xl-4 col-md-12 pt-2">
-					{% include 'partials/_highlights.twig' %}
-				</div>
+
+	<section class="container-fluid main-section-container">
+		<div class="row ml-auto mr-auto pb-1">
+			<div class="col-xl-12 col-md-12 pl-0 pr-0 pl-md-4 pr-md-4">
+				{{ function("do_shortcode", '[smartslider3 slider="homepage-slider"]') }}
 			</div>
 		</div>
 	</section>
 
-	<section id="stories-by-category-section">
-		<div class="container stories-by-category-section-container pt-4 pb-4">
-			<div class="row justify-content-between">
-				<div class="col-sm-6 col-xs-12">
-					<h4 class="stories-by-category-header">Stories By Category</h4>
+
+	<section class="container mt-4">
+		<div class="section-header-container mb-4">
+			<h3 class="section-header ">Latest Stories</h3>
+		</div>
+		<div class="row justify-content-center">
+			
+			{% for post in latest_posts %}
+				<div class="col-md-6">
+					{% include 'partials/_highlight-card.twig' %}
 				</div>
-			</div>
-			<div class="row justify-content-center">
-				{% for category_post in category_posts %}
-					<div class="col-xs-4 col-md-6 col-lg-3 pb-4 d-flex flex-column">
-						{% include 'partials/_post-tile.twig' with category_post only %}
-					</div>
-				{% endfor %}
-			</div>
-			<div class="row justify-content-between mt-4">
-				<div class="col-12 d-flex justify-content-end">
-					<a class="btn btn-primary" href="/article">SEE ALL CATEGORIES</a>
+			{% endfor %}
+		</div>
+	</section>
+
+
+	<section class="container mt-4">
+		<div class="section-header-container mb-4">
+			<h3 class="section-header ">Highlights</h3>
+		</div>
+		<div class="row justify-content-center">
+			{% for post in promoted_articles %}
+				<div class="col-xs-4 col-md-6 col-lg-3 pb-4 d-flex flex-column">
+					{% include 'partials/_post-tile.twig' with { "post": post } only %}
 				</div>
+			{% endfor %}
+		</div>
+		<div class="row justify-content-between mt-4">
+			<div class="col-12 d-flex justify-content-end">
+				<a class="btn btn-primary" href="/article">SEE ALL CATEGORIES</a>
 			</div>
 		</div>
 	</section>
 
-	<section id="about-section">
-		<div class="container-fluid about-section-container">
-			<div class=" row about-section-row">
-				<div class="col-md-12">
-					<h3 class="page-front-about-header">ABOUT VIKALP SANGAM</h3>
-					{{ post.content }}
-				</div>
-			</div>
-		</div>
-	</section>
 {% endblock %}

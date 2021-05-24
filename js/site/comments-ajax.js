@@ -83,14 +83,14 @@ jQuery(() => {
 jQuery(() => {
   if (jQuery('#mainSlider').length) {
     jQuery('#mainSlider').slick({
-      infinite: true,
       speed: 300,
+      arrows: true,
       slidesToShow: 1,
-      centerMode: true,
-      variableWidth: true,
       mobileFirst: true,
       autoplay: true,
       autoplaySpeed: 5000,
+      adaptiveHeight: true,
+
     });
   }
 });
