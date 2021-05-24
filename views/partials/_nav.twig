@@ -1,21 +1,56 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top d-flex" id="vikalpsangam-navbar">
+<nav aria-label="pages"></nav>
 
-	<a class="navbar-brand" href="/"></a>
 
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#vikalpsangam-navbar-collapse" aria-controls="vikalpsangam-navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
+<nav id="vikalpsangam-navbar-secondary">
+    <div class="container d-flex justify-content-end">
+        <a href="/about" class="nav-link">About Us</a>
+        <a href="/events" class="nav-link">Events</a>
+        <a href="/media" class="nav-link">Media Coverage</a>
 
-	<div class="collapse navbar-collapse justify-content-end" id="vikalpsangam-navbar-collapse">
+        <div class="social-links">
+            {% for link in social_links %}            
+                <a class="header-social-small" href="{{link.url}}">
+                    <img src="{{link.image}}">
+                </a>
+            {% endfor %}
+        </div>
+        
 
-		<ul id="menu-header-menu" class="navbar-nav mr-3">
-			{% for item in header_menu.items %}
-				<li class="nav-item {{ item.classes|join(' ') }}">
-					<a class="nav-link" href="{{ item.link }}">{{ item.title }}</a>
-				</li>
-			{% endfor %}
-		</ul>
+    </div>
 
-		{% include "partials/_search-form.twig" %}
-	</div>
 </nav>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light  d-flex" id="vikalpsangam-navbar">
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#vikalpsangam-navbar-collapse" aria-controls="vikalpsangam-navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-center" id="vikalpsangam-navbar-collapse">
+
+        <ul id="menu-header-menu" class="navbar-nav mr-3">
+            <li class="nav-item">
+                <a class="nav-link">Stories</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link">Our Work</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link">Resources</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link">Perspectives</a>
+            </li>
+        </ul>
+
+        {% include "partials/_search-form.twig" %}
+    </div>
+</nav>
+
+<header class="siteHeader">
+    <img class="siteHeaderImage" src="/wp-content/themes/vikalpsangam.org/images/vikalp-large.jpg">
+</header>

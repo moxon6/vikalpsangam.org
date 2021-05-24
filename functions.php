@@ -94,7 +94,9 @@ class VikalpsangamOrgSite extends Timber\Site {
 		add_filter( 'timber/twig', function( \Twig_Environment $twig ) {
 			$twig->addFunction(new \Twig\TwigFunction(
 				'get_sidebar', 
-				fn() => Timber::get_widgets('sidebar-1')
+				function() {
+					return Timber::get_widgets('sidebar-1');
+				}
 			));
 			return $twig;
 		} );

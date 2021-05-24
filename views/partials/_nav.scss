@@ -6,6 +6,81 @@ $logo-width-l: 275px;
   }
 }
 
+.siteHeader {
+  display: flex;
+  justify-content: center;
+}
+
+.siteHeaderImage {
+  max-width: 100%;
+}
+
+#vikalpsangam-navbar-secondary {
+  @media print {
+    display: none !important;
+  }
+
+  > .container {
+    height: 100%;
+  }
+
+  background-color: darken($dark-brick-col, 15) !important;
+
+  font-family: "Roboto-Black";
+
+  padding: 0 16px 0 16px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    height: 100%;
+    line-height: 28px;
+    font-family: Verdana, Geneva, sans-serif;
+    color: white;
+    padding-left: 32px;
+    padding-right: 32px;
+    margin-left: 0px;
+    margin-right: 0px;
+    text-transform: uppercase;
+
+    &:hover {
+      background-color: darken($dark-brick-col, 20);
+    }
+  }
+
+  .social-links {
+    margin-left: 48px;
+    display: flex;
+    align-items: center;
+  }
+
+  .header-social-small {
+    width: 100%;
+    height: 100%;
+
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      background-color: darken($dark-brick-col, 20);
+    }
+
+    > img {
+      display: block;
+
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
 #vikalpsangam-navbar {
   @media print {
     display: none !important;
@@ -16,8 +91,12 @@ $logo-width-l: 275px;
 
   padding: 0 16px 0 16px;
 
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+
   .navbar-brand {
-    height: 50px;
     flex-basis: $logo-width-l;
     margin-right: 0;
 
@@ -31,15 +110,13 @@ $logo-width-l: 275px;
   }
 
   #vikalpsangam-navbar-collapse {
-    min-height: 50px;
-
     @include collapsed {
       margin-bottom: 24px;
     }
 
     .navbar-nav {
       .nav-item {
-        font-weight: 700;
+        font-weight: normal;
 
         &.current-menu-item .nav-link {
           color: #fff !important;
@@ -58,9 +135,12 @@ $logo-width-l: 275px;
           padding-left: 16px;
           font-size: 18px;
           @include header-style;
+          font-weight: normal;
 
           @include desktop {
             padding-right: 16px;
+
+            margin-right: 32px;
           }
         }
       }

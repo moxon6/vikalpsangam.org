@@ -1,13 +1,1 @@
-<div id="mainSlider">
-	{% for post in carousel_items %}
-		<a class="slider-item" href="#">
-
-			<img src="{{ post.thumbnail.src("large") }}" class="carousel-thumbnail">
-			<div class="slick-carousel-caption">
-				<h4 class="post-title">{{ post.title }}</h4>
-				<p class="post-excerpt">{{ post.preview.read_more(false).length(20) }}</p>
-			</div>
-
-		</a>
-	{% endfor %}
-</div>
+{{ function("do_shortcode", '[smartslider3 slider="2"]') }}
