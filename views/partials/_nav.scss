@@ -29,7 +29,7 @@ $logo-width-l: 275px;
   font-family: "Roboto-Black";
 
   padding: 0 16px 0 16px;
-  height: 40px;
+  height: 44px;
 
   display: flex;
   align-items: center;
@@ -90,7 +90,7 @@ $logo-width-l: 275px;
 
   padding: 0 16px 0 16px;
 
-  height: 40px;
+  height: 44px;
 
   display: flex;
   align-items: center;
@@ -177,4 +177,8 @@ $logo-width-l: 275px;
   &:hover {
     filter: drop-shadow(2px 4px 6px black);
   }
+}
+
+.home-link {
+  margin-right: 48px;
 }
