@@ -15,8 +15,8 @@ jobs:
     - name: Install plugin using Wordpress cli over ssh
       uses: appleboy/ssh-action@master
       with:
-        username: ${{ secrets.USERNAME }}
         host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSH_KEY }}
         proxy_host: ${{ secrets.PROXY_HOST }}
         proxy_username: ${{ secrets.PROXY_USERNAME }}

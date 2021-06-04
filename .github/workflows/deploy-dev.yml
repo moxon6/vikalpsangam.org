@@ -15,8 +15,8 @@ jobs:
     - name: Install plugin using Wordpress cli over ssh
       uses: appleboy/ssh-action@master
       with:
-        username: ${{ secrets.USERNAME }}
         host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSH_KEY }}
         script: |
           wget https://github.com/${{github.repository}}/releases/download/${{github.event.inputs.version}}/vikalpsangam.org-${{github.event.inputs.version}}.zip -O /tmp/vikalpsangam.org.zip
