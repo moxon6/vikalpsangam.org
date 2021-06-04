@@ -5,7 +5,7 @@ $timber_post = new Timber\Post();
 $context['post'] = $timber_post;
 
 $context["stories_by_category"] = array_map(
-    function($category) => {
+    function($category) {
         return [
             "category" => $category,
             "posts" => Timber::get_posts(array(
