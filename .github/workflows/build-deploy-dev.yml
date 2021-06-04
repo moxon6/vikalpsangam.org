@@ -49,6 +49,7 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         source: vikalpsangam.org.zip
         target: /tmp/vikalpsangam.org.zip
+        overwrite: true
 
     - name: Install plugin using Wordpress cli over ssh
       uses: appleboy/ssh-action@master
