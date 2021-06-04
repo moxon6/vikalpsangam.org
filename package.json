@@ -50,7 +50,7 @@
     "lint:js": "wp-scripts lint-js 'js/**/*.js'",
     "bundle": "node bundle.js",
     "copy-fonts": "cp node_modules/bootstrap-sass/assets/fonts/bootstrap/* fonts -n",
-    "quicklint": "npm run lint:scss -- --fix ; npm run lint:js -- --fix"
+    "quicklint": "npm run lint:scss -- --fix ; npm run lint:js -- --fix ; npm run fix:twig"
   },
   "dependencies": {
     "archiver": "^5.2.0",
