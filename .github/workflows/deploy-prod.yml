@@ -21,7 +21,6 @@ jobs:
         proxy_host: ${{ secrets.PROXY_HOST }}
         proxy_username: ${{ secrets.PROXY_USERNAME }}
         proxy_key: ${{ secrets.PROXY_KEY }}
-        proxy_port: ${{ secrets.PROXY_PORT }}
         script: |
           wget https://github.com/${{github.repository}}/releases/download/${{github.event.inputs.version}}/vikalpsangam.org-${{github.event.inputs.version}}.zip -O /tmp/vikalpsangam.org.zip
           sudo wp theme install /tmp/vikalpsangam.org.zip \
