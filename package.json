@@ -45,6 +45,7 @@
     "browsersync": "browser-sync start --files \"**/*.(php|js|css)\"",
     "lint:scss": "wp-scripts lint-style \"(views|features)/**/*.scss\"",
     "lint:twig": "prettier views/**/*.twig --check",
+    "lint:actions": "prettier .github/**/*.yml --check",
     "fix:twig": "prettier views/**/*.twig --write",
     "lint:js": "wp-scripts lint-js 'js/**/*.js'",
     "bundle": "node bundle.js",
