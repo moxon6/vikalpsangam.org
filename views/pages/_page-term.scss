@@ -5,8 +5,9 @@
 
   details {
     summary {
+      list-style: none;
       outline: none;
-      &::-webkit-details-marker {
+      &::marker {
         display: none;
       }
     }
