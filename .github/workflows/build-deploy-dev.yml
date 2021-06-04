@@ -2,7 +2,7 @@ name: Build and deploy from dev branch
 on:
   push:
     branches:
-      - 'develop-*'
+      - 'feature/*'
 jobs:
   deploy:
     environment: 
