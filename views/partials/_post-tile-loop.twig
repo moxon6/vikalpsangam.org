@@ -1,10 +1,14 @@
 {% for post in posts %}
-	{% if show_categories %}
-		{% set category = post.categories[0] %}
-		{% set header_fallback = true %}
-	{% endif %}
+  {% if show_categories %}
+    {% set category = post.categories[0] %}
+    {% set header_fallback = true %}
+  {% endif %}
 
-	<div class="col-xs-4 col-md-6 col-lg-4 pb-4 d-flex flex-column">
-		{% include 'partials/_post-tile.twig' with {'post': post, 'category': category, 'header_fallback': header_fallback } only %}
-	</div>
+  <div class="col-xs-4 col-md-6 col-lg-4 pb-4 d-flex flex-column">
+    {% include 'partials/_post-tile.twig' with {
+      post: post,
+      category: category,
+      header_fallback: header_fallback
+    } only %}
+  </div>
 {% endfor %}
