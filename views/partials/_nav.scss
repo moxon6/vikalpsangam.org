@@ -186,3 +186,7 @@ $logo-width-l: 275px;
 .dropdown-menu.show {
   z-index: 1001;
 }
+
+.dropdown-header > a {
+  font-size: 24px;
+}
