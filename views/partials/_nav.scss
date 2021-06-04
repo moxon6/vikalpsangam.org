@@ -46,7 +46,6 @@ $logo-width-l: 275px;
     padding-right: 32px;
     margin-left: 0px;
     margin-right: 0px;
-    text-transform: uppercase;
 
     &:hover {
       background-color: darken($dark-brick-col, 20);
@@ -134,7 +133,7 @@ $logo-width-l: 275px;
           align-items: center;
           padding-left: 16px;
           font-size: 18px;
-          @include header-style;
+
           font-weight: normal;
 
           @include desktop {
@@ -145,5 +144,37 @@ $logo-width-l: 275px;
         }
       }
     }
+  }
+}
+
+.categories-wrapper {
+  column-count: 2;
+}
+
+.dropdown-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 4px;
+  margin-bottom: 4px;
+  image-rendering: -moz-crisp-edges; /* Firefox */
+  image-rendering: -o-crisp-edges; /* Opera */
+  image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming) */
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
+}
+
+.dropdown-category {
+  display: flex;
+  break-inside: avoid;
+}
+
+.dropdown-text {
+  color: black;
+}
+
+.india-map {
+  filter: drop-shadow(2px 4px 5px black);
+  &:hover {
+    filter: drop-shadow(2px 4px 6px black);
   }
 }
