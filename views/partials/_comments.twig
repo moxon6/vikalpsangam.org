@@ -1,13 +1,13 @@
 <div id="article-comments" class="comments-section">
-  {{ function('comment_form') }}
+    {{ function('comment_form') }}
 
-  <div class="loading-spinner spinner-border text-primary" role="status">
-    <span class="sr-only">Loading...</span>
-  </div>
+    <div class="loading-spinner spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
 
-  <div class="alert alert-info" id="submit-message"></div>
+    <div class="alert alert-info" id="submit-message"></div>
 
-  {% for comment in post.comments %}
-    {% include 'partials/_comment.twig' %}
-  {% endfor %}
+    {% for comment in post.comments %}
+        {% include 'partials/_comment.twig' %}
+    {% endfor %}
 </div>

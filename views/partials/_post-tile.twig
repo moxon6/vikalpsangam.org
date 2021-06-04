@@ -1,35 +1,35 @@
 <div class="post-tile">
-  <div class="card post-tile-card h-100">
-    {% if not category and header_fallback %}
-      {% set category = {
-        name: 'Vikalp Sangam'
-      } %}
-    {% endif %}
+    <div class="card post-tile-card h-100">
+        {% if not category and header_fallback %}
+            {% set category = {
+                name: 'Vikalp Sangam'
+            } %}
+        {% endif %}
 
-    {% if category %}
-      {% include 'partials/_term-header.twig' with {
-        term: category
-      } only %}
-    {% endif %}
+        {% if category %}
+            {% include 'partials/_term-header.twig' with {
+                term: category
+            } only %}
+        {% endif %}
 
-    <a href="{{ post.link }}">
-      <img src="{{ post.thumbnail.src('large') }}"
-        class="card-img-top post-tile-image" />
-    </a>
-    <div class="card-body">
-      <a href="{{ post.link }}">
-        <h6 class="card-title post-tile-title">
-          {{ post.title }}
-        </h6>
-      </a>
-      <p class="card-text post-tile-text">
-        {{ post.preview.read_more(false).length(20) }}
-      </p>
+        <a href="{{ post.link }}">
+            <img src="{{ post.thumbnail.src('large') }}"
+                class="card-img-top post-tile-image" />
+        </a>
+        <div class="card-body">
+            <a href="{{ post.link }}">
+                <h6 class="card-title post-tile-title">
+                    {{ post.title }}
+                </h6>
+            </a>
+            <p class="card-text post-tile-text">
+                {{ post.preview.read_more(false).length(20) }}
+            </p>
+        </div>
+        <footer class="card-footer d-flex justify-content-end p-0">
+            <a href="{{ post.link }}" class="read-more btn btn-primary btn-sm">
+                Read More
+            </a>
+        </footer>
     </div>
-    <footer class="card-footer d-flex justify-content-end p-0">
-      <a href="{{ post.link }}" class="read-more btn btn-primary btn-sm">
-        Read More
-      </a>
-    </footer>
-  </div>
 </div>

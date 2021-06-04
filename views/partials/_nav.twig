@@ -1,126 +1,133 @@
 <nav id="vikalpsangam-navbar-secondary">
-  <div class="container d-flex justify-content-end">
-    <div class="dropdown">
-      <a class="nav-link dropdown-toggle"
-        href="#"
-        role="button"
-        id="dropdownMenuLink"
-        data-toggle="dropdown"
-        aria-haspopup="true"
-        aria-expanded="false">
-        About Us
-      </a>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="/to-be-determined">
-          Vikalpsangam Processes
-        </a>
-      </div>
+    <div class="container d-flex justify-content-end">
+        <div class="dropdown">
+            <a class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                id="dropdownMenuLink"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false">
+                About Us
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="/to-be-determined">
+                    Vikalpsangam Processes
+                </a>
+            </div>
+        </div>
+        <a href="/events" class="nav-link">Events</a>
+        <a href="/to-be-determined" class="nav-link">Media Coverage</a>
+        <div href="/article/category/policy-edits/" class="social-links">
+            {% for link in social_links %}
+                <a class="header-social-small" href="{{ link.url }}">
+                    <img src="{{ link.image }}" />
+                </a>
+            {% endfor %}
+        </div>
     </div>
-    <a href="/events" class="nav-link">Events</a>
-    <a href="/to-be-determined" class="nav-link">Media Coverage</a>
-    <div href="/article/category/policy-edits/" class="social-links">
-      {% for link in social_links %}
-        <a class="header-social-small" href="{{ link.url }}">
-          <img src="{{ link.image }}" />
-        </a>
-      {% endfor %}
-    </div>
-  </div>
 </nav>
 <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex"
-  id="vikalpsangam-navbar">
-  <button class="navbar-toggler"
-    type="button"
-    data-toggle="collapse"
-    data-target="#vikalpsangam-navbar-collapse"
-    aria-controls="vikalpsangam-navbar-collapse"
-    aria-expanded="false"
-    aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse justify-content-center"
-    id="vikalpsangam-navbar-collapse">
-    <a class="home-link" href="/">
-      <img src="/wp-content/themes/vikalpsangam.org/images/header_big_logo.png" />
-    </a>
-    <ul id="menu-header-menu" class="navbar-nav mr-3">
-      <div class="dropdown nav-item">
-        <a class="nav-link dropdown-toggle"
-          href="#"
-          role="button"
-          id="dropdownMenuLink"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false">
-          Stories
+    id="vikalpsangam-navbar">
+    <button class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#vikalpsangam-navbar-collapse"
+        aria-controls="vikalpsangam-navbar-collapse"
+        aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center"
+        id="vikalpsangam-navbar-collapse">
+        <a class="home-link" href="/">
+            <img src="/wp-content/themes/vikalpsangam.org/images/header_big_logo.png" />
         </a>
+        <ul id="menu-header-menu" class="navbar-nav mr-3">
+            <div class="dropdown nav-item">
+                <a class="nav-link dropdown-toggle"
+                    href="#"
+                    role="button"
+                    id="dropdownMenuLink"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false">
+                    Stories
+                </a>
 
-        <div class="dropdown-menu" aria-labelledby="servicesDropdown">
-          <div class="d-md-flex align-items-start justify-content-start">
-            <div>
-              <div class="dropdown-header">
-                Categories
-              </div>
-              <div class="categories-wrapper">
-                {% for category in post_categories %}
-                  <a href="{{ category.link }}"
-                    class="dropdown-item dropdown-category">
-                    <img class="dropdown-icon"
-                      src="{{ Image(category.meta('image')).src }}" />
-                    <span class="dropdown-text">{{ category.name }}</span>
-                  </a>
-                {% endfor %}
-              </div>
-            </div>
+                <div class="dropdown-menu" aria-labelledby="servicesDropdown">
+                    <div class="d-md-flex align-items-start justify-content-start">
+                        <div>
+                            <div class="dropdown-header">
+                                Categories
+                            </div>
+                            <div class="categories-wrapper">
+                                {% for category in post_categories %}
+                                    <a href="{{ category.link }}"
+                                        class="dropdown-item dropdown-category">
+                                        <img class="dropdown-icon"
+                                            src="{{
+                                            Image(category.meta('image')).src
+                                            }}" />
+                                        <span class="dropdown-text">
+                                            {{ category.name }}
+                                        </span>
+                                    </a>
+                                {% endfor %}
+                            </div>
+                        </div>
 
-            <div>
-              <div class="dropdown-header">
-                Stories By Location
-              </div>
-              <a href="/map">
-                <img class="india-map"
-                  src="/wp-content/themes/vikalpsangam.org/images/india.svg" />
-              </a>
+                        <div>
+                            <div class="dropdown-header">
+                                Stories By Location
+                            </div>
+                            <a href="/map">
+                                <img class="india-map"
+                                    src="/wp-content/themes/vikalpsangam.org/images/india.svg" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="dropdown nav-item">
-        <a class="nav-link dropdown-toggle"
-          href="#"
-          role="button"
-          id="dropdownMenuLink"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false">
-          Our Work
-        </a>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="https://sutra.vikalpsangam.org">
-            Vikalp Sutra
-          </a>
-        </div>
-      </div>
-      <div class="dropdown nav-item">
-        <a class="nav-link dropdown-toggle"
-          href="#"
-          role="button"
-          id="dropdownMenuLink"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false">
-          Resources
-        </a>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="/resources/">Vikalpsangam Resources</a>
-        </div>
-      </div>
-      <li class="nav-item">
-        <a href="/article/category/policy-edits/" class="nav-link">
-          Perspectives
-        </a>
-      </li>
-    </ul>
-    {% include 'partials/_search-form.twig' %}
-  </div>
+            <div class="dropdown nav-item">
+                <a class="nav-link dropdown-toggle"
+                    href="#"
+                    role="button"
+                    id="dropdownMenuLink"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false">
+                    Our Work
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item"
+                        href="https://sutra.vikalpsangam.org">
+                        Vikalp Sutra
+                    </a>
+                </div>
+            </div>
+            <div class="dropdown nav-item">
+                <a class="nav-link dropdown-toggle"
+                    href="#"
+                    role="button"
+                    id="dropdownMenuLink"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false">
+                    Resources
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="/resources/">
+                        Vikalpsangam Resources
+                    </a>
+                </div>
+            </div>
+            <li class="nav-item">
+                <a href="/article/category/policy-edits/" class="nav-link">
+                    Perspectives
+                </a>
+            </li>
+        </ul>
+        {% include 'partials/_search-form.twig' %}
+    </div>
 </nav>

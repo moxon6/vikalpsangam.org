@@ -1,47 +1,58 @@
 <footer class="container-fluid mt-4">
-  <div class="footer-main row">
-    <div class="footer-left col-xl-3 col-md-12">
-      <div class="footer-logo">
-        <a href="/"><img class="img-fluid" src="{{ footer_logo }} " /></a>
-      </div>
-      <div class="footer-social-links-top">
-        {% for link in social_links %}
-          <div class="partner-logo">
-            <a href="{{ link.url }}"><img src="{{ link.image }}" /></a>
-          </div>
-        {% endfor %}
-      </div>
-    </div>
-
-    <div class="footer-center col-xl-3 col-lg-12 col-md-8">
-      <h2 class="subscribe-title">
-        Newsletter
-      </h2>
-      <p class="subscribe-description">
-        Enter your email address below to subscribe to our monthly newsletter
-      </p>
-      <form action="{{ MAILCHIMP_SUBMIT_URL }}" method="post">
-        <input type="email" name="EMAIL" required placeholder="Email address" />
-        <button type="submit">Sign up</button>
-      </form>
-    </div>
-
-    <div class="footer-right col-xl-6 col-md-12">
-      {% for menu in footer_menus %}
-        <div class="list-items">
-          <ul class="list-group">
-            {% for item in menu.items %}
-              <li class="list-group-item {{ item.classes|join(' ') }}">
-                <a class="list-group-item-heading" href="{{ item.link }}">
-                  {{ item.title }}
+    <div class="footer-main row">
+        <div class="footer-left col-xl-3 col-md-12">
+            <div class="footer-logo">
+                <a href="/">
+                    <img class="img-fluid" src="{{ footer_logo }} " />
                 </a>
-              </li>
-            {% endfor %}
-          </ul>
+            </div>
+            <div class="footer-social-links-top">
+                {% for link in social_links %}
+                    <div class="partner-logo">
+                        <a href="{{ link.url }}">
+                            <img src="{{ link.image }}" />
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
-      {% endfor %}
+
+        <div class="footer-center col-xl-3 col-lg-12 col-md-8">
+            <h2 class="subscribe-title">
+                Newsletter
+            </h2>
+            <p class="subscribe-description">
+                Enter your email address below to subscribe to our monthly
+                newsletter
+            </p>
+            <form action="{{ MAILCHIMP_SUBMIT_URL }}" method="post">
+                <input type="email"
+                    name="EMAIL"
+                    required
+                    placeholder="Email address" />
+                <button type="submit">Sign up</button>
+            </form>
+        </div>
+
+        <div class="footer-right col-xl-6 col-md-12">
+            {% for menu in footer_menus %}
+                <div class="list-items">
+                    <ul class="list-group">
+                        {% for item in menu.items %}
+                            <li class="list-group-item {{ item.classes|join(
+                                    ' '
+                                ) }}">
+                                <a class="list-group-item-heading"
+                                    href="{{ item.link }}">
+                                    {{ item.title }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endfor %}
+        </div>
     </div>
-  </div>
 </footer>
 
 {{ function('wp_footer') }}
