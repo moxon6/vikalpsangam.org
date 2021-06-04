@@ -182,3 +182,7 @@ $logo-width-l: 275px;
 .home-link {
   margin-right: 48px;
 }
+
+.dropdown-menu.show {
+  z-index: 1001;
+}
