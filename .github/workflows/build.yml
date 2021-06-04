@@ -1,64 +1,67 @@
 name: Build and Publish
 on:
-  push:
-    branches:
-      - 'master'
-    paths-ignore:
-        - '.github/**'
+    push:
+        branches:
+            - "master"
+        paths-ignore:
+            - ".github/**"
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-    - uses: php-actions/composer@v2
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@master
+            - uses: php-actions/composer@v2
 
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '12'
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: "12"
 
-    - name: "Lint php"
-      run: composer lint:php
+            - name: "Lint php"
+              run: composer lint:php
 
-    - name: "npm install"
-      run: npm ci
+            - name: "npm install"
+              run: npm ci
 
-    - name: "Lint scss"
-      run: npm run lint:scss
+            - name: "Lint scss"
+              run: npm run lint:scss
 
-    - name: "Lint js"
-      run: npm run lint:js
+            - name: "Lint js"
+              run: npm run lint:js
 
-    - name: 'Automated Version Bump'
-      id: 'version-bump'
-      uses: 'phips28/gh-action-bump-version@master'
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            - name: "Lint twig"
+              run: npm run lint:twig
 
-    - name: "Increment Version"
-      run: | 
-        version=$(node -p "require('./package.json').version")
-        echo "<?php define('vikalpsangam_VERSION', '$version');" >| version.php
-        echo "\$theme-version: \"$version\";" >| _version.scss
+            - name: "Automated Version Bump"
+              id: "version-bump"
+              uses: "phips28/gh-action-bump-version@master"
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: "Compile scss -> css"
-      run: npm run build:scss
+            - name: "Increment Version"
+              run: |
+                  version=$(node -p "require('./package.json').version")
+                  echo "<?php define('vikalpsangam_VERSION', '$version');" >| version.php
+                  echo "\$theme-version: \"$version\";" >| _version.scss
 
-    - name: "Compile rtl css"
-      run: npm run build:scss-rtl
-    
-    - uses: php-actions/composer@v2
-      with:
-        dev: no
+            - name: "Compile scss -> css"
+              run: npm run build:scss
 
-    - name: "Create theme bundle"
-      run: npm run bundle
-    
-    - name: Upload theme package
-      uses: svenstaro/upload-release-action@v2
-      with:
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: vikalpsangam.org.zip
-        asset_name: vikalpsangam.org-${{ steps.version-bump.outputs.newTag }}.zip
-        tag: ${{ steps.version-bump.outputs.newTag }}
-        overwrite: true
-        body: "Wordpress Theme for vikalpsangam.org. Version ${{ steps.version-bump.outputs.newTag }}"
+            - name: "Compile rtl css"
+              run: npm run build:scss-rtl
+
+            - uses: php-actions/composer@v2
+              with:
+                  dev: no
+
+            - name: "Create theme bundle"
+              run: npm run bundle
+
+            - name: Upload theme package
+              uses: svenstaro/upload-release-action@v2
+              with:
+                  repo_token: ${{ secrets.GITHUB_TOKEN }}
+                  file: vikalpsangam.org.zip
+                  asset_name: vikalpsangam.org-${{ steps.version-bump.outputs.newTag }}.zip
+                  tag: ${{ steps.version-bump.outputs.newTag }}
+                  overwrite: true
+                  body: "Wordpress Theme for vikalpsangam.org. Version ${{ steps.version-bump.outputs.newTag }}"
