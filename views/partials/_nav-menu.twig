@@ -1,0 +1,47 @@
+<div class="dropdown nav-item">
+    <a class="nav-link dropdown-toggle"
+        href="#"
+        role="button"
+        data-toggle="dropdown">
+        {{ name }}
+    </a>
+
+    <div class="dropdown-menu" aria-labelledby="servicesDropdown">
+        <div class="d-md-flex align-items-start justify-content-start">
+            <div>
+                <div class="dropdown-header">
+                    <a 
+                        {% if section.link %} 
+                            href="{{ section.link }}}" 
+                        {% endif %}
+                    >{{ section.name }}</a>
+                </div>
+                <div class="categories-wrapper">
+                    {% for item in section.items %}
+                        <a href="{{ item.link }}"
+                            class="dropdown-item dropdown-category">
+                            {% if Image(item.meta('image')).src %}
+                                <img class="dropdown-icon"
+                                    src="{{ Image(item.meta('image')).src }}" />
+                            {% endif %}
+
+                            <span class="dropdown-text">{{ item.name }}</span>
+                        </a>
+                    {% endfor %}
+
+
+                    
+                </div>
+            </div>
+            <div>
+                <div class="dropdown-header">
+                <a>{{ customSection.name }}</a>
+                </div>
+                <div>
+                    <span class="dropdown-text">{{ customSection.render }}</span>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

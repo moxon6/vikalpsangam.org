@@ -35,6 +35,7 @@ add_filter('wp_generate_tag_cloud_data', function ($tags_data) {
 class VikalpsangamOrgSite extends Timber\Site {
 	public function __construct() {
 		add_filter( 'timber/context', array( $this, 'add_to_context' ) );
+		
 		parent::__construct();
 	}
 
@@ -70,7 +71,9 @@ class VikalpsangamOrgSite extends Timber\Site {
 	}
 
 	private function setup_header_context($context) {
-		$context["header_menu"] = new \Timber\Menu( 'header-menu' );
+		$context["header_menu"] = buffer(function() {
+			wp_nav_menu(['menu' => "header-menu"]);
+		});
 		return $context;
 	}
 

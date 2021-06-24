@@ -173,7 +173,11 @@ $logo-width-l: 275px;
 }
 
 .india-map {
+  padding-top: 24px;
   filter: drop-shadow(2px 4px 5px black);
+  width: 100%;
+  height: auto;
+  max-height: 280px;
   &:hover {
     filter: drop-shadow(2px 4px 6px black);
   }
@@ -189,4 +193,31 @@ $logo-width-l: 275px;
 
 .dropdown-header > a {
   font-size: 24px;
+  color: $dark-brick-col !important;
 }
+
+
+.mega-block-title {
+  border-bottom: 1px solid #d2d2d2 !important;
+  font-size: 24px !important;
+}
+
+.list-unstyled {
+  
+  column-count: 2;
+  column-width: 200px;
+  
+}
+
+.widget_vikalpsangamcategories {
+  padding-top: 0 !important;
+}
+
+
+.mega-menu > li > .mega-sub-menu {
+  left: calc(50% - 384px) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  max-width: 768px !important;
+}
+

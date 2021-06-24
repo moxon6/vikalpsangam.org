@@ -27,6 +27,16 @@
         </div>
     </div>
 </nav>
+
+{{
+    function(
+        'wp_nav_menu',
+        {
+            theme_location: 'header-menu'
+        }
+    )
+}}
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex"
     id="vikalpsangam-navbar">
     <button class="navbar-toggler"
@@ -44,84 +54,50 @@
             <img src="/wp-content/themes/vikalpsangam.org/images/header_big_logo.png" />
         </a>
         <ul id="menu-header-menu" class="navbar-nav mr-3">
-            <div class="dropdown nav-item">
-                <a class="nav-link dropdown-toggle"
-                    href="#"
-                    role="button"
-                    id="dropdownMenuLink"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false">
-                    Stories
-                </a>
+            {% include 'partials/_nav-menu.twig' with {
+                name: 'Stories',
+                section: {
+                    name: 'Story Categories',
+                    link: '/article',
+                    items: post_categories
+                },
+                customSection: {
+                    name: 'Stories By Location',
+                    render: '
+                        <a href="/map">
+                            <img class="india-map"
+                                src="/wp-content/themes/vikalpsangam.org/images/india.svg" />
+                        </a>
+                    '
+                }
+            } only %}
 
-                <div class="dropdown-menu" aria-labelledby="servicesDropdown">
-                    <div class="d-md-flex align-items-start justify-content-start">
-                        <div>
-                            <div class="dropdown-header">
-                                <a href="/article/">Story Categories</a>
-                            </div>
-                            <div class="categories-wrapper">
-                                {% for category in post_categories %}
-                                    <a href="{{ category.link }}"
-                                        class="dropdown-item dropdown-category">
-                                        <img class="dropdown-icon"
-                                            src="{{
-                                            Image(category.meta('image')).src
-                                            }}" />
-                                        <span class="dropdown-text">
-                                            {{ category.name }}
-                                        </span>
-                                    </a>
-                                {% endfor %}
-                            </div>
-                        </div>
+            {% include 'partials/_nav-menu.twig' with {
+                name: 'Our Work',
+                section: {
+                    name: 'Our Work',
+                    items: [
+                        {
+                            name: 'Vikalp Sutra',
+                            link: 'https://sutra.vikalpsangam.org'
+                        }
+                    ]
+                }
+            } only %}
 
-                        <div>
-                            <div class="dropdown-header">
-                                Stories By Location
-                            </div>
-                            <a href="/map">
-                                <img class="india-map"
-                                    src="/wp-content/themes/vikalpsangam.org/images/india.svg" />
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="dropdown nav-item">
-                <a class="nav-link dropdown-toggle"
-                    href="#"
-                    role="button"
-                    id="dropdownMenuLink"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false">
-                    Our Work
-                </a>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item"
-                        href="https://sutra.vikalpsangam.org">
-                        Vikalp Sutra
-                    </a>
-                </div>
-            </div>
-            <div class="dropdown nav-item">
-                <a class="nav-link dropdown-toggle"
-                    href="#"
-                    role="button"
-                    id="dropdownMenuLink"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false">
-                    Resources
-                </a>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="/resources/">
-                        Vikalpsangam Resources
-                    </a>
-                </div>
-            </div>
+            {% include 'partials/_nav-menu.twig' with {
+                name: 'Resources',
+                section: {
+                    name: 'Resources',
+                    items: [
+                        {
+                            name: 'Vikalpsangam Resources',
+                            link: '/resources'
+                        }
+                    ]
+                }
+            } only %}
+
             <li class="nav-item">
                 <a href="/article/category/policy-edits/" class="nav-link">
                     Perspectives
