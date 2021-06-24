@@ -11,11 +11,9 @@
   ],
   "homepage": "http://vikalpsangam.org/",
   "devDependencies": {
-    "@wordpress/scripts": "^12.1.0",
     "browser-sync": "^2.26.13",
     "dir-archiver": "^1.1.1",
     "husky": "^4.3.0",
-    "node-sass": "^4.14.1",
     "prettier": "^2.1.2",
     "prettier-plugin-twig-melody": "^0.4.6",
     "rtlcss": "^2.5.0",
@@ -39,8 +37,8 @@
   },
   "scripts": {
     "setup-hooks": "npx husky install",
-    "watch:scss": "node-sass -o . style.scss -w",
-    "build:scss": "node-sass --importer node_modules/node-sass-package-importer/dist/cli.js -o . style.scss",
+    "watch:scss": "sass style.scss style.css -w",
+    "build:scss": "sass style.scss style.css",
     "build:scss-rtl": "rtlcss style.css style-rtl.css",
     "browsersync": "browser-sync start --files \"**/*.(php|js|css)\"",
     "lint:scss": "wp-scripts lint-style \"(views|features)/**/*.scss\"",
@@ -58,6 +56,6 @@
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
     "glob": "^7.1.6",
-    "node-sass-package-importer": "^5.3.2"
+    "sass": "^1.35.1"
   }
 }
