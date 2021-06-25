@@ -1,9 +1,9 @@
-@import "version";
+@use "version";
 /**
  * Theme Name:       vikalpsangam.org
  * Theme URI:        https://github.com/moxon6/vikalpsangam.org
  * Description:       This is the main theme for vikalpsangam.org
- * Version:           #{$theme-version}
+ * Version:           #{version.$theme-version}
  * Author:            Martin Moxon
  * License:           GNU General Public License v2
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.html
@@ -11,8 +11,8 @@
  * GitHub Theme URI: https://github.com/moxon6/vikalpsangam.org
  */
 
-@import "views/index";
-@import "node_modules/bootstrap/scss/bootstrap";
+@use "views/index";
+@use "node_modules/bootstrap/scss/bootstrap";
 
 html {
   font-size: 16px !important; // TODO: Fix root issue requiring this override (may be related to litespeed cache)

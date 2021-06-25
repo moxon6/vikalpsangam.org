@@ -1,3 +1,6 @@
+@use "../common/mixins";
+@use "../common/colors";
+
 .sidebar {
   > li.widget {
     list-style: none;
@@ -8,11 +11,11 @@
   }
 
   .sidebar-header {
-    @include header-style;
+    @include mixins.header-style;
   }
 
   .widgettitle {
-    @include header-style;
+    @include mixins.header-style;
     font-size: 20px;
   }
 
@@ -22,22 +25,22 @@
 
     .tag-weight-1 {
       font-size: 0.8em !important;
-      color: $dark-gray-col;
+      color: colors.$dark-gray-col;
     }
 
     .tag-weight-2 {
       font-size: 1em !important;
-      color: $yellow-col;
+      color: colors.$yellow-col;
     }
 
     .tag-weight-3 {
       font-size: 1.2em !important;
-      color: $light-brick-color;
+      color: colors.$light-brick-color;
     }
 
     .tag-weight-4 {
       font-size: 1.3em !important;
-      color: $dark-brick-col;
+      color: colors.$dark-brick-col;
     }
   }
 

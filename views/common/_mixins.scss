@@ -1,3 +1,6 @@
+@use "fonts";
+@use "colors";
+
 @mixin mobile {
   @media (max-width: 767px) {
     @content;
@@ -18,8 +21,8 @@
 }
 
 @mixin header-style {
-  font-family: $roboto-black;
-  color: $dark-brick-col;
+  font-family: fonts.$roboto-black;
+  color: colors.$dark-brick-col;
   text-shadow: none;
   text-transform: uppercase;
   opacity: 1;

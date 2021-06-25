@@ -1,23 +1,26 @@
+@use "../common/colors";
+@use "../common/mixins";
+
 #page-single {
   #author-date-category,
   #story-tags {
     .text {
-      color: $dark-gray-col;
+      color: colors.$dark-gray-col;
     }
 
     a {
-      color: $dark-brick-col;
+      color: colors.$dark-brick-col;
       text-decoration: none;
 
       &:hover {
-        color: $dark-brick-col;
+        color: colors.$dark-brick-col;
         text-decoration: none;
       }
     }
   }
 
   .post-title {
-    @include header-style;
+    @include mixins.header-style;
   }
 
   #author-date-category {
@@ -68,7 +71,7 @@
     }
 
     h4 {
-      color: $dark-brick-col;
+      color: colors.$dark-brick-col;
     }
   }
 }

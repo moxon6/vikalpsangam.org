@@ -1,7 +1,10 @@
+@use "../common/mixins";
+@use "../common/colors";
+
 @keyframes come-in {
   from {
     opacity: 0;
-    background-color: $dark-brick-col;
+    background-color: colors.$dark-brick-col;
   }
 }
 
@@ -32,7 +35,7 @@
 
 .comment-button,
 .comment-reply-link {
-  color: $dark-gray-col;
+  color: colors.$dark-gray-col;
   &:not(:first-child) {
     margin-left: 4px;
   }
@@ -43,11 +46,11 @@
 
 .child-comments {
   margin-top: 20px;
-  @include desktop {
+  @include mixins.desktop {
     margin-left: -24px;
   }
 
-  @include mobile {
+  @include mixins.mobile {
     margin-left: -32px;
   }
 }

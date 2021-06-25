@@ -1,3 +1,6 @@
+@use "../common/mixins";
+@use "../common/colors";
+
 #submit-message {
   display: none;
   width: 100%;
@@ -9,12 +12,12 @@
   flex-direction: column;
   width: 100%;
 
-  @include desktop {
+  @include mixins.desktop {
     padding-left: 20px;
     padding-right: 64px;
   }
 
-  @include mobile {
+  @include mixins.mobile {
     padding-left: 20px;
     padding-right: 20px;
   }
@@ -31,7 +34,7 @@
 .comment-respond {
   width: 100%;
   margin-bottom: 50px;
-  @include mobile {
+  @include mixins.mobile {
     margin-bottom: 80px;
   }
 }
@@ -43,7 +46,7 @@
 }
 
 .comment-reply-wrapper {
-  @include desktop {
+  @include mixins.desktop {
     min-width: 600px;
   }
 }
@@ -77,22 +80,22 @@
 
   textarea#comment {
     padding: 12px;
-    @extend .form-control;
+    // @extend .form-control; TODO: Replace this
   }
 }
 
 @mixin form-field {
-  @include desktop {
+  @include mixins.desktop {
     width: 50%;
   }
 
-  @include mobile {
+  @include mixins.mobile {
     width: 100%;
   }
 
   input,
   textarea {
-    @extend .form-control;
+    // @extend .form-control; TODO: Replace this
     padding: 12px;
     width: 100%;
   }
@@ -141,11 +144,11 @@
   height: 30px;
 
   input {
-    @extend .btn;
-    @extend .btn-primary;
+    // @extend .btn; TODO: Replace this
+    // @extend .btn-primary; TODO: Replace this
   }
 
-  @include mobile {
+  @include mixins.mobile {
     bottom: -60px;
   }
 }
@@ -156,3 +159,4 @@
   height: 28px;
   margin-bottom: 0;
 }
+

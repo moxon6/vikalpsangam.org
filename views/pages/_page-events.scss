@@ -1,11 +1,13 @@
+@use "../common/colors";
+
 .tribe-common-l-container.tribe-events-l-container {
   padding-top: 0 !important;
 }
 
 .tribe-common-c-btn {
-  background-color: $dark-brick-col !important;
+  background-color: colors.$dark-brick-col !important;
   &:hover {
-    background-color: darken($dark-brick-col, 10%) !important;
+    background-color: darken(colors.$dark-brick-col, 10%) !important;
   }
 }
 .tribe-events-calendar-list__event-featured-image-wrapper {
@@ -25,14 +27,14 @@
 }
 
 .tribe-common .tribe-common-c-svgicon {
-  color: $dark-brick-col;
+  color: colors.$dark-brick-col;
 }
 
 .tribe-events .tribe-events-c-ical__link {
-  color: $dark-brick-col;
-  border: $dark-brick-col;
+  color: colors.$dark-brick-col;
+  border: colors.$dark-brick-col;
   &:hover {
     color: #fff;
-    background-color: $dark-brick-col;
+    background-color: colors.$dark-brick-col;
   }
 }

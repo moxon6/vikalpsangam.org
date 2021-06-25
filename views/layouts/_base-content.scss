@@ -1,8 +1,11 @@
+@use "../common/mixins";
+@use "../common/colors";
+
 .left-section {
   padding-top: 32px;
   padding-bottom: 96px;
 
-  @include mobile {
+  @include mixins.mobile {
     padding-bottom: 0;
   }
 }
@@ -12,9 +15,9 @@
   padding-top: 32px;
   padding-bottom: 96px;
 
-  @include desktop {
+  @include mixins.desktop {
     padding-left: 30px;
-    border-left: 2px solid $light-gray-col;
+    border-left: 2px solid colors.$light-gray-col;
   }
 
   h5 {
@@ -22,7 +25,7 @@
   }
 }
 
-@include desktop {
+@include mixins.desktop {
   #page {
     max-width: 1360px;
     margin-left: auto;

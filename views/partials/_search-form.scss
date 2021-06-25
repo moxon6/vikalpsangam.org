@@ -1,9 +1,12 @@
+@use "../common/mixins";
+@use "../common/colors";
+
 .search-box {
   margin-bottom: 0;
   position: relative;
   font-family: "Roboto";
 
-  @include mobile {
+  @include mixins.mobile {
     margin-top: 24px;
   }
 
@@ -17,7 +20,7 @@
     background-color: transparent;
 
     .search-icon {
-      color: $dark-brick-col;
+      color: colors.$dark-brick-col;
     }
   }
 
@@ -25,3 +28,4 @@
     width: 100%;
   }
 }
+

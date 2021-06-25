@@ -1,5 +1,8 @@
 // Jetpack styles
 
+@use "colors";
+@use "mixins";
+
 #infinite-handle {
   display: flex;
   width: 100%;
@@ -17,7 +20,7 @@
 #page {
   .jp-relatedposts {
     padding-top: 32px;
-    border-top: 2px solid $light-gray-col;
+    border-top: 2px solid colors.$light-gray-col;
 
     h3.jp-relatedposts-headline em {
       font-size: 20px;
@@ -70,14 +73,14 @@ figure.wp-block-image {
 #page {
   .tribe-events-widget {
     padding-left: 8px;
-    border-left: 2px solid $dark-brick-col;
+    border-left: 2px solid colors.$dark-brick-col;
 
     .tribe-events-widget-events-list__header-title {
-      @include header-style;
+      @include mixins.header-style;
     }
 
     .tribe-events-widget-events-list__view-more-link {
-      color: $dark-brick-col;
+      color: colors.$dark-brick-col;
       font-size: medium;
     }
   }
@@ -87,7 +90,7 @@ figure.wp-block-image {
       background-color: #f7f7f7;
       border: 1px solid #d8d8d8;
       margin-bottom: 12px;
-      border-left: 2px solid $dark-brick-col;
+      border-left: 2px solid colors.$dark-brick-col;
 
       .wp-post-image {
         margin-top: 0;
@@ -97,12 +100,12 @@ figure.wp-block-image {
       }
 
       .rpwwt-post-title {
-        @include clamp(2);
+        @include mixins.clamp(2);
       }
 
       .rpwwt-post-excerpt {
         font-size: 14px;
-        @include clamp(3);
+        @include mixins.clamp(3);
       }
     }
   }

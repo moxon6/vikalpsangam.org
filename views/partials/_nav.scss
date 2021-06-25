@@ -1,3 +1,7 @@
+@use "../common/mixins";
+@use "../common/colors";
+@use "../common/fonts";
+
 $logo-width-l: 275px;
 
 
@@ -77,7 +81,7 @@ html {
   }
   
   .mega-menu-item {
-    font-family: $roboto-black !important;
+    font-family: fonts.$roboto-black !important;
   }
 
   @media (min-width: 769px) {

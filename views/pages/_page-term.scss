@@ -1,3 +1,5 @@
+@use "../common/colors";
+
 #page-term {
   .category-page-category-list-wrapper {
     padding-top: 16px;
@@ -31,7 +33,7 @@
     }
 
     .description-wrapper {
-      border-left: 2px solid $dark-brick-col;
+      border-left: 2px solid colors.$dark-brick-col;
       padding-left: 8px;
     }
   }

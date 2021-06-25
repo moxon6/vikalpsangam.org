@@ -1,3 +1,5 @@
+@use "../common/mixins";
+
 .page-title {
-  @include header-style();
+  @include mixins.header-style();
 }

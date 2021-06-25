@@ -1,15 +1,19 @@
+@use "../common/colors";
+@use "../common/mixins";
+
+
 .highlights-title {
   text-transform: uppercase;
-  color: $dark-brick-col;
+  color: colors.$dark-brick-col;
 }
 
 #page-front {
   .section-header-container {
-    border-bottom: 2px solid $dark-brick-col;
+    border-bottom: 2px solid colors.$dark-brick-col;
   }
 
   .section-header {
-    background-color: $dark-brick-col;
+    background-color: colors.$dark-brick-col;
     color: white;
     margin-bottom: -1px;
     width: fit-content;
@@ -59,7 +63,7 @@
   #stories-by-category-section {
     .stories-by-category-header {
       text-transform: uppercase;
-      color: $dark-brick-col;
+      color: colors.$dark-brick-col;
     }
   }
 
@@ -70,7 +74,7 @@
         padding-bottom: 16px;
 
         .page-front-about-header {
-          @include header-style;
+          @include mixins.header-style;
         }
 
         h2 {

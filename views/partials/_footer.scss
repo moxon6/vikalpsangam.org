@@ -1,5 +1,9 @@
+@use "../common/fonts";
+@use "../common/colors";
+@use "../common/mixins";
+
 footer.container-fluid {
-  font-family: $roboto;
+  font-family: fonts.$roboto;
   font-size: 16px;
 
   padding: 0;
@@ -13,7 +17,7 @@ footer.container-fluid {
     background-color: #efefef;
     justify-content: center;
     flex-direction: row;
-    border-top: 8px solid $dark-brick-col;
+    border-top: 8px solid colors.$dark-brick-col;
     .partners-logos {
       width: 100%;
       display: flex;
@@ -85,7 +89,7 @@ footer.container-fluid {
       padding-left: 10px;
       padding-right: 10px;
       .subscribe-title {
-        @include header-style;
+        @include mixins.header-style;
         color: white;
         text-align: center;
       }
@@ -149,12 +153,12 @@ footer.container-fluid {
 
             a {
               font-size: 0.8em;
-              color: $lighter-gray-col;
+              color: colors.$lighter-gray-col;
               text-decoration: none;
               text-transform: uppercase;
 
               &:hover {
-                color: $lighter-gray-col;
+                color: colors.$lighter-gray-col;
                 text-decoration: none;
               }
             }
