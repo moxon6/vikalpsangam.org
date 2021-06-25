@@ -59,8 +59,8 @@ $logo-width-l: 275px;
   }
 
   .header-social-small {
-    width: 100%;
-    height: 100%;
+    width: 32px;
+    height: 32px;
 
     padding: 8px;
     display: flex;
@@ -79,6 +79,7 @@ $logo-width-l: 275px;
     }
   }
 }
+
 
 #vikalpsangam-navbar {
   @media print {
@@ -184,7 +185,7 @@ $logo-width-l: 275px;
 }
 
 .home-link {
-  margin-right: 48px;
+  margin-right: 32px;
 }
 
 .dropdown-menu.show {
@@ -221,3 +222,87 @@ $logo-width-l: 275px;
   max-width: 768px !important;
 }
 
+#mega-menu-wrap-header-menu-secondary {
+  display: none !important;
+  @media (min-width: 769px) {
+    display: block !important;
+  }
+
+  .navbar-social-links {
+    margin-left: 48px !important;
+    .header-social-small {
+      margin-left: 4px;
+      margin-right: 4px;
+      > img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+}
+
+html {
+  overflow: visible !important;
+}
+
+#mega-menu-wrap-header-menu {
+
+  .mega-menu-item.navbar-social-links {
+    width: 100% !important;
+    display: flex !important;
+    
+    @media (min-width: 769px) {
+      display: none !important;
+    }
+    
+
+    margin-bottom: 24px !important;
+    justify-content: center !important;
+    
+    .header-social-small {
+      margin-left: 4px;
+      margin-right: 4px;
+      > img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+  .header-social-small > img {
+    filter: brightness(0.5) sepia(1) saturate(10000%) contrast(0.5);
+  }
+  
+  .mega-menu-item {
+    font-family: $roboto-black !important;
+  }
+
+  @media (min-width: 769px) {
+    .navbar-social-links {
+      display: none !important;
+    }
+  }
+
+  position: sticky !important;
+  z-index: 5000;
+  top: 0 !important;
+  
+  > .mega-menu-toggle {
+    align-items: center !important;
+    .mega-toggle-blocks-left, .mega-toggle-blocks-right {
+      width: 40px;
+      flex-grow: 0;
+    }
+
+    .mega-toggle-blocks-center {
+      flex-grow: 1;
+      flex-basis: auto;
+    }
+  }
+}
+
+.logo-mobile {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

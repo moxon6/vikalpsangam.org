@@ -33,6 +33,10 @@ add_filter('wp_generate_tag_cloud_data', function ($tags_data) {
 });
 
 class VikalpsangamOrgSite extends Timber\Site {
+	static $socialIcons = "<social-icons></social-icons>";
+	static $center_open = "<div class=\"mega-toggle-blocks-center\">";
+	static $center_close = "</div>";
+
 	public function __construct() {
 		add_filter( 'timber/context', array( $this, 'add_to_context' ) );
 		
@@ -70,13 +74,6 @@ class VikalpsangamOrgSite extends Timber\Site {
 		return $context;
 	}
 
-	private function setup_header_context($context) {
-		$context["header_menu"] = buffer(function() {
-			wp_nav_menu(['menu' => "header-menu"]);
-		});
-		return $context;
-	}
-
 	private function setup_common_context($context) {
 		$context["post_categories"] = Timber::get_terms('category', [
 			'hide_empty' => 1,
@@ -92,7 +89,6 @@ class VikalpsangamOrgSite extends Timber\Site {
 	
 	public function add_to_context( $context ) {
 		$context = $this->setup_footer_context($context);
-		$context = $this->setup_header_context($context);
 
 		add_filter( 'timber/twig', function( \Twig_Environment $twig ) {
 			$twig->addFunction(new \Twig\TwigFunction(
@@ -103,6 +99,46 @@ class VikalpsangamOrgSite extends Timber\Site {
 			));
 			return $twig;
 		} );
+
+		add_filter( 'timber/twig', function( \Twig_Environment $twig ) {
+			$twig->addFunction(new \Twig\TwigFunction(
+				'get_secondary_header', 
+				function() {
+					$navbar = buffer(function() {
+						wp_nav_menu(
+							[
+								theme_location => 'header-menu-secondary'
+							]
+						);
+					});
+					return preg_replace("/<\/ul>/", self::$socialIcons."</ul>", $navbar, 1);
+				}
+			));
+			return $twig;
+		});
+
+		add_filter( 'timber/twig', function( \Twig_Environment $twig ) {
+			$twig->addFunction(new \Twig\TwigFunction(
+				'get_primary_header', 
+				function() {
+					$navbar = buffer(function() {
+						wp_nav_menu(
+							[
+								theme_location => 'header-menu'
+							]
+						);
+					});
+					$logo = "<logo></logo>";
+					$logo_mobile = "<logo-mobile></logo-mobile>";
+					$navbar = str_replace(self::$center_open . self::$center_close, self::$center_open . $logo . self::$center_close, $navbar);
+					$navbar = preg_replace("/<li/",  $logo_mobile . self::$socialIcons . "<li", $navbar, 1);
+					return $navbar;
+				}
+			));
+			return $twig;
+		} );
+
+		
 
 		$context = $this->setup_common_context($context);
 		return $context;
@@ -159,6 +195,7 @@ if ( ! function_exists( 'vikalpsangam_setup' ) ) :
 		register_nav_menus(
 			array(
 				'header-menu' => esc_html__( 'Primary', 'vikalpsangam' ),
+				'header-menu-secondary' => esc_html__( 'Secondary', 'vikalpsangam' ),
 				'footer-menu-1' => esc_html__("Footer 1", "vikalpsangam"),
 				'footer-menu-2' => esc_html__("Footer 2", "vikalpsangam"),
 				'footer-menu-3' => esc_html__("Footer 3", "vikalpsangam"),
