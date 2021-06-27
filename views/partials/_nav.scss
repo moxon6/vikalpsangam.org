@@ -31,6 +31,7 @@ $logo-width-l: 275px;
   }
 
   .navbar-social-links {
+    display: inline-block;
     margin-left: 48px !important;
     .header-social-small {
       margin-left: 4px;
@@ -50,7 +51,7 @@ html {
 
 #mega-menu-wrap-header-menu {
 
-  .mega-menu-item.navbar-social-links {
+  .navbar-social-links {
     width: 100% !important;
     display: flex !important;
     
@@ -66,8 +67,8 @@ html {
       margin-left: 4px;
       margin-right: 4px;
       > img {
-        width: 24px;
-        height: 24px;
+        width: 40px;
+        height: 40px;
       }
     }
   }
@@ -104,25 +105,16 @@ html {
 .logo-primary {
   margin: 20px 0;
 
-  content:url("/wp-content/themes/vikalpsangam.org/images/header_small_logo.png");
+  
+  content:url("/wp-content/themes/vikalpsangam.org/images/header_big_logo.png");
 
   @media (min-width: 769px) {
     margin: 0 24px 0 0;
+    content:url("/wp-content/themes/vikalpsangam.org/images/header_small_logo.png");
   }
 
   @media (min-width: 960px) {
     
     content:url("/wp-content/themes/vikalpsangam.org/images/header_big_logo.png");
   }
-}
-
-.mega-sub-menu {
-  padding-top: 2px !important;
-  padding-bottom: 8px !important;
-}
-
-body #mega-menu-wrap-header-menu #mega-menu-header-menu li.mega-menu-megamenu > ul.mega-sub-menu > li.mega-menu-row .mega-menu-column > ul.mega-sub-menu > li.mega-menu-item {
-  padding-bottom: 5px;
-  padding-top: 5px;
-  
 }
