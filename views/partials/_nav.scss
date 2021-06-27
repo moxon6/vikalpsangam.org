@@ -119,3 +119,14 @@ html {
 #mega-menu-wrap-header-menu {
   box-shadow: 0 2px 2px 0 rgb(50 50 50 / 30%) !important;
 }
+
+.mega-menu-item-object-page {
+  > a {
+    font-family: fonts.$roboto-black !important;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    &:hover{
+      text-decoration: underline !important;
+    }
+  }
+}
