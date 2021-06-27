@@ -5,36 +5,40 @@
 {% endset %}
 
 {% set logoMobile %}
-    <a class="home-link" href="/">
-        <img class="logo-primary" />
-    </a>
+    <a class="home-link" href="/"><img class="logo-primary" /></a>
 {% endset %}
 
 {% set socialIcons %}
-
-
-<li class="mega-menu-item navbar-social-links">
-    <a class="header-social-small" href="https://twitter.com/VikalpSangam">
-        <img src="http://localhost:8000/wp-content/themes/vikalpsangam.org/images/social/twitter.png?v=5.0.19">
-    </a>
-    <a class="header-social-small" href="https://www.facebook.com/VikalpSangam">
-        <img src="http://localhost:8000/wp-content/themes/vikalpsangam.org/images/social/facebook.png?v=5.0.19">
-    </a>
-    <a class="header-social-small" href="https://www.instagram.com/vikalpsangam">
-        <img src="http://localhost:8000/wp-content/themes/vikalpsangam.org/images/social/instagram.png?v=5.0.19">
-    </a>
-</li>
+    <li class="mega-menu-item navbar-social-links">
+        <a class="header-social-small" href="https://twitter.com/VikalpSangam">
+            <img src="http://localhost:8000/wp-content/themes/vikalpsangam.org/images/social/twitter.png?v=5.0.19" />
+        </a>
+        <a class="header-social-small"
+            href="https://www.facebook.com/VikalpSangam">
+            <img src="http://localhost:8000/wp-content/themes/vikalpsangam.org/images/social/facebook.png?v=5.0.19" />
+        </a>
+        <a class="header-social-small"
+            href="https://www.instagram.com/vikalpsangam">
+            <img src="http://localhost:8000/wp-content/themes/vikalpsangam.org/images/social/instagram.png?v=5.0.19" />
+        </a>
+    </li>
 {% endset %}
 
 {{
-    get_secondary_header()
-        | replace({"<social-icons></social-icons>": socialIcons})
+    get_secondary_header()|replace({
+        '<social-icons></social-icons>': socialIcons
+    })
 }}
 
-
 {{
-    get_primary_header() 
-        | replace({"<logo></logo>": logo})
-        | replace({"<logo-primary></logo-primary>": logoMobile})
-        | replace({"<social-icons></social-icons>": socialIcons})
+    get_primary_header()
+        |replace({
+            '<logo></logo>': logo
+        })
+        |replace({
+            '<logo-primary></logo-primary>': logoMobile
+        })
+        |replace({
+            '<social-icons></social-icons>': socialIcons
+        })
 }}
