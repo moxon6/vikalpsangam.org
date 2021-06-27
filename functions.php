@@ -34,6 +34,7 @@ add_filter('wp_generate_tag_cloud_data', function ($tags_data) {
 
 class VikalpsangamOrgSite extends Timber\Site {
 	static $socialIcons = "<social-icons></social-icons>";
+	static $searchBar = "<search-bar></search-bar>";
 	static $center_open = "<div class=\"mega-toggle-blocks-center\">";
 	static $center_close = "</div>";
 
@@ -132,6 +133,7 @@ class VikalpsangamOrgSite extends Timber\Site {
 					$logo_mobile = "<logo-primary></logo-primary>";
 					$navbar = str_replace(self::$center_open . self::$center_close, self::$center_open . $logo . self::$center_close, $navbar);
 					$navbar = preg_replace("/<li/",  $logo_mobile . self::$socialIcons . "<li", $navbar, 1);
+					$navbar = preg_replace("/<\/ul><\/nav>/", self::$searchBar."</ul></nav>", $navbar, 1);
 					return $navbar;
 				}
 			));
