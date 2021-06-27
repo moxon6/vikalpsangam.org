@@ -39,7 +39,7 @@
   "scripts": {
     "setup-hooks": "npx husky install",
     "watch:scss": "sass style.scss style.css -w",
-    "build:scss": "sass style.scss style.css",
+    "build:scss": "sass style.scss style.css --no-charset",
     "build:scss-rtl": "rtlcss style.css style-rtl.css",
     "browsersync": "browser-sync start --files \"**/*.(php|js|css)\"",
     "lint:scss": "stylelint \"(views|features)/**/*.scss\"",
