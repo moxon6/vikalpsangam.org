@@ -111,7 +111,7 @@ class VikalpsangamOrgSite extends Timber\Site {
 							]
 						);
 					});
-					return preg_replace("/<\/ul>/", self::$socialIcons."</ul>", $navbar, 1);
+					return preg_replace("/<\/ul><\/div>/", self::$socialIcons."</ul></div>", $navbar, 1);
 				}
 			));
 			return $twig;
