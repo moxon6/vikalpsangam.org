@@ -129,7 +129,7 @@ class VikalpsangamOrgSite extends Timber\Site {
 						);
 					});
 					$logo = "<logo></logo>";
-					$logo_mobile = "<logo-mobile></logo-mobile>";
+					$logo_mobile = "<logo-primary></logo-primary>";
 					$navbar = str_replace(self::$center_open . self::$center_close, self::$center_open . $logo . self::$center_close, $navbar);
 					$navbar = preg_replace("/<li/",  $logo_mobile . self::$socialIcons . "<li", $navbar, 1);
 					return $navbar;

@@ -6,7 +6,7 @@ $logo-width-l: 275px;
 
 
 .india-map {
-  padding-top: 24px;
+  padding: 24px;
   filter: drop-shadow(2px 4px 5px black);
   width: 100%;
   height: auto;
@@ -17,8 +17,10 @@ $logo-width-l: 275px;
 }
 
 .mega-block-title {
+  color: colors.$dark-brick-col !important;
+  font-weight: 700 !important;
   border-bottom: 1px solid #d2d2d2 !important;
-  font-size: 24px !important;
+  font-size: 16px !important;
 }
 
 .mega-menu > li > .mega-sub-menu {
@@ -80,9 +82,6 @@ html {
     filter: brightness(0.5) sepia(1) saturate(10000%) contrast(0.5);
   }
   
-  .mega-menu-item {
-    font-family: fonts.$roboto-black !important;
-  }
 
   @media (min-width: 769px) {
     .navbar-social-links {
@@ -108,7 +107,20 @@ html {
   }
 }
 
-.logo-mobile {
-  margin-top: 20px;
-  margin-bottom: 20px;
+.logo-primary {
+  margin: 20px 0;
+
+  content:url("/wp-content/themes/vikalpsangam.org/images/header_small_logo.png");
+
+  @media (min-width: 769px) {
+    margin: 0 24px 0 0;
+    content:url("/wp-content/themes/vikalpsangam.org/images/header_big_logo.png");
+  }
+}
+
+
+body #mega-menu-wrap-header-menu #mega-menu-header-menu li.mega-menu-megamenu > ul.mega-sub-menu > li.mega-menu-row .mega-menu-column > ul.mega-sub-menu > li.mega-menu-item {
+  padding-bottom: 5px;
+  padding-top: 5px;
+  
 }

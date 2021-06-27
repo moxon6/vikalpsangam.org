@@ -5,7 +5,9 @@
 {% endset %}
 
 {% set logoMobile %}
-    <img class="logo-mobile" src="/wp-content/themes/vikalpsangam.org/images/header_small_logo.png" />
+    <a class="home-link" href="/">
+        <img class="logo-primary" />
+    </a>
 {% endset %}
 
 {% set socialIcons %}
@@ -33,6 +35,6 @@
 {{
     get_primary_header() 
         | replace({"<logo></logo>": logo})
-        | replace({"<logo-mobile></logo-mobile>": logoMobile})
+        | replace({"<logo-primary></logo-primary>": logoMobile})
         | replace({"<social-icons></social-icons>": socialIcons})
 }}
