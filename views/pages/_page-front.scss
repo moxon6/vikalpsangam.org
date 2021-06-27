@@ -4,16 +4,16 @@
 
 .highlights-title {
   text-transform: uppercase;
-  color: colors.$dark-brick-col;
+  color: colors.$color-theme-primary;
 }
 
 #page-front {
   .section-header-container {
-    border-bottom: 2px solid colors.$dark-brick-col;
+    border-bottom: 2px solid colors.$color-theme-primary;
   }
 
   .section-header {
-    background-color: colors.$dark-brick-col;
+    background-color: colors.$color-theme-primary;
     color: white;
     margin-bottom: -1px;
     width: fit-content;
@@ -63,7 +63,7 @@
   #stories-by-category-section {
     .stories-by-category-header {
       text-transform: uppercase;
-      color: colors.$dark-brick-col;
+      color: colors.$color-theme-primary;
     }
   }
 

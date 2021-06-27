@@ -22,7 +22,7 @@
 
 @mixin header-style {
   font-family: fonts.$roboto-black;
-  color: colors.$dark-brick-col;
+  color: colors.$color-theme-primary;
   text-shadow: none;
   text-transform: uppercase;
   opacity: 1;

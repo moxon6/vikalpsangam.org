@@ -73,14 +73,14 @@ figure.wp-block-image {
 #page {
   .tribe-events-widget {
     padding-left: 8px;
-    border-left: 2px solid colors.$dark-brick-col;
+    border-left: 2px solid colors.$color-theme-primary;
 
     .tribe-events-widget-events-list__header-title {
       @include mixins.header-style;
     }
 
     .tribe-events-widget-events-list__view-more-link {
-      color: colors.$dark-brick-col;
+      color: colors.$color-theme-primary;
       font-size: medium;
     }
   }
@@ -90,7 +90,7 @@ figure.wp-block-image {
       background-color: #f7f7f7;
       border: 1px solid #d8d8d8;
       margin-bottom: 12px;
-      border-left: 2px solid colors.$dark-brick-col;
+      border-left: 2px solid colors.$color-theme-primary;
 
       .wp-post-image {
         margin-top: 0;

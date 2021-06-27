@@ -9,11 +9,11 @@
     }
 
     a {
-      color: colors.$dark-brick-col;
+      color: colors.$color-theme-primary;
       text-decoration: none;
 
       &:hover {
-        color: colors.$dark-brick-col;
+        color: colors.$color-theme-primary;
         text-decoration: none;
       }
     }
@@ -71,7 +71,7 @@
     }
 
     h4 {
-      color: colors.$dark-brick-col;
+      color: colors.$color-theme-primary;
     }
   }
 }
