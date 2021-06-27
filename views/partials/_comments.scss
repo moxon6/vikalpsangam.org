@@ -143,10 +143,6 @@
   right: 0;
   height: 30px;
 
-  input {
-    // @extend .btn; TODO: Replace this
-    // @extend .btn-primary; TODO: Replace this
-  }
 
   @include mixins.mobile {
     bottom: -60px;

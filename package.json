@@ -13,11 +13,12 @@
   "devDependencies": {
     "browser-sync": "^2.26.13",
     "dir-archiver": "^1.1.1",
+    "eslint": "^7.29.0",
     "husky": "^4.3.0",
     "prettier": "^2.1.2",
     "prettier-plugin-twig-melody": "^0.4.6",
     "rtlcss": "^2.5.0",
-    "stylelint": "^13.8.0",
+    "stylelint": "^13.13.1",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-recess-order": "^2.3.0",
     "stylelint-prettier": "^1.1.2"
@@ -41,11 +42,11 @@
     "build:scss": "sass style.scss style.css",
     "build:scss-rtl": "rtlcss style.css style-rtl.css",
     "browsersync": "browser-sync start --files \"**/*.(php|js|css)\"",
-    "lint:scss": "wp-scripts lint-style \"(views|features)/**/*.scss\"",
+    "lint:scss": "stylelint \"(views|features)/**/*.scss\"",
     "lint:twig": "prettier views/**/*.twig --check",
     "lint:actions": "prettier .github/**/*.yml --check",
     "fix:twig": "prettier views/**/*.twig --write",
-    "lint:js": "wp-scripts lint-js 'js/**/*.js'",
+    "lint:js": "eslint 'js/**/*.js'",
     "bundle": "node bundle.js",
     "copy-fonts": "cp node_modules/bootstrap-sass/assets/fonts/bootstrap/* fonts -n",
     "quicklint": "npm run lint:scss -- --fix ; npm run lint:js -- --fix ; npm run fix:twig"
