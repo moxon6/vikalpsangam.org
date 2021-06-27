@@ -23,12 +23,6 @@ $logo-width-l: 275px;
   font-size: 16px !important;
 }
 
-.mega-menu > li > .mega-sub-menu {
-  left: calc(50% - 384px) !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  max-width: 768px !important;
-}
 
 #mega-menu-wrap-header-menu-secondary {
   display: none !important;
@@ -114,10 +108,18 @@ html {
 
   @media (min-width: 769px) {
     margin: 0 24px 0 0;
+  }
+
+  @media (min-width: 960px) {
+    
     content:url("/wp-content/themes/vikalpsangam.org/images/header_big_logo.png");
   }
 }
 
+.mega-sub-menu {
+  padding-top: 2px !important;
+  padding-bottom: 8px !important;
+}
 
 body #mega-menu-wrap-header-menu #mega-menu-header-menu li.mega-menu-megamenu > ul.mega-sub-menu > li.mega-menu-row .mega-menu-column > ul.mega-sub-menu > li.mega-menu-item {
   padding-bottom: 5px;
