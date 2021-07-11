@@ -4,6 +4,40 @@
 
 $logo-width-l: 275px;
 
+@include mixins.desktop {
+  #mega-menu-header-menu {
+    display: flex !important;
+    align-items: center !important;
+    height: 100% !important;
+    max-width: 1060px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    margin: 0 auto !important;
+  
+    .navbar-search-form {
+      flex: 1 !important;
+      display: flex !important;
+      justify-content: flex-end !important;
+    }
+  }
+
+  #mega-menu-wrap-header-menu {
+
+    height: 54px !important;
+  
+    &[menu-open="true"] {
+      .mega-menu-item:not(.navbar-search-form) {
+        display: none !important;
+      }
+    }
+  }
+
+}
+
+
+
+
+
 
 .india-map {
   padding: 24px;
@@ -106,7 +140,6 @@ html {
   }
 
   @media (min-width: 1080px) {
-    
     content:url("/wp-content/themes/vikalpsangam.org/images/header_big_logo.png");
   }
 }
@@ -129,4 +162,9 @@ html {
       text-decoration: underline !important;
     }
   }
+}
+
+.search-form-wrapper {
+  display: flex;
+  align-items: flex-end;
 }

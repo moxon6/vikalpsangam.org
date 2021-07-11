@@ -1,6 +1,29 @@
 @use "../common/mixins";
 @use "../common/colors";
 
+@include mixins.desktop {
+  #mega-menu-wrap-header-menu {
+    display: inline-block;
+  
+  
+    .search-box-input {
+      width: 0;
+      visibility: hidden;
+    }
+    
+    &[menu-open="true"] {
+      .search-box-input {
+        transition: width 0.5s;
+        visibility: visible;
+        width: 300px;
+      }
+    }
+  }
+}
+
+
+
+
 .search-box {
   margin-bottom: 0;
   position: relative;

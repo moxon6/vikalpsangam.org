@@ -25,16 +25,15 @@
 {% endset %}
 
 {% set searchForm %}
-    <li class="mega-menu-item">
+    <li class="mega-menu-item navbar-search-form">
         {% include 'partials/_search-form.twig' %}
     </li>
 {% endset %}
 
 {{
-    get_secondary_header()
-        |replace({
-            '<social-icons></social-icons>': socialIcons
-        })
+    get_secondary_header()|replace({
+        '<social-icons></social-icons>': socialIcons
+    })
 }}
 
 {{
