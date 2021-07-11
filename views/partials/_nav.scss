@@ -129,18 +129,36 @@ html {
 }
 
 .logo-primary {
-  margin: 20px 0;
+  margin: 20px 8px;
 
-  
-  content:url("/wp-content/themes/vikalpsangam.org/images/header_big_logo.png");
+  &.large {
+    display: block;
+  }
+
+  &.small {
+    display: none;
+  }
+
 
   @media (min-width: 769px) {
     margin: 0 24px 0 0;
-    content:url("/wp-content/themes/vikalpsangam.org/images/header_small_logo.png");
+    &.large {
+      display: none;
+    }
+  
+    &.small {
+      display: block;
+    }
   }
 
   @media (min-width: 1080px) {
-    content:url("/wp-content/themes/vikalpsangam.org/images/header_big_logo.png");
+    &.large {
+      display: block;
+    }
+  
+    &.small {
+      display: none;
+    }
   }
 }
 

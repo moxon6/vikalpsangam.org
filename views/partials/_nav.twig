@@ -4,8 +4,13 @@
     </a>
 {% endset %}
 
-{% set logoMobile %}
-    <a class="home-link" href="/"><img class="logo-primary" /></a>
+{% set logoPrimary %}
+    <a class="home-link" href="/">
+        <img class="logo-primary small"
+            src="/wp-content/themes/vikalpsangam.org/images/header_small_logo.png" />
+        <img class="logo-primary large"
+            src="/wp-content/themes/vikalpsangam.org/images/header_big_logo.png" />
+    </a>
 {% endset %}
 
 {% set socialIcons %}
@@ -42,7 +47,7 @@
             '<logo></logo>': logo
         })
         |replace({
-            '<logo-primary></logo-primary>': logoMobile
+            '<logo-primary></logo-primary>': logoPrimary
         })
         |replace({
             '<social-icons></social-icons>': socialIcons
