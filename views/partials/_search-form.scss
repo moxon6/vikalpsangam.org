@@ -10,11 +10,23 @@
     }
     
     &[menu-open="true"] {
-      .search-box-input {
-        transition: width 0.5s;
-        visibility: visible;
-        width: 300px;
+      align-self: flex-end;
+      .search-box {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        margin-left: 40px;
+        .search-box-input {
+          transition: width 0.5s;
+          visibility: visible;
+          width: 100%;
+        }
+
+        .search-icon {
+          pointer-events: none;
+        }
       }
+      
     }
   }
 }
