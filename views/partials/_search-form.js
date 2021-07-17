@@ -12,6 +12,11 @@ submitButton
       navBar.setAttribute('menu-open', 'true');
       input.focus();
     }
+
+    if (input.value.length === 0) {
+      e.preventDefault();
+      input.focus();
+    }
   });
 
 input
