@@ -1,3 +1,5 @@
+@use "../common/mixins";
+
 .highlight-card {
   flex: 1;
   background-color: #f7f7f7;
@@ -28,5 +30,23 @@
 
       max-width: calc(100% - 150px);
     }
+  }
+
+  .highlight-card-title {
+    @include mixins.clamp(2);
+    
+  }
+
+  .highlight-card-content {
+    @include mixins.clamp(3);
+    line-height: 21px;
+    font-size: 14px;
+  }
+
+  .featured-list-card-body {
+    padding: 8px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 }

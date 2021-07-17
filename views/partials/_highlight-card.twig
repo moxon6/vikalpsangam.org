@@ -9,11 +9,11 @@
         <div class="col-9 highlight-card-text-col">
             <div class="card-body featured-list-card-body">
                 <a href="{{ post.link }}">
-                    <h6>
+                    <h6 class="highlight-card-title">
                         {{ post.title }}
                     </h6>
                 </a>
-                <p>
+                <p class="highlight-card-content">
                     {{ post.preview.read_more(false).length(20) }}
                 </p>
             </div>
