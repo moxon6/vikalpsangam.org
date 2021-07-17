@@ -2,11 +2,10 @@ const navBar = document.querySelector('#mega-menu-wrap-header-menu');
 const input = document
   .querySelector('.search-box-input');
 
-const button = document
-  .querySelector('search-box-submit-button');
+const submitButton = document
+  .querySelector('.search-box-submit-button');
 
-document
-  .querySelector('.search-box-submit-button')
+submitButton
   .addEventListener('click', (e) => {
     if (!navBar.hasAttribute('menu-open')) {
       e.preventDefault();
@@ -15,14 +14,9 @@ document
     }
   });
 
-const form = document.querySelector('.search-box');
-
-button.addEventListener('click', () => {
-  if (navBar.hasAttribute('menu-open')) {
-    form.submit();
-  }
-});
-
-input.addEventListener('blur', () => {
-  navBar.removeAttribute('menu-open');
-});
+input
+  .addEventListener('blur', (e) => {
+    if (e.relatedTarget !== submitButton) {
+      navBar.removeAttribute('menu-open');
+    }
+  });
