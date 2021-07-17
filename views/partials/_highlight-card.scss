@@ -38,9 +38,10 @@
   }
 
   .highlight-card-content {
-    @include mixins.clamp(3);
+    @include mixins.clamp(4);
     line-height: 21px;
     font-size: 14px;
+    margin-bottom: 0;
   }
 
   .featured-list-card-body {
