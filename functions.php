@@ -110,7 +110,7 @@ class VikalpsangamOrgSite extends Timber\Site {
 					$navbar = buffer(function() {
 						wp_nav_menu(
 							[
-								theme_location => 'header-menu-secondary'
+								"theme_location" => 'header-menu-secondary'
 							]
 						);
 					});
@@ -127,7 +127,7 @@ class VikalpsangamOrgSite extends Timber\Site {
 					$navbar = buffer(function() {
 						wp_nav_menu(
 							[
-								theme_location => 'header-menu'
+								"theme_location" => 'header-menu'
 							]
 						);
 					});
