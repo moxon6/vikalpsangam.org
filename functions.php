@@ -100,6 +100,14 @@ class VikalpsangamOrgSite extends Timber\Site {
 					return Timber::get_widgets('sidebar-1');
 				}
 			));
+
+			$twig->addFunction(new \Twig\TwigFunction(
+				'get_social_icons', 
+				function() {
+					return Timber::get_widgets('social-icons');
+				}
+			));
+
 			return $twig;
 		} );
 
@@ -203,7 +211,6 @@ if ( ! function_exists( 'vikalpsangam_setup' ) ) :
 				'footer-menu-1' => esc_html__("Footer 1", "vikalpsangam"),
 				'footer-menu-2' => esc_html__("Footer 2", "vikalpsangam"),
 				'footer-menu-3' => esc_html__("Footer 3", "vikalpsangam"),
-				'social-links' => esc_html__("Social Links Menu", "vikalpsangam"),
 			)
 		);
 
@@ -286,6 +293,14 @@ function vikalpsangam_widgets_init() {
 			'name'          => 'The Main Sidebar',
 			'id'            => 'sidebar-1',
 			'description'   => 'Add widgets here.'
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name'          => 'Social Icons Menu',
+			'id'            => 'social-icons',
+			'description'   => 'Add social icons.'
 		)
 	);
 }
