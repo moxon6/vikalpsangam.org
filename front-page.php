@@ -80,7 +80,7 @@ $context["promoted_articles"] = Timber::get_posts(array(
 ));
 
 $context["latest_posts"] = Timber::get_posts(array(
-    'numberposts'	=> 4,
+    'numberposts'	=> 8,
     'post_type'		=> 'post',
 	'category__not_in'	=> $excluded_categories,
 	'has_password'   => false
