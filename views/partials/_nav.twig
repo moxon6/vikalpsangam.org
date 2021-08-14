@@ -14,19 +14,7 @@
 {% endset %}
 
 {% set socialIcons %}
-    <li class="navbar-social-links">
-        <a class="header-social-small" href="https://twitter.com/VikalpSangam">
-            <img src="/wp-content/themes/vikalpsangam.org/images/social/twitter.png?v=5.0.19" />
-        </a>
-        <a class="header-social-small"
-            href="https://www.facebook.com/VikalpSangam">
-            <img src="/wp-content/themes/vikalpsangam.org/images/social/facebook.png?v=5.0.19" />
-        </a>
-        <a class="header-social-small"
-            href="https://www.instagram.com/vikalpsangam">
-            <img src="/wp-content/themes/vikalpsangam.org/images/social/instagram.png?v=5.0.19" />
-        </a>
-    </li>
+    {{ get_social_icons() }}
 {% endset %}
 
 {% set searchForm %}
@@ -48,9 +36,6 @@
         })
         |replace({
             '<logo-primary></logo-primary>': logoPrimary
-        })
-        |replace({
-            '<social-icons></social-icons>': socialIcons
         })
         |replace({
             '<search-bar></search-bar>': searchForm
