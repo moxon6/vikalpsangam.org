@@ -66,7 +66,10 @@ $logo-width-l: 275px;
     }
 
     .widget.widget_block {
+        margin: 0;
         display: inline-block;
+        height: auto;
+        vertical-align: middle;
     }
 }
 
@@ -80,6 +83,7 @@ html {
         width: fit-content;
         > li {
             color: colors.$color-theme-primary !important;
+            margin: 4px 8px 4px 8px !important;
         }
 
         @media (min-width: 769px) {
