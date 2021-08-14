@@ -7,13 +7,7 @@
                 </a>
             </div>
             <div class="footer-social-links-top">
-                {% for link in social_links %}
-                    <div class="partner-logo">
-                        <a href="{{ link.url }}">
-                            <img src="{{ link.image }}" />
-                        </a>
-                    </div>
-                {% endfor %}
+                {{ get_social_icons() }}
             </div>
         </div>
 
