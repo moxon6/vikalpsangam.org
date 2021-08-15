@@ -12,14 +12,11 @@
     flex-direction: column;
     width: 100%;
 
-    @include mixins.desktop {
-        padding-left: 20px;
-        padding-right: 64px;
-    }
+    padding-left: 20px;
+    padding-right: 20px;
 
-    @include mixins.mobile {
-        padding-left: 20px;
-        padding-right: 20px;
+    @include mixins.desktop {
+        padding-right: 64px;
     }
 
     .loading-spinner {
@@ -33,9 +30,9 @@
 
 .comment-respond {
     width: 100%;
-    margin-bottom: 50px;
-    @include mixins.mobile {
-        margin-bottom: 80px;
+    margin-bottom: 80px;
+    @include mixins.desktop {
+        margin-bottom: 50px;
     }
 }
 
@@ -85,12 +82,10 @@
 }
 
 @mixin form-field {
+    width: 100%;
+
     @include mixins.desktop {
         width: 50%;
-    }
-
-    @include mixins.mobile {
-        width: 100%;
     }
 
     input,
@@ -141,10 +136,10 @@
     bottom: -30px;
     margin-bottom: 0;
     right: 0;
-    height: 30px;
+    bottom: -60px;
 
-    @include mixins.mobile {
-        bottom: -60px;
+    @include mixins.desktop {
+        height: 30px;
     }
 }
 

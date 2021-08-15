@@ -46,11 +46,9 @@
 
 .child-comments {
     margin-top: 20px;
+    margin-left: -32px;
+
     @include mixins.desktop {
         margin-left: -24px;
-    }
-
-    @include mixins.mobile {
-        margin-left: -32px;
     }
 }

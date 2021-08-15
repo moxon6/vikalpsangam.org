@@ -3,10 +3,10 @@
 
 .main-content {
     padding-top: 32px;
-    padding-bottom: 96px;
+    padding-bottom: 0;
 
-    @include mixins.mobile {
-        padding-bottom: 0;
+    @include mixins.desktop {
+        padding-bottom: 96px;
     }
 }
 
