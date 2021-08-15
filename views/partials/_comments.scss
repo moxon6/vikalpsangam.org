@@ -26,14 +26,6 @@
     @include mixins.desktop {
         padding-right: 64px;
     }
-
-    .loading-spinner {
-        display: none;
-    }
-
-    &.loading .loading-spinner {
-        display: block;
-    }
 }
 
 .comment-respond {
