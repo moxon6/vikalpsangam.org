@@ -2,38 +2,38 @@
 @use "../common/colors";
 
 .left-section {
-  padding-top: 32px;
-  padding-bottom: 96px;
+    padding-top: 32px;
+    padding-bottom: 96px;
 
-  @include mixins.mobile {
-    padding-bottom: 0;
-  }
+    @include mixins.mobile {
+        padding-bottom: 0;
+    }
 }
 
 .sidebar-aside {
-  padding-bottom: 20px;
-  padding-top: 32px;
-  padding-bottom: 96px;
+    padding-bottom: 20px;
+    padding-top: 32px;
+    padding-bottom: 96px;
 
-  @include mixins.desktop {
-    padding-left: 30px;
-    border-left: 2px solid colors.$light-gray-col;
-  }
+    @include mixins.desktop {
+        padding-left: 30px;
+        border-left: 2px solid colors.$light-gray-col;
+    }
 
-  h5 {
-    padding-top: 10px;
-  }
+    h5 {
+        padding-top: 10px;
+    }
 }
 
 @include mixins.desktop {
-  #page {
-    max-width: 1360px;
-    margin-left: auto;
-    margin-right: auto;
+    #page {
+        max-width: 1360px;
+        margin-left: auto;
+        margin-right: auto;
 
-    .container-fluid .row {
-      display: flex;
-      flex-wrap: wrap;
+        .container-fluid .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
     }
-  }
 }

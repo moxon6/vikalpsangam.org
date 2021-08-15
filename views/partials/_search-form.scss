@@ -2,63 +2,57 @@
 @use "../common/colors";
 
 @include mixins.desktop {
-  #mega-menu-wrap-header-menu {
-  
-    .search-box-input {
-      width: 0;
-      visibility: hidden;
-    }
-    
-    &[menu-open="true"] {
-      align-self: flex-end;
-      .search-box {
-        flex: 1;
-        display: flex;
-        justify-content: flex-end;
-        margin-left: 40px;
+    #mega-menu-wrap-header-menu {
         .search-box-input {
-          transition: width 0.5s;
-          visibility: visible;
-          width: 100%;
+            width: 0;
+            visibility: hidden;
         }
 
-        .search-icon {
-          pointer-events: none;
+        &[menu-open="true"] {
+            align-self: flex-end;
+            .search-box {
+                flex: 1;
+                display: flex;
+                justify-content: flex-end;
+                margin-left: 40px;
+                .search-box-input {
+                    transition: width 0.5s;
+                    visibility: visible;
+                    width: 100%;
+                }
+
+                .search-icon {
+                    pointer-events: none;
+                }
+            }
         }
-      }
-      
     }
-  }
 }
-
-
-
 
 .search-box {
-  margin-bottom: 0;
-  position: relative;
-  font-family: "Roboto";
+    margin-bottom: 0;
+    position: relative;
+    font-family: "Roboto";
 
-  @include mixins.mobile {
-    margin-top: 24px;
-  }
-
-  .search-box-submit-button {
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    right: 0px;
-    padding: 0;
-    border: 0;
-    background-color: transparent;
-
-    .search-icon {
-      color: colors.$color-theme-primary;
+    @include mixins.mobile {
+        margin-top: 24px;
     }
-  }
 
-  .search-box-input {
-    width: 100%;
-  }
+    .search-box-submit-button {
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        right: 0px;
+        padding: 0;
+        border: 0;
+        background-color: transparent;
+
+        .search-icon {
+            color: colors.$color-theme-primary;
+        }
+    }
+
+    .search-box-input {
+        width: 100%;
+    }
 }
-

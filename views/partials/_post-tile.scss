@@ -1,55 +1,55 @@
 @use "../common/mixins";
 
 .excerpt {
-  @include mixins.clamp(4);
-  height: 68px;
+    @include mixins.clamp(4);
+    height: 68px;
 }
 
 .card-header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  .category-image {
-    height: 70px;
-    width: 70px;
-    margin-right: 12px;
-    image-rendering: -moz-crisp-edges; /* Firefox */
-    image-rendering: -o-crisp-edges; /* Opera */
-    image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming) */
-    image-rendering: crisp-edges;
-    object-fit: cover;
-    -ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
-  }
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .category-image {
+        height: 70px;
+        width: 70px;
+        margin-right: 12px;
+        image-rendering: -moz-crisp-edges; /* Firefox */
+        image-rendering: -o-crisp-edges; /* Opera */
+        image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming) */
+        image-rendering: crisp-edges;
+        object-fit: cover;
+        -ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
+    }
 }
 
 .post-tile-title {
-  @include mixins.clamp(4);
+    @include mixins.clamp(4);
 }
 
 .post-tile-text {
-  line-height: 21px;
-  font-size: 14px;
-  height: 105px;
-  @include mixins.clamp(5);
+    line-height: 21px;
+    font-size: 14px;
+    height: 105px;
+    @include mixins.clamp(5);
 }
 
 .post-tile {
-  flex: 1;
-  @include mixins.mobile {
-    display: flex;
-    justify-content: center;
-    .post-tile-card {
-      max-width: 450px;
+    flex: 1;
+    @include mixins.mobile {
+        display: flex;
+        justify-content: center;
+        .post-tile-card {
+            max-width: 450px;
+        }
     }
-  }
 
-  .read-more {
-    border-radius: 0;
-    border-bottom-right-radius: 3px;
-  }
+    .read-more {
+        border-radius: 0;
+        border-bottom-right-radius: 3px;
+    }
 }
 
 .post-tile-image {
-  height: 180px;
-  object-fit: cover;
+    height: 180px;
+    object-fit: cover;
 }

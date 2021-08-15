@@ -1,40 +1,40 @@
 @use "../common/colors";
 
 .tribe-common-l-container.tribe-events-l-container {
-  padding-top: 0 !important;
+    padding-top: 0 !important;
 }
 
 .tribe-common-c-btn {
-  background-color: colors.$color-theme-primary !important;
-  &:hover {
-    background-color: darken(colors.$color-theme-primary, 10%) !important;
-  }
+    background-color: colors.$color-theme-primary !important;
+    &:hover {
+        background-color: darken(colors.$color-theme-primary, 10%) !important;
+    }
 }
 .tribe-events-calendar-list__event-featured-image-wrapper {
-  .tribe-events-calendar-list__event-featured-image {
-    width: 175px;
-    height: 175px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 1px solid #d5d5d5;
-  }
+    .tribe-events-calendar-list__event-featured-image {
+        width: 175px;
+        height: 175px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 1px solid #d5d5d5;
+    }
 }
 
 .tribe-common-g-row.tribe-events-calendar-list__event-row {
-  border-bottom: 1px solid #d5d5d5;
-  padding-bottom: 32px;
-  margin-bottom: 64px;
+    border-bottom: 1px solid #d5d5d5;
+    padding-bottom: 32px;
+    margin-bottom: 64px;
 }
 
 .tribe-common .tribe-common-c-svgicon {
-  color: colors.$color-theme-primary;
+    color: colors.$color-theme-primary;
 }
 
 .tribe-events .tribe-events-c-ical__link {
-  color: colors.$color-theme-primary;
-  border: colors.$color-theme-primary;
-  &:hover {
-    color: #fff;
-    background-color: colors.$color-theme-primary;
-  }
+    color: colors.$color-theme-primary;
+    border: colors.$color-theme-primary;
+    &:hover {
+        color: #fff;
+        background-color: colors.$color-theme-primary;
+    }
 }

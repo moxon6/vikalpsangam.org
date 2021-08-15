@@ -4,143 +4,143 @@
 @use "mixins";
 
 #infinite-handle {
-  display: flex;
-  width: 100%;
-  margin-bottom: 25px;
-
-  span {
+    display: flex;
     width: 100%;
+    margin-bottom: 25px;
 
-    button {
-      width: 100%;
+    span {
+        width: 100%;
+
+        button {
+            width: 100%;
+        }
     }
-  }
 }
 
 #page {
-  .jp-relatedposts {
-    padding-top: 32px;
-    border-top: 2px solid colors.$light-gray-col;
+    .jp-relatedposts {
+        padding-top: 32px;
+        border-top: 2px solid colors.$light-gray-col;
 
-    h3.jp-relatedposts-headline em {
-      font-size: 20px;
+        h3.jp-relatedposts-headline em {
+            font-size: 20px;
 
-      &::before {
-        border-top: 0 !important;
-      }
+            &::before {
+                border-top: 0 !important;
+            }
+        }
     }
-  }
 
-  .jp-relatedposts-items {
-    display: flex;
-    flex-wrap: wrap;
+    .jp-relatedposts-items {
+        display: flex;
+        flex-wrap: wrap;
 
-    .jp-relatedposts-post {
-      width: 240px;
+        .jp-relatedposts-post {
+            width: 240px;
+        }
     }
-  }
 }
 
 // Contact-form
 
 #page {
-  form.contact-form {
-    width: 600px;
+    form.contact-form {
+        width: 600px;
 
-    .email,
-    .name {
-      width: 100%;
+        .email,
+        .name {
+            width: 100%;
+        }
     }
-  }
 }
 
 // Blocks
 
 figure.wp-block-image {
-  padding-bottom: 24px;
+    padding-bottom: 24px;
 }
 
 .aligncenter {
-  justify-content: center;
+    justify-content: center;
 }
 
 .wp-block-image {
-  img {
-    height: auto;
-  }
+    img {
+        height: auto;
+    }
 }
 
 #page {
-  .tribe-events-widget {
-    padding-left: 8px;
-    border-left: 2px solid colors.$color-theme-primary;
+    .tribe-events-widget {
+        padding-left: 8px;
+        border-left: 2px solid colors.$color-theme-primary;
 
-    .tribe-events-widget-events-list__header-title {
-      @include mixins.header-style;
+        .tribe-events-widget-events-list__header-title {
+            @include mixins.header-style;
+        }
+
+        .tribe-events-widget-events-list__view-more-link {
+            color: colors.$color-theme-primary;
+            font-size: medium;
+        }
     }
 
-    .tribe-events-widget-events-list__view-more-link {
-      color: colors.$color-theme-primary;
-      font-size: medium;
+    .rpwwt-widget {
+        li {
+            background-color: #f7f7f7;
+            border: 1px solid #d8d8d8;
+            margin-bottom: 12px;
+            border-left: 2px solid colors.$color-theme-primary;
+
+            .wp-post-image {
+                margin-top: 0;
+                margin-bottom: 0;
+                height: 125px;
+                width: 125px;
+            }
+
+            .rpwwt-post-title {
+                @include mixins.clamp(2);
+            }
+
+            .rpwwt-post-excerpt {
+                font-size: 14px;
+                @include mixins.clamp(3);
+            }
+        }
     }
-  }
-
-  .rpwwt-widget {
-    li {
-      background-color: #f7f7f7;
-      border: 1px solid #d8d8d8;
-      margin-bottom: 12px;
-      border-left: 2px solid colors.$color-theme-primary;
-
-      .wp-post-image {
-        margin-top: 0;
-        margin-bottom: 0;
-        height: 125px;
-        width: 125px;
-      }
-
-      .rpwwt-post-title {
-        @include mixins.clamp(2);
-      }
-
-      .rpwwt-post-excerpt {
-        font-size: 14px;
-        @include mixins.clamp(3);
-      }
-    }
-  }
 }
 
 .sharedaddy,
 .jp-relatedposts,
 .comment-respond {
-  @media print {
-    display: none !important;
-  }
+    @media print {
+        display: none !important;
+    }
 }
 
 // https://codex.wordpress.org/Wrapping_Text_Around_Images#Important_Theme_Code
 img.alignright {
-  float: right;
-  margin: 0 0 1em 1em;
+    float: right;
+    margin: 0 0 1em 1em;
 }
 img.alignleft {
-  float: left;
-  margin: 0 1em 1em 0;
+    float: left;
+    margin: 0 1em 1em 0;
 }
 img.aligncenter {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 .alignright {
-  float: right;
+    float: right;
 }
 .alignleft {
-  float: left;
+    float: left;
 }
 .aligncenter {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }

@@ -2,28 +2,28 @@
 @use "colors";
 
 @mixin mobile {
-  @media (max-width: 767px) {
-    @content;
-  }
+    @media (max-width: 767px) {
+        @content;
+    }
 }
 
 @mixin desktop {
-  @media (min-width: 768px) {
-    @content;
-  }
+    @media (min-width: 768px) {
+        @content;
+    }
 }
 
 @mixin clamp($i) {
-  display: -webkit-box;
-  -webkit-line-clamp: $i;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: $i;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 @mixin header-style {
-  font-family: fonts.$roboto-black;
-  color: colors.$color-theme-primary;
-  text-shadow: none;
-  text-transform: uppercase;
-  opacity: 1;
+    font-family: fonts.$roboto-black;
+    color: colors.$color-theme-primary;
+    text-shadow: none;
+    text-transform: uppercase;
+    opacity: 1;
 }

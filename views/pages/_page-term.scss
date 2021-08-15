@@ -1,40 +1,40 @@
 @use "../common/colors";
 
 #page-term {
-  .category-page-category-list-wrapper {
-    padding-top: 16px;
-  }
-
-  details {
-    summary {
-      list-style: none;
-      outline: none;
-      &::marker {
-        display: none;
-      }
+    .category-page-category-list-wrapper {
+        padding-top: 16px;
     }
 
-    .read-less {
-      display: none;
-    }
+    details {
+        summary {
+            list-style: none;
+            outline: none;
+            &::marker {
+                display: none;
+            }
+        }
 
-    .read-more {
-      display: block;
-    }
+        .read-less {
+            display: none;
+        }
 
-    &[open] {
-      .read-less {
-        display: block;
-      }
+        .read-more {
+            display: block;
+        }
 
-      .read-more {
-        display: none;
-      }
-    }
+        &[open] {
+            .read-less {
+                display: block;
+            }
 
-    .description-wrapper {
-      border-left: 2px solid colors.$color-theme-primary;
-      padding-left: 8px;
+            .read-more {
+                display: none;
+            }
+        }
+
+        .description-wrapper {
+            border-left: 2px solid colors.$color-theme-primary;
+            padding-left: 8px;
+        }
     }
-  }
 }

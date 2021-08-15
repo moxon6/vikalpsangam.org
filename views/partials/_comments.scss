@@ -2,157 +2,155 @@
 @use "../common/colors";
 
 #submit-message {
-  display: none;
-  width: 100%;
+    display: none;
+    width: 100%;
 }
 
 .comments-section {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
 
-  @include mixins.desktop {
-    padding-left: 20px;
-    padding-right: 64px;
-  }
+    @include mixins.desktop {
+        padding-left: 20px;
+        padding-right: 64px;
+    }
 
-  @include mixins.mobile {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
+    @include mixins.mobile {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 
-  .loading-spinner {
-    display: none;
-  }
+    .loading-spinner {
+        display: none;
+    }
 
-  &.loading .loading-spinner {
-    display: block;
-  }
+    &.loading .loading-spinner {
+        display: block;
+    }
 }
 
 .comment-respond {
-  width: 100%;
-  margin-bottom: 50px;
-  @include mixins.mobile {
-    margin-bottom: 80px;
-  }
+    width: 100%;
+    margin-bottom: 50px;
+    @include mixins.mobile {
+        margin-bottom: 80px;
+    }
 }
 
 .comment .comment-respond {
-  border-top: 1px solid #80808052;
-  margin-top: 20px;
-  padding-top: 20px;
+    border-top: 1px solid #80808052;
+    margin-top: 20px;
+    padding-top: 20px;
 }
 
 .comment-reply-wrapper {
-  @include mixins.desktop {
-    min-width: 600px;
-  }
+    @include mixins.desktop {
+        min-width: 600px;
+    }
 }
 
 .comment-reply-title {
-  font-size: 18px;
+    font-size: 18px;
 }
 
 .comment-form {
-  position: relative;
-  display: flex;
-  flex-direction: column;
+    position: relative;
+    display: flex;
+    flex-direction: column;
 
-  .comment-notes {
-    width: 100%;
-  }
+    .comment-notes {
+        width: 100%;
+    }
 }
 
 #cancel-comment-reply-link {
-  margin-left: 20px;
+    margin-left: 20px;
 }
 
 .comment-form-comment {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
 
-  label {
-    display: none;
-  }
+    label {
+        display: none;
+    }
 
-  textarea#comment {
-    padding: 12px;
-    // @extend .form-control; TODO: Replace this
-  }
+    textarea#comment {
+        padding: 12px;
+        // @extend .form-control; TODO: Replace this
+    }
 }
 
 @mixin form-field {
-  @include mixins.desktop {
-    width: 50%;
-  }
+    @include mixins.desktop {
+        width: 50%;
+    }
 
-  @include mixins.mobile {
-    width: 100%;
-  }
+    @include mixins.mobile {
+        width: 100%;
+    }
 
-  input,
-  textarea {
-    // @extend .form-control; TODO: Replace this
-    padding: 12px;
-    width: 100%;
-  }
-  label {
-    display: none;
-  }
+    input,
+    textarea {
+        // @extend .form-control; TODO: Replace this
+        padding: 12px;
+        width: 100%;
+    }
+    label {
+        display: none;
+    }
 }
 
 .comment-notes {
-  order: 4;
-  font-size: small;
+    order: 4;
+    font-size: small;
 }
 
 .comment-form-cookies-consent {
-  order: 5;
-  font-size: small;
+    order: 5;
+    font-size: small;
 }
 
 .comment-form-comment {
-  order: 3;
-  @include form-field;
+    order: 3;
+    @include form-field;
 }
 
 .comment-form-author {
-  @include form-field;
-  order: 1;
-  input {
-    padding-top: 4px;
-    padding-bottom: 4px;
-  }
+    @include form-field;
+    order: 1;
+    input {
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
 }
 .comment-form-email {
-  @include form-field;
-  order: 2;
-  input {
-    padding-top: 4px;
-    padding-bottom: 4px;
-  }
+    @include form-field;
+    order: 2;
+    input {
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
 }
 
 .form-submit {
-  position: absolute;
-  bottom: -30px;
-  margin-bottom: 0;
-  right: 0;
-  height: 30px;
+    position: absolute;
+    bottom: -30px;
+    margin-bottom: 0;
+    right: 0;
+    height: 30px;
 
-
-  @include mixins.mobile {
-    bottom: -60px;
-  }
+    @include mixins.mobile {
+        bottom: -60px;
+    }
 }
 
 .logged-in-as {
-  position: absolute;
-  bottom: -28px;
-  height: 28px;
-  margin-bottom: 0;
+    position: absolute;
+    bottom: -28px;
+    height: 28px;
+    margin-bottom: 0;
 }
-

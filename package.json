@@ -42,14 +42,17 @@
     "build:scss": "sass style.scss style.css --no-charset",
     "build:scss-rtl": "rtlcss style.css style-rtl.css",
     "browsersync": "browser-sync start --files \"**/*.(php|js|css)\"",
-    "lint:scss": "stylelint \"(views|features)/**/*.scss\"",
+    "lint:scss": "prettier **/*.scss --check",
+    "fix:scss": "prettier views/**/*.scss --write",
     "lint:twig": "prettier views/**/*.twig --check",
-    "lint:actions": "prettier .github/**/*.yml --check",
     "fix:twig": "prettier views/**/*.twig --write",
+    "lint:actions": "prettier .github/**/*.yml --check",
     "lint:js": "eslint 'js/**/*.js'",
+    "fix:js": "eslint 'js/**/*.js' --fix",
     "bundle": "node bundle.js",
     "copy-fonts": "cp node_modules/bootstrap-sass/assets/fonts/bootstrap/* fonts -n",
-    "quicklint": "npm run lint:scss -- --fix ; npm run lint:js -- --fix ; npm run fix:twig"
+    "quicklint": "npm run fix:scss ; npm run fix:js ; npm run fix:twig",
+    "prettier": "prettier"
   },
   "dependencies": {
     "archiver": "^5.2.0",

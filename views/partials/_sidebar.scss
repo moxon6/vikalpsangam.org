@@ -2,53 +2,53 @@
 @use "../common/colors";
 
 .sidebar {
-  > li.widget {
-    list-style: none;
-  }
-
-  @media print {
-    display: none !important;
-  }
-
-  .sidebar-header {
-    @include mixins.header-style;
-  }
-
-  .widgettitle {
-    @include mixins.header-style;
-    font-size: 20px;
-  }
-
-  .widget_tag_cloud .tagcloud {
-    padding-bottom: 20px;
-    text-align: center;
-
-    .tag-weight-1 {
-      font-size: 0.8em !important;
-      color: colors.$dark-gray-col;
+    > li.widget {
+        list-style: none;
     }
 
-    .tag-weight-2 {
-      font-size: 1em !important;
-      color: colors.$yellow-col;
+    @media print {
+        display: none !important;
     }
 
-    .tag-weight-3 {
-      font-size: 1.2em !important;
-      color: colors.$light-brick-color;
+    .sidebar-header {
+        @include mixins.header-style;
     }
 
-    .tag-weight-4 {
-      font-size: 1.3em !important;
-      color: colors.$color-theme-primary;
+    .widgettitle {
+        @include mixins.header-style;
+        font-size: 20px;
     }
-  }
 
-  .featured-list {
-    font-size: small;
+    .widget_tag_cloud .tagcloud {
+        padding-bottom: 20px;
+        text-align: center;
 
-    .featured-list-card-body {
-      padding: 0;
+        .tag-weight-1 {
+            font-size: 0.8em !important;
+            color: colors.$dark-gray-col;
+        }
+
+        .tag-weight-2 {
+            font-size: 1em !important;
+            color: colors.$yellow-col;
+        }
+
+        .tag-weight-3 {
+            font-size: 1.2em !important;
+            color: colors.$light-brick-color;
+        }
+
+        .tag-weight-4 {
+            font-size: 1.3em !important;
+            color: colors.$color-theme-primary;
+        }
     }
-  }
+
+    .featured-list {
+        font-size: small;
+
+        .featured-list-card-body {
+            padding: 0;
+        }
+    }
 }
