@@ -1,49 +1,24 @@
 @use "../common/mixins";
 
-.excerpt {
-    @include mixins.clamp(4);
-    height: 68px;
-}
-
-.card-header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    .category-image {
-        height: 70px;
-        width: 70px;
-        margin-right: 12px;
-        object-fit: cover;
-    }
-}
-
-.post-tile-title {
-    @include mixins.clamp(4);
-}
-
-.post-tile-text {
-    line-height: 21px;
-    font-size: 14px;
-    height: 105px;
-    @include mixins.clamp(5);
-}
-
 .post-tile {
     flex: 1;
-
     display: flex;
     justify-content: center;
-    .post-tile-card {
-        max-width: 450px;
+    max-width: 450px;
+
+    &__title {
+        @include mixins.clamp(4);
     }
 
-    .read-more {
-        border-radius: 0;
-        border-bottom-right-radius: 3px;
+    &__image {
+        height: 180px;
+        object-fit: cover;
     }
-}
 
-.post-tile-image {
-    height: 180px;
-    object-fit: cover;
+    &__text {
+        line-height: 21px;
+        font-size: 14px;
+        height: 105px;
+        @include mixins.clamp(5);
+    }
 }
