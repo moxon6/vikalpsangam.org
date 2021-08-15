@@ -1,13 +1,9 @@
-<article key="{{ comment.id }}" class="comment d-flex">
+<article key="{{ comment.id }}" class="comment">
     <img class="comment__avatar" src="{{ comment.avatar }}" />
     <div class="comment__body">
         <div class="comment__reply-wrapper" id="comment-{{ comment.id }}">
             <strong>{{ comment.author.name }}</strong>
-            <small>
-                {{ comment.date }}
-                at
-                {{ comment.time }}
-            </small>
+            <small>{{ comment.date }} at {{ comment.time }}</small>
             <div class="comment__content">
                 {{ comment.content }}
             </div>

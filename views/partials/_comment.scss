@@ -1,20 +1,10 @@
 @use "../common/mixins";
 @use "../common/colors";
 
-@keyframes come-in {
+@keyframes fade-in {
     from {
         opacity: 0;
         background-color: colors.$color-theme-primary;
-    }
-}
-
-@mixin comment-clickable {
-    color: colors.$dark-gray-col;
-    &:not(:first-child) {
-        margin-left: 4px;
-    }
-    &:not(:last-child) {
-        margin-right: 4px;
     }
 }
 
@@ -22,7 +12,8 @@
     margin-bottom: 12px;
     width: 100%;
     opacity: 1;
-    animation: come-in 1s ease forwards;
+    animation: fade-in 1s ease forwards;
+    display: flex;
     &__avatar {
         height: 40px;
     }
@@ -43,10 +34,15 @@
     &__footer {
         padding-top: 12px;
         > a {
-            @include comment-clickable();
+            color: colors.$dark-gray-col;
+            &:not(:first-child) {
+                margin-left: 4px;
+            }
+            &:not(:last-child) {
+                margin-right: 4px;
+            }
         }
     }
-
     &__children {
         margin-top: 20px;
         margin-left: -32px;
