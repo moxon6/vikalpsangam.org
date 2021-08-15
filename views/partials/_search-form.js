@@ -18,3 +18,10 @@ submitButton
       input.focus();
     }
   });
+
+input
+  .addEventListener('blur', (e) => {
+    if (e.relatedTarget !== submitButton) {
+      navBar.removeAttribute('menu-open');
+    }
+  });
