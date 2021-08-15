@@ -52,19 +52,6 @@ class VikalpsangamOrgSite extends Timber\Site {
 	
 	private function setup_footer_context($context) {
 		$context['footer_logo'] = $this->get_template_image_url("/images/footer/site-logo.png");
-		
-		$context['footer_logos'] = [
-			[ "url" => "http://www.shikshantar.org", "image" => $this->get_template_image_url("/images/logos/shikshantar.png")],
-			[ "url" => "http://www.kalpavriksh.org", "image" => $this->get_template_image_url("/images/logos/kalpavriksh.png")],
-			[ "url" => "http://www.ddsindia.com", "image" => $this->get_template_image_url("/images/logos/ddsindia.png")],
-			[ "url" => "http://www.bhoomicollege.org", "image" => $this->get_template_image_url("/images/logos/bhoomicollege.png")]
-		];
-		
-		$context["social_links"] = [
-			["url" => "https://twitter.com/VikalpSangam", "image" => $this->get_template_image_url("/images/social/twitter.png")],
-			["url" => "https://www.facebook.com/VikalpSangam", "image" => $this->get_template_image_url("/images/social/facebook.png")],
-			["url" => "https://www.instagram.com/vikalpsangam", "image" => $this->get_template_image_url("/images/social/instagram.png")]
-		];
 
 		$context["footer_menus"] = [
 			new \Timber\Menu( 'footer-menu-1' ),
