@@ -1,12 +1,17 @@
 @use "../common/mixins";
+@use "../common/colors";
 
 .highlight-card {
     flex: 1;
-    background-color: #f7f7f7;
+    background-color: white;
+    background-clip: border-box;
+    border: 1px solid colors.$lighter-gray-col;
+    margin-bottom: 8px;
 
     .highlight-card-row {
         align-items: center;
         height: 150px;
+        justify-content: space-between;
 
         .highlight-card-thumbnail-col {
             background-color: white;
