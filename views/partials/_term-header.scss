@@ -2,7 +2,7 @@
     height: 70px;
     display: block;
 
-    .header {
+    &__content {
         align-items: center;
         border: 1px solid rgba(0, 0, 0, 0.125);
         color: #9e332e;
@@ -10,20 +10,21 @@
         flex-direction: row;
         height: 100%;
         justify-content: start;
-        padding-left: 8px;
-        padding-right: 8px;
-        text-decoration: none;
+        padding: 0 8px;
         text-transform: uppercase;
-
-        .category-name {
-            font-size: 20px;
+        &:hover {
+            text-decoration: underline;
         }
+    }
 
-        .category-image {
-            height: 60px;
-            margin-right: 16px;
-            object-fit: cover;
-            width: 60px;
-        }
+    &__category-name {
+        font-size: 20px;
+    }
+
+    &__category-image {
+        height: 60px;
+        margin-right: 16px;
+        object-fit: cover;
+        width: 60px;
     }
 }

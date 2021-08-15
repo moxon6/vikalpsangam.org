@@ -1,10 +1,10 @@
 <a class="term-header" href="{{ term.link }}">
     {% set src = Image(term.meta('image')).src %}
 
-    <div class="card-header header">
+    <div class="term-header__content">
         {% if src %}
-            <img class="category-image" src="{{ src }}" />
+            <img class="term-header__category-image" src="{{ src }}" />
         {% endif %}
-        <span class="category-name">{{ term.name }}</span>
+        <span class="term-header__category-name">{{ term.name }}</span>
     </div>
 </a>
