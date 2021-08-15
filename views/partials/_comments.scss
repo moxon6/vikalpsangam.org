@@ -4,6 +4,14 @@
 #submit-message {
     display: none;
     width: 100%;
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
 }
 
 .comments-section {
@@ -32,7 +40,7 @@
     width: 100%;
     margin-bottom: 80px;
     @include mixins.desktop {
-        margin-bottom: 50px;
+        margin-bottom: 12px;
     }
 }
 
@@ -127,10 +135,8 @@
 
 .form-submit {
     position: absolute;
-    bottom: -30px;
-    margin-bottom: 0;
     right: 0;
-    bottom: -60px;
+    bottom: 0;
 
     @include mixins.desktop {
         height: 30px;
