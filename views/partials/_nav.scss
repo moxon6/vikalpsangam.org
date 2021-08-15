@@ -24,6 +24,9 @@ $logo-width-l: 275px;
 
 @include header-primary-wrapper {
     box-shadow: 0 2px 2px 0 rgb(50 50 50 / 30%) !important;
+    position: sticky !important;
+    z-index: 5000;
+    top: 0 !important;
 
     .wp-block-social-links {
         margin: 0 auto;
@@ -38,15 +41,7 @@ $logo-width-l: 275px;
         }
     }
 
-    .header-social-small > img {
-        filter: brightness(0.5) sepia(1) saturate(10000%) contrast(0.5);
-    }
-
-    position: sticky !important;
-    z-index: 5000;
-    top: 0 !important;
-
-    > .mega-menu-toggle {
+    .mega-menu-toggle {
         align-items: center !important;
         .mega-toggle-blocks-left,
         .mega-toggle-blocks-right {
@@ -94,92 +89,41 @@ $logo-width-l: 275px;
 @include header-secondary-wrapper {
     display: none !important;
 
-    @media (min-width: 769px) {
-        display: block !important;
-    }
-
-    .navbar-social-links {
-        display: inline-block;
-        margin-left: 48px !important;
-        .header-social-small {
-            margin-left: 4px;
-            margin-right: 4px;
-            > img {
-                width: 24px;
-                height: 24px;
-            }
-        }
-    }
-
     .widget.widget_block {
         margin: 0;
         display: inline-block;
         height: auto;
         vertical-align: middle;
     }
+
+    @include mixins.desktop {
+        display: block !important;
+    }
 }
 
-.logo-primary {
-    margin: 20px 8px 8px 8px;
-
-    &.large {
+.logo {
+    &--large {
         display: block;
+        margin: 20px 8px 8px 8px;
+        @include mixins.desktop {
+            display: none;
+        }
+
+        @media (min-width: 1080px) {
+            display: block;
+            margin: 0 24px 0 0;
+        }
     }
 
-    &.small {
+    &--small {
         display: none;
-    }
+        @include mixins.desktop {
+            display: block;
+            margin: 0 24px 0 0;
+        }
 
-    @media (min-width: 769px) {
-        margin: 0 24px 0 0;
-        &.large {
+        @media (min-width: 1080px) {
             display: none;
         }
-
-        &.small {
-            display: block;
-        }
-    }
-
-    @media (min-width: 1080px) {
-        &.large {
-            display: block;
-        }
-
-        &.small {
-            display: none;
-        }
-    }
-}
-
-.mega-menu .search-box {
-    margin-left: 12px;
-    margin-right: 12px;
-}
-
-.mega-menu-item-object-page {
-    > a {
-        font-family: fonts.$roboto-black !important;
-        font-size: 24px !important;
-        font-weight: 700 !important;
-        &:hover {
-            text-decoration: underline !important;
-        }
-    }
-}
-
-.search-form-wrapper {
-    display: flex;
-    align-items: flex-end;
-}
-
-.india-map {
-    padding: 24px;
-    filter: drop-shadow(2px 4px 5px black);
-    width: 100%;
-    height: auto;
-    max-height: 280px;
-    &:hover {
-        filter: drop-shadow(2px 4px 6px black);
     }
 }

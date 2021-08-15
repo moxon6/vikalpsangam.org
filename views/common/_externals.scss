@@ -144,3 +144,15 @@ img.aligncenter {
     margin-left: auto;
     margin-right: auto;
 }
+
+// Utils to hook into
+.india-map {
+    padding: 24px;
+    filter: drop-shadow(2px 4px 5px black);
+    width: 100%;
+    height: auto;
+    max-height: 280px;
+    &:hover {
+        filter: drop-shadow(2px 4px 6px black);
+    }
+}
