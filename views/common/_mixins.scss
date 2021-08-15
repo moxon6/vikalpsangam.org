@@ -1,6 +1,12 @@
 @use "fonts";
 @use "colors";
 
+@mixin large-desktop {
+    @media (min-width: 1200px) {
+        @content;
+    }
+}
+
 @mixin desktop {
     @media (min-width: 768px) {
         @content;
