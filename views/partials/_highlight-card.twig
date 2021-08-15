@@ -1,22 +1,18 @@
 <div class="highlight-card">
-    <div class="row g-0 highlight-card-row">
-        <div class="col-3 highlight-card-thumbnail-col">
-            <a href="{{ post.link }}">
-                <img src="{{ post.thumbnail.src('thumbnail') }}"
-                    class="img-fluid featured-list-image" />
-            </a>
-        </div>
-        <div class="col-9 highlight-card-text-col">
-            <div class="card-body featured-list-card-body">
-                <a href="{{ post.link }}">
-                    <h6 class="highlight-card-title">
-                        {{ post.title }}
-                    </h6>
-                </a>
-                <p class="highlight-card-content">
-                    {{ post.preview.read_more(false).length(20) }}
-                </p>
-            </div>
-        </div>
+    <div class="highlight-card__column--thumbnail">
+        <a href="{{ post.link }}">
+            <img src="{{ post.thumbnail.src('thumbnail') }}"
+                class="highlight-card__thumbnail" />
+        </a>
+    </div>
+    <div class="highlight-card__column--body">
+        <a href="{{ post.link }}">
+            <h6 class="highlight-card__title">
+                {{ post.title }}
+            </h6>
+        </a>
+        <p class="highlight-card__preview">
+            {{ post.preview.read_more(false).length(20) }}
+        </p>
     </div>
 </div>
