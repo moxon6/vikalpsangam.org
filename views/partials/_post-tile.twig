@@ -1,4 +1,4 @@
-<div class="card post-tile h-100">
+<div class="post-tile">
     {% if not category and header_fallback %}
         {% set category = {
             name: 'Vikalp Sangam'
@@ -12,16 +12,16 @@
     {% endif %}
 
     <a href="{{ post.link }}">
-        <img src="{{ post.thumbnail.src('large') }}"
-            class="card-img-top post-tile__image" />
+        <img src="{{ post.thumbnail.src('large') }}" class="post-tile__image" />
     </a>
-    <div class="card-body">
+
+    <div class="post-tile__body">
         <a href="{{ post.link }}">
-            <h6 class="card-title post-tile__title">
+            <h6 class="post-tile__title">
                 {{ post.title }}
             </h6>
         </a>
-        <p class="card-text post-tile__text">
+        <p class="post-tile__text">
             {{ post.preview.read_more(false).length(20) }}
         </p>
     </div>
