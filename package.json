@@ -17,11 +17,7 @@
     "husky": "^4.3.0",
     "prettier": "^2.1.2",
     "prettier-plugin-twig-melody": "^0.4.6",
-    "rtlcss": "^2.5.0",
-    "stylelint": "^13.13.1",
-    "stylelint-config-prettier": "^8.0.2",
-    "stylelint-config-recess-order": "^2.3.0",
-    "stylelint-prettier": "^1.1.2"
+    "rtlcss": "^2.5.0"
   },
   "rtlcssConfig": {
     "options": {
@@ -51,8 +47,7 @@
     "fix:js": "eslint 'js/**/*.js' --fix",
     "bundle": "node bundle.js",
     "copy-fonts": "cp node_modules/bootstrap-sass/assets/fonts/bootstrap/* fonts -n",
-    "quicklint": "npm run fix:scss ; npm run fix:js ; npm run fix:twig",
-    "prettier": "prettier"
+    "quicklint": "npm run fix:scss ; npm run fix:js ; npm run fix:twig"
   },
   "dependencies": {
     "archiver": "^5.2.0",
