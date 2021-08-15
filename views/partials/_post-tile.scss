@@ -35,12 +35,11 @@
 
 .post-tile {
     flex: 1;
-    @include mixins.mobile {
-        display: flex;
-        justify-content: center;
-        .post-tile-card {
-            max-width: 450px;
-        }
+
+    display: flex;
+    justify-content: center;
+    .post-tile-card {
+        max-width: 450px;
     }
 
     .read-more {
