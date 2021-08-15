@@ -5,13 +5,15 @@
         <div class="section generic_section">
             <div class="container-fluid">
                 <div class="row">
-                    <main class="col-xl-8 col-md-12 left-section">
+                    <main class="col-xl-8 col-md-12 main-content">
                         {% block content %}
                             <span />
                         {% endblock %}
                     </main>
-                    <aside class="col-xl-4 col-md-12 sidebar-aside">
-                        {% include 'partials/_sidebar.twig' %}
+                    <aside class="col-xl-4 col-md-12 sidebar-container">
+                        <div class="sidebar pl-2">
+                            {{ get_sidebar() }}
+                        </div>
                     </aside>
                 </div>
             </div>
