@@ -1,0 +1,7 @@
+@use "../common/mixins";
+
+.page-latest-stories {
+    &__stories-by-category {
+        @include mixins.button-primary;
+    }
+}

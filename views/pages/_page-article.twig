@@ -3,16 +3,15 @@
 {% set page_id = 'page-article' %}
 
 {% block content %}
-    <div class="d-flex justify-content-between mb-4">
+    <header class="page-article__header">
         <h2 class="page-title">
             {{ post.title }}
         </h2>
-        <div>
-            <a href="/stories/" class="btn btn-primary">
-                Show all latest stories
-            </a>
-        </div>
-    </div>
+
+        <a class="page-article__latest-posts" href="/stories/">
+            Show all latest stories
+        </a>
+    </header>
 
     <section class="container-fluid">
         <div class="row">
