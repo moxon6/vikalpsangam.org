@@ -33,9 +33,10 @@
     margin-bottom: 0;
     position: relative;
     font-family: "Roboto";
+    margin-top: 24px;
 
-    @include mixins.mobile {
-        margin-top: 24px;
+    @include mixins.desktop {
+        margin-top: 0;
     }
 
     .search-box-submit-button {
