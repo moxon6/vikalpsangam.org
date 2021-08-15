@@ -42,12 +42,6 @@
     padding-top: 20px;
 }
 
-.comment-reply-wrapper {
-    @include mixins.desktop {
-        min-width: 600px;
-    }
-}
-
 .comment-reply-title {
     font-size: 18px;
 }
