@@ -1,34 +1,6 @@
 @use "../common/mixins";
 @use "../common/colors";
 
-@include mixins.desktop {
-    #mega-menu-wrap-header-menu {
-        .search-box-input {
-            width: 0;
-            visibility: hidden;
-        }
-
-        &[menu-open="true"] {
-            align-self: flex-end;
-            .search-box {
-                flex: 1;
-                display: flex;
-                justify-content: flex-end;
-                margin-left: 40px;
-                .search-box-input {
-                    transition: width 0.5s;
-                    visibility: visible;
-                    width: 100%;
-                }
-
-                .search-icon {
-                    pointer-events: none;
-                }
-            }
-        }
-    }
-}
-
 .search-box {
     margin-bottom: 0;
     position: relative;
@@ -39,7 +11,7 @@
         margin-top: 0;
     }
 
-    .search-box-submit-button {
+    &__submit-button {
         position: absolute;
         top: 50%;
         transform: translate(-50%, -50%);
@@ -47,13 +19,43 @@
         padding: 0;
         border: 0;
         background-color: transparent;
-
-        .search-icon {
-            color: colors.$color-theme-primary;
-        }
     }
 
-    .search-box-input {
+    &__icon {
+        color: colors.$color-theme-primary;
+    }
+
+    &__input {
         width: 100%;
+    }
+}
+
+@include mixins.desktop {
+    #mega-menu-wrap-header-menu {
+        .search-box {
+            &__input {
+                width: 0;
+                visibility: hidden;
+            }
+        }
+
+        &[menu-open="true"] {
+            align-self: flex-end;
+            .search-box {
+                flex: 1;
+                display: flex;
+                justify-content: flex-end;
+                margin-left: 40px;
+                &__input {
+                    transition: width 0.5s;
+                    visibility: visible;
+                    width: 100%;
+                }
+
+                &__icon {
+                    pointer-events: none;
+                }
+            }
+        }
     }
 }
