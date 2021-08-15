@@ -12,36 +12,6 @@ footer.container-fluid {
         display: none !important;
     }
 
-    .footer-partners {
-        width: 100%;
-        background-color: #efefef;
-        justify-content: center;
-        flex-direction: row;
-        border-top: 8px solid colors.$color-theme-primary;
-        .partners-logos {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            .partner-logo {
-                width: 300px;
-                min-width: 200px;
-                padding: 20px 15px;
-
-                a {
-                    display: flex;
-                    justify-content: center;
-                    img {
-                        width: auto;
-                        max-width: 80%;
-                        height: auto;
-                    }
-                }
-            }
-        }
-    }
-
     .footer-main {
         background-color: #58585a;
         padding: 0;
