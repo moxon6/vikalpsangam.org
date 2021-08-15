@@ -4,80 +4,27 @@
 
 $logo-width-l: 275px;
 
-@include mixins.desktop {
-    #mega-menu-header-menu {
-        display: flex !important;
-        align-items: center !important;
-        height: 100% !important;
-        max-width: 1060px !important;
-        padding-left: 20px !important;
-        padding-right: 20px !important;
-        margin: 0 auto !important;
-
-        .navbar-search-form {
-            flex: 1 !important;
-            display: flex !important;
-            justify-content: flex-end !important;
-        }
-    }
-
+@mixin header-primary-wrapper {
     #mega-menu-wrap-header-menu {
-        height: 54px !important;
-        width: 100% !important;
-        flex-shrink: 0 !important;
-
-        &[menu-open="true"] {
-            .mega-menu-item:not(.navbar-search-form) {
-                display: none !important;
-            }
-        }
+        @content;
     }
 }
 
-.india-map {
-    padding: 24px;
-    filter: drop-shadow(2px 4px 5px black);
-    width: 100%;
-    height: auto;
-    max-height: 280px;
-    &:hover {
-        filter: drop-shadow(2px 4px 6px black);
+@mixin header-secondary-wrapper {
+    #mega-menu-wrap-header-menu-secondary {
+        @content;
     }
 }
 
-#mega-menu-wrap-header-menu-secondary {
-    display: none !important;
-
-    @media (min-width: 769px) {
-        display: block !important;
-    }
-
-    .navbar-social-links {
-        display: inline-block;
-        margin-left: 48px !important;
-        .header-social-small {
-            margin-left: 4px;
-            margin-right: 4px;
-            > img {
-                width: 24px;
-                height: 24px;
-            }
-        }
-    }
-
-    .widget.widget_block {
-        margin: 0;
-        display: inline-block;
-        height: auto;
-        vertical-align: middle;
+@mixin header-primary {
+    #mega-menu-header-menu {
+        @content;
     }
 }
 
-html {
-    overflow: visible !important;
-}
+@include header-primary-wrapper {
+    box-shadow: 0 2px 2px 0 rgb(50 50 50 / 30%) !important;
 
-#mega-menu-wrap-header-menu {
     .wp-block-social-links {
         margin: 0 auto;
         width: fit-content;
@@ -86,7 +33,7 @@ html {
             margin: 4px 8px 4px 8px !important;
         }
 
-        @media (min-width: 769px) {
+        @include mixins.desktop {
             display: none !important;
         }
     }
@@ -111,6 +58,64 @@ html {
             flex-grow: 1;
             flex-basis: auto;
         }
+    }
+
+    @include mixins.desktop {
+        height: 54px !important;
+        width: 100% !important;
+        flex-shrink: 0 !important;
+
+        &[menu-open="true"] {
+            .mega-menu-item:not(.navbar-search-form) {
+                display: none !important;
+            }
+        }
+    }
+}
+
+@include header-primary {
+    @include mixins.desktop {
+        display: flex !important;
+        align-items: center !important;
+        height: 100% !important;
+        max-width: 1060px !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        margin: 0 auto !important;
+
+        .navbar-search-form {
+            flex: 1 !important;
+            display: flex !important;
+            justify-content: flex-end !important;
+        }
+    }
+}
+
+@include header-secondary-wrapper {
+    display: none !important;
+
+    @media (min-width: 769px) {
+        display: block !important;
+    }
+
+    .navbar-social-links {
+        display: inline-block;
+        margin-left: 48px !important;
+        .header-social-small {
+            margin-left: 4px;
+            margin-right: 4px;
+            > img {
+                width: 24px;
+                height: 24px;
+            }
+        }
+    }
+
+    .widget.widget_block {
+        margin: 0;
+        display: inline-block;
+        height: auto;
+        vertical-align: middle;
     }
 }
 
@@ -152,10 +157,6 @@ html {
     margin-right: 12px;
 }
 
-#mega-menu-wrap-header-menu {
-    box-shadow: 0 2px 2px 0 rgb(50 50 50 / 30%) !important;
-}
-
 .mega-menu-item-object-page {
     > a {
         font-family: fonts.$roboto-black !important;
@@ -170,4 +171,15 @@ html {
 .search-form-wrapper {
     display: flex;
     align-items: flex-end;
+}
+
+.india-map {
+    padding: 24px;
+    filter: drop-shadow(2px 4px 5px black);
+    width: 100%;
+    height: auto;
+    max-height: 280px;
+    &:hover {
+        filter: drop-shadow(2px 4px 6px black);
+    }
 }
