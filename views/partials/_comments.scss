@@ -1,20 +1,7 @@
 @use "../common/mixins";
 @use "../common/colors";
 
-#submit-message {
-    display: none;
-    width: 100%;
-    color: #004085;
-    background-color: #cce5ff;
-    border-color: #b8daff;
-    position: relative;
-    padding: 0.75rem 1.25rem;
-    margin-bottom: 1rem;
-    border: 1px solid transparent;
-    border-radius: 0.25rem;
-}
-
-.comments-section {
+.comments {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
@@ -26,26 +13,22 @@
     @include mixins.desktop {
         padding-right: 64px;
     }
-}
 
-.comment-respond {
-    width: 100%;
-    margin-bottom: 80px;
-    @include mixins.desktop {
-        margin-bottom: 12px;
+    &__submit-message {
+        display: none;
+        width: 100%;
+        color: #004085;
+        background-color: #cce5ff;
+        border-color: #b8daff;
+        position: relative;
+        padding: 0.75rem 1.25rem;
+        margin-bottom: 1rem;
+        border: 1px solid transparent;
+        border-radius: 0.25rem;
     }
 }
 
-.comment .comment-respond {
-    border-top: 1px solid #80808052;
-    margin-top: 20px;
-    padding-top: 20px;
-}
-
-.comment-reply-title {
-    font-size: 18px;
-}
-
+// WordPress Generated Styles
 .comment-form {
     position: relative;
     display: flex;
@@ -53,91 +36,66 @@
 
     .comment-notes {
         width: 100%;
-    }
-}
-
-#cancel-comment-reply-link {
-    margin-left: 20px;
-}
-
-.comment-form-comment {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 30px;
-
-    label {
-        display: none;
+        order: 4;
+        font-size: small;
     }
 
-    textarea#comment {
-        padding: 12px;
-        // @extend .form-control; TODO: Replace this
+    &-comment {
+        order: 3;
+        @include mixins.form-field;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 30px;
+
+        label {
+            display: none;
+        }
+
+        textarea#comment {
+            padding: 12px;
+            margin-bottom: 12px;
+        }
     }
-}
 
-@mixin form-field {
-    width: 100%;
-
-    @include mixins.desktop {
-        width: 50%;
+    &-author {
+        @include mixins.form-field;
+        order: 1;
+        input {
+            padding-top: 4px;
+            padding-bottom: 4px;
+        }
     }
 
-    input,
-    textarea {
-        // @extend .form-control; TODO: Replace this
-        padding: 12px;
-        width: 100%;
+    &-cookies-consent {
+        order: 5;
+        font-size: small;
     }
-    label {
-        display: none;
+
+    &-email {
+        @include mixins.form-field;
+        order: 2;
+        input {
+            padding-top: 4px;
+            padding-bottom: 4px;
+        }
     }
-}
 
-.comment-notes {
-    order: 4;
-    font-size: small;
-}
-
-.comment-form-cookies-consent {
-    order: 5;
-    font-size: small;
-}
-
-.comment-form-comment {
-    order: 3;
-    @include form-field;
-}
-
-.comment-form-author {
-    @include form-field;
-    order: 1;
-    input {
-        padding-top: 4px;
-        padding-bottom: 4px;
-    }
-}
-.comment-form-email {
-    @include form-field;
-    order: 2;
-    input {
-        padding-top: 4px;
-        padding-bottom: 4px;
-    }
-}
-
-.form-submit {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-
-    @include mixins.desktop {
+    .form-submit {
+        position: absolute;
+        right: 0;
+        bottom: 0;
         height: 30px;
+        margin: 0;
     }
-}
 
-.logged-in-as {
-    position: absolute;
-    bottom: -28px;
-    height: 28px;
-    margin-bottom: 0;
+    #cancel-comment-reply-link {
+        margin-left: 20px;
+    }
+
+    .logged-in-as {
+        position: absolute;
+        bottom: 0;
+        height: 28px;
+        margin-bottom: 0;
+    }
 }

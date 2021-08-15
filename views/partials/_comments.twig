@@ -1,7 +1,7 @@
-<div id="article-comments" class="comments-section">
+<div id="article-comments" class="comments">
     {{ function('comment_form') }}
 
-    <div id="submit-message"></div>
+    <div class="comments__submit-message"></div>
 
     {% for comment in post.comments %}
         {% include 'partials/_comment.twig' %}

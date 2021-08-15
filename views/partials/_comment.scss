@@ -52,3 +52,20 @@
         }
     }
 }
+
+// WordPress Generated Styles
+
+.comment-respond {
+    border-top: 1px solid #80808052;
+    margin-top: 20px;
+    padding-top: 20px;
+    width: 100%;
+    margin-bottom: 80px;
+    @include mixins.desktop {
+        margin-bottom: 12px;
+    }
+}
+
+.comment-reply-title {
+    font-size: 18px;
+}

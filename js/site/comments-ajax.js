@@ -22,7 +22,7 @@ const setupForm = () => {
   }
 
   const commentForm = document.querySelector('form#commentform');
-  const submitMessage = document.querySelector('#submit-message');
+  const submitMessage = document.querySelector('.comments__submit-message');
 
   commentForm.onsubmit = async (e) => {
     submitMessage.style.display = 'none';

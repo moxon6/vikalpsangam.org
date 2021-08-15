@@ -21,3 +21,20 @@
     text-transform: uppercase;
     opacity: 1;
 }
+
+@mixin form-field {
+    width: 100%;
+
+    @include desktop {
+        width: 50%;
+    }
+
+    input,
+    textarea {
+        padding: 12px;
+        width: 100%;
+    }
+    label {
+        display: none;
+    }
+}
