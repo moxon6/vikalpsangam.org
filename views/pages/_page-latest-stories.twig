@@ -1,29 +1,21 @@
 {% extends 'layouts/_base-content.twig' %}
 
 {% block content %}
-    <div class="d-flex justify-content-between">
-        <h2 class="page-title">
-            {{ post.title }}
-        </h2>
-        <div>
+    <section class="page-latest-stories__section">
+        <header class="page-latest-stories__header">
+            <h2 class="page-latest-stories__title">
+                {{ post.title }}
+            </h2>
+
             <a href="/article/"
                 class="page-latest-stories__stories-by-category">
                 Show stories by category
             </a>
-        </div>
-    </div>
+        </header>
 
-    <section class="container-fluid">
-        <div class="row">
-            <div class="container-fluid p-0">
-                <div class="row category-page-category-list-wrapper"
-                    id="infinite-scroll-content">
-                    {% include 'partials/_post-tile-loop.twig' with {
-                        posts: posts,
-                        show_categories: true
-                    } only %}
-                </div>
-            </div>
-        </div>
+        {% include 'partials/_post-tile-loop.twig' with {
+            posts: posts,
+            show_categories: true
+        } only %}
     </section>
 {% endblock %}

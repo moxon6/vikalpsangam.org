@@ -5,27 +5,20 @@
         margin: 0 auto;
     }
 
-    &__post-loop-wrapper {
-        padding: 16px 0 0 0;
+    &__header {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-start;
+        justify-content: space-between;
+    }
+
+    &__title {
+        @include mixins.header-style();
     }
 
     .category-topping-wrapper {
         width: 100%;
     }
 
-    &__header {
-        display: flex;
-        justify-content: space-between;
-    }
-
     &__latest-posts {
         @include mixins.button-primary;
-    }
-
-    &__title {
-        @include mixins.header-style();
     }
 }

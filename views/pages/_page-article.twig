@@ -9,23 +9,19 @@
                 {{ post.title }}
             </h2>
 
-            <a class="page-article__latest-posts" href="/stories/">
+            <a href="/stories/" class="page-article__latest-posts">
                 Show all latest stories
             </a>
         </header>
 
         {% for category_group in stories_by_category %}
-            <div class="col-xs-12 category-topping-wrapper">
-                {% include 'partials/_term-header.twig' with {
-                    term: category_group.category
-                } only %}
-            </div>
+            {% include 'partials/_term-header.twig' with {
+                term: category_group.category
+            } only %}
 
-            <div class="page-article__post-loop-wrapper row">
-                {% include 'partials/_post-tile-loop.twig' with {
-                    posts: category_group.posts
-                } only %}
-            </div>
+            {% include 'partials/_post-tile-loop.twig' with {
+                posts: category_group.posts
+            } only %}
         {% endfor %}
     </section>
 {% endblock %}

@@ -1,0 +1,46 @@
+@use "../common/colors";
+
+.term-description {
+    margin-top: 12px;
+
+    $self: &;
+
+    &[open] {
+        #{ $self }__read-less {
+            display: block;
+        }
+
+        #{ $self }__read-more {
+            display: none;
+        }
+    }
+
+    &__summary {
+        list-style: none;
+        outline: none;
+        &::marker {
+            display: none;
+        }
+    }
+
+    &__read-less {
+        display: none;
+        color: colors.$color-theme-primary;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__read-more {
+        display: block;
+        color: colors.$color-theme-primary;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__expanded {
+        border-left: 2px solid colors.$color-theme-primary;
+        padding-left: 8px;
+    }
+}

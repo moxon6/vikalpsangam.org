@@ -1,6 +1,19 @@
 @use "../common/mixins";
 
 .page-latest-stories {
+    &__section {
+        margin: 0 auto;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__title {
+        @include mixins.header-style();
+    }
+
     &__stories-by-category {
         @include mixins.button-primary;
     }
