@@ -2,7 +2,7 @@
 <html lang="en">
     {% include 'partials/_head.twig' %}
 
-    <body id="{{ page_id }}" class="{{ body_class }}">
+    <body class="{{ body_class }} {{ page_class }}">
         {{ function('wp_body_open') }}
 
         {% include 'partials/_nav.twig' %}
