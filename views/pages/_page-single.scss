@@ -1,7 +1,7 @@
 @use "../common/colors";
 @use "../common/mixins";
 
-#page-single {
+.page-single {
     #author-date-category,
     #story-tags {
         .text {
@@ -36,7 +36,7 @@
     Any styles added to accomodate older migrated posts should be added here, and also should be made to be specific to avoid conflicting 
     with newer articles created using the gutenberg editor
 */
-#page-single {
+.page-single {
     article.format-standard {
         margin-top: 8px;
         padding-top: 40px;
