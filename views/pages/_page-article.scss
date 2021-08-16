@@ -1,8 +1,11 @@
 @use "../common/mixins";
 
 .page-article {
-    .category-page-category-list-wrapper {
-        padding-top: 16px;
+    &__post-loop-wrapper {
+        padding: 16px 0 0 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .category-topping-wrapper {
@@ -16,5 +19,9 @@
 
     &__latest-posts {
         @include mixins.button-primary;
+    }
+
+    &__title {
+        @include mixins.header-style();
     }
 }

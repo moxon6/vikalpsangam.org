@@ -3,33 +3,29 @@
 {% set page_class = 'page-article' %}
 
 {% block content %}
-    <header class="page-article__header">
-        <h2 class="page-title">
-            {{ post.title }}
-        </h2>
-
-        <a class="page-article__latest-posts" href="/stories/">
-            Show all latest stories
-        </a>
-    </header>
-
     <section class="container-fluid">
-        <div class="row">
-            {% for category_group in stories_by_category %}
-                <div class="col-xs-12 category-topping-wrapper">
-                    {% include 'partials/_term-header.twig' with {
-                        term: category_group.category
-                    } only %}
+        <header class="page-article__header">
+            <h2 class="page-article__title">
+                {{ post.title }}
+            </h2>
 
-                    <div class="container-fluid p-0">
-                        <div class="row category-page-category-list-wrapper">
-                            {% include 'partials/_post-tile-loop.twig' with {
-                                posts: category_group.posts
-                            } only %}
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
+            <a class="page-article__latest-posts" href="/stories/">
+                Show all latest stories
+            </a>
+        </header>
+
+        {% for category_group in stories_by_category %}
+            <div class="col-xs-12 category-topping-wrapper">
+                {% include 'partials/_term-header.twig' with {
+                    term: category_group.category
+                } only %}
+            </div>
+
+            <div class="page-article__post-loop-wrapper row">
+                {% include 'partials/_post-tile-loop.twig' with {
+                    posts: category_group.posts
+                } only %}
+            </div>
+        {% endfor %}
     </section>
 {% endblock %}
