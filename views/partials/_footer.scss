@@ -11,9 +11,9 @@
   font-family: fonts.$roboto;
   font-size: 16px;
   justify-content: space-between;
-  margin: 24px 0 0 0;
   overflow: hidden;
   padding: 20px;
+  margin: 24px auto 0 auto;
 
   @media print {
     display: none !important;
