@@ -1,3 +1,5 @@
+import autosize from 'https://esm.sh/autosize';
+
 const parseHTML = (str) => {
   const textarea = document.createElement('textarea');
   textarea.innerHTML = str;
@@ -13,7 +15,7 @@ function setupForm(form) {
     commentTextarea.setAttribute('rows', 4);
     commentTextarea.setAttribute('placeholder', 'Your comment');
     commentTextarea.onkeydown = () => commentTextarea.setCustomValidity('');
-    window.autosize(commentTextarea);
+    autosize(commentTextarea);
   }
 
   const author = document.querySelector('input#author');

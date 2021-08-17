@@ -8,9 +8,6 @@ function vikalpsangam_scripts() {
 
 	wp_enqueue_style("fontawesome-5.15.2", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css");
 
-	wp_enqueue_script("bootstrap/js", "https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js");
-
-	wp_enqueue_script("autosize/js", "https://cdn.jsdelivr.net/npm/autosize@4.0.2/dist/autosize.min.js");
 	wp_enqueue_script("diffhtml", "//unpkg.com/diffhtml/dist/diffhtml.min.js");
 
 	wp_enqueue_style( 'vikalpsangam-style', get_stylesheet_uri(), array(), $build_time);

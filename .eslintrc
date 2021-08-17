@@ -13,5 +13,8 @@
         "diff": "readonly",
         "Vue": "readonly",
         "_": "readonly"
+    },
+    "rules": {
+        "import/no-unresolved": "off"
     }
 }
