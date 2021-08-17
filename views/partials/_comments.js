@@ -1,4 +1,5 @@
 import autosize from 'https://esm.sh/autosize';
+import diff from 'https://esm.sh/diffhtml';
 
 const parseHTML = (str) => {
   const textarea = document.createElement('textarea');
