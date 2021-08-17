@@ -22,7 +22,8 @@
 
       {% if post.categories %}
         in
-        <a href="{{ post.categories[0].link }}">
+        <a class="page-single__category-link"
+          href="{{ post.categories[0].link }}">
           {{ post.categories[0].name }}
         </a>
       {% endif %}

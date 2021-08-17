@@ -10,6 +10,16 @@
     color: colors.$dark-gray-col;
   }
 
+  &__category-link {
+    color: colors.$color-theme-primary;
+    text-decoration: none;
+
+    &:hover {
+      color: colors.$color-theme-primary;
+      text-decoration: none;
+    }
+  }
+
   &__tag-list {
     border-left: 2px solid colors.$color-theme-primary;
     padding-left: 4px;
@@ -23,22 +33,6 @@
 
   &__article {
     margin-bottom: 24px;
-  }
-
-  &__author-date-category {
-    a {
-      color: colors.$color-theme-primary;
-      text-decoration: none;
-
-      &:hover {
-        color: colors.$color-theme-primary;
-        text-decoration: none;
-      }
-    }
-
-    > :is(span, a):not(:last-child) {
-      margin-right: 4px;
-    }
   }
 }
 
