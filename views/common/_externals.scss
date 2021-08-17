@@ -3,152 +3,150 @@
 @use "colors";
 @use "mixins";
 
-.base {
-  #infinite-handle {
-    display: flex;
+#infinite-handle {
+  display: flex;
+  width: 100%;
+  margin-bottom: 25px;
+
+  span {
     width: 100%;
-    margin-bottom: 25px;
 
-    span {
-      width: 100%;
-
-      button {
-        width: 100%;
-      }
-    }
-  }
-
-  .jp-relatedposts {
-    padding-top: 32px;
-    border-top: 2px solid colors.$light-gray-col;
-
-    h3.jp-relatedposts-headline em {
-      font-size: 20px;
-
-      &::before {
-        border-top: 0 !important;
-      }
-    }
-  }
-
-  .jp-relatedposts-items {
-    display: flex;
-    flex-wrap: wrap;
-
-    .jp-relatedposts-post {
-      width: 240px;
-    }
-  }
-
-  // Contact-form
-  form.contact-form {
-    width: 600px;
-
-    .email,
-    .name {
+    button {
       width: 100%;
     }
   }
+}
 
-  // Blocks
+.jp-relatedposts {
+  padding-top: 32px;
+  border-top: 2px solid colors.$light-gray-col;
 
-  figure.wp-block-image {
-    padding-bottom: 24px;
-  }
+  h3.jp-relatedposts-headline em {
+    font-size: 20px;
 
-  .aligncenter {
-    justify-content: center;
-  }
-
-  .wp-block-image {
-    img {
-      height: auto;
+    &::before {
+      border-top: 0 !important;
     }
   }
+}
 
-  .tribe-events-widget {
-    padding-left: 8px;
+.jp-relatedposts-items {
+  display: flex;
+  flex-wrap: wrap;
+
+  .jp-relatedposts-post {
+    width: 240px;
+  }
+}
+
+// Contact-form
+form.contact-form {
+  width: 600px;
+
+  .email,
+  .name {
+    width: 100%;
+  }
+}
+
+// Blocks
+
+figure.wp-block-image {
+  padding-bottom: 24px;
+}
+
+.aligncenter {
+  justify-content: center;
+}
+
+.wp-block-image {
+  img {
+    height: auto;
+  }
+}
+
+.tribe-events-widget {
+  padding-left: 8px;
+  border-left: 2px solid colors.$color-theme-primary;
+
+  .tribe-events-widget-events-list__header-title {
+    @include mixins.header-style;
+  }
+
+  .tribe-events-widget-events-list__view-more-link {
+    color: colors.$color-theme-primary;
+    font-size: medium;
+  }
+}
+
+.rpwwt-widget {
+  li {
+    background-color: #f7f7f7;
+    border: 1px solid #d8d8d8;
+    margin-bottom: 12px;
     border-left: 2px solid colors.$color-theme-primary;
 
-    .tribe-events-widget-events-list__header-title {
-      @include mixins.header-style;
+    .wp-post-image {
+      margin-top: 0;
+      margin-bottom: 0;
+      height: 125px;
+      width: 125px;
     }
 
-    .tribe-events-widget-events-list__view-more-link {
-      color: colors.$color-theme-primary;
-      font-size: medium;
+    .rpwwt-post-title {
+      @include mixins.clamp(2);
+    }
+
+    .rpwwt-post-excerpt {
+      font-size: 14px;
+      @include mixins.clamp(3);
     }
   }
+}
 
-  .rpwwt-widget {
-    li {
-      background-color: #f7f7f7;
-      border: 1px solid #d8d8d8;
-      margin-bottom: 12px;
-      border-left: 2px solid colors.$color-theme-primary;
+.sharedaddy,
+.jp-relatedposts,
+.comment-respond {
+  @media print {
+    display: none !important;
+  }
+}
 
-      .wp-post-image {
-        margin-top: 0;
-        margin-bottom: 0;
-        height: 125px;
-        width: 125px;
-      }
+// https://codex.wordpress.org/Wrapping_Text_Around_Images#Important_Theme_Code
+img.alignright {
+  float: right;
+  margin: 0 0 1em 1em;
+}
+img.alignleft {
+  float: left;
+  margin: 0 1em 1em 0;
+}
+img.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.alignright {
+  float: right;
+}
+.alignleft {
+  float: left;
+}
+.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-      .rpwwt-post-title {
-        @include mixins.clamp(2);
-      }
-
-      .rpwwt-post-excerpt {
-        font-size: 14px;
-        @include mixins.clamp(3);
-      }
-    }
-  }
-
-  .sharedaddy,
-  .jp-relatedposts,
-  .comment-respond {
-    @media print {
-      display: none !important;
-    }
-  }
-
-  // https://codex.wordpress.org/Wrapping_Text_Around_Images#Important_Theme_Code
-  img.alignright {
-    float: right;
-    margin: 0 0 1em 1em;
-  }
-  img.alignleft {
-    float: left;
-    margin: 0 1em 1em 0;
-  }
-  img.aligncenter {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .alignright {
-    float: right;
-  }
-  .alignleft {
-    float: left;
-  }
-  .aligncenter {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  // Utils to hook into
-  .india-map {
-    padding: 24px;
-    filter: drop-shadow(2px 4px 5px black);
-    width: 100%;
-    height: auto;
-    max-height: 280px;
-    &:hover {
-      filter: drop-shadow(2px 4px 6px black);
-    }
+// Utils to hook into
+.india-map {
+  padding: 24px;
+  filter: drop-shadow(2px 4px 5px black);
+  width: 100%;
+  height: auto;
+  max-height: 280px;
+  &:hover {
+    filter: drop-shadow(2px 4px 6px black);
   }
 }
 
