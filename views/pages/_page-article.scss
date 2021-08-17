@@ -14,10 +14,6 @@
     @include mixins.header-style();
   }
 
-  .category-topping-wrapper {
-    width: 100%;
-  }
-
   &__latest-posts {
     @include mixins.button-primary;
   }
