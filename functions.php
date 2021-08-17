@@ -224,7 +224,7 @@ add_action( 'widgets_init', 'vikalpsangam_widgets_init' );
 
 require get_template_directory() . '/inc/dependencies.php';
 
-require get_template_directory() . '/inc/functions/perspectives-patches.php';
+require get_template_directory() . '/inc/perspectives-patches.php';
 
 if (!is_admin()) {
     function wpb_search_filter($query) {
