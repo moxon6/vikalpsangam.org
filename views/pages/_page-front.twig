@@ -13,9 +13,7 @@
     </div>
     <div class="page-front__latest-stories">
       {% for post in latest_posts %}
-        <div class="col-md-6">
-          {% include 'partials/_highlight-card.twig' %}
-        </div>
+        {% include 'partials/_highlight-card.twig' %}
       {% endfor %}
     </div>
   </section>

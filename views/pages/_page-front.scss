@@ -14,9 +14,13 @@
   }
 
   &__latest-stories {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+
+    @include mixins.desktop {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   &__highlights {
