@@ -1,5 +1,6 @@
 @use "fonts";
 @use "colors";
+@use "sass:map";
 
 @mixin large-desktop {
   @media (min-width: 1200px) {
@@ -60,5 +61,31 @@
 
   &:focus {
     box-shadow: 0 0 0 0.25rem rgb(173 82 77 / 50%);
+  }
+}
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px,
+) !default;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+) !default;
+
+@mixin responsive-container {
+  padding: 0 12px;
+  @each $breakpoint, $container-max-width in $container-max-widths {
+    @media (min-width: map.get($grid-breakpoints, $breakpoint)) {
+      max-width: $container-max-width;
+    }
   }
 }

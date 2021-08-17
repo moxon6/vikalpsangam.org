@@ -3,19 +3,11 @@
 {% set page_class = 'page-front' %}
 
 {% block page %}
-  <section class="container-fluid main-section-container">
-    <div class="row ml-auto mr-auto pb-1">
-      <div class="col-xl-12 col-md-12 pl-0 pr-0 pl-md-4 pr-md-4">
-        {{
-          function('do_shortcode', '[smartslider3 slider="homepage-slider"]')
-        }}
-      </div>
-    </div>
-  </section>
+  {{ function('do_shortcode', '[smartslider3 slider="homepage-slider"]') }}
 
-  <section class="container mt-4">
-    <div class="section-header-container mb-4">
-      <h3 class="section-header">
+  <section class="page-front__section">
+    <div class="page-front__header-container">
+      <h3 class="page-front__header">
         Latest Stories
       </h3>
     </div>
@@ -28,9 +20,9 @@
     </div>
   </section>
 
-  <section class="container mt-4">
-    <div class="section-header-container mb-4">
-      <h3 class="section-header">
+  <section class="page-front__section">
+    <div class="page-front__header-container">
+      <h3 class="page-front__header">
         Highlights
       </h3>
     </div>

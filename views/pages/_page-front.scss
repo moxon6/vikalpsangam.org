@@ -7,11 +7,18 @@
 }
 
 .page-front {
-  .section-header-container {
-    border-bottom: 2px solid colors.$color-theme-primary;
+  &__section {
+    margin-top: 24px;
+    margin: 24px auto;
+    @include mixins.responsive-container;
   }
 
-  .section-header {
+  &__header-container {
+    border-bottom: 2px solid colors.$color-theme-primary;
+    margin-bottom: 24px;
+  }
+
+  &__header {
     background-color: colors.$color-theme-primary;
     color: white;
     margin-bottom: -1px;
@@ -20,70 +27,5 @@
     padding-right: 12px;
     font-weight: 500;
     padding-bottom: 2px;
-  }
-
-  #main-section {
-    .main-section-container {
-      padding-left: 0;
-      padding-right: 0;
-
-      display: flex;
-      flex-direction: column;
-
-      .featured-list-title-wrapper {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        .title-image {
-          margin: 0;
-          height: 64px;
-          width: 64px;
-          margin-right: 12px;
-        }
-      }
-
-      .featured-list-card-body {
-        padding: 8px;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-
-        p {
-          position: relative;
-          margin-bottom: 0;
-          font-size: 0.75em;
-          overflow: hidden;
-        }
-      }
-    }
-  }
-
-  #stories-by-category-section {
-    .stories-by-category-header {
-      text-transform: uppercase;
-      color: colors.$color-theme-primary;
-    }
-  }
-
-  #about-section {
-    .about-section-container {
-      .about-section-row {
-        padding-top: 32px;
-        padding-bottom: 16px;
-
-        .page-front-about-header {
-          @include mixins.header-style;
-        }
-
-        h2 {
-          font-size: 1.125em;
-        }
-
-        p {
-          padding-bottom: 12px;
-        }
-      }
-    }
   }
 }
