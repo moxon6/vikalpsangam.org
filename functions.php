@@ -51,7 +51,7 @@ class VikalpsangamOrgSite extends Timber\Site {
 	}
 	
 	private function setup_footer_context($context) {
-		$context['footer_logo'] = $this->get_template_image_url("/images/footer/site-logo.png");
+		$context['footer_logo'] = $this->get_template_image_url("/images/logo-transparent.png");
 
 		$context["footer_menus"] = [
 			new \Timber\Menu( 'footer-menu-1' ),
