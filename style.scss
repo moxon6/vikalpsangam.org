@@ -11,19 +11,10 @@ $primary: colors.$color-theme-primary;
 @import "node_modules/bootstrap/scss/mixins";
 @import "node_modules/bootstrap/scss/utilities";
 
-// Layout & components
-@import "node_modules/bootstrap/scss/type";
 @import "node_modules/bootstrap/scss/root";
 @import "node_modules/bootstrap/scss/reboot";
 @import "node_modules/bootstrap/scss/containers";
 @import "node_modules/bootstrap/scss/grid";
-
-// Helpers
-@import "node_modules/bootstrap/scss/helpers";
-
-// Utilities
-@import "node_modules/bootstrap/scss/utilities/api";
-// scss-docs-end import-stack
 
 html {
   font-size: 16px !important; // TODO: Fix root issue requiring this override (may be related to litespeed cache)
