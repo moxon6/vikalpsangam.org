@@ -1,7 +1,9 @@
 {% extends 'layouts/_base-content.twig' %}
 
+{% set page_class = 'page-base' %}
+
 {% block content %}
-    <h1 class="page-title">
+    <h1 class="page-base__title">
         {{ post.title }}
     </h1>
     {{ post.content }}
