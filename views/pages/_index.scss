@@ -1,9 +1,9 @@
-@use "page";
+@use "page-article";
+@use "page-events";
 @use "page-front";
+@use "page-latest-stories";
+@use "page-map";
+@use "page-password-protected";
 @use "page-single";
 @use "page-term";
-@use "page-article";
-@use "page-map";
-@use "page-events";
-@use "page-latest-stories";
-@use "password-protected";
+@use "page";
