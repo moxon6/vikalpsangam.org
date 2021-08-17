@@ -1,46 +1,46 @@
 {% set logo %}
-    <a href="/">
-        <img src="/wp-content/themes/vikalpsangam.org/images/header_big_logo.png" />
-    </a>
+  <a href="/">
+    <img src="/wp-content/themes/vikalpsangam.org/images/header_big_logo.png" />
+  </a>
 {% endset %}
 
 {% set logoPrimary %}
-    <a href="/">
-        <img class="logo--small"
-            src="/wp-content/themes/vikalpsangam.org/images/header_small_logo.png" />
-        <img class="logo--large"
-            src="/wp-content/themes/vikalpsangam.org/images/header_big_logo.png" />
-    </a>
+  <a href="/">
+    <img class="logo--small"
+      src="/wp-content/themes/vikalpsangam.org/images/header_small_logo.png" />
+    <img class="logo--large"
+      src="/wp-content/themes/vikalpsangam.org/images/header_big_logo.png" />
+  </a>
 {% endset %}
 
 {% set socialIcons %}
-    {{ get_social_icons() }}
+  {{ get_social_icons() }}
 {% endset %}
 
 {% set searchForm %}
-    <li class="mega-menu-item navbar-search-form">
-        {% include 'partials/_search-form.twig' %}
-    </li>
+  <li class="mega-menu-item navbar-search-form">
+    {% include 'partials/_search-form.twig' %}
+  </li>
 {% endset %}
 
 {{
-    get_secondary_header()|replace({
-        '<social-icons></social-icons>': socialIcons
-    })
+  get_secondary_header()|replace({
+    '<social-icons></social-icons>': socialIcons
+  })
 }}
 
 {{
-    get_primary_header()
-        |replace({
-            '<logo></logo>': logo
-        })
-        |replace({
-            '<logo-primary></logo-primary>': logoPrimary
-        })
-        |replace({
-            '<social-icons></social-icons>': socialIcons
-        })
-        |replace({
-            '<search-bar></search-bar>': searchForm
-        })
+  get_primary_header()
+    |replace({
+      '<logo></logo>': logo
+    })
+    |replace({
+      '<logo-primary></logo-primary>': logoPrimary
+    })
+    |replace({
+      '<social-icons></social-icons>': socialIcons
+    })
+    |replace({
+      '<search-bar></search-bar>': searchForm
+    })
 }}

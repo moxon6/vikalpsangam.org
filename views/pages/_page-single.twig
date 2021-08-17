@@ -3,44 +3,44 @@
 {% set page_class = 'page-single' %}
 
 {% block content %}
-    <h2 class="page-single__title">
-        {{ post.title }}
-    </h2>
-    <header class="page-single__author-date-category">
-        {% spaceless %}
-            {% set author = post.meta('author') %}
+  <h2 class="page-single__title">
+    {{ post.title }}
+  </h2>
+  <header class="page-single__author-date-category">
+    {% spaceless %}
+      {% set author = post.meta('author') %}
 
-            {% if author %}
-                By {{ author }}
-            {% else %}
-                Posted
-            {% endif %}
+      {% if author %}
+        By {{ author }}
+      {% else %}
+        Posted
+      {% endif %}
 
-            <span class="page-single__on">on</span>
+      <span class="page-single__on">on</span>
 
-            {{ post.date('M. d, Y') }}
+      {{ post.date('M. d, Y') }}
 
-            {% if post.categories %}
-                in
-                <a href="{{ post.categories[0].link }}">
-                    {{ post.categories[0].name }}
-                </a>
-            {% endif %}
-        {% endspaceless %}
-    </header>
-    <article id="post-{{ post.id }}"
-        class="{{ post.class }} page-single__article">
-        {{ post.content }}
-        <div class="page-single__tag-list">
-            <span>Story Tags:</span>
-            {% for tag in post.tags %}
-                <a class="page-single__tag" href="{{ tag.link }}" rel="tag">
-                    {{ tag.name|trim }}
-                </a>
-                {% if not loop.last %},{% endif %}
-            {% endfor %}
-        </div>
-    </article>
+      {% if post.categories %}
+        in
+        <a href="{{ post.categories[0].link }}">
+          {{ post.categories[0].name }}
+        </a>
+      {% endif %}
+    {% endspaceless %}
+  </header>
+  <article id="post-{{ post.id }}"
+    class="{{ post.class }} page-single__article">
+    {{ post.content }}
+    <div class="page-single__tag-list">
+      <span>Story Tags:</span>
+      {% for tag in post.tags %}
+        <a class="page-single__tag" href="{{ tag.link }}" rel="tag">
+          {{ tag.name|trim }}
+        </a>
+        {% if not loop.last %},{% endif %}
+      {% endfor %}
+    </div>
+  </article>
 
-    {% include 'partials/_comments.twig' %}
+  {% include 'partials/_comments.twig' %}
 {% endblock %}

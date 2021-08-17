@@ -1,21 +1,20 @@
 {% extends 'layouts/_base-content.twig' %}
 
 {% block content %}
-    <section class="page-latest-stories__section">
-        <header class="page-latest-stories__header">
-            <h2 class="page-latest-stories__title">
-                {{ post.title }}
-            </h2>
+  <section class="page-latest-stories__section">
+    <header class="page-latest-stories__header">
+      <h2 class="page-latest-stories__title">
+        {{ post.title }}
+      </h2>
 
-            <a href="/article/"
-                class="page-latest-stories__stories-by-category">
-                Show stories by category
-            </a>
-        </header>
+      <a href="/article/" class="page-latest-stories__stories-by-category">
+        Show stories by category
+      </a>
+    </header>
 
-        {% include 'partials/_post-tile-loop.twig' with {
-            posts: posts,
-            show_categories: true
-        } only %}
-    </section>
+    {% include 'partials/_post-tile-loop.twig' with {
+      posts: posts,
+      show_categories: true
+    } only %}
+  </section>
 {% endblock %}

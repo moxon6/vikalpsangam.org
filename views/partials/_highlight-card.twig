@@ -1,18 +1,18 @@
 <div class="highlight-card">
-    <div class="highlight-card__column--thumbnail">
-        <a href="{{ post.link }}">
-            <img src="{{ post.thumbnail.src('thumbnail') }}"
-                class="highlight-card__thumbnail" />
-        </a>
-    </div>
-    <div class="highlight-card__column--body">
-        <a href="{{ post.link }}">
-            <h6 class="highlight-card__title">
-                {{ post.title }}
-            </h6>
-        </a>
-        <p class="highlight-card__preview">
-            {{ post.preview.read_more(false).length(20) }}
-        </p>
-    </div>
+  <div class="highlight-card__column--thumbnail">
+    <a href="{{ post.link }}">
+      <img src="{{ post.thumbnail.src('thumbnail') }}"
+        class="highlight-card__thumbnail" />
+    </a>
+  </div>
+  <div class="highlight-card__column--body">
+    <a href="{{ post.link }}">
+      <h6 class="highlight-card__title">
+        {{ post.title }}
+      </h6>
+    </a>
+    <p class="highlight-card__preview">
+      {{ post.preview.read_more(false).length(20) }}
+    </p>
+  </div>
 </div>

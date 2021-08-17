@@ -1,23 +1,23 @@
 <article key="{{ comment.id }}" class="comment">
-    <img class="comment__avatar" src="{{ comment.avatar }}" />
-    <div class="comment__body">
-        <div class="comment__reply-wrapper" id="comment-{{ comment.id }}">
-            <strong>{{ comment.author.name }}</strong>
-            <small>{{ comment.date }} at {{ comment.time }}</small>
-            <div class="comment__content">
-                {{ comment.content }}
-            </div>
-            <div class="comment__footer">
-                {{ comment.reply_link }}
-            </div>
-        </div>
-
-        <div class="comment__children">
-            {% for child_comment in comment.children %}
-                {% include 'partials/_comment.twig' with {
-                    comment: child_comment
-                } %}
-            {% endfor %}
-        </div>
+  <img class="comment__avatar" src="{{ comment.avatar }}" />
+  <div class="comment__body">
+    <div class="comment__reply-wrapper" id="comment-{{ comment.id }}">
+      <strong>{{ comment.author.name }}</strong>
+      <small>{{ comment.date }} at {{ comment.time }}</small>
+      <div class="comment__content">
+        {{ comment.content }}
+      </div>
+      <div class="comment__footer">
+        {{ comment.reply_link }}
+      </div>
     </div>
+
+    <div class="comment__children">
+      {% for child_comment in comment.children %}
+        {% include 'partials/_comment.twig' with {
+          comment: child_comment
+        } %}
+      {% endfor %}
+    </div>
+  </div>
 </article>

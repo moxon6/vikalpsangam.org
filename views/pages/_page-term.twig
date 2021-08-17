@@ -3,19 +3,19 @@
 {% set page_class = 'page-term' %}
 
 {% block content %}
-    {% include 'partials/_term-header.twig' with {
-        term: term
+  {% include 'partials/_term-header.twig' with {
+    term: term
+  } only %}
+
+  {% if term.description %}
+    {% include 'partials/_term-description.twig' with {
+      term: term
     } only %}
+  {% endif %}
 
-    {% if term.description %}
-        {% include 'partials/_term-description.twig' with {
-            term: term
-        } only %}
-    {% endif %}
-
-    <section class="page-term__section">
-        {% include 'partials/_post-tile-loop.twig' with {
-            posts: posts
-        } only %}
-    </section>
+  <section class="page-term__section">
+    {% include 'partials/_post-tile-loop.twig' with {
+      posts: posts
+    } only %}
+  </section>
 {% endblock %}

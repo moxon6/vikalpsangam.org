@@ -3,25 +3,25 @@
 {% set page_class = 'page-article' %}
 
 {% block content %}
-    <section class="page-article__section">
-        <header class="page-article__header">
-            <h2 class="page-article__title">
-                {{ post.title }}
-            </h2>
+  <section class="page-article__section">
+    <header class="page-article__header">
+      <h2 class="page-article__title">
+        {{ post.title }}
+      </h2>
 
-            <a href="/stories/" class="page-article__latest-posts">
-                Show all latest stories
-            </a>
-        </header>
+      <a href="/stories/" class="page-article__latest-posts">
+        Show all latest stories
+      </a>
+    </header>
 
-        {% for category_group in stories_by_category %}
-            {% include 'partials/_term-header.twig' with {
-                term: category_group.category
-            } only %}
+    {% for category_group in stories_by_category %}
+      {% include 'partials/_term-header.twig' with {
+        term: category_group.category
+      } only %}
 
-            {% include 'partials/_post-tile-loop.twig' with {
-                posts: category_group.posts
-            } only %}
-        {% endfor %}
-    </section>
+      {% include 'partials/_post-tile-loop.twig' with {
+        posts: category_group.posts
+      } only %}
+    {% endfor %}
+  </section>
 {% endblock %}

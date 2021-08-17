@@ -1,45 +1,41 @@
 <footer class="footer container-fluid">
-    <div class="footer__column--left">
-        <div class="footer__logo">
-            <a href="/"><img class="img-fluid" src="{{ footer_logo }} " /></a>
-        </div>
-        <div class="footer__social-links">
-            {{ get_social_icons() }}
-        </div>
+  <div class="footer__column--left">
+    <div class="footer__logo">
+      <a href="/"><img class="img-fluid" src="{{ footer_logo }} " /></a>
     </div>
-
-    <div class="footer__column--center">
-        <h2 class="footer__subscribe">
-            Newsletter
-        </h2>
-        <p class="footer__subscribe-description">
-            Enter your email address below to subscribe to our monthly
-            newsletter
-        </p>
-        <form class="footer__subscribe-form"
-            action="{{ MAILCHIMP_SUBMIT_URL }}"
-            method="post">
-            <input type="email"
-                name="EMAIL"
-                required
-                placeholder="Email address" />
-            <button type="submit">Sign up</button>
-        </form>
+    <div class="footer__social-links">
+      {{ get_social_icons() }}
     </div>
+  </div>
 
-    <div class="footer__column--right">
-        {% for menu in footer_menus %}
-            <ul class="footer-menu">
-                {% for item in menu.items %}
-                    <li class="footer-menu__item">
-                        <a class="footer-menu__link" href="{{ item.link }}">
-                            {{ item.title }}
-                        </a>
-                    </li>
-                {% endfor %}
-            </ul>
+  <div class="footer__column--center">
+    <h2 class="footer__subscribe">
+      Newsletter
+    </h2>
+    <p class="footer__subscribe-description">
+      Enter your email address below to subscribe to our monthly newsletter
+    </p>
+    <form class="footer__subscribe-form"
+      action="{{ MAILCHIMP_SUBMIT_URL }}"
+      method="post">
+      <input type="email" name="EMAIL" required placeholder="Email address" />
+      <button type="submit">Sign up</button>
+    </form>
+  </div>
+
+  <div class="footer__column--right">
+    {% for menu in footer_menus %}
+      <ul class="footer-menu">
+        {% for item in menu.items %}
+          <li class="footer-menu__item">
+            <a class="footer-menu__link" href="{{ item.link }}">
+              {{ item.title }}
+            </a>
+          </li>
         {% endfor %}
-    </div>
+      </ul>
+    {% endfor %}
+  </div>
 </footer>
 
 {{ function('wp_footer') }}

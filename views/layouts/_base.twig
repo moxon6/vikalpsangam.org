@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-    {% include 'partials/_head.twig' %}
+  {% include 'partials/_head.twig' %}
 
-    <body class="{{ body_class }} {{ page_class }}">
-        {{ function('wp_body_open') }}
+  <body class="{{ body_class }} {{ page_class }}">
+    {{ function('wp_body_open') }}
 
-        {% include 'partials/_nav.twig' %}
+    {% include 'partials/_nav.twig' %}
 
-        {% block page %}
-            <span />
-        {% endblock %}
+    {% block page %}
+      <span />
+    {% endblock %}
 
-        {% block footer %}
-            {% include 'partials/_footer.twig' %}
-        {% endblock %}
-    </body>
+    {% block footer %}
+      {% include 'partials/_footer.twig' %}
+    {% endblock %}
+  </body>
 </html>
