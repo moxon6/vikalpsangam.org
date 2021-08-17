@@ -2,63 +2,63 @@
 @use "colors";
 
 @mixin large-desktop {
-    @media (min-width: 1200px) {
-        @content;
-    }
+  @media (min-width: 1200px) {
+    @content;
+  }
 }
 
 @mixin desktop {
-    @media (min-width: 768px) {
-        @content;
-    }
+  @media (min-width: 768px) {
+    @content;
+  }
 }
 
 @mixin clamp($i) {
-    display: -webkit-box;
-    -webkit-line-clamp: $i;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: $i;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 @mixin header-style {
-    font-family: fonts.$roboto-black;
-    color: colors.$color-theme-primary;
-    text-shadow: none;
-    text-transform: uppercase;
-    opacity: 1;
+  font-family: fonts.$roboto-black;
+  color: colors.$color-theme-primary;
+  text-shadow: none;
+  text-transform: uppercase;
+  opacity: 1;
 }
 
 @mixin form-field {
+  width: 100%;
+
+  @include desktop {
+    width: 50%;
+  }
+
+  input,
+  textarea {
+    padding: 12px;
     width: 100%;
-
-    @include desktop {
-        width: 50%;
-    }
-
-    input,
-    textarea {
-        padding: 12px;
-        width: 100%;
-    }
-    label {
-        display: none;
-    }
+  }
+  label {
+    display: none;
+  }
 }
 
 @mixin button-primary {
+  color: white;
+  background-color: colors.$color-theme-primary;
+  text-align: center;
+  padding: 6px 12px;
+  height: fit-content;
+  border: 0;
+  border-radius: 4px;
+
+  &:hover {
     color: white;
-    background-color: colors.$color-theme-primary;
-    text-align: center;
-    padding: 6px 12px;
-    height: fit-content;
-    border: 0;
-    border-radius: 4px;
+  }
 
-    &:hover {
-        color: white;
-    }
-
-    &:focus {
-        box-shadow: 0 0 0 0.25rem rgb(173 82 77 / 50%);
-    }
+  &:focus {
+    box-shadow: 0 0 0 0.25rem rgb(173 82 77 / 50%);
+  }
 }

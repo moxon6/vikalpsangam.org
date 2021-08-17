@@ -2,101 +2,101 @@
 @use "../common/colors";
 
 .comments {
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+
+  @include mixins.desktop {
+    padding-right: 64px;
+  }
+
+  &__submit-message {
+    display: none;
     width: 100%;
-
-    @include mixins.desktop {
-        padding-right: 64px;
-    }
-
-    &__submit-message {
-        display: none;
-        width: 100%;
-        color: #004085;
-        background-color: #cce5ff;
-        border-color: #b8daff;
-        position: relative;
-        padding: 0.75rem 1.25rem;
-        margin-bottom: 1rem;
-        border: 1px solid transparent;
-        border-radius: 0.25rem;
-    }
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+  }
 }
 
 // WordPress Generated Styles
 .comment-form {
-    position: relative;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  .comment-notes {
+    width: 100%;
+    order: 4;
+    font-size: small;
+  }
+
+  &-comment {
+    order: 3;
+    @include mixins.form-field;
     display: flex;
     flex-direction: column;
+    margin-bottom: 30px;
 
-    .comment-notes {
-        width: 100%;
-        order: 4;
-        font-size: small;
+    label {
+      display: none;
     }
 
-    &-comment {
-        order: 3;
-        @include mixins.form-field;
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 30px;
-
-        label {
-            display: none;
-        }
-
-        textarea#comment {
-            padding: 12px;
-            margin-bottom: 12px;
-        }
+    textarea#comment {
+      padding: 12px;
+      margin-bottom: 12px;
     }
+  }
 
-    &-author {
-        @include mixins.form-field;
-        order: 1;
-        input {
-            padding-top: 4px;
-            padding-bottom: 4px;
-        }
+  &-author {
+    @include mixins.form-field;
+    order: 1;
+    input {
+      padding-top: 4px;
+      padding-bottom: 4px;
     }
+  }
 
-    &-cookies-consent {
-        order: 5;
-        font-size: small;
+  &-cookies-consent {
+    order: 5;
+    font-size: small;
+  }
+
+  &-email {
+    @include mixins.form-field;
+    order: 2;
+    input {
+      padding-top: 4px;
+      padding-bottom: 4px;
     }
+  }
 
-    &-email {
-        @include mixins.form-field;
-        order: 2;
-        input {
-            padding-top: 4px;
-            padding-bottom: 4px;
-        }
+  .form-submit {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 30px;
+    margin: 0;
+
+    .submit {
+      @include mixins.button-primary;
     }
+  }
 
-    .form-submit {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        height: 30px;
-        margin: 0;
+  #cancel-comment-reply-link {
+    margin-left: 20px;
+  }
 
-        .submit {
-            @include mixins.button-primary;
-        }
-    }
-
-    #cancel-comment-reply-link {
-        margin-left: 20px;
-    }
-
-    .logged-in-as {
-        position: absolute;
-        bottom: 0;
-        height: 28px;
-        margin-bottom: 0;
-    }
+  .logged-in-as {
+    position: absolute;
+    bottom: 0;
+    height: 28px;
+    margin-bottom: 0;
+  }
 }

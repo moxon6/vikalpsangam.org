@@ -2,90 +2,90 @@
 @use "../common/colors";
 
 .main-content {
-    padding-top: 32px;
-    padding-bottom: 0;
+  padding-top: 32px;
+  padding-bottom: 0;
 
-    @include mixins.desktop {
-        padding-bottom: 96px;
-    }
+  @include mixins.desktop {
+    padding-bottom: 96px;
+  }
 }
 
 .sidebar-container {
-    padding-bottom: 20px;
-    padding-top: 32px;
-    padding-bottom: 96px;
+  padding-bottom: 20px;
+  padding-top: 32px;
+  padding-bottom: 96px;
 
-    @include mixins.desktop {
-        padding-left: 30px;
-        border-left: 2px solid colors.$light-gray-col;
-    }
+  @include mixins.desktop {
+    padding-left: 30px;
+    border-left: 2px solid colors.$light-gray-col;
+  }
 
-    h5 {
-        padding-top: 10px;
-    }
+  h5 {
+    padding-top: 10px;
+  }
 }
 
 @include mixins.desktop {
-    #page {
-        max-width: 1360px;
-        margin-left: auto;
-        margin-right: auto;
+  #page {
+    max-width: 1360px;
+    margin-left: auto;
+    margin-right: auto;
 
-        .container-fluid .row {
-            display: flex;
-            flex-wrap: wrap;
-        }
+    .container-fluid .row {
+      display: flex;
+      flex-wrap: wrap;
     }
+  }
 }
 
 .sidebar {
-    > li.widget {
-        list-style: none;
+  > li.widget {
+    list-style: none;
+  }
+
+  @media print {
+    display: none !important;
+  }
+
+  .sidebar-header {
+    @include mixins.header-style;
+  }
+
+  .widgettitle {
+    @include mixins.header-style;
+    font-size: 20px;
+  }
+
+  .widget_tag_cloud .tagcloud {
+    padding-bottom: 20px;
+    text-align: center;
+
+    .tag-weight-1 {
+      font-size: 0.8em !important;
+      color: colors.$dark-gray-col;
     }
 
-    @media print {
-        display: none !important;
+    .tag-weight-2 {
+      font-size: 1em !important;
+      color: colors.$yellow-col;
     }
 
-    .sidebar-header {
-        @include mixins.header-style;
+    .tag-weight-3 {
+      font-size: 1.2em !important;
+      color: colors.$light-brick-color;
     }
 
-    .widgettitle {
-        @include mixins.header-style;
-        font-size: 20px;
+    .tag-weight-4 {
+      font-size: 1.3em !important;
+      color: colors.$color-theme-primary;
     }
+  }
 
-    .widget_tag_cloud .tagcloud {
-        padding-bottom: 20px;
-        text-align: center;
+  .featured-list {
+    font-size: small;
 
-        .tag-weight-1 {
-            font-size: 0.8em !important;
-            color: colors.$dark-gray-col;
-        }
-
-        .tag-weight-2 {
-            font-size: 1em !important;
-            color: colors.$yellow-col;
-        }
-
-        .tag-weight-3 {
-            font-size: 1.2em !important;
-            color: colors.$light-brick-color;
-        }
-
-        .tag-weight-4 {
-            font-size: 1.3em !important;
-            color: colors.$color-theme-primary;
-        }
+    .featured-list-card-body {
+      padding: 0;
     }
-
-    .featured-list {
-        font-size: small;
-
-        .featured-list-card-body {
-            padding: 0;
-        }
-    }
+  }
 }

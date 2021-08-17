@@ -5,128 +5,128 @@
 $logo-width-l: 275px;
 
 @mixin header-primary-wrapper {
-    #mega-menu-wrap-header-menu {
-        @content;
-    }
+  #mega-menu-wrap-header-menu {
+    @content;
+  }
 }
 
 @mixin header-secondary-wrapper {
-    #mega-menu-wrap-header-menu-secondary {
-        @content;
-    }
+  #mega-menu-wrap-header-menu-secondary {
+    @content;
+  }
 }
 
 @mixin header-primary {
-    #mega-menu-header-menu {
-        @content;
-    }
+  #mega-menu-header-menu {
+    @content;
+  }
 }
 
 @include header-primary-wrapper {
-    box-shadow: 0 2px 2px 0 rgb(50 50 50 / 30%) !important;
-    position: sticky !important;
-    z-index: 5000;
-    top: 0 !important;
+  box-shadow: 0 2px 2px 0 rgb(50 50 50 / 30%) !important;
+  position: sticky !important;
+  z-index: 5000;
+  top: 0 !important;
 
-    .wp-block-social-links {
-        margin: 0 auto;
-        width: fit-content;
-        > li {
-            color: colors.$color-theme-primary !important;
-            margin: 4px 8px 4px 8px !important;
-        }
-
-        @include mixins.desktop {
-            display: none !important;
-        }
-    }
-
-    .mega-menu-toggle {
-        align-items: center !important;
-        .mega-toggle-blocks-left,
-        .mega-toggle-blocks-right {
-            width: 40px;
-            flex-grow: 0;
-        }
-
-        .mega-toggle-blocks-center {
-            flex-grow: 1;
-            flex-basis: auto;
-        }
+  .wp-block-social-links {
+    margin: 0 auto;
+    width: fit-content;
+    > li {
+      color: colors.$color-theme-primary !important;
+      margin: 4px 8px 4px 8px !important;
     }
 
     @include mixins.desktop {
-        height: 54px !important;
-        width: 100% !important;
-        flex-shrink: 0 !important;
-
-        &[menu-open="true"] {
-            .mega-menu-item:not(.navbar-search-form) {
-                display: none !important;
-            }
-        }
+      display: none !important;
     }
+  }
+
+  .mega-menu-toggle {
+    align-items: center !important;
+    .mega-toggle-blocks-left,
+    .mega-toggle-blocks-right {
+      width: 40px;
+      flex-grow: 0;
+    }
+
+    .mega-toggle-blocks-center {
+      flex-grow: 1;
+      flex-basis: auto;
+    }
+  }
+
+  @include mixins.desktop {
+    height: 54px !important;
+    width: 100% !important;
+    flex-shrink: 0 !important;
+
+    &[menu-open="true"] {
+      .mega-menu-item:not(.navbar-search-form) {
+        display: none !important;
+      }
+    }
+  }
 }
 
 @include header-primary {
+  .navbar-search-form {
+    padding: 20px 8px !important;
+  }
+
+  @include mixins.desktop {
+    display: flex !important;
+    align-items: center !important;
+    height: 100% !important;
+    max-width: 1060px !important;
+
+    margin: 0 auto !important;
+
     .navbar-search-form {
-        padding: 20px 8px !important;
+      flex: 1 !important;
+      display: flex !important;
+      justify-content: flex-end !important;
     }
-
-    @include mixins.desktop {
-        display: flex !important;
-        align-items: center !important;
-        height: 100% !important;
-        max-width: 1060px !important;
-
-        margin: 0 auto !important;
-
-        .navbar-search-form {
-            flex: 1 !important;
-            display: flex !important;
-            justify-content: flex-end !important;
-        }
-    }
+  }
 }
 
 @include header-secondary-wrapper {
-    display: none !important;
+  display: none !important;
 
-    .widget.widget_block {
-        margin: 0;
-        display: inline-block;
-        height: auto;
-        vertical-align: middle;
-    }
+  .widget.widget_block {
+    margin: 0;
+    display: inline-block;
+    height: auto;
+    vertical-align: middle;
+  }
 
-    @include mixins.desktop {
-        display: block !important;
-    }
+  @include mixins.desktop {
+    display: block !important;
+  }
 }
 
 .logo {
-    &--large {
-        display: block;
-        margin: 20px 8px 8px 8px;
-        @include mixins.desktop {
-            display: none;
-        }
-
-        @media (min-width: 1080px) {
-            display: block;
-            margin: 0 24px 0 0;
-        }
+  &--large {
+    display: block;
+    margin: 20px 8px 8px 8px;
+    @include mixins.desktop {
+      display: none;
     }
 
-    &--small {
-        display: none;
-        @include mixins.desktop {
-            display: block;
-            margin: 0 24px 0 0;
-        }
-
-        @media (min-width: 1080px) {
-            display: none;
-        }
+    @media (min-width: 1080px) {
+      display: block;
+      margin: 0 24px 0 0;
     }
+  }
+
+  &--small {
+    display: none;
+    @include mixins.desktop {
+      display: block;
+      margin: 0 24px 0 0;
+    }
+
+    @media (min-width: 1080px) {
+      display: none;
+    }
+  }
 }

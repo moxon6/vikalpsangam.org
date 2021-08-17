@@ -2,44 +2,44 @@
 @use "../common/mixins";
 
 .page-single {
-    &__title {
-        @include mixins.header-style;
+  &__title {
+    @include mixins.header-style;
+  }
+
+  &__on {
+    color: colors.$dark-gray-col;
+  }
+
+  &__tag-list {
+    border-left: 2px solid colors.$color-theme-primary;
+    padding-left: 4px;
+  }
+
+  &__tag {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__article {
+    margin-bottom: 24px;
+  }
+
+  &__author-date-category {
+    a {
+      color: colors.$color-theme-primary;
+      text-decoration: none;
+
+      &:hover {
+        color: colors.$color-theme-primary;
+        text-decoration: none;
+      }
     }
 
-    &__on {
-        color: colors.$dark-gray-col;
+    > :is(span, a):not(:last-child) {
+      margin-right: 4px;
     }
-
-    &__tag-list {
-        border-left: 2px solid colors.$color-theme-primary;
-        padding-left: 4px;
-    }
-
-    &__tag {
-        &:hover {
-            text-decoration: underline;
-        }
-    }
-
-    &__article {
-        margin-bottom: 24px;
-    }
-
-    &__author-date-category {
-        a {
-            color: colors.$color-theme-primary;
-            text-decoration: none;
-
-            &:hover {
-                color: colors.$color-theme-primary;
-                text-decoration: none;
-            }
-        }
-
-        > :is(span, a):not(:last-child) {
-            margin-right: 4px;
-        }
-    }
+  }
 }
 
 /*
@@ -49,40 +49,40 @@
     with newer articles created using the gutenberg editor
 */
 .page-single {
-    article.format-standard {
-        margin-top: 8px;
-        padding-top: 40px;
-        border-top: 1px solid #e6e7e8;
-        overflow-wrap: break-word;
+  article.format-standard {
+    margin-top: 8px;
+    padding-top: 40px;
+    border-top: 1px solid #e6e7e8;
+    overflow-wrap: break-word;
 
-        > img,
-        > p img {
-            display: block;
-            max-width: 100%;
-            margin: 0 auto;
-            height: auto;
+    > img,
+    > p img {
+      display: block;
+      max-width: 100%;
+      margin: 0 auto;
+      height: auto;
 
-            margin-top: 24px;
-            margin-bottom: 24px;
+      margin-top: 24px;
+      margin-bottom: 24px;
 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
-            figcaption {
-                text-align: center;
-                font-style: italic;
-            }
-        }
-
-        > p > small:only-child {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        h4 {
-            color: colors.$color-theme-primary;
-        }
+      figcaption {
+        text-align: center;
+        font-style: italic;
+      }
     }
+
+    > p > small:only-child {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    h4 {
+      color: colors.$color-theme-primary;
+    }
+  }
 }

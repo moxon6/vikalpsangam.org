@@ -35,7 +35,7 @@
       <span>Story Tags:</span>
       {% for tag in post.tags %}
         <a class="page-single__tag" href="{{ tag.link }}" rel="tag">
-          {{ tag.name|trim }}
+          {{ tag.name }}
         </a>
         {% if not loop.last %},{% endif %}
       {% endfor %}

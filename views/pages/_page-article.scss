@@ -1,24 +1,24 @@
 @use "../common/mixins";
 
 .page-article {
-    &__section {
-        margin: 0 auto;
-    }
+  &__section {
+    margin: 0 auto;
+  }
 
-    &__header {
-        display: flex;
-        justify-content: space-between;
-    }
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
 
-    &__title {
-        @include mixins.header-style();
-    }
+  &__title {
+    @include mixins.header-style();
+  }
 
-    .category-topping-wrapper {
-        width: 100%;
-    }
+  .category-topping-wrapper {
+    width: 100%;
+  }
 
-    &__latest-posts {
-        @include mixins.button-primary;
-    }
+  &__latest-posts {
+    @include mixins.button-primary;
+  }
 }

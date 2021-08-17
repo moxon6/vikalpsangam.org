@@ -3,134 +3,134 @@
 @use "../common/mixins";
 
 .footer {
-    align-items: center;
-    background-color: #58585a;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    font-family: fonts.$roboto;
-    font-size: 16px;
-    justify-content: space-between;
-    margin: 24px 0 0 0;
-    overflow: hidden;
-    padding: 20px;
+  align-items: center;
+  background-color: #58585a;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-family: fonts.$roboto;
+  font-size: 16px;
+  justify-content: space-between;
+  margin: 24px 0 0 0;
+  overflow: hidden;
+  padding: 20px;
 
-    @media print {
-        display: none !important;
+  @media print {
+    display: none !important;
+  }
+
+  @include mixins.large-desktop {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
+  &__column {
+    flex: 1;
+    margin-top: 20px 0;
+    min-width: fit-content;
+    padding: 0 10px;
+
+    &--left {
+      width: 25%;
     }
 
-    @include mixins.large-desktop {
+    &--center {
+      min-width: 350px;
+      width: 25%;
+    }
+
+    &--right {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      flex-shrink: 0;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: 50%;
+
+      @include mixins.large-desktop {
         flex-direction: row;
-        align-items: flex-end;
+        align-items: initial;
+        width: initial;
+      }
     }
+  }
 
-    &__column {
-        flex: 1;
-        margin-top: 20px 0;
-        min-width: fit-content;
-        padding: 0 10px;
+  &__logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
 
-        &--left {
-            width: 25%;
-        }
+  &__social-links {
+    list-style: none;
 
-        &--center {
-            min-width: 350px;
-            width: 25%;
-        }
-
-        &--right {
-            align-items: center;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-            flex-shrink: 0;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            width: 50%;
-
-            @include mixins.large-desktop {
-                flex-direction: row;
-                align-items: initial;
-                width: initial;
-            }
-        }
+    .wp-block-social-links {
+      margin: 0 auto;
+      width: fit-content;
+      > li {
+        margin: 4px 8px !important;
+      }
     }
+  }
 
-    &__logo {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 40px;
+  &__subscribe {
+    @include mixins.header-style;
+    color: white;
+    text-align: center;
+  }
+
+  &__subscribe-description {
+    color: white;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  &__subscribe-form {
+    display: flex;
+    input {
+      flex: 1;
+      flex-shrink: 1;
+      padding: 10px 15px;
     }
-
-    &__social-links {
-        list-style: none;
-
-        .wp-block-social-links {
-            margin: 0 auto;
-            width: fit-content;
-            > li {
-                margin: 4px 8px !important;
-            }
-        }
+    button {
+      background-color: #9e332e;
+      padding: 0 16px;
+      color: white;
+      border: none;
     }
-
-    &__subscribe {
-        @include mixins.header-style;
-        color: white;
-        text-align: center;
-    }
-
-    &__subscribe-description {
-        color: white;
-        margin-bottom: 15px;
-        text-align: center;
-    }
-
-    &__subscribe-form {
-        display: flex;
-        input {
-            flex: 1;
-            flex-shrink: 1;
-            padding: 10px 15px;
-        }
-        button {
-            background-color: #9e332e;
-            padding: 0 16px;
-            color: white;
-            border: none;
-        }
-    }
+  }
 }
 
 .footer-menu {
-    margin: 0;
-    margin: 0;
-    text-align: center;
-    white-space: nowrap;
-    height: fit-content;
-    width: fit-content;
-    flex-basis: 0;
-    min-width: fit-content;
-    flex: 1;
-    padding-left: 0;
+  margin: 0;
+  margin: 0;
+  text-align: center;
+  white-space: nowrap;
+  height: fit-content;
+  width: fit-content;
+  flex-basis: 0;
+  min-width: fit-content;
+  flex: 1;
+  padding-left: 0;
 
-    &__item {
-        list-style: none;
-        padding: 6px 10px;
-        background: none;
-        border: 0 none;
+  &__item {
+    list-style: none;
+    padding: 6px 10px;
+    background: none;
+    border: 0 none;
+  }
+
+  &__link {
+    font-size: 0.8em;
+    color: colors.$lighter-gray-col;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &:hover {
+      color: colors.$light-gray-col;
+      text-decoration: underline;
     }
-
-    &__link {
-        font-size: 0.8em;
-        color: colors.$lighter-gray-col;
-        text-decoration: none;
-        text-transform: uppercase;
-
-        &:hover {
-            color: colors.$light-gray-col;
-            text-decoration: underline;
-        }
-    }
+  }
 }

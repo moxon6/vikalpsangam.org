@@ -2,47 +2,47 @@
 @use "../common/colors";
 
 .highlight-card {
-    align-items: center;
-    background-clip: border-box;
+  align-items: center;
+  background-clip: border-box;
+  background-color: white;
+  border: 1px solid colors.$lighter-gray-col;
+  display: flex;
+  height: 150px;
+  justify-content: space-between;
+  margin-bottom: 8px;
+
+  &__column--thumbnail {
     background-color: white;
-    border: 1px solid colors.$lighter-gray-col;
+    height: 100%;
+    max-width: 150px;
+    padding: 0;
+  }
+
+  &__column--body {
     display: flex;
-    height: 150px;
-    justify-content: space-between;
-    margin-bottom: 8px;
+    flex-direction: column;
+    height: 100%;
+    max-width: calc(100% - 150px);
+    padding: 8px;
+    width: 100%;
+  }
 
-    &__column--thumbnail {
-        background-color: white;
-        height: 100%;
-        max-width: 150px;
-        padding: 0;
-    }
+  &__thumbnail {
+    border-right: 1px solid #dfdfdf;
+    height: auto;
+    margin: 0;
+    object-fit: scale-down;
+    width: 150px;
+  }
 
-    &__column--body {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        max-width: calc(100% - 150px);
-        padding: 8px;
-        width: 100%;
-    }
+  &__title {
+    @include mixins.clamp(2);
+  }
 
-    &__thumbnail {
-        border-right: 1px solid #dfdfdf;
-        height: auto;
-        margin: 0;
-        object-fit: scale-down;
-        width: 150px;
-    }
-
-    &__title {
-        @include mixins.clamp(2);
-    }
-
-    &__preview {
-        @include mixins.clamp(4);
-        font-size: 14px;
-        line-height: 21px;
-        margin-bottom: 0;
-    }
+  &__preview {
+    @include mixins.clamp(4);
+    font-size: 14px;
+    line-height: 21px;
+    margin-bottom: 0;
+  }
 }
