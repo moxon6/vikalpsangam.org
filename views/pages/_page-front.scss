@@ -13,6 +13,33 @@
     @include mixins.responsive-container;
   }
 
+  &__latest-stories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  &__highlights {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  &__post-tile-container {
+    padding-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+
+    @include mixins.desktop {
+      &:not(:first-child) {
+        padding-left: 12px;
+      }
+      &:not(:last-child) {
+        padding-right: 12px;
+      }
+    }
+  }
+
   &__header-container {
     border-bottom: 2px solid colors.$color-theme-primary;
     margin-bottom: 24px;

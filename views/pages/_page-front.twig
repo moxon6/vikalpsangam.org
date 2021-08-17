@@ -11,7 +11,7 @@
         Latest Stories
       </h3>
     </div>
-    <div class="row justify-content-center">
+    <div class="page-front__latest-stories">
       {% for post in latest_posts %}
         <div class="col-md-6">
           {% include 'partials/_highlight-card.twig' %}
@@ -26,9 +26,9 @@
         Highlights
       </h3>
     </div>
-    <div class="row justify-content-center">
+    <div class="page-front__highlights">
       {% for post in promoted_articles %}
-        <div class="col-xs-4 col-md-6 col-lg-3 pb-4 d-flex flex-column">
+        <div class="col-xs-4 col-md-6 col-lg-3 page-front__post-tile-container">
           {% include 'partials/_post-tile.twig' with {
             post: post
           } only %}
