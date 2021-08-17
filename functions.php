@@ -236,7 +236,7 @@ if (!is_admin()) {
     add_filter('pre_get_posts','wpb_search_filter');    
 }
 
-require get_template_directory() . '/inc/endpoints.php';
+require get_template_directory() . '/inc/rest.php';
 
 
 add_filter('comment_form_field_url', '__return_false');
