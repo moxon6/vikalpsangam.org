@@ -7,10 +7,6 @@
   flex-direction: column;
   width: 100%;
 
-  @include mixins.desktop {
-    padding-right: 64px;
-  }
-
   &__submit-message {
     display: none;
     width: 100%;
