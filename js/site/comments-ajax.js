@@ -1,7 +1,7 @@
 const parseHTMLEntities = (str) => jQuery('<textarea/>').html(str).text();
 
 const setupForm = () => {
-  jQuery('#article-comments').removeClass('loading');
+  jQuery('.comments').removeClass('loading');
 
   const commentTextarea = document.querySelector('textarea#comment');
   if (commentTextarea) {
@@ -27,7 +27,7 @@ const setupForm = () => {
   commentForm.onsubmit = async (e) => {
     submitMessage.style.display = 'none';
 
-    jQuery('#article-comments').addClass('loading');
+    jQuery('.comments').addClass('loading');
 
     e.preventDefault();
 
@@ -43,7 +43,7 @@ const setupForm = () => {
       author_email: formValues.email,
     }, {
       error(model, response) {
-        jQuery('#article-comments').removeClass('loading');
+        jQuery('.comments').removeClass('loading');
         commentTextarea.setCustomValidity(parseHTMLEntities(response.responseJSON.message));
         commentTextarea.reportValidity();
       },
@@ -68,7 +68,7 @@ async function updateFormComments() {
   const response = await wp.apiRequest({ path: `/vikalpsangam/v1/comments/${postId}` });
 
   diff.outerHTML(
-    document.querySelector('#article-comments'),
+    document.querySelector('.comments'),
     new DOMParser().parseFromString(response, 'text/html').body.innerHTML,
   );
   setupForm();
