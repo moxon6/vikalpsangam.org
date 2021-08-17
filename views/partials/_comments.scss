@@ -7,9 +7,6 @@
     flex-direction: column;
     width: 100%;
 
-    padding-left: 20px;
-    padding-right: 20px;
-
     @include mixins.desktop {
         padding-right: 64px;
     }
@@ -86,6 +83,10 @@
         bottom: 0;
         height: 30px;
         margin: 0;
+
+        .submit {
+            @include mixins.button-primary;
+        }
     }
 
     #cancel-comment-reply-link {

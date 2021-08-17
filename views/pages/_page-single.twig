@@ -3,46 +3,44 @@
 {% set page_class = 'page-single' %}
 
 {% block content %}
-    <h2 class="post-title">
+    <h2 class="page-single__title">
         {{ post.title }}
     </h2>
-    <div id="author-date-category">
+    <header class="page-single__author-date-category">
         {% spaceless %}
             {% set author = post.meta('author') %}
 
             {% if author %}
-                <span class="author">By {{ author }}</span>
+                By {{ author }}
             {% else %}
-                <span>Posted</span>
+                Posted
             {% endif %}
 
-            <span class="text">on</span>
-            <span class="date">{{ post.date('M. d, Y') }}</span>
+            <span class="page-single__on">on</span>
+
+            {{ post.date('M. d, Y') }}
 
             {% if post.categories %}
-                <span class="text">in</span>
+                in
                 <a href="{{ post.categories[0].link }}">
                     {{ post.categories[0].name }}
                 </a>
             {% endif %}
         {% endspaceless %}
-    </div>
-    <article id="post-{{ post.id }}" class="{{ post.class }}">
+    </header>
+    <article id="post-{{ post.id }}"
+        class="{{ post.class }} page-single__article">
         {{ post.content }}
-
-        <div id="story-tags">
-            Story Tags:{% for tag in post.tags %}
-                <a href="{{ tag.link }}" rel="tag">{{ tag.name }}</a>
-                {% if not loop.last %}
-                    <span>,</span>
-                {% endif %}
+        <div class="page-single__tag-list">
+            <span>Story Tags:</span>
+            {% for tag in post.tags %}
+                <a class="page-single__tag" href="{{ tag.link }}" rel="tag">
+                    {{ tag.name|trim }}
+                </a>
+                {% if not loop.last %},{% endif %}
             {% endfor %}
         </div>
     </article>
 
-    <hr />
-
-    <div class="row">
-        {% include 'partials/_comments.twig' %}
-    </div>
+    {% include 'partials/_comments.twig' %}
 {% endblock %}
