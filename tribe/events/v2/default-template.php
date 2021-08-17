@@ -1,6 +1,6 @@
 <?php
 
-// This template overrides the deault-template layout in the "The events calendar" plugin
+// This template overrides the default-template layout in the "The events calendar" plugin
 
 use Tribe\Events\Views\V2\Template_Bootstrap;
 
