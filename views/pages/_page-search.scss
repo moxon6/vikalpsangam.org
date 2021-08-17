@@ -1,0 +1,32 @@
+@use "../common/mixins";
+
+$border-color: rgba(0, 0, 0, 0.125);
+
+.page-search {
+  &__title {
+    @include mixins.header-style();
+  }
+
+  &__result {
+    border-color: $border-color;
+    border-width: 0;
+    padding: 12px;
+
+    &:not(:last-child) {
+      border-width: 0px 0px 1px 0px;
+    }
+
+    border-style: solid;
+  }
+
+  &__result-title {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__result-list {
+    border: 1px solid $border-color;
+    margin-bottom: 24px;
+  }
+}

@@ -1,26 +1,22 @@
 {% extends 'layouts/_base-content.twig' %}
-{% block content %}
-  <h4>
-    <p>
-      Found
-      {{ found_posts }}
-      results for your query:
-      {{ search_query }}
-    </p>
-  </h4>
 
-  <div id="search-results" class="list-group">
+{% set page_class = 'page-search' %}
+
+{% block content %}
+  <h4 class="page-search__title">
+    Found {{ found_posts }} results for your query: {{ search_query }}
+  </h4>
+  <div class="page-search__result-list">
     {% for post in posts %}
-      <a class="list-group-item" href="{{ post.link }}">
-        <h4>
-          <span class="list-group-item-heading">{{ post.title }}</span>
-        </h4>
-        <p class="list-group-item-text">
-          {{ post.preview.read_more(false).length(20) }}
-        </p>
-        <span class="badge">Read More</span>
-        <br />
-      </a>
+      <div class="page-search__result">
+        <h5>
+          <a class="page-search__result-title" href="{{ post.link }}">
+            {{ post.title }}
+          </a>
+        </h5>
+
+        {{ post.preview.read_more(false).length(20) }}
+      </div>
     {% endfor %}
   </div>
 
