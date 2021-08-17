@@ -1,24 +1,24 @@
 {% extends 'layouts/_base-content.twig' %}
 
-{% block content %}
-  <section class="error-404 not-found">
-    <header class="page-header">
-      <h1 class="page-title">
-        Oops! That page can't be found.
-      </h1>
-    </header>
+{% set page_class = 'page-not-found' %}
 
-    <div class="page-content">
-      <p>
+{% block content %}
+  <section class="page-not-found__section">
+    <header class="page-header">
+      <h2 class="page-not-found__title">
+        Oops! That page can't be found.
+      </h2>
+
+      <p class="page-not-found__subtitle">
         It looks like nothing was found at this location. Maybe try one of the
         links below or a search?
       </p>
+    </header>
 
-      {% include 'partials/_search-form.twig' %}
+    {% include 'partials/_search-form.twig' %}
 
-      {{ recent_posts }}
+    {{ recent_posts }}
 
-      {{ categories }}
-    </div>
+    {{ categories }}
   </section>
 {% endblock %}

@@ -1,0 +1,22 @@
+@use "../common/mixins";
+@use "../common/colors";
+
+.page-not-found {
+  &__title {
+    @include mixins.header-style();
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+
+  &__section {
+    margin: 0 auto;
+  }
+
+  &__subtitle {
+    color: colors.$color-theme-primary;
+  }
+}
