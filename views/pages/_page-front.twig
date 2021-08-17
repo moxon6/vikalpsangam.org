@@ -26,11 +26,9 @@
     </div>
     <div class="page-front__highlights">
       {% for post in promoted_articles %}
-        <div class="col-xs-4 col-md-6 col-lg-3 page-front__post-tile-container">
-          {% include 'partials/_post-tile.twig' with {
-            post: post
-          } only %}
-        </div>
+        {% include 'partials/_post-tile.twig' with {
+          post: post
+        } only %}
       {% endfor %}
     </div>
   </section>
