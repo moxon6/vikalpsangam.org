@@ -1,22 +1,14 @@
 {% extends 'layouts/_base.twig' %}
 
 {% block page %}
-  <div id="page">
-    <div class="section generic_section">
-      <div class="container-fluid">
-        <div class="row">
-          <main class="col-xl-8 col-md-12 main-content">
-            {% block content %}
-              <span />
-            {% endblock %}
-          </main>
-          <aside class="col-xl-4 col-md-12 sidebar-container">
-            <div class="sidebar pl-2">
-              {{ get_sidebar() }}
-            </div>
-          </aside>
-        </div>
-      </div>
-    </div>
+  <div class="base-content">
+    <main class="col-xl-8 col-md-12 base-content__main">
+      {% block content %}
+        <span />
+      {% endblock %}
+    </main>
+    <aside class="col-xl-4 col-md-12 base-content__sidebar">
+      {{ get_sidebar() }}
+    </aside>
   </div>
 {% endblock %}
