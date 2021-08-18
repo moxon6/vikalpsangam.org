@@ -19,7 +19,7 @@
 
 .jp-relatedposts {
   padding-top: 32px;
-  border-top: 2px solid colors.$light-gray-col;
+  border-top: 2px solid colors.$light-gray;
 
   h3.jp-relatedposts-headline em {
     font-size: 20px;
@@ -174,7 +174,7 @@ img.aligncenter {
 
     .tag-weight-1 {
       font-size: 0.8em !important;
-      color: colors.$dark-gray-col;
+      color: colors.$dark-gray;
     }
 
     .tag-weight-2 {
@@ -184,7 +184,7 @@ img.aligncenter {
 
     .tag-weight-3 {
       font-size: 1.2em !important;
-      color: colors.$light-brick-color;
+      color: colors.$secondary;
     }
 
     .tag-weight-4 {

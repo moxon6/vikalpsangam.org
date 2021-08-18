@@ -124,12 +124,12 @@
 
   &__link {
     font-size: 0.8em;
-    color: colors.$lighter-gray-col;
+    color: colors.$lighter-gray;
     text-decoration: none;
     text-transform: uppercase;
 
     &:hover {
-      color: colors.$light-gray-col;
+      color: colors.$light-gray;
       text-decoration: underline;
     }
   }

@@ -27,7 +27,7 @@
 
     @include mixins.desktop {
       padding-left: 30px;
-      border-left: 2px solid colors.$light-gray-col;
+      border-left: 2px solid colors.$light-gray;
     }
 
     @include externals.sidebar-styles;
