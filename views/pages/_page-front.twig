@@ -12,7 +12,7 @@
       </h3>
     </div>
     <div class="page-front__latest-stories">
-      {% for post in latest_posts %}
+      {% for post in latest_stories %}
         {% include 'partials/_highlight-card.twig' %}
       {% endfor %}
     </div>
@@ -25,7 +25,7 @@
       </h3>
     </div>
     <div class="page-front__highlights">
-      {% for post in promoted_articles %}
+      {% for post in highlights %}
         {% include 'partials/_post-tile.twig' with {
           post: post
         } only %}
