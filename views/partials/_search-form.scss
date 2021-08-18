@@ -22,7 +22,7 @@
   }
 
   &__icon {
-    color: colors.$color-theme-primary;
+    color: colors.$primary;
   }
 
   &__input {
@@ -42,7 +42,7 @@
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
     &:focus {
-      border-color: colors.$light-brick-color;
+      border-color: colors.$primary;
       outline: 0;
       box-shadow: 0 0 0 0.25rem rgb(158 51 46 / 25%);
     }

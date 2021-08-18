@@ -2,9 +2,9 @@
 @use "views/index";
 @use "views/common/colors";
 
-$link-color: colors.$color-theme-primary;
+$link-color: colors.$primary;
 $link-decoration: none;
-$primary: colors.$color-theme-primary;
+$primary: colors.$primary;
 
 @import "node_modules/bootstrap/scss/functions";
 @import "node_modules/bootstrap/scss/variables";

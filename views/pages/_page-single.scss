@@ -11,17 +11,17 @@
   }
 
   &__category-link {
-    color: colors.$color-theme-primary;
+    color: colors.$primary;
     text-decoration: none;
 
     &:hover {
-      color: colors.$color-theme-primary;
+      color: colors.$primary;
       text-decoration: none;
     }
   }
 
   &__tag-list {
-    border-left: 2px solid colors.$color-theme-primary;
+    border-left: 2px solid colors.$primary;
     padding-left: 4px;
   }
 
@@ -76,7 +76,7 @@
     }
 
     h4 {
-      color: colors.$color-theme-primary;
+      color: colors.$primary;
     }
   }
 }

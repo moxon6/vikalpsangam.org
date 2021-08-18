@@ -5,9 +5,9 @@
 }
 
 .tribe-common-c-btn {
-  background-color: colors.$color-theme-primary !important;
+  background-color: colors.$primary !important;
   &:hover {
-    background-color: darken(colors.$color-theme-primary, 10%) !important;
+    background-color: darken(colors.$primary, 10%) !important;
   }
 }
 .tribe-events-calendar-list__event-featured-image-wrapper {
@@ -27,14 +27,14 @@
 }
 
 .tribe-common .tribe-common-c-svgicon {
-  color: colors.$color-theme-primary;
+  color: colors.$primary;
 }
 
 .tribe-events .tribe-events-c-ical__link {
-  color: colors.$color-theme-primary;
-  border: colors.$color-theme-primary;
+  color: colors.$primary;
+  border: colors.$primary;
   &:hover {
     color: #fff;
-    background-color: colors.$color-theme-primary;
+    background-color: colors.$primary;
   }
 }

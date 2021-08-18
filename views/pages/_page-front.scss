@@ -3,7 +3,7 @@
 
 .highlights-title {
   text-transform: uppercase;
-  color: colors.$color-theme-primary;
+  color: colors.$primary;
 }
 
 .page-front {
@@ -36,12 +36,12 @@
   }
 
   &__header-container {
-    border-bottom: 2px solid colors.$color-theme-primary;
+    border-bottom: 2px solid colors.$primary;
     margin-bottom: 24px;
   }
 
   &__header {
-    background-color: colors.$color-theme-primary;
+    background-color: colors.$primary;
     color: white;
     margin-bottom: -1px;
     width: fit-content;
