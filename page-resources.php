@@ -8,9 +8,6 @@
         );
         exit();
     }
-?>
-
-<?php
 
 $context = Timber::context();
 $timber_post = new Timber\Post();

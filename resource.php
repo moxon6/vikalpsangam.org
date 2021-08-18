@@ -15,9 +15,7 @@
     ];
 
     $category = get_category_by_slug($resource_map[$resource_category]);
-?>
 
-<?php
     $context = Timber::context();
     $context["post"] = new Timber\Post();
     $context["category"] = new Timber\Term($category);
