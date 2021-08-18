@@ -3,11 +3,11 @@ global $wp_query;
 
 $context = Timber::context();
 
-$context["recent_posts"] = buffer(function() {
-    return the_widget( 'WP_Widget_Recent_Posts' );
+$context["recent_posts"] = buffer(function () {
+  return the_widget("WP_Widget_Recent_Posts");
 });
-$context["categories"] = buffer(function() {
-    return the_widget( 'WP_Widget_Categories', 'title=CATEGORIES&count=1' );
+$context["categories"] = buffer(function () {
+  return the_widget("WP_Widget_Categories", "title=CATEGORIES&count=1");
 });
 
-Timber::render( array( 'pages/_page-not-found.twig' ), $context );
+Timber::render(["pages/_page-not-found.twig"], $context);

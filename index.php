@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * index.php is required
  * If template engine falls back to index.php, something is wrong
