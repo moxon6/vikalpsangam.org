@@ -11,11 +11,12 @@
   ],
   "homepage": "http://vikalpsangam.org/",
   "devDependencies": {
+    "@prettier/plugin-php": "^0.17.3",
     "browser-sync": "^2.26.13",
     "dir-archiver": "^1.1.1",
     "eslint": "^7.29.0",
     "husky": "^4.3.0",
-    "prettier": "^2.1.2",
+    "prettier": "^2.3.2",
     "prettier-plugin-twig-melody": "^0.4.6",
     "rtlcss": "^2.5.0"
   },
