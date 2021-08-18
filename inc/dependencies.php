@@ -1,12 +1,7 @@
 <?php
 
-
 function vikalpsangam_scripts() {
-	$build_time = filemtime( get_template_directory().'/style.css');
-
-	wp_enqueue_script('jquery');
-
-	wp_enqueue_style( 'vikalpsangam-style', get_stylesheet_uri(), array(), $build_time);
+	wp_enqueue_style( 'vikalpsangam-style', get_stylesheet_uri(), [], vikalpsangam_VERSION);
 	wp_style_add_data( 'vikalpsangam-style-rtl', 'rtl', 'replace');
 	
 	wp_enqueue_style("fontawesome-5.15.2", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css");
