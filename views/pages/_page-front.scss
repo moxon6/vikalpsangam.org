@@ -1,38 +1,10 @@
 @use "../common/colors";
 @use "../common/mixins";
 
-.highlights-title {
-  text-transform: uppercase;
-  color: colors.$primary;
-}
-
 .page-front {
   &__section {
-    margin-top: 24px;
     margin: 24px auto;
     @include mixins.responsive-container;
-  }
-
-  &__latest-stories {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 12px;
-
-    @include mixins.desktop {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  &__highlights {
-    display: grid;
-    justify-content: center;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-
-    @include mixins.desktop {
-      grid-template-rows: repeat(auto-fit, 1fr);
-      grid-template-columns: repeat(auto-fit, minmax(216px, 1fr));
-    }
   }
 
   &__header-container {
@@ -44,10 +16,17 @@
     background-color: colors.$primary;
     color: white;
     margin-bottom: -1px;
+    padding: 0 12px 2px 12px;
     width: fit-content;
-    padding-left: 12px;
-    padding-right: 12px;
-    font-weight: 500;
-    padding-bottom: 2px;
+  }
+
+  &__post-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+
+    @include mixins.desktop {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 }
