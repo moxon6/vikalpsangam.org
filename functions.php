@@ -10,6 +10,8 @@
 include "version.php";
 require_once __DIR__ . "/vendor/autoload.php";
 
+require_once __DIR__ . "/blocks/categories.php";
+
 $timber = new Timber\Timber();
 
 function buffer($fn)
